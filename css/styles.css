@@ -129,3 +129,15 @@ body, aside, header, nav, div.transition-theme, button.transition-theme {
   text-transform: uppercase;
 }
 
+/* Tool Categories & Filter Chips Dark Mode Protection */
+.dark #category-list a:hover {
+  background-color: #27272a !important; /* zinc-800 */
+  color: #f4f4f5 !important;            /* zinc-100 */
+}
+
+.dark #category-list a:hover span,
+.dark #category-list a:hover i {
+  color: #f4f4f5 !important;
+}
+
+

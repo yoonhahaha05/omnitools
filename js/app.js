@@ -160,12 +160,12 @@ const App = {
                        (cat.name.toLowerCase() === this.currentCategory.toLowerCase());
 
       const activeClasses = isActive
-        ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 font-semibold'
-        : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-850 hover:text-zinc-900 dark:hover:text-zinc-200';
+        ? 'bg-zinc-900 text-white dark:bg-zinc-800 dark:text-zinc-50 dark:border dark:border-zinc-700/60 font-semibold shadow-xs'
+        : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100';
 
       const badgeClasses = isActive
-        ? 'bg-zinc-800 text-zinc-300 dark:bg-zinc-200 dark:text-zinc-800'
-        : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400';
+        ? 'bg-zinc-800 text-zinc-300 dark:bg-zinc-700 dark:text-zinc-200'
+        : 'bg-zinc-100 dark:bg-zinc-800/80 text-zinc-500 dark:text-zinc-400';
 
       return `
         <a href="#/category/${encodeURIComponent(cat.id === 'all' ? 'all' : cat.name)}" 
@@ -278,10 +278,10 @@ const App = {
           <!-- Density switcher for the section -->
           <div class="flex items-center gap-1 text-xs">
             <span class="text-[11px] text-zinc-400 mr-1 hidden sm:inline">View:</span>
-            <button class="view-btn px-2 py-1 rounded border text-xs font-medium transition ${this.viewMode === 'grid' ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 border-zinc-900 dark:border-zinc-100' : 'border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400'}" data-mode="grid" title="Card Grid View">
+            <button class="view-btn px-2 py-1 rounded border text-xs font-medium transition ${this.viewMode === 'grid' ? 'bg-zinc-900 text-white dark:bg-zinc-800 dark:text-zinc-100 border-zinc-900 dark:border-zinc-700' : 'border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100'}" data-mode="grid" title="Card Grid View">
               <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
             </button>
-            <button class="view-btn px-2 py-1 rounded border text-xs font-medium transition ${this.viewMode === 'compact' ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 border-zinc-900 dark:border-zinc-100' : 'border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400'}" data-mode="compact" title="Compact List View">
+            <button class="view-btn px-2 py-1 rounded border text-xs font-medium transition ${this.viewMode === 'compact' ? 'bg-zinc-900 text-white dark:bg-zinc-800 dark:text-zinc-100 border-zinc-900 dark:border-zinc-700' : 'border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100'}" data-mode="compact" title="Compact List View">
               <i data-lucide="list" class="w-3.5 h-3.5"></i>
             </button>
           </div>
@@ -289,11 +289,11 @@ const App = {
 
         <!-- Category Filter Chips Bar for Quick Filtering -->
         <div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar text-xs">
-          <a href="#/category/all" class="px-2.5 py-1 rounded-md border text-xs font-medium whitespace-nowrap transition ${this.currentCategory === 'all' ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 border-zinc-900 dark:border-zinc-100' : 'border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'}">All (100)</a>
+          <a href="#/category/all" class="px-2.5 py-1 rounded-md border text-xs font-medium whitespace-nowrap transition ${this.currentCategory === 'all' ? 'bg-zinc-900 text-white dark:bg-zinc-800 dark:text-zinc-100 border-zinc-900 dark:border-zinc-700 font-semibold' : 'border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100'}">All (100)</a>
           ${ToolRegistry.categories.filter(c => c.id !== 'all').map(c => {
             const isCatActive = this.currentCategory.toLowerCase() === c.name.toLowerCase();
             return `
-              <a href="#/category/${encodeURIComponent(c.name)}" class="px-2.5 py-1 rounded-md border text-xs font-medium whitespace-nowrap transition ${isCatActive ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 border-zinc-900 dark:border-zinc-100' : 'border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'}">
+              <a href="#/category/${encodeURIComponent(c.name)}" class="px-2.5 py-1 rounded-md border text-xs font-medium whitespace-nowrap transition ${isCatActive ? 'bg-zinc-900 text-white dark:bg-zinc-800 dark:text-zinc-100 border-zinc-900 dark:border-zinc-700 font-semibold' : 'border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100'}">
                 ${c.name}
               </a>
             `;
@@ -375,7 +375,7 @@ const App = {
     if (this.viewMode === 'compact') {
       // Compact List Row View
       return `
-        <a href="tools/${tool.id}.html" class="tool-row flex items-center justify-between p-3 rounded-lg border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:bg-zinc-50 dark:hover:bg-zinc-850 hover:border-zinc-300 dark:hover:border-zinc-700 transition group">
+        <a href="tools/${tool.id}.html" class="tool-row flex items-center justify-between p-3 rounded-lg border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:bg-zinc-50 dark:hover:bg-zinc-800/60 hover:border-zinc-300 dark:hover:border-zinc-700 transition group">
           <div class="flex items-center gap-3 min-w-0 pr-4">
             <div class="w-7 h-7 rounded-md bg-zinc-100 dark:bg-zinc-800/80 flex items-center justify-center shrink-0 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white transition">
               <i data-lucide="${iconName}" class="w-3.5 h-3.5"></i>
