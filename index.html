@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OmniTools - Precision Client-Side Web Utilities</title>
+  <meta name="description" content="100 high-speed, 100% client-side developer, text, math, and media utilities. No tracking, zero latency, offline-capable.">
+  <meta name="keywords" content="web utilities, developer tools, word counter, json beautifier, base64 converter, password generator, diff checker, aspect ratio calculator, unix timestamp">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OmniTools - Precision Client-Side Web Utilities">
+  <meta property="og:description" content="100 high-speed web utilities running 100% locally in your browser. Zero tracking, zero latency.">
+  <meta property="og:url" content="https://getomnitools.com/">
+  <link rel="canonical" href="https://getomnitools.com/">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google AdSense Configuration & Script -->
+  <!-- Replace 'ca-pub-XXXXXXXXXXXXXXXX' with your Google AdSense Publisher ID -->
+  <script>
+    window.ADSENSE_CONFIG = {
+      client: 'ca-pub-XXXXXXXXXXXXXXXX',
+      slotHome: '1234567890',
+      slotTool: '2345678901',
+      slotSidebar: '3456789012'
+    };
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+
+  <!-- Primary Top Navbar -->
+  <header class="sticky top-0 z-30 bg-white/90 dark:bg-[#0e1117]/90 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-15 py-2.5 flex items-center justify-between gap-4">
+      
+      <!-- Brand & Mobile Menu Button -->
+      <div class="flex items-center gap-3 shrink-0">
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 focus:outline-none" aria-label="Toggle navigation menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+
+        <a href="#/" class="flex items-center gap-2.5 group">
+          <div class="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center font-mono font-bold text-xs tracking-tight group-hover:scale-105 transition-transform shadow-xs">
+            /o
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span class="font-extrabold text-lg tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
+            <span class="hidden sm:inline-block text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-100/60 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400">100 TOOLS</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Command Quick Search Bar with ⌘K / Ctrl+K -->
+      <div class="hidden sm:block flex-1 max-w-lg mx-2">
+        <div class="relative">
+          <input id="nav-search" type="text" placeholder="Search utilities, conversions, encoders... (⌘K)" class="w-full pl-9 pr-14 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/70 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 focus:bg-white dark:focus:bg-zinc-900 transition">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
+          <kbd class="absolute right-2 top-1.5 text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-300/70 dark:border-zinc-750 bg-white dark:bg-zinc-800/80 text-zinc-400 dark:text-zinc-400 shadow-2xs">Ctrl K</kbd>
+        </div>
+      </div>
+
+      <!-- Action Controls: View Switcher, Theme, GitHub, Support -->
+      <div class="flex items-center gap-1.5 shrink-0">
+        <!-- Density View Mode Toggle -->
+        <button id="view-mode-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-600 dark:text-zinc-300 transition" title="Toggle Grid / Compact List View" aria-label="Toggle layout density">
+          <i id="view-mode-icon" data-lucide="layout-grid" class="w-4 h-4"></i>
+        </button>
+
+        <!-- Dark/Light Theme Toggle -->
+        <button id="theme-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-600 dark:text-zinc-300 transition" title="Toggle Theme" aria-label="Toggle dark/light mode">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition" title="Support developer">
+          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>Support</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Application Layout Container -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 flex gap-8 w-full">
+    
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-zinc-950/50 backdrop-blur-xs z-40 hidden md:hidden"></div>
+
+    <!-- Responsive Left Sidebar Navigation -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-[#0e1117] border-r border-zinc-200 dark:border-zinc-800 p-5 transform -translate-x-full md:translate-x-0 md:static md:w-56 lg:w-60 md:block transition-transform duration-200 ease-in-out md:border-r-0 md:bg-transparent md:dark:bg-transparent md:p-0 shrink-0">
+      <div class="sticky top-20 space-y-6">
+        <div>
+          <div class="flex items-center justify-between px-2 mb-2">
+            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">Tool Categories</span>
+          </div>
+          <nav id="category-list" class="space-y-1">
+            <!-- Populated dynamically by App.renderCategoriesNav() -->
+          </nav>
+        </div>
+
+        <div class="pt-4 border-t border-zinc-200 dark:border-zinc-800/80">
+          <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 px-2 block mb-2">OmniTools Project</span>
+          <div class="space-y-0.5 text-xs font-medium text-zinc-600 dark:text-zinc-400">
+            <a href="pages/about.html" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>About Architecture</span>
+            </a>
+            <a href="pages/privacy.html" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>Privacy Guarantee</span>
+            </a>
+            <a href="mailto:support@getomnitools.com" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="message-square-plus" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>Request a Utility</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Privacy & Sandbox Architecture Badge -->
+        <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800/90 bg-zinc-100/50 dark:bg-zinc-900/40 text-xs leading-relaxed space-y-1.5">
+          <div class="flex items-center gap-2 font-bold text-zinc-900 dark:text-zinc-200 text-[11px]">
+            <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>
+            <span>Local Browser Sandbox</span>
+          </div>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">
+            100% of calculations execute in browser memory. No text or data ever reaches a remote server.
+          </p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Dynamic Main Content Arena -->
+    <main id="main-content" class="flex-1 min-w-0">
+      <!-- Router dynamically renders either Home or Tool view here -->
+    </main>
+  </div>
+
+  <!-- Global Technical Footer -->
+  <footer class="mt-auto border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#0e1117] text-zinc-500 dark:text-zinc-400 text-xs py-7 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 font-mono text-[11px]">
+        <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span>100 Client-Side Micro-Utilities</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span class="text-emerald-600 dark:text-emerald-400 font-medium">100% Offline Ready</span>
+      </div>
+      <div class="flex items-center gap-5 text-xs">
+        <a href="pages/about.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
+        <a href="pages/privacy.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1">
+          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>Support</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Helpers, Tool Modules, Registry, and Core App -->
+  <script src="js/utils.js"></script>
+  <script src="js/tools/text.js"></script>
+  <script src="js/tools/dev.js"></script>
+  <script src="js/tools/math.js"></script>
+  <script src="js/tools/media.js"></script>
+  <script src="js/tools/quick.js"></script>
+  <script src="js/registry.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      App.init();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# OmniTools Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://getomnitools.com/sitemap.xml

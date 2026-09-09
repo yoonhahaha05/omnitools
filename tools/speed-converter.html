@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speed Converter (mph, km/h, m/s) - Free Online Tool (100% Client-Side) | OmniTools</title>
+  <meta name="description" content="Convert velocity across km/h, mph, m/s, knots, ft/s, and Mach speed with context benchmarks.">
+  <meta name="keywords" content="speed converter, mph to kmh, km/h to mph, knots to mph, velocity converter">
+  <link rel="canonical" href="https://getomnitools.com/tools/speed-converter.html">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Speed Converter (mph, km/h, m/s) - Free Online Tool (100% Client-Side) | OmniTools">
+  <meta property="og:description" content="Convert velocity across km/h, mph, m/s, knots, ft/s, and Mach speed with context benchmarks.">
+  <meta property="og:url" content="https://getomnitools.com/tools/speed-converter.html">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google AdSense Configuration & Script -->
+  <script>
+    window.ADSENSE_CONFIG = {
+      client: 'ca-pub-XXXXXXXXXXXXXXXX',
+      slotHome: '1234567890',
+      slotTool: '2345678901',
+      slotSidebar: '3456789012'
+    };
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <!-- JSON-LD Structured Data for Search Engines -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Speed Converter (mph, km/h, m/s)",
+  "url": "https://getomnitools.com/tools/speed-converter.html",
+  "description": "Convert velocity across km/h, mph, m/s, knots, ft/s, and Mach speed with context benchmarks.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://getomnitools.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Everyday Math & Converters",
+      "item": "https://getomnitools.com/index.html#/category/Everyday Math &amp; Converters"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Speed Converter (mph, km/h, m/s)",
+      "item": "https://getomnitools.com/tools/speed-converter.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is 1 knot in mph?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 knot equals 1 nautical mile per hour, or approximately 1.15078 statute mph."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Speed Converter (mph, km/h, m/s)",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "text": "Enter speed and select starting unit."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "text": "View live table of speed equivalents."
+    }
+  ]
+}
+  </script>
+</head>
+<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+
+  <!-- Primary Top Navbar -->
+  <header class="sticky top-0 z-30 bg-white/90 dark:bg-[#0e1117]/90 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-15 py-2.5 flex items-center justify-between gap-4">
+      
+      <!-- Brand -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="../index.html" class="flex items-center gap-2.5 group">
+          <div class="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center font-mono font-bold text-xs tracking-tight group-hover:scale-105 transition-transform shadow-xs">
+            /o
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span class="font-extrabold text-lg tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
+            <span class="hidden sm:inline-block text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-100/60 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400">100 TOOLS</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Quick Search / Catalog Link -->
+      <div class="flex-1 max-w-md mx-4 hidden sm:block">
+        <a href="../index.html" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
+          <span>Search all 100 utilities...</span>
+          <kbd class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-300/70 dark:border-zinc-750 bg-white dark:bg-zinc-800/80 text-zinc-400 shadow-2xs">⌘K</kbd>
+        </a>
+      </div>
+
+      <!-- Action Controls -->
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="../index.html" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">All Tools</span>
+        </a>
+
+        <button id="theme-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-600 dark:text-zinc-300 transition" title="Toggle Theme">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
+          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>Support</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full space-y-6">
+    
+    <!-- Breadcrumbs & Tool Action Buttons -->
+    <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">
+        <a href="../index.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Catalog</a>
+        <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
+        <a href="../index.html#/category/Everyday Math &amp; Converters" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Everyday Math &amp; Converters</a>
+        <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
+        <span class="text-zinc-900 dark:text-zinc-200 font-semibold">Speed Converter (mph, km/h, m/s)</span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="tool-fav-btn" data-tool-id="speed-converter" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
+          <i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span id="fav-label">Favorite</span>
+        </button>
+        <button id="tool-share-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
+          <i data-lucide="link" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span>Share</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tool Header Banner -->
+    <div class="p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200 shrink-0">
+          <i data-lucide="sparkles" class="w-5 h-5 tool-main-icon"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="flex flex-wrap items-center gap-2">
+            <h1 class="text-lg sm:text-xl font-extrabold text-zinc-950 dark:text-zinc-50 tracking-tight">
+              Speed Converter (mph, km/h, m/s)
+            </h1>
+            <span class="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">Client-Side</span>
+          </div>
+          <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
+            Convert velocity across km/h, mph, m/s, knots, ft/s, and Mach speed with context benchmarks.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Tool Arena Container -->
+    <div id="tool-arena" class="p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
+      <div class="text-xs text-zinc-400 font-mono py-8 text-center">Loading interactive utility workspace...</div>
+    </div>
+
+    <!-- Architectural Privacy & Sandbox Guarantee -->
+    <div class="p-3.5 rounded-lg border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50 dark:bg-zinc-900/30 flex items-center justify-between text-[11px] text-zinc-500 dark:text-zinc-400 font-mono">
+      <span class="flex items-center gap-2">
+        <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-500"></i>
+        <span>Local Browser Memory • Zero Network Telemetry</span>
+      </span>
+      <a href="../pages/privacy.html" class="underline hover:text-zinc-900 dark:hover:text-zinc-200">Inspect Guarantee</a>
+    </div>
+
+    <!-- Google AdSense Responsive Placement -->
+    <div class="ad-slot-wrapper w-full p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 my-6">
+      <div class="ad-label text-zinc-400 dark:text-zinc-500 mb-2">Advertisement</div>
+      <div class="w-full flex justify-center items-center overflow-hidden min-h-[90px]">
+        <ins class="adsbygoogle"
+             style="display:block;width:100%;"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="2345678901"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+
+    <!-- Pre-rendered Semantic SEO Article, Instructions & Technical Notes -->
+    <div class="p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-5 text-xs sm:text-sm">
+      <div>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-1.5">Overview & Purpose</h2>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm">
+          Convert velocity across metric, imperial, and maritime nautical speed units.
+        </p>
+      </div>
+
+          <div>
+            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Technical Capabilities</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+            <li>Instant conversion for driving, running, and aviation</li>
+            <li>Covers knots, mph, km/h, and m/s</li>
+            <li>High precision output</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Usage Steps</h3>
+            <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+            <li>Enter speed and select starting unit.</li>
+            <li>View live table of speed equivalents.</li>
+            </ol>
+          </div>
+
+          <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-3">Frequently Asked Questions</h3>
+            <div class="space-y-2.5">
+
+              <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+                <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is 1 knot in mph?</h4>
+                <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">1 knot equals 1 nautical mile per hour, or approximately 1.15078 statute mph.</p>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <!-- Related Utilities (Internal Linking Engine for Google SEO) -->
+    <div class="space-y-3 pt-2">
+      <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Related Everyday Math &amp; Converters Utilities</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+
+        <a href="percentage-calculator.html" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">Everyday Math &amp; Converters</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
+          </div>
+          <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">Percentage Calculator</div>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">Multi-mode percentage calculator: calculate percentage of a number, ratio percentages, and percentage increase or decrease.</p>
+        </a>
+
+        <a href="discount-tax-calculator.html" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">Everyday Math &amp; Converters</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
+          </div>
+          <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">Discount &amp; Sales Tax Calculator</div>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">Calculate final sale price, discount savings, and sales tax with full itemized financial breakdown.</p>
+        </a>
+
+        <a href="tip-splitter-calculator.html" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">Everyday Math &amp; Converters</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
+          </div>
+          <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">Tip &amp; Bill Splitter</div>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">Calculate restaurant gratuity tips, split checks fairly among friends, and round up totals.</p>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Global Technical Footer -->
+  <footer class="mt-auto border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#0e1117] text-zinc-500 dark:text-zinc-400 text-xs py-7 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 font-mono text-[11px]">
+        <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span>100 Client-Side Micro-Utilities</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span class="text-emerald-600 dark:text-emerald-400 font-medium">100% Offline Ready</span>
+      </div>
+      <div class="flex items-center gap-5 text-xs">
+        <a href="../pages/about.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
+        <a href="../pages/privacy.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1">
+          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>Support</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/utils.js"></script>
+  <script src="../js/tools/text.js"></script>
+  <script src="../js/tools/dev.js"></script>
+  <script src="../js/tools/math.js"></script>
+  <script src="../js/tools/media.js"></script>
+  <script src="../js/tools/quick.js"></script>
+  <script src="../js/registry.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Setup theme
+      App.setupTheme();
+      
+      // Mount interactive tool
+      const tool = ToolRegistry.getToolById('speed-converter');
+      const arena = document.getElementById('tool-arena');
+      if (tool && arena && typeof tool.render === 'function') {
+        try {
+          tool.render(arena);
+        } catch (err) {
+          console.error('Error rendering tool:', err);
+          arena.innerHTML = `<div class="p-4 bg-rose-50 text-rose-700 rounded-lg text-xs">Error rendering tool: ${err.message}</div>`;
+        }
+      }
+      
+      // Update main icon
+      if (tool) {
+        const iconName = Utils.getIconName(tool.icon, tool.category);
+        const iconEl = document.querySelector('.tool-main-icon');
+        if (iconEl) {
+          iconEl.setAttribute('data-lucide', iconName);
+        }
+      }
+      
+      // Favorite button
+      const favBtn = document.getElementById('tool-fav-btn');
+      if (favBtn) {
+        const isFav = Utils.storage.isFavorite('speed-converter');
+        const starIcon = isFav ? '<i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i>' : '<i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>';
+        favBtn.innerHTML = `${starIcon}<span>${isFav ? 'Favorited' : 'Favorite'}</span>`;
+        favBtn.addEventListener('click', () => {
+          const added = Utils.storage.toggleFavorite('speed-converter');
+          const updatedStar = added ? '<i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i>' : '<i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>';
+          favBtn.innerHTML = `${updatedStar}<span>${added ? 'Favorited' : 'Favorite'}</span>`;
+          Utils.refreshIcons();
+        });
+      }
+      
+      // Share button
+      const shareBtn = document.getElementById('tool-share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          Utils.copyToClipboard(window.location.href, 'Link copied to clipboard');
+        });
+      }
+      
+      Utils.refreshIcons();
+      Utils.initAdUnits();
+    });
+  </script>
+</body>
+</html>
