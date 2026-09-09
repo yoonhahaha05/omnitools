@@ -286,14 +286,14 @@ const Utils = {
    */
   renderAdUnit(slotKey = 'slotHome', customClass = 'my-6') {
     const config = window.ADSENSE_CONFIG || {
-      client: 'ca-pub-XXXXXXXXXXXXXXXX',
+      client: 'ca-pub-3261737439776294',
       slotHome: '1234567890',
       slotTool: '2345678901',
       slotSidebar: '3456789012'
     };
 
     const slotId = config[slotKey] || config.slotHome || '1234567890';
-    const clientId = config.client || 'ca-pub-XXXXXXXXXXXXXXXX';
+    const clientId = config.client || 'ca-pub-3261737439776294';
 
     return `
       <div class="ad-slot-wrapper w-full p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 ${customClass}">
