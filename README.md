@@ -1,6 +1,13 @@
 # OmniTools Hub - All-in-One Web Utilities (100 Micro-Tools)
 
-A free, 100% client-side web utility hub ("Swiss Army knife") built to rank for long-tail search keywords and generate multi-channel revenue (banner ads, "Buy Me a Coffee", freelance consulting leads) with **$0 monthly hosting costs**.
+[![Live Website](https://img.shields.io/badge/Website-getomnitools.com-22c55e?style=for-the-badge&logo=google-chrome&logoColor=white)](https://getomnitools.com)
+[![Cloudflare](https://img.shields.io/badge/Hosted_on-Cloudflare_Pages-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://getomnitools.com)
+[![Privacy First](https://img.shields.io/badge/Privacy-100%25_Client--Side-3b82f6?style=for-the-badge)](https://getomnitools.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-a855f7?style=for-the-badge)](LICENSE)
+
+> 🚀 **Live Production Site:** **[https://getomnitools.com](https://getomnitools.com)**
+
+A free, 100% client-side web utility hub ("Swiss Army knife") built to rank for high-intent search keywords and generate multi-channel revenue with **$0 monthly hosting costs**.
 
 ---
 
