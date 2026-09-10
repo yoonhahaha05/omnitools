@@ -1,5 +1,5 @@
 // OmniTools Service Worker - Offline Shell Caching
-const CACHE_NAME = 'omnitools-cache-v1';
+const CACHE_NAME = 'omnitools-cache-v2';
 
 const STATIC_ASSETS = [
   '/',

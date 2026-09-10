@@ -1,31 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a" />
-      <stop offset="100%" stop-color="#020617" />
-    </linearGradient>
-    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38bdf8" />
-      <stop offset="50%" stop-color="#3b82f6" />
-      <stop offset="100%" stop-color="#10b981" />
-    </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="16" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-  </defs>
-
-  <!-- Base Rounded Squircle -->
-  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+  <rect width="512" height="512" rx="112" fill="#090a0f" />
+  <rect x="24" y="24" width="464" height="464" rx="96" fill="none" stroke="#27272a" stroke-width="8" />
   
-  <!-- Subtle Outer Neon Border -->
-  <rect x="8" y="8" width="496" height="496" rx="120" fill="none" stroke="url(#glowGrad)" stroke-width="8" opacity="0.65" />
-
-  <!-- Code Slash & O Motif -->
-  <!-- Slash "/" -->
-  <line x1="170" y1="360" x2="245" y2="152" stroke="#38bdf8" stroke-width="48" stroke-linecap="round" />
+  <!-- Minimalist Tool Icon: Wrench & Screwdriver cross -->
+  <path d="M190 140 A 64 64 0 0 1 290 200 L 250 240 L 210 200 Z" fill="#3b82f6" />
+  <path d="M148 364 L 260 252 L 292 284 L 180 396 A 24 24 0 0 1 148 364 Z" fill="#3b82f6" />
   
-  <!-- "o" Ring -->
-  <circle cx="330" cy="256" r="82" fill="none" stroke="url(#glowGrad)" stroke-width="48" filter="url(#glow)" />
-  <circle cx="330" cy="256" r="82" fill="none" stroke="#ffffff" stroke-width="12" opacity="0.3" />
+  <path d="M344 148 L 364 168 L 272 260 L 252 240 Z" fill="#e4e4e7" />
+  <path d="M240 272 L 260 292 L 168 384 A 20 20 0 0 1 140 356 Z" fill="#e4e4e7" />
+  <circle cx="360" cy="156" r="28" fill="#e4e4e7" />
 </svg>

@@ -31,12 +31,11 @@
   <meta name="twitter:title" content="Free CSS Generators, Color &amp; Media Tools (Client-Side) | OmniTools">
   <meta name="twitter:description" content="15 CSS and design utilities. Generate box shadows, CSS gradients, glassmorphism, QR codes, palettes, and check WCAG contrast. Crop and resize images 100% client-side.">
   <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
->>>>>>> 79446c4 (feat(growth): add PWA offline support, category hubs, OG social cards, and IndexNow indexing)
 
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Lucide Icons CDN (Deferred for Performance) -->
   <script src="https://unpkg.com/lucide@latest" defer></script>
@@ -61,7 +60,7 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
           },
           colors: {
@@ -237,27 +236,24 @@
 <body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
 
   <!-- Primary Top Navbar -->
-  <header class="sticky top-0 z-30 bg-white/90 dark:bg-[#0e1117]/90 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-15 py-2.5 flex items-center justify-between gap-4">
+  <header class="sticky top-0 z-30 bg-white/95 dark:bg-[#0e1117]/95 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
       
       <!-- Brand -->
       <div class="flex items-center gap-3 shrink-0">
-        <a href="../index.html" class="flex items-center gap-2.5 group">
-          <div class="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center font-mono font-bold text-xs tracking-tight group-hover:scale-105 transition-transform shadow-xs">
-            /o
+        <a href="../index.html" class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
           </div>
-          <div class="flex items-baseline gap-2">
-            <span class="font-extrabold text-lg tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
-            <span class="hidden sm:inline-block text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-100/60 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400">100 TOOLS</span>
-          </div>
+          <span class="font-bold text-base tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
         </a>
       </div>
 
       <!-- Quick Search / Catalog Link -->
       <div class="flex-1 max-w-md mx-4 hidden sm:block">
-        <a href="../index.html" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
+        <a href="../index.html" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-850 bg-zinc-100/70 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
           <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
-          <span>Search all 100 utilities...</span>
+          <span>Search tools...</span>
           <kbd class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-300/70 dark:border-zinc-750 bg-white dark:bg-zinc-800/80 text-zinc-400 shadow-2xs">⌘K</kbd>
         </a>
       </div>
@@ -266,7 +262,7 @@
       <div class="flex items-center gap-2 shrink-0">
         <a href="../index.html" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
           <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
-          <span>All 100 Tools</span>
+          <span>All Tools</span>
         </a>
 
         <button id="theme-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-600 dark:text-zinc-300 transition" title="Toggle Theme">
@@ -292,22 +288,11 @@
     </div>
 
     <!-- Category Header Hero -->
-    <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-3">
-      <div class="flex flex-wrap items-center gap-2">
-        <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
-          15 Utilities
-        </span>
-        <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-          100% Client-Side Private
-        </span>
-        <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
-          Offline Ready
-        </span>
-      </div>
-      <h1 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+    <div class="p-6 sm:p-8 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 space-y-2">
+      <h1 class="text-2xl sm:text-3xl font-bold text-zinc-950 dark:text-white tracking-tight">
         Media, CSS Generators &amp; Design Utilities
       </h1>
-      <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 max-w-3xl leading-relaxed">
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 max-w-3xl leading-relaxed">
         High-performance CSS generators, color tools, and in-browser image processing utilities. Generate box shadows, gradients, and glassmorphism styling, check WCAG 2.1 color contrast, and resize or crop images directly via HTML5 Canvas.
       </p>
     </div>
@@ -340,263 +325,158 @@
     <!-- Category Tools Grid -->
     <div class="space-y-3">
       <div class="flex items-center justify-between">
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Available Media, CSS &amp; Design Micro-Tools</h2>
-        <span class="text-[11px] font-mono text-zinc-400">15 utilities active</span>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Available Media, CSS &amp; Design Tools</h2>
+        <span class="text-[11px] font-mono text-zinc-400">15 utilities</span>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
 
-        <a href="../tools/color-converter.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/color-converter.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="palette" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="palette" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Color Picker &amp; Converter (HEX, RGB, HSL)</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Convert color formats between HEX, RGB, HSL, and CSS notation with interactive swatch and random generator.</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">Color Picker &amp; Converter (HEX, RGB, HSL)</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">Convert color formats between HEX, RGB, HSL, and CSS notation with interactive swatch and random generator.</p>
           </div>
         </a>
 
-        <a href="../tools/palette-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/palette-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="palette" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="palette" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Random Palette Generator</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Generate 5-color harmonic palettes with individual color locks, harmony modes, and CSS variable export.</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">Random Palette Generator</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">Generate 5-color harmonic palettes with individual color locks, harmony modes, and CSS variable export.</p>
           </div>
         </a>
 
-        <a href="../tools/contrast-checker.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/contrast-checker.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="eye" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="eye" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">WCAG Color Contrast Checker</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Check accessibility contrast ratio between foreground and background colors according to WCAG 2.1 AA and AAA standards.</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">WCAG Color Contrast Checker</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">Check accessibility contrast ratio between foreground and background colors according to WCAG 2.1 AA and AAA standards.</p>
           </div>
         </a>
 
-        <a href="../tools/qr-code-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/qr-code-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="qr-code" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="qr-code" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">QR Code Generator</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Generate high-resolution QR codes for websites, WiFi, and plain text with direct PNG download.</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">QR Code Generator</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">Generate high-resolution QR codes for websites, WiFi, and plain text with direct PNG download.</p>
           </div>
         </a>
 
-        <a href="../tools/barcode-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/barcode-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="tag" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="tag" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Barcode Generator (Code 128)</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Generate standard Code 128 barcodes directly in the browser on HTML5 canvas with downloadable PNG export.</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">Barcode Generator (Code 128)</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">Generate standard Code 128 barcodes directly in the browser on HTML5 canvas with downloadable PNG export.</p>
           </div>
         </a>
 
-        <a href="../tools/box-shadow-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/box-shadow-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">CSS Box Shadow Generator</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Design realistic, layered CSS box shadows with interactive sliders and instant CSS code output.</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">CSS Box Shadow Generator</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">Design realistic, layered CSS box shadows with interactive sliders and instant CSS code output.</p>
           </div>
         </a>
 
-        <a href="../tools/border-radius-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/border-radius-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="circle-dot" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="circle-dot" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">CSS Border Radius / Blob Generator</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Design organic 8-point CSS border-radius blobs with interactive sliders and random generator.</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">CSS Border Radius / Blob Generator</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">Design organic 8-point CSS border-radius blobs with interactive sliders and random generator.</p>
           </div>
         </a>
 
-        <a href="../tools/gradient-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/gradient-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="paint-bucket" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="paint-bucket" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">CSS Gradient Generator</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Create linear and radial CSS gradients with angle controls, color stops, presets, and CSS output.</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">CSS Gradient Generator</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">Create linear and radial CSS gradients with angle controls, color stops, presets, and CSS output.</p>
           </div>
         </a>
 
-        <a href="../tools/glassmorphism-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/glassmorphism-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">CSS Glassmorphism Generator</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Generate frosted glass UI styles with backdrop-filter blur, background opacity, and border elevation controls.</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">CSS Glassmorphism Generator</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">Generate frosted glass UI styles with backdrop-filter blur, background opacity, and border elevation controls.</p>
           </div>
         </a>
 
-        <a href="../tools/svg-path-visualizer.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/svg-path-visualizer.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="maximize" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="maximize" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">SVG Path Visualizer</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Preview, inspect, and analyze SVG path strings (`d` attribute) with interactive scaling and stroke controls.</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">SVG Path Visualizer</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">Preview, inspect, and analyze SVG path strings (`d` attribute) with interactive scaling and stroke controls.</p>
           </div>
         </a>
 
-        <a href="../tools/image-resizer.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/image-resizer.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="image" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="image" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">In-Browser Image Resizer (Canvas)</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Resize JPG, PNG, and WebP images directly in your browser using HTML5 Canvas with zero cloud uploads.</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">In-Browser Image Resizer (Canvas)</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">Resize JPG, PNG, and WebP images directly in your browser using HTML5 Canvas with zero cloud uploads.</p>
           </div>
         </a>
 
-        <a href="../tools/image-cropper.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/image-cropper.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="crop" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="crop" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">In-Browser Image Cropper</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Crop photos to square (1:1), 4:3, or 16:9 aspect ratios right in the browser with live canvas export.</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">In-Browser Image Cropper</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">Crop photos to square (1:1), 4:3, or 16:9 aspect ratios right in the browser with live canvas export.</p>
           </div>
         </a>
 
-        <a href="../tools/image-filter-tool.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/image-filter-tool.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Image Filter / Grayscale Tool</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Apply client-side image filters such as Grayscale, Sepia, Invert, Blur, and High-Contrast with instant canvas download.</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">Image Filter / Grayscale Tool</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">Apply client-side image filters such as Grayscale, Sepia, Invert, Blur, and High-Contrast with instant canvas download.</p>
           </div>
         </a>
 
-        <a href="../tools/favicon-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/favicon-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="star" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="star" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Favicon Generator (multi-size export)</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Generate multi-size web favicons (16x16, 32x32, 48x48, 180x180 Apple Touch) with custom emoji, text, or shapes.</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">Favicon Generator (multi-size export)</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">Generate multi-size web favicons (16x16, 32x32, 48x48, 180x180 Apple Touch) with custom emoji, text, or shapes.</p>
           </div>
         </a>
 
-        <a href="../tools/quote-card-maker.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/quote-card-maker.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="message-square" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Tweet / Quote Card Image Maker</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Design and export beautiful quote cards and tweet graphics for social media (Twitter, LinkedIn, Instagram) on canvas.</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">Tweet / Quote Card Image Maker</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">Design and export beautiful quote cards and tweet graphics for social media (Twitter, LinkedIn, Instagram) on canvas.</p>
           </div>
         </a>
       </div>
@@ -635,15 +515,13 @@
 
   </main>
 
-  <!-- Global Technical Footer -->
+  <!-- Global Footer -->
   <footer class="mt-auto border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#0e1117] text-zinc-500 dark:text-zinc-400 text-xs py-7 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2 font-mono text-[11px]">
         <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
         <span class="text-zinc-300 dark:text-zinc-700">/</span>
         <span>100 Client-Side Micro-Utilities</span>
-        <span class="text-zinc-300 dark:text-zinc-700">/</span>
-        <span class="text-emerald-600 dark:text-emerald-400 font-medium">100% Offline Ready</span>
       </div>
       <div class="flex items-center gap-5 text-xs">
         <a href="../pages/about.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>

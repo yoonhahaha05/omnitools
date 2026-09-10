@@ -1,9 +1,9 @@
-/* OmniTools - Precision Toolstation Design System */
+/* OmniTools Web Utilities */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
@@ -16,18 +16,17 @@ html {
 
 body {
   font-family: var(--font-sans);
-  letter-spacing: -0.01em;
 }
 
-/* Monospace text & code inputs */
+/* Monospace code inputs */
 code, pre, kbd, samp, textarea.font-mono, input.font-mono {
   font-family: var(--font-mono) !important;
 }
 
-/* Custom precision scrollbars */
+/* Custom scrollbars */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -35,55 +34,28 @@ code, pre, kbd, samp, textarea.font-mono, input.font-mono {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(161, 161, 170, 0.3);
-  border-radius: 9999px;
+  background: rgba(161, 161, 170, 0.25);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(161, 161, 170, 0.6);
+  background: rgba(161, 161, 170, 0.5);
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: rgba(113, 113, 122, 0.35);
+  background: rgba(113, 113, 122, 0.3);
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: rgba(113, 113, 122, 0.65);
+  background: rgba(113, 113, 122, 0.6);
 }
 
-/* Precision Tool Card & Micro-interactions */
+/* Tool Cards */
 .tool-card {
-  transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), 
-              box-shadow 0.15s cubic-bezier(0.2, 0, 0, 1), 
-              border-color 0.15s cubic-bezier(0.2, 0, 0, 1);
-  will-change: transform, border-color, box-shadow;
+  transition: border-color 0.12s ease, background-color 0.12s ease;
 }
 
-.tool-card:hover {
-  transform: translateY(-2px);
-}
-
-/* Subtle technical canvas background */
-.technical-bg {
-  background-image: radial-gradient(rgba(148, 163, 184, 0.18) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
-.dark .technical-bg {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
-/* Hairline borders & tactile depth */
-.hairline-border {
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
-}
-
-.dark .hairline-border {
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
-/* Interactive keyboard badge */
+/* Keyboard badge */
 kbd {
   font-family: var(--font-mono);
   font-feature-settings: "tnum";
@@ -94,56 +66,46 @@ textarea, pre, code {
   tab-size: 2;
 }
 
-/* Compact view mode table row style */
+/* Tool list rows */
 .tool-row {
-  transition: background-color 0.12s ease, border-color 0.12s ease;
+  transition: background-color 0.1s ease, border-color 0.1s ease;
 }
 
-/* Focus rings with refined precision */
+/* Focus styles */
 input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-visible {
   outline: none;
 }
 
-/* Smooth color transitions for theme toggle */
-body, aside, header, nav, div.transition-theme, button.transition-theme {
-  transition-property: background-color, border-color, color;
-  transition-duration: 120ms;
-  transition-timing-function: ease-out;
-}
-
-/* Google AdSense Responsive Unit Containers */
+/* Ad unit container */
 .ad-slot-wrapper {
-  min-height: 120px;
-  width: 100%;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   position: relative;
-  text-align: center;
-}
-
-.ad-slot-wrapper ins.adsbygoogle {
-  display: block !important;
-  width: 100% !important;
-  min-height: 90px !important;
 }
 
 .ad-label {
   font-family: var(--font-mono);
   font-size: 9px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-/* Tool Categories & Filter Chips Dark Mode Protection */
+/* Category navigation active states */
 .dark #category-list a:hover {
-  background-color: #27272a !important; /* zinc-800 */
-  color: #f4f4f5 !important;            /* zinc-100 */
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
 }
 
 .dark #category-list a:hover span,
 .dark #category-list a:hover i {
-  color: #f4f4f5 !important;
+  color: #f9fafb !important;
 }
 
-/* Embed Mode for iframe integrations & widgets */
+/* Embed Mode for iframe widgets */
 body.embed-mode {
   background-color: transparent !important;
   min-height: auto !important;
@@ -179,6 +141,3 @@ body.embed-mode .tool-header-card {
 body.embed-mode .embed-attribution {
   display: flex !important;
 }
-
-
-

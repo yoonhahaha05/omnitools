@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About OmniTools - Architecture & Principles</title>
-  <meta name="description" content="Learn about OmniTools architecture, 100% client-side privacy model, zero-telemetry execution, and developer roadmap.">
+  <title>About OmniTools</title>
+  <meta name="description" content="Learn about OmniTools architecture, client-side privacy model, zero-telemetry execution, and developer roadmap.">
   <link rel="canonical" href="https://getomnitools.com/pages/about.html">
 
   <!-- Favicon & PWA Manifest -->
@@ -16,15 +16,17 @@
 
   <!-- Open Graph & Twitter -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="About OmniTools - Precision Client-Side Web Utilities">
-  <meta property="og:description" content="100% client-side privacy model, zero-telemetry execution, and high performance web tools.">
+  <meta property="og:title" content="About OmniTools">
+  <meta property="og:description" content="Client-side privacy model, zero-telemetry execution, and high performance web tools.">
   <meta property="og:url" content="https://getomnitools.com/pages/about.html">
   <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
 
@@ -35,7 +37,7 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
           }
         }
@@ -44,61 +46,56 @@
   </script>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 antialiased py-12 px-4 sm:px-6 lg:px-8">
+<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 antialiased py-12 px-4 sm:px-6 lg:px-8 font-sans">
   <div class="max-w-2xl mx-auto bg-white dark:bg-[#101319] p-7 sm:p-10 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xs">
-    <div class="mb-8 border-b border-zinc-100 dark:border-zinc-800/80 pb-6">
-      <a href="../index.html" class="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition mb-4">
+    <div class="mb-8 border-b border-zinc-100 dark:border-zinc-800 pb-6">
+      <a href="../index.html" class="inline-flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition mb-4">
         <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
-        <span>Return to Utilities</span>
+        <span>Back to tools</span>
       </a>
-      <div class="flex items-center gap-2 mb-2">
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">SPECIFICATION</span>
-        <span class="text-zinc-300 dark:text-zinc-700">•</span>
-        <span class="text-xs font-mono text-zinc-400">v2.0 Architecture</span>
-      </div>
-      <h1 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-zinc-50 tracking-tight">About OmniTools</h1>
-      <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">High-utility, zero-latency micro-tools designed for privacy & speed.</p>
+      <h1 class="text-2xl sm:text-3xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">About OmniTools</h1>
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1.5">Fast, offline-first developer micro-utilities that run completely in your browser.</p>
     </div>
 
-    <div class="space-y-6 text-xs sm:text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+    <div class="space-y-6 text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
       <section>
-        <h2 class="text-sm font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">The Motivation</h2>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">The Motivation</h2>
         <p>Most online converters and developer tools are bloated with full-page ads, cookie banners, captchas, and slow server-side round trips just to calculate a hash or format a JSON document.</p>
-        <p class="mt-2">OmniTools was engineered as a single-page workstation where <strong>100% of processing executes locally in browser memory</strong>. Once loaded, it works completely offline.</p>
+        <p class="mt-2">OmniTools is designed as a single-page workstation where <strong>processing executes locally in browser memory</strong>. Once loaded, it works completely offline.</p>
       </section>
 
-      <section class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-        <h2 class="text-sm font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2.5">Architecture Guarantees</h2>
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-3">Core Principles</h2>
         <div class="space-y-3">
-          <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40">
-            <div class="font-bold text-xs text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5 mb-1">
+          <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40">
+            <div class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5 mb-1">
               <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
-              <span>Zero-Transmission Guarantee</span>
+              <span>Zero Network Transmission</span>
             </div>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400">Your API keys, source files, passwords, and sensitive text never cross the network. All operations run inside the JavaScript V8 sandbox.</p>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400">Your API keys, source files, passwords, and sensitive text never cross the network. All operations run inside your browser's local JavaScript environment.</p>
           </div>
 
-          <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40">
-            <div class="font-bold text-xs text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5 mb-1">
+          <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40">
+            <div class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5 mb-1">
               <i data-lucide="zap" class="w-4 h-4 text-amber-500"></i>
-              <span>Hardware-Speed Calculations</span>
+              <span>Instant Calculations</span>
             </div>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400">No server queues or cold starts. Calculations execute in under 1 millisecond directly on your device CPU.</p>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400">No server queues or cold starts. Operations execute instantly and directly on your device CPU.</p>
           </div>
 
-          <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40">
-            <div class="font-bold text-xs text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5 mb-1">
+          <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40">
+            <div class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5 mb-1">
               <i data-lucide="wifi-off" class="w-4 h-4 text-sky-500"></i>
               <span>Offline-First Capability</span>
             </div>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400">All tools are statically bundled. You can save this page or disconnect from Wi-Fi and everything remains functional.</p>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400">All tools are statically bundled. You can install as a PWA, save the page, or disconnect from Wi-Fi and everything remains functional.</p>
           </div>
         </div>
       </section>
 
-      <section class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5 flex items-center justify-between text-xs text-zinc-400">
-        <span>OmniTools Project</span>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition underline">Support Developer</a>
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5 flex items-center justify-between text-xs text-zinc-400">
+        <span>OmniTools</span>
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition underline">Support Project</a>
       </section>
     </div>
   </div>

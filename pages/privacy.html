@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy - OmniTools Workstation</title>
+  <title>Privacy Policy - OmniTools</title>
   <meta name="description" content="OmniTools client-side privacy architecture policy, local memory sandboxing, and cookie disclosures.">
   <link rel="canonical" href="https://getomnitools.com/pages/privacy.html">
 
@@ -16,15 +16,17 @@
 
   <!-- Open Graph & Twitter -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Privacy Policy - OmniTools Precision Web Utilities">
-  <meta property="og:description" content="100% client-side privacy guarantee. Zero tracking, zero remote processing.">
+  <meta property="og:title" content="Privacy Policy - OmniTools">
+  <meta property="og:description" content="Client-side privacy guarantee. Zero tracking, zero remote processing.">
   <meta property="og:url" content="https://getomnitools.com/pages/privacy.html">
   <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
 
@@ -35,7 +37,7 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
           }
         }
@@ -44,47 +46,42 @@
   </script>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 antialiased py-12 px-4 sm:px-6 lg:px-8">
+<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 antialiased py-12 px-4 sm:px-6 lg:px-8 font-sans">
   <div class="max-w-2xl mx-auto bg-white dark:bg-[#101319] p-7 sm:p-10 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xs">
-    <div class="mb-8 border-b border-zinc-100 dark:border-zinc-800/80 pb-6">
-      <a href="../index.html" class="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition mb-4">
+    <div class="mb-8 border-b border-zinc-100 dark:border-zinc-800 pb-6">
+      <a href="../index.html" class="inline-flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition mb-4">
         <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
-        <span>Return to Utilities</span>
+        <span>Back to tools</span>
       </a>
-      <div class="flex items-center gap-2 mb-2">
-        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">VERIFIED</span>
-        <span class="text-zinc-300 dark:text-zinc-700">•</span>
-        <span class="text-xs font-mono text-zinc-400">September 2026</span>
-      </div>
-      <h1 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-zinc-50 tracking-tight">Privacy Policy</h1>
-      <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">Our mathematical and architectural guarantee: zero server data transmission.</p>
+      <h1 class="text-2xl sm:text-3xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">Privacy Policy</h1>
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1.5">Last updated September 2026</p>
     </div>
 
-    <div class="space-y-6 text-xs sm:text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+    <div class="space-y-6 text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
       <section>
-        <h2 class="text-sm font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">1. Client-Side Execution</h2>
-        <p>OmniTools is designed with a strict <strong>Privacy by Architecture</strong> standard. All tools—including word counting, cryptographic hashing, JSON parsing, Base64 encoding, regex testing, and password generation—execute entirely within your browser's local sandbox via JavaScript. None of the text, credentials, files, or tokens you paste are ever sent over a network connection to our servers.</p>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">1. Client-Side Execution</h2>
+        <p>OmniTools processes data locally. All utilities—including word counting, cryptographic hashing, JSON formatting, Base64 encoding, regex testing, and conversions—execute entirely within your browser via JavaScript. None of the text, credentials, files, or tokens you enter are sent to our servers.</p>
       </section>
 
-      <section class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-        <h2 class="text-sm font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">2. Local Storage Usage</h2>
-        <p>OmniTools uses your browser's local <code>localStorage</code> API solely to preserve your explicit user preferences: theme selection (Dark/Light mode), view layout density (Grid/List mode), and your list of favorite or recently used tools. This data stays strictly on your physical device.</p>
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">2. Local Storage Usage</h2>
+        <p>OmniTools uses your browser's local <code>localStorage</code> API solely to preserve your explicit user preferences: theme selection (Dark/Light mode), view layout density (Grid/List mode), and your list of favorite or recently opened tools. This data stays on your device.</p>
       </section>
 
-      <section class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-        <h2 class="text-sm font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">3. Zero Telemetry & No Tracking</h2>
-        <p>We do not track keystrokes, clipboard actions, or processed file names. You can verify this at any time by inspecting the browser Network tab (F12) while performing any utility operation.</p>
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">3. Zero Data Logging</h2>
+        <p>We do not track keystrokes, clipboard contents, or processed file names. You can verify this at any time by inspecting the browser Network tab (F12) while using any tool.</p>
       </section>
 
-      <section class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-        <h2 class="text-sm font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">4. Third-Party Advertising & Cookies (Google AdSense)</h2>
-        <p>OmniTools uses Google AdSense to serve non-intrusive advertisements to support the development and free hosting of this platform. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other sites across the Internet.</p>
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">4. Third-Party Advertising &amp; Cookies (Google AdSense)</h2>
+        <p>OmniTools uses Google AdSense to serve non-intrusive advertisements to support free hosting. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other sites across the Internet.</p>
         <p class="mt-2">Google's use of advertising cookies enables it and its partners to serve ads based on your visits to our site and/or other sites on the Internet. You may opt out of personalized advertising at any time by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" class="text-zinc-900 dark:text-zinc-100 underline font-medium">Google Ads Settings</a> or through <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" class="text-zinc-900 dark:text-zinc-100 underline font-medium">aboutads.info</a>.</p>
       </section>
 
-      <section class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-        <h2 class="text-sm font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">5. Questions & Inquiries</h2>
-        <p>If you have any questions, security audits, or requests regarding OmniTools, contact us at <a href="mailto:support@getomnitools.com" class="text-zinc-900 dark:text-zinc-100 font-semibold underline">support@getomnitools.com</a>.</p>
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">5. Contact</h2>
+        <p>If you have any questions or feedback regarding OmniTools, reach out to us at <a href="mailto:support@getomnitools.com" class="text-zinc-900 dark:text-zinc-100 font-medium underline">support@getomnitools.com</a>.</p>
       </section>
     </div>
   </div>

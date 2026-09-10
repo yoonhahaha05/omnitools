@@ -468,10 +468,10 @@ def generate_tool_html(tool, all_tools):
   <!-- Search Engine Verification -->
   <meta name="google-site-verification" content="GSC_VERIFICATION_TOKEN">
 
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -480,10 +480,11 @@ def generate_tool_html(tool, all_tools):
   <script>
     window.ADSENSE_CONFIG = {{
       client: 'ca-pub-3261737439776294',
-      slotHome: '1234567890',
-      slotTool: '2345678901',
-      slotSidebar: '3456789012'
+      slotHome: '5934296997',
+      slotTool: '5934296997',
+      slotSidebar: '5934296997'
     }};
+    window.adsbygoogle = window.adsbygoogle || [];
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
 
@@ -495,7 +496,7 @@ def generate_tool_html(tool, all_tools):
       theme: {{
         extend: {{
           fontFamily: {{
-            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
           }},
           colors: {{
@@ -524,27 +525,24 @@ def generate_tool_html(tool, all_tools):
 <body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
 
   <!-- Primary Top Navbar -->
-  <header class="sticky top-0 z-30 bg-white/90 dark:bg-[#0e1117]/90 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-15 py-2.5 flex items-center justify-between gap-4">
+  <header class="sticky top-0 z-30 bg-white/95 dark:bg-[#0e1117]/95 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
       
       <!-- Brand -->
       <div class="flex items-center gap-3 shrink-0">
-        <a href="../index.html" class="flex items-center gap-2.5 group">
-          <div class="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center font-mono font-bold text-xs tracking-tight group-hover:scale-105 transition-transform shadow-xs">
-            /o
+        <a href="../index.html" class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
           </div>
-          <div class="flex items-baseline gap-2">
-            <span class="font-extrabold text-lg tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
-            <span class="hidden sm:inline-block text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-100/60 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400">100 TOOLS</span>
-          </div>
+          <span class="font-bold text-base tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
         </a>
       </div>
 
       <!-- Quick Search / Catalog Link -->
       <div class="flex-1 max-w-md mx-4 hidden sm:block">
-        <a href="../index.html" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
+        <a href="../index.html" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-850 bg-zinc-100/70 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
           <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
-          <span>Search all 100 utilities...</span>
+          <span>Search tools...</span>
           <kbd class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-300/70 dark:border-zinc-750 bg-white dark:bg-zinc-800/80 text-zinc-400 shadow-2xs">⌘K</kbd>
         </a>
       </div>
@@ -602,20 +600,17 @@ def generate_tool_html(tool, all_tools):
       </div>
     </div>
 
-    <!-- Tool Header Banner -->
+    <!-- Tool Header -->
     <div class="tool-header-card p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
       <div class="flex items-start gap-3.5">
-        <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200 shrink-0">
-          <i data-lucide="sparkles" class="w-5 h-5 tool-main-icon"></i>
+        <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center shrink-0">
+          <i data-lucide="wrench" class="w-4 h-4 tool-main-icon"></i>
         </div>
         <div class="min-w-0 flex-1">
-          <div class="flex flex-wrap items-center gap-2">
-            <h1 class="text-lg sm:text-xl font-extrabold text-zinc-950 dark:text-zinc-50 tracking-tight">
-              {html.escape(tool['title'])}
-            </h1>
-            <span class="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">Client-Side</span>
-          </div>
-          <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
+          <h1 class="text-lg sm:text-xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">
+            {html.escape(tool['title'])}
+          </h1>
+          <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">
             {html.escape(tool['description'])}
           </p>
         </div>
@@ -627,22 +622,18 @@ def generate_tool_html(tool, all_tools):
       <div class="text-xs text-zinc-400 font-mono py-8 text-center">Loading interactive utility workspace...</div>
     </div>
 
-    <!-- Architectural Privacy & Sandbox Guarantee -->
-    <div class="p-3.5 rounded-lg border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50 dark:bg-zinc-900/30 flex items-center justify-between text-[11px] text-zinc-500 dark:text-zinc-400 font-mono">
-      <span class="flex items-center gap-2">
-        <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-500"></i>
-        <span>Local Browser Memory • Zero Network Telemetry</span>
-      </span>
-      <a href="../pages/privacy.html" class="underline hover:text-zinc-900 dark:hover:text-zinc-200">Inspect Guarantee</a>
+    <div class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-500">
+      <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+      <span>Runs locally in your browser. Sensitive data is never sent to a server.</span>
     </div>
 
     <!-- Embed Mode Attribution Banner (shown only when embedded inside iframes) -->
     <div class="embed-attribution p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 items-center justify-between text-xs">
       <a href="{BASE_URL}" target="_blank" rel="noopener" class="flex items-center gap-1.5 font-semibold text-zinc-900 dark:text-white">
-        <span class="w-4 h-4 rounded bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 font-mono text-[9px] flex items-center justify-center">/o</span>
+        <span class="w-4 h-4 rounded bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center"><i data-lucide="wrench" class="w-2.5 h-2.5"></i></span>
         <span>OmniTools</span>
       </a>
-      <span class="text-zinc-400 text-[11px]">100% Free &amp; Client-Side Web Utilities</span>
+      <span class="text-zinc-400 text-[11px]">Free client-side web utilities</span>
     </div>
 
     <!-- Google AdSense Responsive Placement -->
@@ -652,7 +643,7 @@ def generate_tool_html(tool, all_tools):
         <ins class="adsbygoogle"
              style="display:block;width:100%;"
              data-ad-client="ca-pub-3261737439776294"
-             data-ad-slot="2345678901"
+             data-ad-slot="5934296997"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
       </div>
@@ -681,15 +672,13 @@ def generate_tool_html(tool, all_tools):
 
   </main>
 
-  <!-- Global Technical Footer -->
+  <!-- Global Footer -->
   <footer class="mt-auto border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#0e1117] text-zinc-500 dark:text-zinc-400 text-xs py-7 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2 font-mono text-[11px]">
         <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
         <span class="text-zinc-300 dark:text-zinc-700">/</span>
         <span>100 Client-Side Micro-Utilities</span>
-        <span class="text-zinc-300 dark:text-zinc-700">/</span>
-        <span class="text-emerald-600 dark:text-emerald-400 font-medium">100% Offline Ready</span>
       </div>
       <div class="flex items-center gap-5 text-xs">
         <a href="../pages/about.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
@@ -797,20 +786,13 @@ def generate_category_html(category, tools_in_cat, all_categories):
     tool_cards = []
     for t in tools_in_cat:
         tool_cards.append(f"""
-        <a href="../tools/{t['id']}.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="../tools/{t['id']}.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i data-lucide="{Utils_get_icon(t['icon'], t['category'])}" class="w-3.5 h-3.5"></i>
-              </span>
-              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="{Utils_get_icon(t['icon'], t['category'])}" class="w-4 h-4"></i>
             </div>
-            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">{html.escape(t['title'])}</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">{html.escape(t['description'])}</p>
-          </div>
-          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
-            <span>Launch Tool</span>
-            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">{html.escape(t['title'])}</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">{html.escape(t['description'])}</p>
           </div>
         </a>""")
         
@@ -937,12 +919,11 @@ def generate_category_html(category, tools_in_cat, all_categories):
   <meta name="twitter:title" content="{html.escape(page_title)}">
   <meta name="twitter:description" content="{html.escape(category['meta_description'])}">
   <meta name="twitter:image" content="{BASE_URL}/assets/og-image.png">
->>>>>>> 79446c4 (feat(growth): add PWA offline support, category hubs, OG social cards, and IndexNow indexing)
 
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Lucide Icons CDN (Deferred for Performance) -->
   <script src="https://unpkg.com/lucide@latest" defer></script>
@@ -967,7 +948,7 @@ def generate_category_html(category, tools_in_cat, all_categories):
       theme: {{
         extend: {{
           fontFamily: {{
-            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
           }},
           colors: {{
@@ -996,27 +977,24 @@ def generate_category_html(category, tools_in_cat, all_categories):
 <body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
 
   <!-- Primary Top Navbar -->
-  <header class="sticky top-0 z-30 bg-white/90 dark:bg-[#0e1117]/90 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-15 py-2.5 flex items-center justify-between gap-4">
+  <header class="sticky top-0 z-30 bg-white/95 dark:bg-[#0e1117]/95 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
       
       <!-- Brand -->
       <div class="flex items-center gap-3 shrink-0">
-        <a href="../index.html" class="flex items-center gap-2.5 group">
-          <div class="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center font-mono font-bold text-xs tracking-tight group-hover:scale-105 transition-transform shadow-xs">
-            /o
+        <a href="../index.html" class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
           </div>
-          <div class="flex items-baseline gap-2">
-            <span class="font-extrabold text-lg tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
-            <span class="hidden sm:inline-block text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-100/60 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400">100 TOOLS</span>
-          </div>
+          <span class="font-bold text-base tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
         </a>
       </div>
 
       <!-- Quick Search / Catalog Link -->
       <div class="flex-1 max-w-md mx-4 hidden sm:block">
-        <a href="../index.html" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
+        <a href="../index.html" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-850 bg-zinc-100/70 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
           <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
-          <span>Search all 100 utilities...</span>
+          <span>Search tools...</span>
           <kbd class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-300/70 dark:border-zinc-750 bg-white dark:bg-zinc-800/80 text-zinc-400 shadow-2xs">⌘K</kbd>
         </a>
       </div>
@@ -1025,7 +1003,7 @@ def generate_category_html(category, tools_in_cat, all_categories):
       <div class="flex items-center gap-2 shrink-0">
         <a href="../index.html" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
           <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
-          <span>All 100 Tools</span>
+          <span>All Tools</span>
         </a>
 
         <button id="theme-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-600 dark:text-zinc-300 transition" title="Toggle Theme">
@@ -1051,22 +1029,11 @@ def generate_category_html(category, tools_in_cat, all_categories):
     </div>
 
     <!-- Category Header Hero -->
-    <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-3">
-      <div class="flex flex-wrap items-center gap-2">
-        <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
-          {category['badge']}
-        </span>
-        <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-          100% Client-Side Private
-        </span>
-        <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
-          Offline Ready
-        </span>
-      </div>
-      <h1 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+    <div class="p-6 sm:p-8 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 space-y-2">
+      <h1 class="text-2xl sm:text-3xl font-bold text-zinc-950 dark:text-white tracking-tight">
         {html.escape(category['h1'])}
       </h1>
-      <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 max-w-3xl leading-relaxed">
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 max-w-3xl leading-relaxed">
         {html.escape(category['description'])}
       </p>
     </div>
@@ -1080,8 +1047,8 @@ def generate_category_html(category, tools_in_cat, all_categories):
     <!-- Category Tools Grid -->
     <div class="space-y-3">
       <div class="flex items-center justify-between">
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Available {html.escape(category['name'])} Micro-Tools</h2>
-        <span class="text-[11px] font-mono text-zinc-400">{len(tools_in_cat)} utilities active</span>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Available {html.escape(category['name'])} Tools</h2>
+        <span class="text-[11px] font-mono text-zinc-400">{len(tools_in_cat)} utilities</span>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
 {tool_cards_html}
@@ -1106,15 +1073,13 @@ def generate_category_html(category, tools_in_cat, all_categories):
 
   </main>
 
-  <!-- Global Technical Footer -->
+  <!-- Global Footer -->
   <footer class="mt-auto border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#0e1117] text-zinc-500 dark:text-zinc-400 text-xs py-7 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2 font-mono text-[11px]">
         <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
         <span class="text-zinc-300 dark:text-zinc-700">/</span>
         <span>100 Client-Side Micro-Utilities</span>
-        <span class="text-zinc-300 dark:text-zinc-700">/</span>
-        <span class="text-emerald-600 dark:text-emerald-400 font-medium">100% Offline Ready</span>
       </div>
       <div class="flex items-center gap-5 text-xs">
         <a href="../pages/about.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>

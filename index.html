@@ -64,10 +64,10 @@
   }
   </script>
 
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Lucide Icons CDN (Deferred for Performance) -->
   <script src="https://unpkg.com/lucide@latest" defer></script>
@@ -92,7 +92,7 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
           },
           colors: {
@@ -122,48 +122,43 @@
 <body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
 
   <!-- Primary Top Navbar -->
-  <header class="sticky top-0 z-30 bg-white/90 dark:bg-[#0e1117]/90 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-15 py-2.5 flex items-center justify-between gap-4">
+  <header class="sticky top-0 z-30 bg-white/95 dark:bg-[#0e1117]/95 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
       
       <!-- Brand & Mobile Menu Button -->
       <div class="flex items-center gap-3 shrink-0">
-        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 focus:outline-none" aria-label="Toggle navigation menu">
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none" aria-label="Toggle navigation menu">
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
 
-        <a href="#/" class="flex items-center gap-2.5 group">
-          <div class="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center font-mono font-bold text-xs tracking-tight group-hover:scale-105 transition-transform shadow-xs">
-            /o
+        <a href="#/" class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
           </div>
-          <div class="flex items-baseline gap-2">
-            <span class="font-extrabold text-lg tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
-            <span class="hidden sm:inline-block text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-100/60 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400">100 TOOLS</span>
-          </div>
+          <span class="font-bold text-base tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
         </a>
       </div>
 
       <!-- Command Quick Search Bar with ⌘K / Ctrl+K -->
       <div class="hidden sm:block flex-1 max-w-lg mx-2">
         <div class="relative">
-          <input id="nav-search" type="text" placeholder="Search utilities, conversions, encoders... (⌘K)" class="w-full pl-9 pr-14 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/70 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 focus:bg-white dark:focus:bg-zinc-900 transition">
+          <input id="nav-search" type="text" placeholder="Search utilities... (⌘K)" class="w-full pl-9 pr-14 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-100/70 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 transition">
           <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
-          <kbd class="absolute right-2 top-1.5 text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-300/70 dark:border-zinc-750 bg-white dark:bg-zinc-800/80 text-zinc-400 dark:text-zinc-400 shadow-2xs">Ctrl K</kbd>
+          <kbd class="absolute right-2 top-1.5 text-[10px] font-mono px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-400 shadow-2xs">Ctrl K</kbd>
         </div>
       </div>
 
-      <!-- Action Controls: View Switcher, Theme, GitHub, Support -->
+      <!-- Action Controls: View Switcher, Theme, Support -->
       <div class="flex items-center gap-1.5 shrink-0">
-        <!-- Density View Mode Toggle -->
-        <button id="view-mode-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-600 dark:text-zinc-300 transition" title="Toggle Grid / Compact List View" aria-label="Toggle layout density">
+        <button id="view-mode-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 transition" title="Toggle Grid / List View" aria-label="Toggle layout density">
           <i id="view-mode-icon" data-lucide="layout-grid" class="w-4 h-4"></i>
         </button>
 
-        <!-- Dark/Light Theme Toggle -->
-        <button id="theme-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-600 dark:text-zinc-300 transition" title="Toggle Theme" aria-label="Toggle dark/light mode">
+        <button id="theme-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 transition" title="Toggle Theme" aria-label="Toggle dark/light mode">
           <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
         </button>
 
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition" title="Support developer">
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-medium transition" title="Support developer">
           <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
           <span>Support</span>
         </a>
@@ -181,41 +176,29 @@
     <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-[#0e1117] border-r border-zinc-200 dark:border-zinc-800 p-5 transform -translate-x-full md:translate-x-0 md:static md:w-56 lg:w-60 md:block transition-transform duration-200 ease-in-out md:border-r-0 md:bg-transparent md:dark:bg-transparent md:p-0 shrink-0">
       <div class="sticky top-20 space-y-6">
         <div>
-          <div class="flex items-center justify-between px-2 mb-2">
-            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">Tool Categories</span>
+          <div class="px-2 mb-2">
+            <span class="text-[11px] font-medium text-zinc-400 dark:text-zinc-500">Categories</span>
           </div>
-          <nav id="category-list" class="space-y-1">
+          <nav id="category-list" class="space-y-0.5">
             <!-- Populated dynamically by App.renderCategoriesNav() -->
           </nav>
         </div>
 
-        <div class="pt-4 border-t border-zinc-200 dark:border-zinc-800/80">
-          <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 px-2 block mb-2">OmniTools Project</span>
-          <div class="space-y-0.5 text-xs font-medium text-zinc-600 dark:text-zinc-400">
-            <a href="pages/about.html" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+        <div class="pt-4 border-t border-zinc-200/80 dark:border-zinc-800/80">
+          <div class="space-y-0.5 text-xs text-zinc-600 dark:text-zinc-400">
+            <a href="pages/about.html" class="flex items-center gap-2 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
               <i data-lucide="info" class="w-3.5 h-3.5 text-zinc-400"></i>
-              <span>About Architecture</span>
+              <span>About</span>
             </a>
-            <a href="pages/privacy.html" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
-              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-zinc-400"></i>
-              <span>Privacy Guarantee</span>
+            <a href="pages/privacy.html" class="flex items-center gap-2 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="shield" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>Privacy</span>
             </a>
-            <a href="mailto:support@getomnitools.com" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
-              <i data-lucide="message-square-plus" class="w-3.5 h-3.5 text-zinc-400"></i>
-              <span>Request a Utility</span>
+            <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="github" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>GitHub</span>
             </a>
           </div>
-        </div>
-
-        <!-- Privacy & Sandbox Architecture Badge -->
-        <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800/90 bg-zinc-100/50 dark:bg-zinc-900/40 text-xs leading-relaxed space-y-1.5">
-          <div class="flex items-center gap-2 font-bold text-zinc-900 dark:text-zinc-200 text-[11px]">
-            <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i>
-            <span>Local Browser Sandbox</span>
-          </div>
-          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">
-            100% of calculations execute in browser memory. No text or data ever reaches a remote server.
-          </p>
         </div>
       </div>
     </aside>
