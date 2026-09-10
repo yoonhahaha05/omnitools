@@ -315,12 +315,13 @@ const Utils = {
    */
   initAdUnits() {
     try {
-      if (typeof window !== 'undefined' && window.adsbygoogle) {
-        const uninitialized = document.querySelectorAll('.adsbygoogle:not([data-adsbygoogle-status])');
-        uninitialized.forEach(() => {
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        });
-      }
+      if (typeof window === 'undefined') return;
+      window.adsbygoogle = window.adsbygoogle || [];
+      const uninitialized = document.querySelectorAll('.adsbygoogle:not([data-adsbygoogle-status]):not([data-ad-inited])');
+      uninitialized.forEach((el) => {
+        el.setAttribute('data-ad-inited', 'true');
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      });
     } catch (e) {
       // Gracefully handled if ad blocker is active or offline
     }

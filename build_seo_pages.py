@@ -273,6 +273,7 @@ def generate_tool_html(tool, all_tools):
       slotTool: '5934296997',
       slotSidebar: '5934296997'
     }};
+    window.adsbygoogle = window.adsbygoogle || [];
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
 
