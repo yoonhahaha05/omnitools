@@ -298,9 +298,9 @@ const Utils = {
     return `
       <div class="ad-slot-wrapper w-full p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 ${customClass}">
         <div class="ad-label text-zinc-400 dark:text-zinc-500 mb-2">Advertisement</div>
-        <div class="w-full flex justify-center items-center overflow-hidden min-h-[90px]">
+        <div class="w-full text-center" style="min-height: 90px;">
           <ins class="adsbygoogle"
-               style="display:block;width:100%;"
+               style="display:block;width:100%;min-height:90px;"
                data-ad-client="${this.escapeHtml(clientId)}"
                data-ad-slot="${this.escapeHtml(slotId)}"
                data-ad-format="auto"
