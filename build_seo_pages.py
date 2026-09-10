@@ -269,9 +269,9 @@ def generate_tool_html(tool, all_tools):
   <script>
     window.ADSENSE_CONFIG = {{
       client: 'ca-pub-3261737439776294',
-      slotHome: '1234567890',
-      slotTool: '2345678901',
-      slotSidebar: '3456789012'
+      slotHome: '5934296997',
+      slotTool: '5934296997',
+      slotSidebar: '5934296997'
     }};
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
@@ -423,7 +423,7 @@ def generate_tool_html(tool, all_tools):
         <ins class="adsbygoogle"
              style="display:block;width:100%;"
              data-ad-client="ca-pub-3261737439776294"
-             data-ad-slot="2345678901"
+             data-ad-slot="5934296997"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
       </div>
