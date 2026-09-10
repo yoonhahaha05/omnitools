@@ -1,0 +1,42 @@
+{
+  "name": "OmniTools - Precision Web Utilities",
+  "short_name": "OmniTools",
+  "description": "100 high-speed, 100% client-side web utilities for developers, writers, designers, and students. Zero tracking, offline-capable.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b0d11",
+  "theme_color": "#0b0d11",
+  "orientation": "any",
+  "categories": ["utilities", "developer tools", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Word Counter",
+      "url": "/tools/word-counter.html",
+      "description": "Count words and characters in real time"
+    },
+    {
+      "name": "JSON Beautifier",
+      "url": "/tools/json-beautifier.html",
+      "description": "Format and validate JSON code"
+    },
+    {
+      "name": "Aspect Ratio Calculator",
+      "url": "/tools/aspect-ratio-calculator.html",
+      "description": "Calculate 16:9 and 4:3 dimensions"
+    },
+    {
+      "name": "Base64 Encoder",
+      "url": "/tools/base64-tool.html",
+      "description": "Encode and decode Base64 strings"
+    }
+  ]
+}

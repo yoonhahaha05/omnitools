@@ -94,6 +94,69 @@ def extract_tools():
             
     return all_tools
 
+SEO_OVERRIDES = {
+    'word-counter': {
+        'title': 'Word Counter - Count Words, Characters & Reading Time Online | OmniTools',
+        'description': 'Free online word counter and character calculator. Instantly count words, characters with/without spaces, sentences, paragraphs, and reading time in real time.',
+        'keywords': ['word counter', 'count words', 'character counter', 'word counter without spaces', 'reading time calculator', 'text length', 'count characters online']
+    },
+    'aspect-ratio-calculator': {
+        'title': 'Aspect Ratio Calculator (16:9, 4:3, 21:9) - Calculate Dimensions Online | OmniTools',
+        'description': 'Free online aspect ratio calculator. Quickly calculate proportional width and height dimensions for 16:9, 4:3, 21:9 video, images, screens, and CSS layouts.',
+        'keywords': ['aspect ratio calculator', '16:9 calculator', 'aspect ratio scaler', '4:3 calculator', 'calculate resolution', 'image aspect ratio', 'video dimensions calculator']
+    },
+    'json-beautifier': {
+        'title': 'JSON Formatter & Beautifier - Format, Validate & Clean JSON Online | OmniTools',
+        'description': 'Free online JSON formatter, beautifier, and validator. Format unreadable JSON with custom indentation, validate syntax errors with line markers, and minify code.',
+        'keywords': ['json formatter', 'json beautifier', 'format json online', 'validate json', 'json cleaner', 'pretty print json', 'json validator']
+    },
+    'base64-tool': {
+        'title': 'Base64 Encode & Decode - Free String & Data Converter (100% Private) | OmniTools',
+        'description': 'Free online Base64 encoder and decoder. Convert text, strings, and binary data to and from standard or URL-safe Base64 with instant client-side privacy.',
+        'keywords': ['base64 encode', 'base64 decode', 'base64 converter', 'online base64 decoder', 'btoa atob', 'url safe base64', 'string to base64']
+    },
+    'discord-markdown-styler': {
+        'title': 'Discord Markdown Styler - Colored Text, Spoilers & Code Blocks Preview | OmniTools',
+        'description': 'Free Discord text formatting tool with real-time preview. Generate ANSI colored text, spoilers, code blocks, bold, strikethrough, and relative timestamps.',
+        'keywords': ['discord markdown', 'discord text formatting', 'discord colored text', 'discord spoiler generator', 'discord timestamp generator', 'discord code block styling']
+    },
+    'qr-code-generator': {
+        'title': 'Free QR Code Generator - Custom QR Codes with Instant Download | OmniTools',
+        'description': 'Free, fast online QR code generator. Create high-resolution QR codes for URLs, WiFi, plain text, and emails. 100% private, no tracking or expiration.',
+        'keywords': ['qr code generator', 'create qr code free', 'qr generator online', 'custom qr code', 'qr code maker without signup']
+    },
+    'text-diff': {
+        'title': 'Text Diff Checker - Compare Two Texts & Find Differences Online | OmniTools',
+        'description': 'Free online text comparison tool. Highlight added, deleted, and modified lines between two texts or code snippets side-by-side.',
+        'keywords': ['diff checker', 'compare text online', 'text difference checker', 'code diff online', 'side by side text compare']
+    },
+    'uuid-generator': {
+        'title': 'UUID Generator - Generate Version 4 (v4) UUIDs & GUIDs Online | OmniTools',
+        'description': 'Fast bulk UUID / GUID generator. Generate cryptographically secure RFC 4122 Version 4 random UUIDs in uppercase or lowercase with instant copy.',
+        'keywords': ['uuid generator', 'guid generator', 'generate uuid v4', 'random uuid generator', 'online guid maker', 'bulk uuid generator']
+    },
+    'lorem-ipsum-generator': {
+        'title': 'Lorem Ipsum Generator - Free Placeholder & Dummy Text Generator | OmniTools',
+        'description': 'Generate custom Lorem Ipsum placeholder text by paragraphs, sentences, or words. Perfect dummy text generator for web design and typography layouts.',
+        'keywords': ['lorem ipsum generator', 'dummy text generator', 'placeholder text', 'fake text generator', 'latin text generator']
+    },
+    'hash-generator': {
+        'title': 'Online Hash Generator - MD5, SHA-1, SHA-256 & SHA-512 Checksums | OmniTools',
+        'description': 'Generate cryptographic checksum hashes including MD5, SHA-1, SHA-256, SHA-384, and SHA-512 instantly in your browser. 100% client-side privacy.',
+        'keywords': ['hash generator', 'sha256 generator online', 'md5 hash generator', 'sha512 generator', 'calculate checksum', 'cryptographic hash tool']
+    },
+    'url-encoder-decoder': {
+        'title': 'URL Encoder & Decoder - Percent-Encoding for URIs & Parameters | OmniTools',
+        'description': 'Fast online URL encoder and decoder. Encode special characters to percent-encoded URI strings and decode query parameters safely in real time.',
+        'keywords': ['url encoder', 'url decoder', 'percent encoding', 'uri encoder online', 'decode url parameter', 'encode uri component']
+    },
+    'case-converter': {
+        'title': 'Case Converter - UPPERCASE, lowercase, Title Case & camelCase | OmniTools',
+        'description': 'Convert text case instantly online. Convert between UPPERCASE, lowercase, Title Case, camelCase, kebab-case, snake_case, and Sentence case.',
+        'keywords': ['case converter', 'uppercase to lowercase', 'title case converter', 'camelcase converter', 'text case changer', 'sentence case converter']
+    }
+}
+
 def generate_tool_html(tool, all_tools):
     # Determine related tools (3 from same category, excluding self)
     related = [t for t in all_tools if t['category'] == tool['category'] and t['id'] != tool['id']][:3]
@@ -101,7 +164,10 @@ def generate_tool_html(tool, all_tools):
         related += [t for t in all_tools if t['id'] != tool['id']][:3 - len(related)]
         
     canonical_url = f"{BASE_URL}/tools/{tool['id']}.html"
-    page_title = f"{tool['title']} - Free Online Tool (100% Client-Side) | OmniTools"
+    override = SEO_OVERRIDES.get(tool['id'], {})
+    page_title = override.get('title', f"{tool['title']} - Free Online Tool (100% Client-Side) | OmniTools")
+    meta_desc = override.get('description', tool['description'])
+    meta_keywords = override.get('keywords', tool['keywords'])
     
     # JSON-LD Schemas
     schemas = []
@@ -112,7 +178,7 @@ def generate_tool_html(tool, all_tools):
         "@type": "WebApplication",
         "name": tool['title'],
         "url": canonical_url,
-        "description": tool['description'],
+        "description": meta_desc,
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "All",
         "browserRequirements": "Requires JavaScript. Requires HTML5.",
@@ -257,6 +323,9 @@ def generate_tool_html(tool, all_tools):
   <meta property="og:description" content="{html.escape(tool['description'])}">
   <meta property="og:url" content="{canonical_url}">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0b0d11">
+  <meta name="mobile-web-app-capable" content="yes">
 
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -421,9 +490,9 @@ def generate_tool_html(tool, all_tools):
     <!-- Google AdSense Responsive Placement -->
     <div class="ad-slot-wrapper w-full p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 my-6">
       <div class="ad-label text-zinc-400 dark:text-zinc-500 mb-2">Advertisement</div>
-      <div class="w-full flex justify-center items-center overflow-hidden min-h-[90px]">
+      <div class="w-full text-center overflow-hidden" style="min-height: 90px;">
         <ins class="adsbygoogle"
-             style="display:block;width:100%;"
+             style="display:block;width:100%;min-height:90px;"
              data-ad-client="ca-pub-3261737439776294"
              data-ad-slot="5934296997"
              data-ad-format="auto"
