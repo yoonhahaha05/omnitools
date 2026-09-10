@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online Text &amp; Formatting Tools (100% Client-Side) | OmniTools</title>
+  <meta name="description" content="Clean, format, convert, and inspect text instantly in your browser. 25 free client-side text tools including Word Counter, Diff Checker, Case Converter, and Markdown Previewer.">
+  <link rel="canonical" href="https://getomnitools.com/categories/text-formatting.html">
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#0e1117">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free Online Text &amp; Formatting Tools (100% Client-Side) | OmniTools">
+  <meta property="og:description" content="Clean, format, convert, and inspect text instantly in your browser. 25 free client-side text tools including Word Counter, Diff Checker, Case Converter, and Markdown Previewer.">
+  <meta property="og:url" content="https://getomnitools.com/categories/text-formatting.html">
+  <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:secure_url" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Text &amp; Formatting - OmniTools">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Online Text &amp; Formatting Tools (100% Client-Side) | OmniTools">
+  <meta name="twitter:description" content="Clean, format, convert, and inspect text instantly in your browser. 25 free client-side text tools including Word Counter, Diff Checker, Case Converter, and Markdown Previewer.">
+  <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google AdSense Configuration & Script -->
+  <script>
+    window.ADSENSE_CONFIG = {
+      client: 'ca-pub-3261737439776294',
+      slotHome: '1234567890',
+      slotTool: '2345678901',
+      slotSidebar: '3456789012'
+    };
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <!-- JSON-LD Structured Data for Search Engines -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Text & Formatting Utilities",
+  "url": "https://getomnitools.com/categories/text-formatting.html",
+  "description": "Clean, format, convert, and inspect text instantly in your browser. 25 free client-side text tools including Word Counter, Diff Checker, Case Converter, and Markdown Previewer.",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Word & Character Counter",
+        "url": "https://getomnitools.com/tools/word-counter.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Reading Time Estimator",
+        "url": "https://getomnitools.com/tools/reading-time-estimator.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Case Converter",
+        "url": "https://getomnitools.com/tools/case-converter.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Remove Extra Spaces & Whitespace",
+        "url": "https://getomnitools.com/tools/remove-whitespace.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "Remove Line Breaks",
+        "url": "https://getomnitools.com/tools/remove-line-breaks.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "Sort Lines Alphabetically (A\u2013Z / Z\u2013A)",
+        "url": "https://getomnitools.com/tools/sort-lines.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "name": "Reverse Text (Characters & Words)",
+        "url": "https://getomnitools.com/tools/reverse-text.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "name": "Text Difference Checker (Diff)",
+        "url": "https://getomnitools.com/tools/text-diff.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "name": "Duplicate Line Remover",
+        "url": "https://getomnitools.com/tools/remove-duplicate-lines.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "name": "Markdown Live Previewer & Exporter",
+        "url": "https://getomnitools.com/tools/markdown-previewer.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 11,
+        "name": "Lorem Ipsum / Dummy Text Generator",
+        "url": "https://getomnitools.com/tools/lorem-ipsum-generator.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 12,
+        "name": "URL Slug Generator",
+        "url": "https://getomnitools.com/tools/slug-generator.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 13,
+        "name": "Regex Find & Replace",
+        "url": "https://getomnitools.com/tools/regex-find-replace.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 14,
+        "name": "Strip HTML Tags",
+        "url": "https://getomnitools.com/tools/strip-html-tags.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 15,
+        "name": "Discord Markdown Styler",
+        "url": "https://getomnitools.com/tools/discord-markdown-styler.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 16,
+        "name": "Invisible Character & Zero-Width Stripper",
+        "url": "https://getomnitools.com/tools/invisible-character-remover.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 17,
+        "name": "Text to Binary / Binary to Text",
+        "url": "https://getomnitools.com/tools/text-binary-converter.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 18,
+        "name": "Text to Hex / Hex to Text",
+        "url": "https://getomnitools.com/tools/text-hex-converter.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 19,
+        "name": "NATO Phonetic Alphabet Converter",
+        "url": "https://getomnitools.com/tools/nato-phonetic-converter.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 20,
+        "name": "Morse Code Translator (with Audio)",
+        "url": "https://getomnitools.com/tools/morse-code-translator.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 21,
+        "name": "Fancy Unicode Font Generator",
+        "url": "https://getomnitools.com/tools/fancy-unicode-fonts.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 22,
+        "name": "Line Numberer",
+        "url": "https://getomnitools.com/tools/line-numberer.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 23,
+        "name": "Extract URLs from Text",
+        "url": "https://getomnitools.com/tools/extract-urls.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 24,
+        "name": "Extract Emails from Text",
+        "url": "https://getomnitools.com/tools/extract-emails.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 25,
+        "name": "Emoji Stripper",
+        "url": "https://getomnitools.com/tools/emoji-stripper.html"
+      }
+    ]
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://getomnitools.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Text & Formatting",
+      "item": "https://getomnitools.com/categories/text-formatting.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is my text data stored or sent to any remote server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Never. All 25 text utilities execute 100% in your browser's local JavaScript thread. No copy or keystrokes ever cross the internet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use these text formatting tools without an active internet connection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! OmniTools is a Progressive Web App (PWA) with full offline caching. Once loaded, all text operations work seamlessly offline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there character or file size limits for text processing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because computation happens locally inside your browser memory, you can comfortably process documents with hundreds of thousands of words without hitting API timeouts."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+
+  <!-- Primary Top Navbar -->
+  <header class="sticky top-0 z-30 bg-white/90 dark:bg-[#0e1117]/90 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-15 py-2.5 flex items-center justify-between gap-4">
+      
+      <!-- Brand -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="../index.html" class="flex items-center gap-2.5 group">
+          <div class="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center font-mono font-bold text-xs tracking-tight group-hover:scale-105 transition-transform shadow-xs">
+            /o
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span class="font-extrabold text-lg tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
+            <span class="hidden sm:inline-block text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-100/60 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400">100 TOOLS</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Quick Search / Catalog Link -->
+      <div class="flex-1 max-w-md mx-4 hidden sm:block">
+        <a href="../index.html" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
+          <span>Search all 100 utilities...</span>
+          <kbd class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-300/70 dark:border-zinc-750 bg-white dark:bg-zinc-800/80 text-zinc-400 shadow-2xs">⌘K</kbd>
+        </a>
+      </div>
+
+      <!-- Action Controls -->
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="../index.html" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+          <span>All 100 Tools</span>
+        </a>
+
+        <button id="theme-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-600 dark:text-zinc-300 transition" title="Toggle Theme">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
+          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>Support</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-8">
+    
+    <!-- Breadcrumbs -->
+    <div class="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">
+      <a href="../index.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Home</a>
+      <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
+      <span class="text-zinc-900 dark:text-zinc-200 font-semibold">Text &amp; Formatting</span>
+    </div>
+
+    <!-- Category Header Hero -->
+    <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-3">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
+          25 Utilities
+        </span>
+        <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+          100% Client-Side Private
+        </span>
+        <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+          Offline Ready
+        </span>
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+        Text &amp; Formatting Utilities
+      </h1>
+      <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 max-w-3xl leading-relaxed">
+        High-speed client-side text tools for writers, programmers, and content creators. Remove whitespace, convert casing, inspect markdown, strip HTML tags, diff text, and format copy with zero data leaving your browser.
+      </p>
+    </div>
+
+    <!-- Category Hub Navigation Pills -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+      <span class="text-[11px] font-mono text-zinc-400 shrink-0 mr-1">Categories:</span>
+
+        <a href="text-formatting.html" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-950 font-bold">
+          Text &amp; Formatting (25)
+        </a>
+
+        <a href="developer-data.html" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600">
+          Developer &amp; Data (25)
+        </a>
+
+        <a href="everyday-math.html" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600">
+          Everyday Math &amp; Converters (25)
+        </a>
+
+        <a href="media-css-design.html" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600">
+          Media, CSS &amp; Design (15)
+        </a>
+
+        <a href="quick-utilities.html" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600">
+          Quick Utilities &amp; Life Tools (10)
+        </a>
+    </div>
+
+    <!-- Category Tools Grid -->
+    <div class="space-y-3">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Available Text &amp; Formatting Micro-Tools</h2>
+        <span class="text-[11px] font-mono text-zinc-400">25 utilities active</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+
+        <a href="../tools/word-counter.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="notebook-pen" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Word &amp; Character Counter</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Accurate real-time word, character, sentence, paragraph counter and reading time estimator.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/reading-time-estimator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="timer" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Reading Time Estimator</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Detailed reading, speaking, and skimming time estimation with customizable WPM speeds and syllable counts.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/case-converter.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="type" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Case Converter</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Instantly transform text to UPPERCASE, lowercase, Title Case, camelCase, snake_case, kebab-case, and PascalCase.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/remove-whitespace.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Remove Extra Spaces &amp; Whitespace</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Clean messy text by stripping multiple consecutive spaces, leading/trailing spaces, and tabs.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/remove-line-breaks.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Remove Line Breaks</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Remove unwanted newline breaks and merge paragraphs or lines into continuous text.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/sort-lines.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="arrow-up-down" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Sort Lines Alphabetically (A–Z / Z–A)</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Sort lines of text alphabetically or numerically, with options for natural sort and reverse ordering.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/reverse-text.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="repeat" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Reverse Text (Characters &amp; Words)</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Reverse text character-by-character, flip words in sentences, reverse line order, or invert upside-down.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/text-diff.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="scale" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Text Difference Checker (Diff)</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Compare two blocks of text side-by-side to visually inspect differences, additions, and deletions.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/remove-duplicate-lines.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="crop" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Duplicate Line Remover</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Remove duplicate lines from text lists while preserving original ordering or sorting output.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/markdown-previewer.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Markdown Live Previewer &amp; Exporter</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Write, preview, and convert Markdown text into formatted HTML with one-click HTML export.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/lorem-ipsum-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Lorem Ipsum / Dummy Text Generator</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Generate placeholder filler text by paragraphs, sentences, or words with custom formatting.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/slug-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="link" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">URL Slug Generator</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Generate clean, SEO-friendly URL slugs from any headline, title, or string with customizable separators.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/regex-find-replace.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="search" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Regex Find &amp; Replace</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Search text using regular expressions with capture groups and replace with dynamic string formatting.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/strip-html-tags.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="tag" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Strip HTML Tags</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Remove all HTML/XML tags from markup while preserving clean, readable text and decoding entities.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/discord-markdown-styler.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Discord Markdown Styler</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Format messages for Discord with live preview for spoilers, colored codeblocks, headers, and relative timestamps.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/invisible-character-remover.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="ghost" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Invisible Character &amp; Zero-Width Stripper</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Detect and remove zero-width spaces, hidden BOMs, non-breaking spaces, and malicious invisible unicode characters.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/text-binary-converter.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Text to Binary / Binary to Text</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Convert alphanumeric text to 8-bit binary representation and parse binary sequences back to readable text.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/text-hex-converter.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Text to Hex / Hex to Text</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Convert ASCII/UTF-8 strings to Hexadecimal bytes and decode hex sequences back to readable text.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/nato-phonetic-converter.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">NATO Phonetic Alphabet Converter</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Translate any text into official ICAO/NATO phonetic alphabet words (Alpha, Bravo, Charlie) for clear radio spelling.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/morse-code-translator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Morse Code Translator (with Audio)</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Translate text to Morse code and back with real-time Web Audio sound synthesis and playback.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/fancy-unicode-fonts.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Fancy Unicode Font Generator</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Convert text into 16+ aesthetic Unicode fonts (Gothic, Cursive, Bold, Double-Struck) for Instagram, TikTok, and Twitter.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/line-numberer.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="list-ordered" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Line Numberer</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Add sequential numbers, zero-padding, or custom prefixes/suffixes to each line of text.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/extract-urls.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Extract URLs from Text</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Scan unstructured text and automatically extract all HTTP/HTTPS links and web addresses into a clean list.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/extract-emails.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Extract Emails from Text</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Scan messages and documents to extract all valid email addresses into an exportable, deduplicated list.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/emoji-stripper.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="smile-plus" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Emoji Stripper</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Remove all Unicode emojis, symbols, and emoticons from text to prepare clean strings for databases or formal documents.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Google AdSense Responsive Unit -->
+    <div class="ad-slot-wrapper w-full p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30">
+      <div class="ad-label text-zinc-400 dark:text-zinc-500 mb-2">Advertisement</div>
+      <div class="w-full flex justify-center items-center overflow-hidden min-h-[90px]">
+        <ins class="adsbygoogle"
+             style="display:block;width:100%;"
+             data-ad-client="ca-pub-3261737439776294"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+
+    <!-- Category Technical Guide & FAQs -->
+
+        <div class="space-y-3 pt-4">
+          <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Frequently Asked Questions</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+          <div class="p-4 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800">
+            <h3 class="font-semibold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 mb-1.5">Is my text data stored or sent to any remote server?</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">Never. All 25 text utilities execute 100% in your browser&#x27;s local JavaScript thread. No copy or keystrokes ever cross the internet.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800">
+            <h3 class="font-semibold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 mb-1.5">Can I use these text formatting tools without an active internet connection?</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes! OmniTools is a Progressive Web App (PWA) with full offline caching. Once loaded, all text operations work seamlessly offline.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800">
+            <h3 class="font-semibold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 mb-1.5">Are there character or file size limits for text processing?</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">Because computation happens locally inside your browser memory, you can comfortably process documents with hundreds of thousands of words without hitting API timeouts.</p>
+          </div>
+          </div>
+        </div>
+
+  </main>
+
+  <!-- Global Technical Footer -->
+  <footer class="mt-auto border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#0e1117] text-zinc-500 dark:text-zinc-400 text-xs py-7 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 font-mono text-[11px]">
+        <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span>100 Client-Side Micro-Utilities</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span class="text-emerald-600 dark:text-emerald-400 font-medium">100% Offline Ready</span>
+      </div>
+      <div class="flex items-center gap-5 text-xs">
+        <a href="../pages/about.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
+        <a href="../pages/privacy.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1">
+          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>Support</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/utils.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      App.setupTheme();
+      Utils.refreshIcons();
+      Utils.initAdUnits();
+
+      // Register Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => console.warn('SW failed:', err));
+        });
+      }
+    });
+  </script>
+</body>
+</html>

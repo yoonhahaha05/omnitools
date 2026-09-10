@@ -486,6 +486,10 @@ const App = {
               <i data-lucide="link" class="w-3.5 h-3.5 text-zinc-400"></i>
               <span>Share</span>
             </button>
+            <button id="tool-embed-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs" title="Copy embed code">
+              <i data-lucide="code" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>Embed</span>
+            </button>
           </div>
         </div>
 
@@ -601,6 +605,16 @@ const App = {
     if (shareBtn) {
       shareBtn.addEventListener('click', () => {
         Utils.copyToClipboard(window.location.href, 'Link copied to clipboard');
+      });
+    }
+
+    // Embed button
+    const embedBtn = document.getElementById('tool-embed-btn');
+    if (embedBtn) {
+      embedBtn.addEventListener('click', () => {
+        const embedUrl = `${window.location.origin}/tools/${tool.id}.html?embed=true`;
+        const iframeCode = `<iframe src="${embedUrl}" width="100%" height="450" frameborder="0" style="border:1px solid #e4e4e7;border-radius:12px;overflow:hidden;" title="${tool.title}"></iframe>`;
+        Utils.copyToClipboard(iframeCode, 'Embed code copied to clipboard');
       });
     }
 

@@ -15,13 +15,12 @@ A free, 100% client-side web utility hub ("Swiss Army knife") built to rank for 
 
 - **Zero Server Costs ($0/mo):** 100% client-side JavaScript execution. Static files deployable directly to Cloudflare Pages, Vercel, or GitHub Pages.
 - **Client-Side Privacy:** All operations run locally inside the browser. Sensitive user data (JSON, passwords, tokens, text) is never transmitted across the network.
+- **Offline PWA Support:** Installable as a Progressive Web App on macOS, Windows, iOS, and Android. Full offline functionality powered by Service Worker shell caching.
+- **5 Dedicated Category Hubs & 100 Tool Pages:** Pre-rendered semantic HTML pages with rich JSON-LD structured data (WebApplication, CollectionPage, FAQPage, HowTo, BreadcrumbList) and OpenGraph / Twitter Cards.
+- **Embeddable Tool Widgets:** Clean `?embed=true` mode allowing tech writers and developers to embed any tool into their blogs, docs, and wikis.
+- **Instant Search Engine Indexing:** Automated IndexNow integration (`scripts/submit_indexnow.py`) for rapid crawling across Bing, Yandex, Seznam, and AI search engines.
+- **Viral Launch Kit:** Ready-to-use launch copy for Hacker News, Reddit, and Product Hunt in `docs/LAUNCH_KIT.md`.
 - **Modular JavaScript Registry:** Tools are organized cleanly by category (`js/tools/text.js`, `js/tools/dev.js`, `js/tools/math.js`, `js/tools/media.js`, `js/tools/quick.js`). Adding a new tool takes under 5 minutes without touching any routing logic.
-- **SEO & AdSense Optimized:** Each micro-tool includes 300–400+ words of explanatory overview, feature bullets, step-by-step instructions, and an FAQ schema accordion to sail through Google AdSense content audits.
-- **Deep-Linking & Dynamic Meta:** Hash-based routing (`#/tool/word-counter`) automatically updates page titles and meta descriptions for search indexing and social sharing.
-- **Multi-Channel Monetization Built-In:**
-  - Header banner for custom web development / automation lead generation.
-  - Buy Me a Coffee widget and footer links.
-  - Dedicated AdSense / EthicalAds non-intrusive container slots.
 
 ---
 

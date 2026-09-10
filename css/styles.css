@@ -143,4 +143,42 @@ body, aside, header, nav, div.transition-theme, button.transition-theme {
   color: #f4f4f5 !important;
 }
 
+/* Embed Mode for iframe integrations & widgets */
+body.embed-mode {
+  background-color: transparent !important;
+  min-height: auto !important;
+  overflow-x: hidden;
+  padding: 0 !important;
+}
+
+body.embed-mode header,
+body.embed-mode footer,
+body.embed-mode .breadcrumb-bar,
+body.embed-mode .tool-action-bar,
+body.embed-mode .ad-slot-wrapper,
+body.embed-mode .seo-deep-dive,
+body.embed-mode .related-tools-section {
+  display: none !important;
+}
+
+body.embed-mode main {
+  padding: 0.75rem !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+body.embed-mode .tool-header-card {
+  padding: 0.75rem 1rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.embed-attribution {
+  display: none;
+}
+
+body.embed-mode .embed-attribution {
+  display: flex !important;
+}
+
+
 

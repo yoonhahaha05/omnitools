@@ -3,9 +3,11 @@
 OmniTools - Programmatic SEO Build Engine
 Extracts all 100 tools and generates:
 1. 100 dedicated, semantic, pre-rendered static HTML pages (/tools/<id>.html)
-2. Rich JSON-LD Structured Data (WebApplication, FAQPage, HowTo, BreadcrumbList)
-3. Full sitemap.xml with priorities and changefreqs
-4. Standard robots.txt
+2. 5 dedicated Category Hub pages (/categories/<slug>.html)
+3. Rich JSON-LD Structured Data (WebApplication, CollectionPage, FAQPage, HowTo, BreadcrumbList)
+4. OpenGraph and Twitter Card social preview metadata
+5. Full sitemap.xml with priorities (Home 1.0, Categories 0.9, Tools 0.8, Pages 0.5)
+6. Standard robots.txt
 """
 
 import os, re, glob, json, html
@@ -13,19 +15,132 @@ from datetime import datetime
 
 BASE_URL = "https://getomnitools.com"
 TOOLS_DIR = "tools"
+CATEGORIES_DIR = "categories"
+
+CATEGORIES = [
+    {
+        "name": "Text & Formatting",
+        "slug": "text-formatting",
+        "file": "js/tools/text.js",
+        "icon": "type",
+        "badge": "25 Utilities",
+        "description": "High-speed client-side text tools for writers, programmers, and content creators. Remove whitespace, convert casing, inspect markdown, strip HTML tags, diff text, and format copy with zero data leaving your browser.",
+        "h1": "Text & Formatting Utilities",
+        "meta_title": "Free Online Text & Formatting Tools (100% Client-Side) | OmniTools",
+        "meta_description": "Clean, format, convert, and inspect text instantly in your browser. 25 free client-side text tools including Word Counter, Diff Checker, Case Converter, and Markdown Previewer.",
+        "faqs": [
+            {
+                "q": "Is my text data stored or sent to any remote server?",
+                "a": "Never. All 25 text utilities execute 100% in your browser's local JavaScript thread. No copy or keystrokes ever cross the internet."
+            },
+            {
+                "q": "Can I use these text formatting tools without an active internet connection?",
+                "a": "Yes! OmniTools is a Progressive Web App (PWA) with full offline caching. Once loaded, all text operations work seamlessly offline."
+            },
+            {
+                "q": "Are there character or file size limits for text processing?",
+                "a": "Because computation happens locally inside your browser memory, you can comfortably process documents with hundreds of thousands of words without hitting API timeouts."
+            }
+        ]
+    },
+    {
+        "name": "Developer & Data",
+        "slug": "developer-data",
+        "file": "js/tools/dev.js",
+        "icon": "code-2",
+        "badge": "25 Utilities",
+        "description": "Essential web developer and data manipulation utilities. Format and validate JSON, decode JWTs, convert curl requests, test regex, encode Base64, and calculate chmod permissions without exposing confidential code to external servers.",
+        "h1": "Developer & Data Processing Tools",
+        "meta_title": "Free Developer & Data Tools (100% Client-Side & Private) | OmniTools",
+        "meta_description": "25 fast client-side developer utilities. JSON validator, JWT decoder, Regex matcher, Base64 converter, cURL converter, and SQL formatter running 100% locally in browser memory.",
+        "faqs": [
+            {
+                "q": "Can I safely inspect proprietary JSON or JWT tokens here?",
+                "a": "Yes. Since OmniTools runs entirely inside your browser sandbox, sensitive tokens, environment keys, and payload secrets are never uploaded anywhere."
+            },
+            {
+                "q": "How does OmniTools compare to online converters that require backend servers?",
+                "a": "OmniTools offers zero latency, instant response times, zero server timeouts, and guaranteed confidentiality with no third-party data tracking."
+            },
+            {
+                "q": "Can I embed these developer tools into our engineering docs or internal wikis?",
+                "a": "Yes! Click the 'Embed' button on any tool to copy an iframe widget snippet you can embed directly into Notion, Confluence, or developer documentation."
+            }
+        ]
+    },
+    {
+        "name": "Everyday Math & Converters",
+        "slug": "everyday-math",
+        "file": "js/tools/math.js",
+        "icon": "calculator",
+        "badge": "25 Utilities",
+        "description": "Instant unit converters and everyday calculators for finance, time, science, and measurement. Calculate compound interest, tip splits, percentage changes, time zone differences, and unit metrics with zero calculation lag.",
+        "h1": "Everyday Math & Unit Converters",
+        "meta_title": "Free Online Math & Unit Converters (Instant & Precise) | OmniTools",
+        "meta_description": "25 instant math, currency, time, and unit calculators. Calculate percentages, compound interest, tip splitting, salary conversions, and epoch timestamps with zero latency.",
+        "faqs": [
+            {
+                "q": "Are financial calculations like compound interest rounded accurately?",
+                "a": "Yes, our calculators use standard financial formulas with high-precision floating-point arithmetic for trustworthy projections."
+            },
+            {
+                "q": "Can I convert timestamps between different time zones accurately?",
+                "a": "Yes, the time zone and Unix timestamp tools use your browser's native Internationalization API (Intl) and system clock to deliver exact conversions."
+            }
+        ]
+    },
+    {
+        "name": "Media, CSS & Design",
+        "slug": "media-css-design",
+        "file": "js/tools/media.js",
+        "icon": "palette",
+        "badge": "15 Utilities",
+        "description": "High-performance CSS generators, color tools, and in-browser image processing utilities. Generate box shadows, gradients, and glassmorphism styling, check WCAG 2.1 color contrast, and resize or crop images directly via HTML5 Canvas.",
+        "h1": "Media, CSS Generators & Design Utilities",
+        "meta_title": "Free CSS Generators, Color & Media Tools (Client-Side) | OmniTools",
+        "meta_description": "15 CSS and design utilities. Generate box shadows, CSS gradients, glassmorphism, QR codes, palettes, and check WCAG contrast. Crop and resize images 100% client-side.",
+        "faqs": [
+            {
+                "q": "Do my images get uploaded to a cloud server when resizing or cropping?",
+                "a": "No. Images are rendered and modified directly in your browser's HTML5 Canvas memory. Your photos never leave your device."
+            },
+            {
+                "q": "Are the generated CSS styles compatible with modern browsers?",
+                "a": "Yes, all CSS snippets are optimized for modern web standards including Flexbox, CSS Grid, CSS Variables, and cross-browser prefixes."
+            }
+        ]
+    },
+    {
+        "name": "Quick Utilities & Life Tools",
+        "slug": "quick-utilities",
+        "file": "js/tools/quick.js",
+        "icon": "zap",
+        "badge": "10 Utilities",
+        "description": "Everyday productivity boosters and quick system utilities. Generate cryptographically strong passwords via Web Crypto, run Pomodoro focus cycles, inspect viewport dimensions, and test network latency.",
+        "h1": "Quick Utilities & Everyday Productivity Tools",
+        "meta_title": "Free Productivity & Quick Life Tools (Offline-Ready) | OmniTools",
+        "meta_description": "10 handy productivity tools. Cryptographically secure password generator, Pomodoro focus timer, metronome, stopwatch, screen resolution inspector, and local scratchpad.",
+        "faqs": [
+            {
+                "q": "How secure is the Password Generator?",
+                "a": "It uses the browser's cryptographic window.crypto.getRandomValues() standard, ensuring true cryptographically secure pseudorandom entropy."
+            },
+            {
+                "q": "Where does the Scratchpad store my notes?",
+                "a": "Notes are stored in your browser's local window.localStorage sandbox. They remain on your device even if you close the tab."
+            }
+        ]
+    }
+]
+
+CATEGORY_MAP = {c["name"]: c for c in CATEGORIES}
 
 def extract_tools():
-    categories_files = [
-        ("Text & Formatting", "js/tools/text.js"),
-        ("Developer & Data", "js/tools/dev.js"),
-        ("Everyday Math & Converters", "js/tools/math.js"),
-        ("Media, CSS & Design", "js/tools/media.js"),
-        ("Quick Utilities & Life Tools", "js/tools/quick.js")
-    ]
-    
     all_tools = []
     
-    for cat_name, filepath in categories_files:
+    for cat_meta in CATEGORIES:
+        cat_name = cat_meta["name"]
+        filepath = cat_meta["file"]
         content = open(filepath, encoding='utf-8').read()
         
         # Split into blocks starting with `id:`
@@ -158,7 +273,15 @@ SEO_OVERRIDES = {
 }
 
 def generate_tool_html(tool, all_tools):
-    # Determine related tools (3 from same category, excluding self)
+    # Determine category metadata
+    cat_meta = CATEGORY_MAP.get(tool['category'], {
+        "name": tool['category'],
+        "slug": "developer-data"
+    })
+    cat_slug = cat_meta['slug']
+    cat_url = f"{BASE_URL}/categories/{cat_slug}.html"
+    
+    # Related tools (3 from same category, excluding self)
     related = [t for t in all_tools if t['category'] == tool['category'] and t['id'] != tool['id']][:3]
     if len(related) < 3:
         related += [t for t in all_tools if t['id'] != tool['id']][:3 - len(related)]
@@ -190,7 +313,7 @@ def generate_tool_html(tool, all_tools):
     }
     schemas.append(web_app_schema)
     
-    # 2. Breadcrumbs schema
+    # 2. Breadcrumbs schema (Pointing to static Category Hub)
     breadcrumb_schema = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -205,7 +328,7 @@ def generate_tool_html(tool, all_tools):
                 "@type": "ListItem",
                 "position": 2,
                 "name": tool['category'],
-                "item": f"{BASE_URL}/index.html#/category/{html.escape(tool['category'])}"
+                "item": cat_url
             },
             {
                 "@type": "ListItem",
@@ -317,15 +440,504 @@ def generate_tool_html(tool, all_tools):
   <meta name="keywords" content="{html.escape(', '.join(tool['keywords']))}">
   <link rel="canonical" href="{canonical_url}">
 
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#0e1117">
+
   <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="{html.escape(page_title)}">
   <meta property="og:description" content="{html.escape(tool['description'])}">
   <meta property="og:url" content="{canonical_url}">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <link rel="manifest" href="../manifest.json">
-  <meta name="theme-color" content="#0b0d11">
-  <meta name="mobile-web-app-capable" content="yes">
+  <meta property="og:image" content="{BASE_URL}/assets/og-image.png">
+  <meta property="og:image:secure_url" content="{BASE_URL}/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{html.escape(tool['title'])} - OmniTools">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{html.escape(page_title)}">
+  <meta name="twitter:description" content="{html.escape(tool['description'])}">
+  <meta name="twitter:image" content="{BASE_URL}/assets/og-image.png">
+
+  <!-- Search Engine Verification -->
+  <meta name="google-site-verification" content="GSC_VERIFICATION_TOKEN">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google AdSense Configuration & Script -->
+  <script>
+    window.ADSENSE_CONFIG = {{
+      client: 'ca-pub-3261737439776294',
+      slotHome: '1234567890',
+      slotTool: '2345678901',
+      slotSidebar: '3456789012'
+    }};
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {{
+      darkMode: 'class',
+      theme: {{
+        extend: {{
+          fontFamily: {{
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          }},
+          colors: {{
+            brand: {{
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }}
+          }}
+        }}
+      }}
+    }}
+  </script>
+
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <!-- JSON-LD Structured Data for Search Engines -->
+{json_ld_scripts}
+</head>
+<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+
+  <!-- Primary Top Navbar -->
+  <header class="sticky top-0 z-30 bg-white/90 dark:bg-[#0e1117]/90 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-15 py-2.5 flex items-center justify-between gap-4">
+      
+      <!-- Brand -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="../index.html" class="flex items-center gap-2.5 group">
+          <div class="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center font-mono font-bold text-xs tracking-tight group-hover:scale-105 transition-transform shadow-xs">
+            /o
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span class="font-extrabold text-lg tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
+            <span class="hidden sm:inline-block text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-100/60 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400">100 TOOLS</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Quick Search / Catalog Link -->
+      <div class="flex-1 max-w-md mx-4 hidden sm:block">
+        <a href="../index.html" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
+          <span>Search all 100 utilities...</span>
+          <kbd class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-300/70 dark:border-zinc-750 bg-white dark:bg-zinc-800/80 text-zinc-400 shadow-2xs">⌘K</kbd>
+        </a>
+      </div>
+
+      <!-- Action Controls -->
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="../categories/{cat_slug}.html" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+          <i data-lucide="folder" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">{html.escape(tool['category'])}</span>
+        </a>
+
+        <a href="../index.html" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">All Tools</span>
+        </a>
+
+        <button id="theme-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-600 dark:text-zinc-300 transition" title="Toggle Theme">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
+          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>Support</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full space-y-6">
+    
+    <!-- Breadcrumbs & Tool Action Buttons -->
+    <div class="breadcrumb-bar flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">
+        <a href="../index.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Catalog</a>
+        <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
+        <a href="../categories/{cat_slug}.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">{html.escape(tool['category'])}</a>
+        <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
+        <span class="text-zinc-900 dark:text-zinc-200 font-semibold">{html.escape(tool['title'])}</span>
+      </div>
+
+      <div class="tool-action-bar flex items-center gap-2">
+        <button id="tool-fav-btn" data-tool-id="{tool['id']}" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
+          <i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span id="fav-label">Favorite</span>
+        </button>
+        <button id="tool-share-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
+          <i data-lucide="link" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span>Share</span>
+        </button>
+        <button id="tool-embed-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs" title="Copy embeddable widget snippet">
+          <i data-lucide="code" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span>Embed</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tool Header Banner -->
+    <div class="tool-header-card p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200 shrink-0">
+          <i data-lucide="sparkles" class="w-5 h-5 tool-main-icon"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="flex flex-wrap items-center gap-2">
+            <h1 class="text-lg sm:text-xl font-extrabold text-zinc-950 dark:text-zinc-50 tracking-tight">
+              {html.escape(tool['title'])}
+            </h1>
+            <span class="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">Client-Side</span>
+          </div>
+          <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
+            {html.escape(tool['description'])}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Tool Arena Container -->
+    <div id="tool-arena" class="p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
+      <div class="text-xs text-zinc-400 font-mono py-8 text-center">Loading interactive utility workspace...</div>
+    </div>
+
+    <!-- Architectural Privacy & Sandbox Guarantee -->
+    <div class="p-3.5 rounded-lg border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50 dark:bg-zinc-900/30 flex items-center justify-between text-[11px] text-zinc-500 dark:text-zinc-400 font-mono">
+      <span class="flex items-center gap-2">
+        <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-500"></i>
+        <span>Local Browser Memory • Zero Network Telemetry</span>
+      </span>
+      <a href="../pages/privacy.html" class="underline hover:text-zinc-900 dark:hover:text-zinc-200">Inspect Guarantee</a>
+    </div>
+
+    <!-- Embed Mode Attribution Banner (shown only when embedded inside iframes) -->
+    <div class="embed-attribution p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 items-center justify-between text-xs">
+      <a href="{BASE_URL}" target="_blank" rel="noopener" class="flex items-center gap-1.5 font-semibold text-zinc-900 dark:text-white">
+        <span class="w-4 h-4 rounded bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 font-mono text-[9px] flex items-center justify-center">/o</span>
+        <span>OmniTools</span>
+      </a>
+      <span class="text-zinc-400 text-[11px]">100% Free &amp; Client-Side Web Utilities</span>
+    </div>
+
+    <!-- Google AdSense Responsive Placement -->
+    <div class="ad-slot-wrapper w-full p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 my-6">
+      <div class="ad-label text-zinc-400 dark:text-zinc-500 mb-2">Advertisement</div>
+      <div class="w-full flex justify-center items-center overflow-hidden min-h-[90px]">
+        <ins class="adsbygoogle"
+             style="display:block;width:100%;"
+             data-ad-client="ca-pub-3261737439776294"
+             data-ad-slot="2345678901"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+
+    <!-- Pre-rendered Semantic SEO Article, Instructions & Technical Notes -->
+    <div class="seo-deep-dive p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-5 text-xs sm:text-sm">
+      <div>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-1.5">Overview & Purpose</h2>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm">
+          {html.escape(tool['overview'])}
+        </p>
+      </div>
+{features_html}
+{howto_html}
+{faqs_html}
+    </div>
+
+    <!-- Related Utilities (Internal Linking Engine for Google SEO) -->
+    <div class="related-tools-section space-y-3 pt-2">
+      <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Related {html.escape(tool['category'])} Utilities</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+{related_cards_html}
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Global Technical Footer -->
+  <footer class="mt-auto border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#0e1117] text-zinc-500 dark:text-zinc-400 text-xs py-7 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 font-mono text-[11px]">
+        <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span>100 Client-Side Micro-Utilities</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span class="text-emerald-600 dark:text-emerald-400 font-medium">100% Offline Ready</span>
+      </div>
+      <div class="flex items-center gap-5 text-xs">
+        <a href="../pages/about.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
+        <a href="../pages/privacy.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1">
+          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>Support</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/utils.js"></script>
+  <script src="../js/tools/text.js"></script>
+  <script src="../js/tools/dev.js"></script>
+  <script src="../js/tools/math.js"></script>
+  <script src="../js/tools/media.js"></script>
+  <script src="../js/tools/quick.js"></script>
+  <script src="../js/registry.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {{
+      // Setup theme
+      App.setupTheme();
+
+      // Check for embed mode parameter (?embed=true or #embed)
+      if (window.location.search.includes('embed=true') || window.location.hash.includes('embed')) {{
+        document.body.classList.add('embed-mode');
+      }}
+      
+      // Mount interactive tool
+      const tool = ToolRegistry.getToolById('{tool['id']}');
+      const arena = document.getElementById('tool-arena');
+      if (tool && arena && typeof tool.render === 'function') {{
+        try {{
+          tool.render(arena);
+        }} catch (err) {{
+          console.error('Error rendering tool:', err);
+          arena.innerHTML = `<div class="p-4 bg-rose-50 text-rose-700 rounded-lg text-xs">Error rendering tool: ${{err.message}}</div>`;
+        }}
+      }}
+      
+      // Update main icon
+      if (tool) {{
+        const iconName = Utils.getIconName(tool.icon, tool.category);
+        const iconEl = document.querySelector('.tool-main-icon');
+        if (iconEl) {{
+          iconEl.setAttribute('data-lucide', iconName);
+        }}
+      }}
+      
+      // Favorite button
+      const favBtn = document.getElementById('tool-fav-btn');
+      if (favBtn) {{
+        const isFav = Utils.storage.isFavorite('{tool['id']}');
+        const starIcon = isFav ? '<i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i>' : '<i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>';
+        favBtn.innerHTML = `${{starIcon}}<span>${{isFav ? 'Favorited' : 'Favorite'}}</span>`;
+        favBtn.addEventListener('click', () => {{
+          const added = Utils.storage.toggleFavorite('{tool['id']}');
+          const updatedStar = added ? '<i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i>' : '<i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>';
+          favBtn.innerHTML = `${{updatedStar}}<span>${{added ? 'Favorited' : 'Favorite'}}</span>`;
+          Utils.refreshIcons();
+        }});
+      }}
+      
+      // Share button
+      const shareBtn = document.getElementById('tool-share-btn');
+      if (shareBtn) {{
+        shareBtn.addEventListener('click', () => {{
+          Utils.copyToClipboard(window.location.href, 'Link copied to clipboard');
+        }});
+      }}
+
+      // Embed button
+      const embedBtn = document.getElementById('tool-embed-btn');
+      if (embedBtn) {{
+        embedBtn.addEventListener('click', () => {{
+          const embedCode = `<iframe src="{canonical_url}?embed=true" width="100%" height="450" frameborder="0" style="border:1px solid #e4e4e7;border-radius:12px;overflow:hidden;" title="{html.escape(tool['title'])}"></iframe>`;
+          Utils.copyToClipboard(embedCode, 'Embed code copied to clipboard');
+        }});
+      }}
+      
+      Utils.refreshIcons();
+      Utils.initAdUnits();
+
+      // Register PWA Service Worker
+      if ('serviceWorker' in navigator) {{
+        window.addEventListener('load', () => {{
+          navigator.serviceWorker.register('/sw.js').catch(err => console.warn('SW failed:', err));
+        }});
+      }}
+    }});
+  </script>
+</body>
+</html>
+"""
+    return page_content
+
+def generate_category_html(category, tools_in_cat, all_categories):
+    canonical_url = f"{BASE_URL}/categories/{category['slug']}.html"
+    page_title = category['meta_title']
+    
+    # Generate tools grid cards
+    tool_cards = []
+    for t in tools_in_cat:
+        tool_cards.append(f"""
+        <a href="../tools/{t['id']}.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="{Utils_get_icon(t['icon'], t['category'])}" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">{html.escape(t['title'])}</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">{html.escape(t['description'])}</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>""")
+        
+    tool_cards_html = "\n".join(tool_cards)
+    
+    # Category navigation tabs
+    cat_tabs = []
+    for c in all_categories:
+        is_active = c['slug'] == category['slug']
+        active_cls = "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-950 font-bold" if is_active else "bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600"
+        cat_tabs.append(f"""
+        <a href="{c['slug']}.html" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap {active_cls}">
+          {html.escape(c['name'])} ({c['badge'].split()[0]})
+        </a>""")
+    cat_tabs_html = "\n".join(cat_tabs)
+
+    # Category FAQs
+    cat_faqs_html = ""
+    if category.get('faqs'):
+        faq_blocks = "\n".join([f"""
+          <div class="p-4 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800">
+            <h3 class="font-semibold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 mb-1.5">{html.escape(f['q'])}</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">{html.escape(f['a'])}</p>
+          </div>""" for f in category['faqs']])
+        cat_faqs_html = f"""
+        <div class="space-y-3 pt-4">
+          <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Frequently Asked Questions</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+{faq_blocks}
+          </div>
+        </div>"""
+
+    # Structured Data
+    schemas = [
+        {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": category['h1'],
+            "url": canonical_url,
+            "description": category['meta_description'],
+            "mainEntity": {
+                "@type": "ItemList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": idx + 1,
+                        "name": t['title'],
+                        "url": f"{BASE_URL}/tools/{t['id']}.html"
+                    } for idx, t in enumerate(tools_in_cat)
+                ]
+            }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": f"{BASE_URL}/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": category['name'],
+                    "item": canonical_url
+                }
+            ]
+        }
+    ]
+    
+    if category.get('faqs'):
+        schemas.append({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": f['q'],
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": f['a']
+                    }
+                } for f in category['faqs']
+            ]
+        })
+
+    json_ld_scripts = "\n".join([
+        f'  <script type="application/ld+json">\n{json.dumps(s, indent=2)}\n  </script>'
+        for s in schemas
+    ])
+
+    return f"""<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{html.escape(page_title)}</title>
+  <meta name="description" content="{html.escape(category['meta_description'])}">
+  <link rel="canonical" href="{canonical_url}">
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#0e1117">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{html.escape(page_title)}">
+  <meta property="og:description" content="{html.escape(category['meta_description'])}">
+  <meta property="og:url" content="{canonical_url}">
+  <meta property="og:image" content="{BASE_URL}/assets/og-image.png">
+  <meta property="og:image:secure_url" content="{BASE_URL}/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{html.escape(category['name'])} - OmniTools">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{html.escape(page_title)}">
+  <meta name="twitter:description" content="{html.escape(category['meta_description'])}">
+  <meta name="twitter:image" content="{BASE_URL}/assets/og-image.png">
+>>>>>>> 79446c4 (feat(growth): add PWA offline support, category hubs, OG social cards, and IndexNow indexing)
 
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -413,7 +1025,7 @@ def generate_tool_html(tool, all_tools):
       <div class="flex items-center gap-2 shrink-0">
         <a href="../index.html" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
           <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
-          <span class="hidden sm:inline">All Tools</span>
+          <span>All 100 Tools</span>
         </a>
 
         <button id="theme-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-600 dark:text-zinc-300 transition" title="Toggle Theme">
@@ -429,66 +1041,55 @@ def generate_tool_html(tool, all_tools):
   </header>
 
   <!-- Main Container -->
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full space-y-6">
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-8">
     
-    <!-- Breadcrumbs & Tool Action Buttons -->
-    <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
-      <div class="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">
-        <a href="../index.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Catalog</a>
-        <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
-        <a href="../index.html#/category/{html.escape(tool['category'])}" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">{html.escape(tool['category'])}</a>
-        <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
-        <span class="text-zinc-900 dark:text-zinc-200 font-semibold">{html.escape(tool['title'])}</span>
+    <!-- Breadcrumbs -->
+    <div class="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">
+      <a href="../index.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Home</a>
+      <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
+      <span class="text-zinc-900 dark:text-zinc-200 font-semibold">{html.escape(category['name'])}</span>
+    </div>
+
+    <!-- Category Header Hero -->
+    <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-3">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
+          {category['badge']}
+        </span>
+        <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+          100% Client-Side Private
+        </span>
+        <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+          Offline Ready
+        </span>
       </div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+        {html.escape(category['h1'])}
+      </h1>
+      <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 max-w-3xl leading-relaxed">
+        {html.escape(category['description'])}
+      </p>
+    </div>
 
-      <div class="flex items-center gap-2">
-        <button id="tool-fav-btn" data-tool-id="{tool['id']}" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
-          <i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>
-          <span id="fav-label">Favorite</span>
-        </button>
-        <button id="tool-share-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
-          <i data-lucide="link" class="w-3.5 h-3.5 text-zinc-400"></i>
-          <span>Share</span>
-        </button>
+    <!-- Category Hub Navigation Pills -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+      <span class="text-[11px] font-mono text-zinc-400 shrink-0 mr-1">Categories:</span>
+{cat_tabs_html}
+    </div>
+
+    <!-- Category Tools Grid -->
+    <div class="space-y-3">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Available {html.escape(category['name'])} Micro-Tools</h2>
+        <span class="text-[11px] font-mono text-zinc-400">{len(tools_in_cat)} utilities active</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+{tool_cards_html}
       </div>
     </div>
 
-    <!-- Tool Header Banner -->
-    <div class="p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
-      <div class="flex items-start gap-3.5">
-        <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200 shrink-0">
-          <i data-lucide="sparkles" class="w-5 h-5 tool-main-icon"></i>
-        </div>
-        <div class="min-w-0 flex-1">
-          <div class="flex flex-wrap items-center gap-2">
-            <h1 class="text-lg sm:text-xl font-extrabold text-zinc-950 dark:text-zinc-50 tracking-tight">
-              {html.escape(tool['title'])}
-            </h1>
-            <span class="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">Client-Side</span>
-          </div>
-          <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-            {html.escape(tool['description'])}
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Interactive Tool Arena Container -->
-    <div id="tool-arena" class="p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
-      <div class="text-xs text-zinc-400 font-mono py-8 text-center">Loading interactive utility workspace...</div>
-    </div>
-
-    <!-- Architectural Privacy & Sandbox Guarantee -->
-    <div class="p-3.5 rounded-lg border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50 dark:bg-zinc-900/30 flex items-center justify-between text-[11px] text-zinc-500 dark:text-zinc-400 font-mono">
-      <span class="flex items-center gap-2">
-        <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-500"></i>
-        <span>Local Browser Memory • Zero Network Telemetry</span>
-      </span>
-      <a href="../pages/privacy.html" class="underline hover:text-zinc-900 dark:hover:text-zinc-200">Inspect Guarantee</a>
-    </div>
-
-    <!-- Google AdSense Responsive Placement -->
-    <div class="ad-slot-wrapper w-full p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 my-6">
+    <!-- Google AdSense Responsive Unit -->
+    <div class="ad-slot-wrapper w-full p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30">
       <div class="ad-label text-zinc-400 dark:text-zinc-500 mb-2">Advertisement</div>
       <div class="w-full text-center overflow-hidden" style="min-height: 90px;">
         <ins class="adsbygoogle"
@@ -500,26 +1101,8 @@ def generate_tool_html(tool, all_tools):
       </div>
     </div>
 
-    <!-- Pre-rendered Semantic SEO Article, Instructions & Technical Notes -->
-    <div class="p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-5 text-xs sm:text-sm">
-      <div>
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-1.5">Overview & Purpose</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm">
-          {html.escape(tool['overview'])}
-        </p>
-      </div>
-{features_html}
-{howto_html}
-{faqs_html}
-    </div>
-
-    <!-- Related Utilities (Internal Linking Engine for Google SEO) -->
-    <div class="space-y-3 pt-2">
-      <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Related {html.escape(tool['category'])} Utilities</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-{related_cards_html}
-      </div>
-    </div>
+    <!-- Category Technical Guide & FAQs -->
+{cat_faqs_html}
 
   </main>
 
@@ -546,83 +1129,153 @@ def generate_tool_html(tool, all_tools):
 
   <!-- Scripts -->
   <script src="../js/utils.js"></script>
-  <script src="../js/tools/text.js"></script>
-  <script src="../js/tools/dev.js"></script>
-  <script src="../js/tools/math.js"></script>
-  <script src="../js/tools/media.js"></script>
-  <script src="../js/tools/quick.js"></script>
-  <script src="../js/registry.js"></script>
   <script src="../js/app.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {{
-      // Setup theme
       App.setupTheme();
-      
-      // Mount interactive tool
-      const tool = ToolRegistry.getToolById('{tool['id']}');
-      const arena = document.getElementById('tool-arena');
-      if (tool && arena && typeof tool.render === 'function') {{
-        try {{
-          tool.render(arena);
-        }} catch (err) {{
-          console.error('Error rendering tool:', err);
-          arena.innerHTML = `<div class="p-4 bg-rose-50 text-rose-700 rounded-lg text-xs">Error rendering tool: ${{err.message}}</div>`;
-        }}
-      }}
-      
-      // Update main icon
-      if (tool) {{
-        const iconName = Utils.getIconName(tool.icon, tool.category);
-        const iconEl = document.querySelector('.tool-main-icon');
-        if (iconEl) {{
-          iconEl.setAttribute('data-lucide', iconName);
-        }}
-      }}
-      
-      // Favorite button
-      const favBtn = document.getElementById('tool-fav-btn');
-      if (favBtn) {{
-        const isFav = Utils.storage.isFavorite('{tool['id']}');
-        const starIcon = isFav ? '<i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i>' : '<i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>';
-        favBtn.innerHTML = `${{starIcon}}<span>${{isFav ? 'Favorited' : 'Favorite'}}</span>`;
-        favBtn.addEventListener('click', () => {{
-          const added = Utils.storage.toggleFavorite('{tool['id']}');
-          const updatedStar = added ? '<i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i>' : '<i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>';
-          favBtn.innerHTML = `${{updatedStar}}<span>${{added ? 'Favorited' : 'Favorite'}}</span>`;
-          Utils.refreshIcons();
-        }});
-      }}
-      
-      // Share button
-      const shareBtn = document.getElementById('tool-share-btn');
-      if (shareBtn) {{
-        shareBtn.addEventListener('click', () => {{
-          Utils.copyToClipboard(window.location.href, 'Link copied to clipboard');
-        }});
-      }}
-      
       Utils.refreshIcons();
       Utils.initAdUnits();
+
+      // Register Service Worker
+      if ('serviceWorker' in navigator) {{
+        window.addEventListener('load', () => {{
+          navigator.serviceWorker.register('/sw.js').catch(err => console.warn('SW failed:', err));
+        }});
+      }}
     }});
   </script>
 </body>
 </html>
 """
-    return page_content
+
+def Utils_get_icon(icon_str, category_name):
+    # Mapping helper for icons
+    mapping = {
+        '🔤': 'type',
+        '⏱️': 'clock',
+        'Aa': 'case-sensitive',
+        '␣': 'space',
+        '↵': 'corner-down-left',
+        '🔀': 'arrow-up-down',
+        '🔄': 'repeat',
+        '⚖️': 'git-compare',
+        '✂️': 'scissors',
+        '📝': 'file-text',
+        '📜': 'align-left',
+        '🔗': 'link',
+        '🔍': 'search',
+        '🏷️': 'code',
+        '💬': 'message-square',
+        '👻': 'ghost',
+        '01': 'binary',
+        '#': 'hash',
+        '📻': 'radio',
+        '✨': 'sparkles',
+        '🔢': 'list-ordered',
+        '🌐': 'globe',
+        '✉️': 'mail',
+        '🚫': 'smile-plus',
+        '{ }': 'braces',
+        '📦': 'minimize-2',
+        '🔐': 'key-round',
+        '📊': 'table',
+        '📈': 'file-spreadsheet',
+        '&': 'ampersand',
+        '🎫': 'shield-check',
+        '⏳': 'hourglass',
+        '🎯': 'crosshair',
+        '🎨': 'palette',
+        '⚡': 'zap',
+        '🗄️': 'database',
+        '📋': 'file-code',
+        '🖼️': 'image',
+        '🚦': 'signal',
+        '📎': 'paperclip',
+        '🔒': 'lock',
+        '💻': 'terminal',
+        '🆔': 'fingerprint',
+        '👤': 'user',
+        '⌨️': 'keyboard',
+        '%': 'percent',
+        '🏷️': 'tag',
+        '💵': 'receipt',
+        '📏': 'ruler',
+        '⚖️': 'scale',
+        '🌡️': 'thermometer',
+        '💾': 'hard-drive',
+        '🚀': 'gauge',
+        '🌍': 'globe-2',
+        '🕒': 'history',
+        '📅': 'calendar',
+        '🎂': 'cake',
+        '↔️': 'calendar-days',
+        '📐': 'aspect-ratio',
+        '🖥️': 'monitor',
+        '💰': 'trending-up',
+        '💼': 'briefcase',
+        '🎓': 'graduation-cap',
+        '🏛️': 'landmark',
+        '🎲': 'dice-5',
+        '🪙': 'coins',
+        '🏃': 'activity',
+        '⛽': 'fuel',
+        '🧮': 'calculator',
+        '👁️': 'eye',
+        '📱': 'qr-code',
+        '🛒': 'barcode',
+        '🌫️': 'layers',
+        '🫧': 'circle-dot',
+        '🌈': 'paint-bucket',
+        '💎': 'gem',
+        '〰️': 'spline',
+        '📐': 'maximize',
+        '✂️': 'crop',
+        '🎭': 'sliders',
+        '⭐': 'star',
+        '🐦': 'twitter',
+        '🎲': 'dices',
+        '⏱️': 'timer',
+        '⏰': 'bell-ring',
+        '🍅': 'brain',
+        '🎵': 'music',
+        '📝': 'notebook-pen',
+        '📺': 'tv',
+        '🧹': 'trash-2',
+        '📶': 'wifi'
+    }
+    return mapping.get(icon_str, 'sparkles')
 
 def generate_sitemap(tools):
     now = datetime.now().strftime("%Y-%m-%d")
     urls = []
     
-    # 1. Home page (Priority 1.0)
+    # 1. Homepage (Priority 1.0)
     urls.append(f"""  <url>
     <loc>{BASE_URL}/</loc>
     <lastmod>{now}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>""")
+
+    # 2. 5 Category Hub Pages (Priority 0.9)
+    for cat in CATEGORIES:
+        urls.append(f"""  <url>
+    <loc>{BASE_URL}/categories/{cat['slug']}.html</loc>
+    <lastmod>{now}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>""")
     
-    # 2. About & Privacy (Priority 0.5)
+    # 3. All 100 Tools (Priority 0.8)
+    for tool in tools:
+        urls.append(f"""  <url>
+    <loc>{BASE_URL}/tools/{tool['id']}.html</loc>
+    <lastmod>{now}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>""")
+
+    # 4. About & Privacy (Priority 0.5)
     urls.append(f"""  <url>
     <loc>{BASE_URL}/pages/about.html</loc>
     <lastmod>{now}</lastmod>
@@ -634,15 +1287,6 @@ def generate_sitemap(tools):
     <lastmod>{now}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url>""")
-    
-    # 3. All 100 Tools (Priority 0.8)
-    for tool in tools:
-        urls.append(f"""  <url>
-    <loc>{BASE_URL}/tools/{tool['id']}.html</loc>
-    <lastmod>{now}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>""")
         
     sitemap_content = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -670,7 +1314,22 @@ def main():
         raise ValueError(f"Expected 100 tools, found {len(tools)}!")
         
     os.makedirs(TOOLS_DIR, exist_ok=True)
+    os.makedirs(CATEGORIES_DIR, exist_ok=True)
     
+    # Group tools by category
+    tools_by_cat = {}
+    for cat in CATEGORIES:
+        tools_by_cat[cat['name']] = [t for t in tools if t['category'] == cat['name']]
+        
+    print(f"Generating 5 Category Hub pages in '{CATEGORIES_DIR}/'...")
+    for cat in CATEGORIES:
+        cat_tools = tools_by_cat[cat['name']]
+        cat_html = generate_category_html(cat, cat_tools, CATEGORIES)
+        cat_path = os.path.join(CATEGORIES_DIR, f"{cat['slug']}.html")
+        with open(cat_path, "w", encoding="utf-8") as f:
+            f.write(cat_html)
+        print(f"  Generated Category Hub: {cat_path} ({len(cat_tools)} tools)")
+
     print(f"Generating 100 static HTML files in '{TOOLS_DIR}/'...")
     for idx, tool in enumerate(tools, 1):
         html_content = generate_tool_html(tool, tools)
@@ -684,7 +1343,7 @@ def main():
     sitemap_content = generate_sitemap(tools)
     with open("sitemap.xml", "w", encoding="utf-8") as f:
         f.write(sitemap_content)
-    print("  sitemap.xml written successfully (103 URLs).")
+    print("  sitemap.xml written successfully (108 URLs).")
     
     print("Generating robots.txt...")
     robots_content = generate_robots_txt()
@@ -692,7 +1351,7 @@ def main():
         f.write(robots_content)
     print("  robots.txt written successfully.")
     
-    print("\nSUCCESS: Programmatic SEO build complete!")
+    print("\nSUCCESS: Programmatic SEO build complete! 100 tools + 5 category hubs generated.")
 
 if __name__ == "__main__":
     main()

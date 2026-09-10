@@ -11,11 +11,33 @@
   <meta name="theme-color" content="#0b0d11">
   <link rel="canonical" href="https://getomnitools.com/tools/hash-generator.html">
 
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#0e1117">
+
   <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Online Hash Generator - MD5, SHA-1, SHA-256 & SHA-512 Checksums | OmniTools">
   <meta property="og:description" content="Generate cryptographic checksum hashes including MD5, SHA-1, SHA-256, SHA-384, and SHA-512 instantly in your browser. 100% client-side privacy.">
   <meta property="og:url" content="https://getomnitools.com/tools/hash-generator.html">
+  <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:secure_url" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Cryptographic Hash Generator - OmniTools">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cryptographic Hash Generator - Free Online Tool (100% Client-Side) | OmniTools">
+  <meta name="twitter:description" content="Generate SHA-1, SHA-256, SHA-512, and MD5 cryptographic hashes using hardware-accelerated Web Crypto.">
+  <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
+
+  <!-- Search Engine Verification -->
+  <meta name="google-site-verification" content="GSC_VERIFICATION_TOKEN">
 
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,7 +122,7 @@
       "@type": "ListItem",
       "position": 2,
       "name": "Developer & Data",
-      "item": "https://getomnitools.com/index.html#/category/Developer &amp; Data"
+      "item": "https://getomnitools.com/categories/developer-data.html"
     },
     {
       "@type": "ListItem",
@@ -182,6 +204,11 @@
 
       <!-- Action Controls -->
       <div class="flex items-center gap-2 shrink-0">
+        <a href="../categories/developer-data.html" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+          <i data-lucide="folder" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">Developer &amp; Data</span>
+        </a>
+
         <a href="../index.html" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
           <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
           <span class="hidden sm:inline">All Tools</span>
@@ -203,16 +230,16 @@
   <main class="max-w-4xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full space-y-6">
     
     <!-- Breadcrumbs & Tool Action Buttons -->
-    <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+    <div class="breadcrumb-bar flex flex-wrap items-center justify-between gap-3 text-xs">
       <div class="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">
         <a href="../index.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Catalog</a>
         <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
-        <a href="../index.html#/category/Developer &amp; Data" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Developer &amp; Data</a>
+        <a href="../categories/developer-data.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Developer &amp; Data</a>
         <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
         <span class="text-zinc-900 dark:text-zinc-200 font-semibold">Cryptographic Hash Generator</span>
       </div>
 
-      <div class="flex items-center gap-2">
+      <div class="tool-action-bar flex items-center gap-2">
         <button id="tool-fav-btn" data-tool-id="hash-generator" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
           <i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>
           <span id="fav-label">Favorite</span>
@@ -221,11 +248,15 @@
           <i data-lucide="link" class="w-3.5 h-3.5 text-zinc-400"></i>
           <span>Share</span>
         </button>
+        <button id="tool-embed-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs" title="Copy embeddable widget snippet">
+          <i data-lucide="code" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span>Embed</span>
+        </button>
       </div>
     </div>
 
     <!-- Tool Header Banner -->
-    <div class="p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
+    <div class="tool-header-card p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
       <div class="flex items-start gap-3.5">
         <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200 shrink-0">
           <i data-lucide="sparkles" class="w-5 h-5 tool-main-icon"></i>
@@ -258,6 +289,15 @@
       <a href="../pages/privacy.html" class="underline hover:text-zinc-900 dark:hover:text-zinc-200">Inspect Guarantee</a>
     </div>
 
+    <!-- Embed Mode Attribution Banner (shown only when embedded inside iframes) -->
+    <div class="embed-attribution p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 items-center justify-between text-xs">
+      <a href="https://getomnitools.com" target="_blank" rel="noopener" class="flex items-center gap-1.5 font-semibold text-zinc-900 dark:text-white">
+        <span class="w-4 h-4 rounded bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 font-mono text-[9px] flex items-center justify-center">/o</span>
+        <span>OmniTools</span>
+      </a>
+      <span class="text-zinc-400 text-[11px]">100% Free &amp; Client-Side Web Utilities</span>
+    </div>
+
     <!-- Google AdSense Responsive Placement -->
     <div class="ad-slot-wrapper w-full p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 my-6">
       <div class="ad-label text-zinc-400 dark:text-zinc-500 mb-2">Advertisement</div>
@@ -272,7 +312,7 @@
     </div>
 
     <!-- Pre-rendered Semantic SEO Article, Instructions & Technical Notes -->
-    <div class="p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-5 text-xs sm:text-sm">
+    <div class="seo-deep-dive p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-5 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-1.5">Overview & Purpose</h2>
         <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm">
@@ -311,7 +351,7 @@
     </div>
 
     <!-- Related Utilities (Internal Linking Engine for Google SEO) -->
-    <div class="space-y-3 pt-2">
+    <div class="related-tools-section space-y-3 pt-2">
       <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Related Developer &amp; Data Utilities</h3>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
 
@@ -380,6 +420,11 @@
     document.addEventListener('DOMContentLoaded', () => {
       // Setup theme
       App.setupTheme();
+
+      // Check for embed mode parameter (?embed=true or #embed)
+      if (window.location.search.includes('embed=true') || window.location.hash.includes('embed')) {
+        document.body.classList.add('embed-mode');
+      }
       
       // Mount interactive tool
       const tool = ToolRegistry.getToolById('hash-generator');
@@ -423,9 +468,25 @@
           Utils.copyToClipboard(window.location.href, 'Link copied to clipboard');
         });
       }
+
+      // Embed button
+      const embedBtn = document.getElementById('tool-embed-btn');
+      if (embedBtn) {
+        embedBtn.addEventListener('click', () => {
+          const embedCode = `<iframe src="https://getomnitools.com/tools/hash-generator.html?embed=true" width="100%" height="450" frameborder="0" style="border:1px solid #e4e4e7;border-radius:12px;overflow:hidden;" title="Cryptographic Hash Generator"></iframe>`;
+          Utils.copyToClipboard(embedCode, 'Embed code copied to clipboard');
+        });
+      }
       
       Utils.refreshIcons();
       Utils.initAdUnits();
+
+      // Register PWA Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => console.warn('SW failed:', err));
+        });
+      }
     });
   </script>
 </body>

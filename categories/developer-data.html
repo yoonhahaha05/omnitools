@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Developer &amp; Data Tools (100% Client-Side &amp; Private) | OmniTools</title>
+  <meta name="description" content="25 fast client-side developer utilities. JSON validator, JWT decoder, Regex matcher, Base64 converter, cURL converter, and SQL formatter running 100% locally in browser memory.">
+  <link rel="canonical" href="https://getomnitools.com/categories/developer-data.html">
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#0e1117">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free Developer &amp; Data Tools (100% Client-Side &amp; Private) | OmniTools">
+  <meta property="og:description" content="25 fast client-side developer utilities. JSON validator, JWT decoder, Regex matcher, Base64 converter, cURL converter, and SQL formatter running 100% locally in browser memory.">
+  <meta property="og:url" content="https://getomnitools.com/categories/developer-data.html">
+  <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:secure_url" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Developer &amp; Data - OmniTools">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Developer &amp; Data Tools (100% Client-Side &amp; Private) | OmniTools">
+  <meta name="twitter:description" content="25 fast client-side developer utilities. JSON validator, JWT decoder, Regex matcher, Base64 converter, cURL converter, and SQL formatter running 100% locally in browser memory.">
+  <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google AdSense Configuration & Script -->
+  <script>
+    window.ADSENSE_CONFIG = {
+      client: 'ca-pub-3261737439776294',
+      slotHome: '1234567890',
+      slotTool: '2345678901',
+      slotSidebar: '3456789012'
+    };
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <!-- JSON-LD Structured Data for Search Engines -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Developer & Data Processing Tools",
+  "url": "https://getomnitools.com/categories/developer-data.html",
+  "description": "25 fast client-side developer utilities. JSON validator, JWT decoder, Regex matcher, Base64 converter, cURL converter, and SQL formatter running 100% locally in browser memory.",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "JSON Beautifier & Validator",
+        "url": "https://getomnitools.com/tools/json-beautifier.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "JSON Minifier",
+        "url": "https://getomnitools.com/tools/json-minifier.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Base64 String Encoder / Decoder",
+        "url": "https://getomnitools.com/tools/base64-tool.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "URL Encoder / Decoder",
+        "url": "https://getomnitools.com/tools/url-encoder-decoder.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "CSV to JSON Converter",
+        "url": "https://getomnitools.com/tools/csv-to-json.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "JSON to CSV Converter",
+        "url": "https://getomnitools.com/tools/json-to-csv.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "name": "HTML Entity Encoder / Decoder",
+        "url": "https://getomnitools.com/tools/html-entity-encoder.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "name": "JWT Token Decoder",
+        "url": "https://getomnitools.com/tools/jwt-decoder.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "name": "Cron Expression Explainer",
+        "url": "https://getomnitools.com/tools/cron-explainer.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "name": "Regex Sandbox & Matcher",
+        "url": "https://getomnitools.com/tools/regex-matcher.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 11,
+        "name": "CSS Minifier",
+        "url": "https://getomnitools.com/tools/css-minifier.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 12,
+        "name": "JavaScript Minifier",
+        "url": "https://getomnitools.com/tools/js-minifier.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 13,
+        "name": "SQL Formatter",
+        "url": "https://getomnitools.com/tools/sql-formatter.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 14,
+        "name": "XML to JSON Converter",
+        "url": "https://getomnitools.com/tools/xml-to-json.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 15,
+        "name": "YAML to JSON Converter",
+        "url": "https://getomnitools.com/tools/yaml-to-json.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 16,
+        "name": "Base64 Image Encoder / Decoder",
+        "url": "https://getomnitools.com/tools/base64-image-tool.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 17,
+        "name": "HTTP Status Code Lookup",
+        "url": "https://getomnitools.com/tools/http-status-codes.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 18,
+        "name": "MIME Type Reference",
+        "url": "https://getomnitools.com/tools/mime-types.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 19,
+        "name": "Linux / Chmod Permissions Calculator",
+        "url": "https://getomnitools.com/tools/chmod-calculator.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 20,
+        "name": "Curl to Fetch / Python Converter",
+        "url": "https://getomnitools.com/tools/curl-converter.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 21,
+        "name": "Markdown Table Generator",
+        "url": "https://getomnitools.com/tools/markdown-table-generator.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 22,
+        "name": "UUID / GUID (v4) Generator",
+        "url": "https://getomnitools.com/tools/uuid-generator.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 23,
+        "name": "Cryptographic Hash Generator",
+        "url": "https://getomnitools.com/tools/hash-generator.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 24,
+        "name": "User Agent Parser",
+        "url": "https://getomnitools.com/tools/user-agent-parser.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 25,
+        "name": "Keycode Event Inspector",
+        "url": "https://getomnitools.com/tools/keycode-inspector.html"
+      }
+    ]
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://getomnitools.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Developer & Data",
+      "item": "https://getomnitools.com/categories/developer-data.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I safely inspect proprietary JSON or JWT tokens here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Since OmniTools runs entirely inside your browser sandbox, sensitive tokens, environment keys, and payload secrets are never uploaded anywhere."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does OmniTools compare to online converters that require backend servers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OmniTools offers zero latency, instant response times, zero server timeouts, and guaranteed confidentiality with no third-party data tracking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I embed these developer tools into our engineering docs or internal wikis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Click the 'Embed' button on any tool to copy an iframe widget snippet you can embed directly into Notion, Confluence, or developer documentation."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+
+  <!-- Primary Top Navbar -->
+  <header class="sticky top-0 z-30 bg-white/90 dark:bg-[#0e1117]/90 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-15 py-2.5 flex items-center justify-between gap-4">
+      
+      <!-- Brand -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="../index.html" class="flex items-center gap-2.5 group">
+          <div class="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center font-mono font-bold text-xs tracking-tight group-hover:scale-105 transition-transform shadow-xs">
+            /o
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span class="font-extrabold text-lg tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
+            <span class="hidden sm:inline-block text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-100/60 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400">100 TOOLS</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Quick Search / Catalog Link -->
+      <div class="flex-1 max-w-md mx-4 hidden sm:block">
+        <a href="../index.html" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
+          <span>Search all 100 utilities...</span>
+          <kbd class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-300/70 dark:border-zinc-750 bg-white dark:bg-zinc-800/80 text-zinc-400 shadow-2xs">⌘K</kbd>
+        </a>
+      </div>
+
+      <!-- Action Controls -->
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="../index.html" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+          <span>All 100 Tools</span>
+        </a>
+
+        <button id="theme-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-600 dark:text-zinc-300 transition" title="Toggle Theme">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
+          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>Support</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-8">
+    
+    <!-- Breadcrumbs -->
+    <div class="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">
+      <a href="../index.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Home</a>
+      <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
+      <span class="text-zinc-900 dark:text-zinc-200 font-semibold">Developer &amp; Data</span>
+    </div>
+
+    <!-- Category Header Hero -->
+    <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-3">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
+          25 Utilities
+        </span>
+        <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+          100% Client-Side Private
+        </span>
+        <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+          Offline Ready
+        </span>
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+        Developer &amp; Data Processing Tools
+      </h1>
+      <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 max-w-3xl leading-relaxed">
+        Essential web developer and data manipulation utilities. Format and validate JSON, decode JWTs, convert curl requests, test regex, encode Base64, and calculate chmod permissions without exposing confidential code to external servers.
+      </p>
+    </div>
+
+    <!-- Category Hub Navigation Pills -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+      <span class="text-[11px] font-mono text-zinc-400 shrink-0 mr-1">Categories:</span>
+
+        <a href="text-formatting.html" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600">
+          Text &amp; Formatting (25)
+        </a>
+
+        <a href="developer-data.html" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-950 font-bold">
+          Developer &amp; Data (25)
+        </a>
+
+        <a href="everyday-math.html" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600">
+          Everyday Math &amp; Converters (25)
+        </a>
+
+        <a href="media-css-design.html" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600">
+          Media, CSS &amp; Design (15)
+        </a>
+
+        <a href="quick-utilities.html" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600">
+          Quick Utilities &amp; Life Tools (10)
+        </a>
+    </div>
+
+    <!-- Category Tools Grid -->
+    <div class="space-y-3">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Available Developer &amp; Data Micro-Tools</h2>
+        <span class="text-[11px] font-mono text-zinc-400">25 utilities active</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+
+        <a href="../tools/json-beautifier.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">JSON Beautifier &amp; Validator</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Format, validate, beautify, and minify JSON with real-time error detection and indentation controls.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/json-minifier.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">JSON Minifier</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Compress JSON data by stripping all unnecessary whitespace and line breaks for lightweight network transfer.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/base64-tool.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="type" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Base64 String Encoder / Decoder</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Encode and decode standard and URL-safe Base64 strings with full UTF-8 international character support.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/url-encoder-decoder.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="link" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">URL Encoder / Decoder</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Encode and decode URLs or URI components, and inspect query string parameters in a clean table.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/csv-to-json.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="table" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">CSV to JSON Converter</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Convert tabular CSV data into structured JSON objects with delimiter controls and file download.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/json-to-csv.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">JSON to CSV Converter</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Convert JSON arrays of objects into formatted CSV spreadsheets with automatic header detection.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/html-entity-encoder.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">HTML Entity Encoder / Decoder</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Convert special characters into HTML entities (&amp;amp;, &amp;lt;, &amp;gt;) and decode entities back to readable text.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/jwt-decoder.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">JWT Token Decoder</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Decode and inspect JSON Web Tokens (JWT) headers, payloads, and expiration times safely without secret leakage.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/cron-explainer.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="bell-ring" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Cron Expression Explainer</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Translate 5-field cron schedule expressions into clear human English and preview the next 5 execution timestamps.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/regex-matcher.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="crosshair" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Regex Sandbox &amp; Matcher</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Interactive JavaScript regular expression tester with live highlight matches, capture groups, and cheat sheet.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/css-minifier.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="palette" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">CSS Minifier</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Minify and compress raw CSS stylesheets by stripping comments, whitespace, and redundant rules.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/js-minifier.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">JavaScript Minifier</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Lightweight client-side JavaScript code compressor removing comments and unnecessary spaces.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/sql-formatter.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="database" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">SQL Formatter</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Format, capitalize, and indent messy SQL database queries for PostgreSQL, MySQL, and SQLite.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/xml-to-json.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="align-left" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">XML to JSON Converter</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Convert XML document trees and RSS feeds into structured, nested JSON objects with indentation.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/yaml-to-json.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">YAML to JSON Converter</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Convert YAML configuration files into valid JSON objects with support for nested keys and arrays.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/base64-image-tool.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="image" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Base64 Image Encoder / Decoder</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Convert images to Base64 data URIs for inline CSS/HTML, or decode Base64 strings to preview and download images.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/http-status-codes.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">HTTP Status Code Lookup</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Searchable reference of all 1xx, 2xx, 3xx, 4xx, and 5xx HTTP status codes with official specifications and debugging tips.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/mime-types.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">MIME Type Reference</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Searchable catalog of standard MIME media types, file extensions, and Content-Type header formats.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/chmod-calculator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Linux / Chmod Permissions Calculator</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Interactive permission matrix to calculate Linux chmod octal values (755, 644) and symbolic notation.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/curl-converter.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="repeat" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Curl to Fetch / Python Converter</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Convert cURL command strings into ready-to-run JavaScript fetch() and Python requests code snippets.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/markdown-table-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Markdown Table Generator</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Visual spreadsheet editor to build, align, and generate GitHub-flavored Markdown tables with 1-click copy.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/uuid-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="fingerprint" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">UUID / GUID (v4) Generator</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Generate cryptographically secure v4 UUIDs / GUIDs in bulk with uppercase, lowercase, and hyphen toggles.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/hash-generator.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Cryptographic Hash Generator</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Generate SHA-1, SHA-256, SHA-512, and MD5 cryptographic hashes using hardware-accelerated Web Crypto.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/user-agent-parser.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">User Agent Parser</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Inspect your active browser User Agent or paste any UA string to extract Browser, OS, Engine, and Device category.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+
+        <a href="../tools/keycode-inspector.html" class="tool-card p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="keyboard" class="w-3.5 h-3.5"></i>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Client-Side</span>
+            </div>
+            <h3 class="text-xs font-bold text-zinc-950 dark:text-zinc-50 group-hover:underline">Keycode Event Inspector</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">Live interactive keyboard listener displaying event.key, event.code, keyCode, and modifier flags for JavaScript developers.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between text-[10px] text-zinc-400 font-mono">
+            <span>Launch Tool</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform text-zinc-600 dark:text-zinc-300"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Google AdSense Responsive Unit -->
+    <div class="ad-slot-wrapper w-full p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30">
+      <div class="ad-label text-zinc-400 dark:text-zinc-500 mb-2">Advertisement</div>
+      <div class="w-full flex justify-center items-center overflow-hidden min-h-[90px]">
+        <ins class="adsbygoogle"
+             style="display:block;width:100%;"
+             data-ad-client="ca-pub-3261737439776294"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+
+    <!-- Category Technical Guide & FAQs -->
+
+        <div class="space-y-3 pt-4">
+          <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Frequently Asked Questions</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+          <div class="p-4 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800">
+            <h3 class="font-semibold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 mb-1.5">Can I safely inspect proprietary JSON or JWT tokens here?</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes. Since OmniTools runs entirely inside your browser sandbox, sensitive tokens, environment keys, and payload secrets are never uploaded anywhere.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800">
+            <h3 class="font-semibold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 mb-1.5">How does OmniTools compare to online converters that require backend servers?</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">OmniTools offers zero latency, instant response times, zero server timeouts, and guaranteed confidentiality with no third-party data tracking.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800">
+            <h3 class="font-semibold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 mb-1.5">Can I embed these developer tools into our engineering docs or internal wikis?</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes! Click the &#x27;Embed&#x27; button on any tool to copy an iframe widget snippet you can embed directly into Notion, Confluence, or developer documentation.</p>
+          </div>
+          </div>
+        </div>
+
+  </main>
+
+  <!-- Global Technical Footer -->
+  <footer class="mt-auto border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#0e1117] text-zinc-500 dark:text-zinc-400 text-xs py-7 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 font-mono text-[11px]">
+        <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span>100 Client-Side Micro-Utilities</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span class="text-emerald-600 dark:text-emerald-400 font-medium">100% Offline Ready</span>
+      </div>
+      <div class="flex items-center gap-5 text-xs">
+        <a href="../pages/about.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
+        <a href="../pages/privacy.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1">
+          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>Support</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/utils.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      App.setupTheme();
+      Utils.refreshIcons();
+      Utils.initAdUnits();
+
+      // Register Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => console.warn('SW failed:', err));
+        });
+      }
+    });
+  </script>
+</body>
+</html>
