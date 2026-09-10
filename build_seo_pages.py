@@ -256,14 +256,15 @@ def generate_tool_html(tool, all_tools):
   <meta property="og:title" content="{html.escape(page_title)}">
   <meta property="og:description" content="{html.escape(tool['description'])}">
   <meta property="og:url" content="{canonical_url}">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Lucide Icons CDN (Deferred for Performance) -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 
   <!-- Google AdSense Configuration & Script -->
   <script>
