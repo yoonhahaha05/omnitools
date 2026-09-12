@@ -2842,13 +2842,13 @@ const devTools = [
           'Date: Sat, 12 Sep 2026 12:00:00 GMT',
           'Content-Type: text/html; charset=UTF-8',
           'Strict-Transport-Security: max-age=63072000; includeSubDomains; preload',
-          'Content-Security-Policy: default-src \\'self\\'; script-src \\'self\\' https://trusted.cdn.com',
+          "Content-Security-Policy: default-src 'self'; script-src 'self' https://trusted.cdn.com",
           'X-Frame-Options: DENY',
           'X-Content-Type-Options: nosniff',
           'Referrer-Policy: strict-origin-when-cross-origin',
           'Permissions-Policy: geolocation=(), camera=(), microphone=()',
           'Server: cloudflare'
-        ].join('\\n');
+        ].join('\n');
         parseHeaders();
       });
 
@@ -2860,7 +2860,7 @@ const devTools = [
           'Server: Apache/2.4.41 (Ubuntu)',
           'X-Powered-By: PHP/7.4.3',
           'Connection: keep-alive'
-        ].join('\\n');
+        ].join('\n');
         parseHeaders();
       });
 

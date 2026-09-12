@@ -184,12 +184,13 @@ const App = {
   },
 
   renderHome() {
-    document.title = "OmniTools - Precision Client-Side Web Utilities (100 Offline Tools)";
+    const allTools = ToolRegistry.getAllTools();
+    document.title = `OmniTools - Precision Client-Side Web Utilities (${allTools.length} Offline Tools)`;
     const main = document.getElementById('main-content');
     if (!main) return;
 
     // Filter tools
-    let tools = ToolRegistry.getAllTools();
+    let tools = allTools;
     if (this.currentCategory && this.currentCategory !== 'all') {
       tools = tools.filter(t => t.category.toLowerCase() === this.currentCategory.toLowerCase());
     }
@@ -199,7 +200,7 @@ const App = {
 
     // Check favorites
     const favorites = Utils.storage.get('favorites', []);
-    const favTools = ToolRegistry.getAllTools().filter(t => favorites.includes(t.id));
+    const favTools = allTools.filter(t => favorites.includes(t.id));
 
     main.innerHTML = `
       <div class="space-y-6 max-w-7xl mx-auto">
@@ -272,7 +273,7 @@ const App = {
 
         <!-- Category Filter Chips Bar for Quick Filtering -->
         <div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar text-xs">
-          <a href="#/category/all" class="px-2.5 py-1 rounded-md border text-xs transition ${this.currentCategory === 'all' ? 'bg-zinc-900 text-white dark:bg-zinc-800 dark:text-zinc-100 border-zinc-900 dark:border-zinc-700 font-medium' : 'border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'}">All (100)</a>
+          <a href="#/category/all" class="px-2.5 py-1 rounded-md border text-xs transition ${this.currentCategory === 'all' ? 'bg-zinc-900 text-white dark:bg-zinc-800 dark:text-zinc-100 border-zinc-900 dark:border-zinc-700 font-medium' : 'border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'}">All (${allTools.length})</a>
           ${ToolRegistry.categories.filter(c => c.id !== 'all').map(c => {
             const isCatActive = this.currentCategory.toLowerCase() === c.name.toLowerCase();
             return `
