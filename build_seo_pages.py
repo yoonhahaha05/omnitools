@@ -135,6 +135,17 @@ CATEGORIES = [
 
 CATEGORY_MAP = {c["name"]: c for c in CATEGORIES}
 
+def extract_js_string_list(text):
+    if not text:
+        return []
+    pattern = r'"([^"\\]*(?:\\.[^"\\]*)*)"|\'([^\'\\]*(?:\\.[^\'\\]*)*)\''
+    matches = re.findall(pattern, text)
+    res = []
+    for dq, sq in matches:
+        s = dq if dq else sq
+        res.append(s.replace(r'\"', '"').replace(r"\'", "'").strip())
+    return [x for x in res if x]
+
 def extract_tools():
     all_tools = []
     
@@ -171,7 +182,7 @@ def extract_tools():
             kw_m = re.search(r'keywords:\s*\[(.*?)\]', block, re.DOTALL)
             keywords = []
             if kw_m:
-                keywords = re.findall(r'[\"\']([^\"\']+)[\"\']', kw_m.group(1))
+                keywords = extract_js_string_list(kw_m.group(1))
                 
             # Overview
             ov_m = re.search(r'overview:\s*[\"\'](.*?)[\"\'],\s*(?:\n\s*)?features:', block, re.DOTALL)
@@ -181,13 +192,13 @@ def extract_tools():
             feat_m = re.search(r'features:\s*\[(.*?)\]', block, re.DOTALL)
             features = []
             if feat_m:
-                features = re.findall(r'[\"\']([^\"\']+)[\"\']', feat_m.group(1))
+                features = extract_js_string_list(feat_m.group(1))
                 
             # HowTo
             how_m = re.search(r'howTo:\s*\[(.*?)\]', block, re.DOTALL)
             howto = []
             if how_m:
-                howto = re.findall(r'[\"\']([^\"\']+)[\"\']', how_m.group(1))
+                howto = extract_js_string_list(how_m.group(1))
                 
             # FAQs
             faq_matches = re.findall(r'\{\s*q:\s*[\"\'](.*?)[\"\'],\s*a:\s*[\"\'](.*?)[\"\']\s*\}', block, re.DOTALL)
