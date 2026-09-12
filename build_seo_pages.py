@@ -48,11 +48,11 @@ CATEGORIES = [
         "slug": "developer-data",
         "file": "js/tools/dev.js",
         "icon": "code-2",
-        "badge": "25 Utilities",
-        "description": "Essential web developer and data manipulation utilities. Format and validate JSON, decode JWTs, convert curl requests, test regex, encode Base64, and calculate chmod permissions without exposing confidential code to external servers.",
+        "badge": "28 Utilities",
+        "description": "Essential web developer and data manipulation utilities. Format and validate JSON, decode JWTs, convert curl requests, calculate IPv4 subnets, generate HMAC signatures, test regex, and encode Base64 without exposing confidential code to external servers.",
         "h1": "Developer & Data Processing Tools",
         "meta_title": "Free Developer & Data Tools (100% Client-Side & Private) | OmniTools",
-        "meta_description": "25 fast client-side developer utilities. JSON validator, JWT decoder, Regex matcher, Base64 converter, cURL converter, and SQL formatter running 100% locally in browser memory.",
+        "meta_description": "28 fast client-side developer utilities. IPv4 subnet calculator, HMAC generator, HTTP header audit, JSON validator, JWT decoder, and cURL converter running 100% locally in browser memory.",
         "faqs": [
             {
                 "q": "Can I safely inspect proprietary JSON or JWT tokens here?",
@@ -94,11 +94,11 @@ CATEGORIES = [
         "slug": "media-css-design",
         "file": "js/tools/media.js",
         "icon": "palette",
-        "badge": "15 Utilities",
-        "description": "High-performance CSS generators, color tools, and in-browser image processing utilities. Generate box shadows, gradients, and glassmorphism styling, check WCAG 2.1 color contrast, and resize or crop images directly via HTML5 Canvas.",
+        "badge": "16 Utilities",
+        "description": "High-performance CSS generators, color tools, and in-browser image processing utilities. Generate clip-path polygons, box shadows, gradients, and glassmorphism styling, check WCAG 2.1 color contrast, and resize or crop images directly via HTML5 Canvas.",
         "h1": "Media, CSS Generators & Design Utilities",
         "meta_title": "Free CSS Generators, Color & Media Tools (Client-Side) | OmniTools",
-        "meta_description": "15 CSS and design utilities. Generate box shadows, CSS gradients, glassmorphism, QR codes, palettes, and check WCAG contrast. Crop and resize images 100% client-side.",
+        "meta_description": "16 CSS and design utilities. Generate CSS clip-path polygons, box shadows, gradients, glassmorphism, QR codes, palettes, and check WCAG contrast. Crop and resize images 100% client-side.",
         "faqs": [
             {
                 "q": "Do my images get uploaded to a cloud server when resizing or cropping?",
@@ -115,11 +115,11 @@ CATEGORIES = [
         "slug": "quick-utilities",
         "file": "js/tools/quick.js",
         "icon": "zap",
-        "badge": "10 Utilities",
-        "description": "Everyday productivity boosters and quick system utilities. Generate cryptographically strong passwords via Web Crypto, run Pomodoro focus cycles, inspect viewport dimensions, and test network latency.",
+        "badge": "11 Utilities",
+        "description": "Everyday productivity boosters and quick system utilities. Tap tempo BPM, generate cryptographically strong passwords via Web Crypto, run Pomodoro focus cycles, inspect viewport dimensions, and test network latency.",
         "h1": "Quick Utilities & Everyday Productivity Tools",
         "meta_title": "Free Productivity & Quick Life Tools (Offline-Ready) | OmniTools",
-        "meta_description": "10 handy productivity tools. Cryptographically secure password generator, Pomodoro focus timer, metronome, stopwatch, screen resolution inspector, and local scratchpad.",
+        "meta_description": "11 handy productivity tools. Tap tempo BPM calculator, cryptographically secure password generator, Pomodoro focus timer, metronome, stopwatch, and local scratchpad.",
         "faqs": [
             {
                 "q": "How secure is the Password Generator?",
@@ -280,6 +280,31 @@ SEO_OVERRIDES = {
         'title': 'Case Converter - UPPERCASE, lowercase, Title Case & camelCase | OmniTools',
         'description': 'Convert text case instantly online. Convert between UPPERCASE, lowercase, Title Case, camelCase, kebab-case, snake_case, and Sentence case.',
         'keywords': ['case converter', 'uppercase to lowercase', 'title case converter', 'camelcase converter', 'text case changer', 'sentence case converter']
+    },
+    'subnet-calculator': {
+        'title': 'IPv4 Subnet & CIDR Calculator - Calculate IP Range, Mask & Hosts | OmniTools',
+        'description': 'Free online IPv4 subnet and CIDR calculator. Instantly calculate network address, broadcast address, usable host IP range, and wildcard netmask.',
+        'keywords': ['subnet calculator', 'cidr calculator', 'ipv4 subnet', 'ip subnet mask', 'network address calculator', 'cidr notation', 'usable host range']
+    },
+    'hmac-generator': {
+        'title': 'In-Browser HMAC Generator - SHA-256, SHA-512 & SHA-1 (100% Private) | OmniTools',
+        'description': 'Cryptographically secure in-browser HMAC generator via Web Crypto API. Calculate HMAC-SHA256, HMAC-SHA512, and webhook signatures with zero server transmission.',
+        'keywords': ['hmac generator', 'hmac sha256', 'hmac sha512', 'webhook signature generator', 'crypto subtle hmac', 'online hmac tool']
+    },
+    'http-header-parser': {
+        'title': 'HTTP Header Parser & Security Audit - Analyze CSP, HSTS & CORS | OmniTools',
+        'description': 'Parse raw HTTP response headers into structured key-values and audit critical security headers (CSP, HSTS, X-Frame-Options, Referrer-Policy) in your browser.',
+        'keywords': ['http header parser', 'security header checker', 'parse http headers', 'csp validator', 'hsts checker', 'http response headers']
+    },
+    'clip-path-generator': {
+        'title': 'CSS Clip-Path Generator - Interactive Polygon Shape Maker | OmniTools',
+        'description': 'Free visual CSS clip-path polygon generator. Drag vertex handles on an interactive canvas to sculpt custom geometric polygons, stars, and triangles.',
+        'keywords': ['css clip-path generator', 'clip-path polygon maker', 'clippy generator', 'css shape generator', 'polygon clip-path', 'css geometric shapes']
+    },
+    'tap-tempo-bpm': {
+        'title': 'Tap Tempo BPM Calculator - Accurate Music Speed & Delay Timings | OmniTools',
+        'description': 'Free online tap tempo BPM calculator. Tap your spacebar or screen to calculate exact music tempo, beat duration, and audio delay/reverb millisecond timings.',
+        'keywords': ['tap tempo', 'bpm calculator', 'tap bpm', 'tempo finder', 'delay time calculator', 'music tempo calculator', 'tap tempo online']
     }
 }
 
@@ -1286,8 +1311,8 @@ def main():
     tools = extract_tools()
     print(f"Total tools successfully extracted: {len(tools)}")
     
-    if len(tools) != 100:
-        raise ValueError(f"Expected 100 tools, found {len(tools)}!")
+    if len(tools) != 105:
+        raise ValueError(f"Expected 105 tools, found {len(tools)}!")
         
     os.makedirs(TOOLS_DIR, exist_ok=True)
     os.makedirs(CATEGORIES_DIR, exist_ok=True)
@@ -1306,7 +1331,7 @@ def main():
             f.write(cat_html)
         print(f"  Generated Category Hub: {cat_path} ({len(cat_tools)} tools)")
 
-    print(f"Generating 100 static HTML files in '{TOOLS_DIR}/'...")
+    print(f"Generating {len(tools)} static HTML files in '{TOOLS_DIR}/'...")
     for idx, tool in enumerate(tools, 1):
         html_content = generate_tool_html(tool, tools)
         out_path = os.path.join(TOOLS_DIR, f"{tool['id']}.html")
@@ -1319,7 +1344,8 @@ def main():
     sitemap_content = generate_sitemap(tools)
     with open("sitemap.xml", "w", encoding="utf-8") as f:
         f.write(sitemap_content)
-    print("  sitemap.xml written successfully (108 URLs).")
+    total_urls = len(re.findall(r'<loc>', sitemap_content))
+    print(f"  sitemap.xml written successfully ({total_urls} URLs).")
     
     print("Generating robots.txt...")
     robots_content = generate_robots_txt()
@@ -1327,7 +1353,7 @@ def main():
         f.write(robots_content)
     print("  robots.txt written successfully.")
     
-    print("\nSUCCESS: Programmatic SEO build complete! 100 tools + 5 category hubs generated.")
+    print(f"\nSUCCESS: Programmatic SEO build complete! {len(tools)} tools + {len(CATEGORIES)} category hubs generated.")
 
 if __name__ == "__main__":
     main()

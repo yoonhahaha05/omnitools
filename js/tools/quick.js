@@ -1375,6 +1375,237 @@ const quickTools = [
         }
       ]
     }
+  },
+
+  // 11. Tap Tempo & Audio BPM Calculator
+  {
+    id: "tap-tempo-bpm",
+    title: "Tap Tempo & Audio BPM Calculator",
+    category: "Quick Utilities & Life Tools",
+    icon: "🥁",
+    badge: "New",
+    description: "Tap to the beat with your spacebar, mouse, or touch screen to instantly calculate exact music BPM, average tempo, and delay millisecond timings.",
+    keywords: ["tap tempo", "bpm calculator", "tap bpm", "tempo finder", "delay time calculator", "music tempo calculator", "tap tempo online"],
+    render: (container) => {
+      container.innerHTML = `
+        <div class="space-y-5">
+          <!-- Big Tap Button -->
+          <div class="flex flex-col items-center justify-center p-6 sm:p-10 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/40 text-center select-none">
+            <button id="bpm-tap-btn" class="w-44 h-44 sm:w-52 sm:h-52 rounded-full border-4 border-indigo-500 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-bold text-xl sm:text-2xl shadow-lg transition-transform flex flex-col items-center justify-center gap-1.5 focus:outline-none cursor-pointer">
+              <span class="text-3xl sm:text-4xl">👆</span>
+              <span class="tracking-wide uppercase font-extrabold text-sm sm:text-base">TAP TEMPO</span>
+              <span class="text-[11px] opacity-80 font-normal">or press Spacebar</span>
+            </button>
+
+            <div class="mt-6 flex items-baseline gap-2">
+              <span id="bpm-display" class="font-mono text-5xl sm:text-6xl font-black text-indigo-600 dark:text-indigo-400">0</span>
+              <span class="text-lg font-bold text-zinc-400 font-mono">BPM</span>
+            </div>
+            <p id="bpm-tempo-name" class="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mt-1 uppercase tracking-wider">Tap 4 or more times to start</p>
+          </div>
+
+          <!-- Controls & Audio Playback -->
+          <div class="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900">
+            <div class="flex items-center gap-3">
+              <label class="flex items-center gap-2 cursor-pointer text-xs font-medium text-zinc-700 dark:text-zinc-300">
+                <input id="bpm-audio-toggle" type="checkbox" class="w-4 h-4 text-indigo-600 rounded border-zinc-300 focus:ring-indigo-500">
+                <span>Audio Click on Tap</span>
+              </label>
+            </div>
+            <div class="flex items-center gap-2">
+              <button id="bpm-reset" class="px-3 py-1.5 text-xs font-medium rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">Reset Taps</button>
+            </div>
+          </div>
+
+          <!-- Statistics & Delay Time Table -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">
+            <div class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 text-center">
+              <span class="text-[10px] text-zinc-400 block mb-0.5">Total Taps</span>
+              <span id="bpm-taps-count" class="text-base font-bold text-zinc-900 dark:text-zinc-100">0</span>
+            </div>
+            <div class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 text-center">
+              <span class="text-[10px] text-zinc-400 block mb-0.5">Beat Duration</span>
+              <span id="bpm-ms-beat" class="text-base font-bold text-zinc-900 dark:text-zinc-100">0 ms</span>
+            </div>
+            <div class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 text-center">
+              <span class="text-[10px] text-zinc-400 block mb-0.5">Fastest Tempo</span>
+              <span id="bpm-fastest" class="text-base font-bold text-emerald-600 dark:text-emerald-400">0</span>
+            </div>
+            <div class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 text-center">
+              <span class="text-[10px] text-zinc-400 block mb-0.5">Slowest Tempo</span>
+              <span id="bpm-slowest" class="text-base font-bold text-amber-600 dark:text-amber-400">0</span>
+            </div>
+          </div>
+
+          <!-- Music Production Delay & Reverb Millisecond Calculations -->
+          <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 space-y-2.5">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Audio Delay & Reverb Timings</h4>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
+              <div class="p-2 rounded bg-white dark:bg-zinc-850 border border-zinc-200 dark:border-zinc-800">
+                <span class="text-[10px] text-zinc-400 block">1/4 Note</span>
+                <span id="bpm-d-quarter" class="font-semibold text-zinc-800 dark:text-zinc-200">-</span>
+              </div>
+              <div class="p-2 rounded bg-white dark:bg-zinc-850 border border-zinc-200 dark:border-zinc-800">
+                <span class="text-[10px] text-zinc-400 block">1/8 Note</span>
+                <span id="bpm-d-eighth" class="font-semibold text-zinc-800 dark:text-zinc-200">-</span>
+              </div>
+              <div class="p-2 rounded bg-white dark:bg-zinc-850 border border-zinc-200 dark:border-zinc-800">
+                <span class="text-[10px] text-zinc-400 block">1/16 Note</span>
+                <span id="bpm-d-sixteenth" class="font-semibold text-zinc-800 dark:text-zinc-200">-</span>
+              </div>
+              <div class="p-2 rounded bg-white dark:bg-zinc-850 border border-zinc-200 dark:border-zinc-800">
+                <span class="text-[10px] text-zinc-400 block">1/8 Triplet</span>
+                <span id="bpm-d-triplet" class="font-semibold text-zinc-800 dark:text-zinc-200">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const tapBtn = container.querySelector('#bpm-tap-btn');
+      const bpmDisplay = container.querySelector('#bpm-display');
+      const tempoName = container.querySelector('#bpm-tempo-name');
+      const audioToggle = container.querySelector('#bpm-audio-toggle');
+      const resetBtn = container.querySelector('#bpm-reset');
+      const tapsCountEl = container.querySelector('#bpm-taps-count');
+      const msBeatEl = container.querySelector('#bpm-ms-beat');
+      const fastestEl = container.querySelector('#bpm-fastest');
+      const slowestEl = container.querySelector('#bpm-slowest');
+      const dQuarter = container.querySelector('#bpm-d-quarter');
+      const dEighth = container.querySelector('#bpm-d-eighth');
+      const dSixteenth = container.querySelector('#bpm-d-sixteenth');
+      const dTriplet = container.querySelector('#bpm-d-triplet');
+
+      let tapTimes = [];
+      let audioCtx = null;
+
+      function playClick() {
+        if (!audioToggle.checked) return;
+        try {
+          if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          if (audioCtx.state === 'suspended') audioCtx.resume();
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+          gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.05);
+        } catch (e) {}
+      }
+
+      function getTempoClassification(bpm) {
+        if (bpm < 60) return "Largo / Very Slow";
+        if (bpm < 76) return "Adagio / Slow";
+        if (bpm < 108) return "Andante / Walking Pace";
+        if (bpm < 120) return "Moderato / Moderate";
+        if (bpm < 140) return "Allegro / Fast (Pop / House / Hip-Hop)";
+        if (bpm < 168) return "Vivace / Very Fast (Techno / Drum & Bass)";
+        return "Presto / Extremely Fast";
+      }
+
+      function recordTap() {
+        playClick();
+        const now = performance.now();
+
+        // Reset if inactive for > 2.5 seconds
+        if (tapTimes.length > 0 && (now - tapTimes[tapTimes.length - 1] > 2500)) {
+          tapTimes = [];
+        }
+
+        tapTimes.push(now);
+
+        // Limit window to last 16 taps for responsiveness
+        if (tapTimes.length > 16) {
+          tapTimes.shift();
+        }
+
+        tapsCountEl.textContent = tapTimes.length;
+
+        if (tapTimes.length < 2) {
+          tempoName.textContent = "Keep tapping steady to calculate BPM...";
+          return;
+        }
+
+        const intervals = [];
+        for (let i = 1; i < tapTimes.length; i++) {
+          intervals.push(tapTimes[i] - tapTimes[i - 1]);
+        }
+
+        const avgMs = intervals.reduce((a, b) => a + b, 0) / intervals.length;
+        const currentBpm = Math.round(60000 / avgMs);
+
+        const instantBpms = intervals.map(iv => Math.round(60000 / iv));
+        const maxBpm = Math.max(...instantBpms);
+        const minBpm = Math.min(...instantBpms);
+
+        bpmDisplay.textContent = currentBpm;
+        tempoName.textContent = `${getTempoClassification(currentBpm)} (~${currentBpm} BPM)`;
+        msBeatEl.textContent = `${Math.round(avgMs)} ms`;
+        fastestEl.textContent = `${maxBpm} BPM`;
+        slowestEl.textContent = `${minBpm} BPM`;
+
+        // Calculate audio delay values
+        const quarterMs = Math.round(avgMs);
+        const eighthMs = Math.round(avgMs / 2);
+        const sixteenthMs = Math.round(avgMs / 4);
+        const tripletMs = Math.round((avgMs / 2) * 0.6667);
+
+        dQuarter.textContent = `${quarterMs} ms`;
+        dEighth.textContent = `${eighthMs} ms`;
+        dSixteenth.textContent = `${sixteenthMs} ms`;
+        dTriplet.textContent = `${tripletMs} ms`;
+
+        // Visual pulse effect
+        tapBtn.classList.add('scale-105');
+        setTimeout(() => tapBtn.classList.remove('scale-105'), 75);
+      }
+
+      tapBtn.addEventListener('click', recordTap);
+
+      const handleKey = (e) => {
+        if (e.code === 'Space' && e.target === document.body) {
+          e.preventDefault();
+          recordTap();
+        }
+      };
+      window.addEventListener('keydown', handleKey);
+
+      resetBtn.addEventListener('click', () => {
+        tapTimes = [];
+        bpmDisplay.textContent = "0";
+        tempoName.textContent = "Tap 4 or more times to start";
+        tapsCountEl.textContent = "0";
+        msBeatEl.textContent = "0 ms";
+        fastestEl.textContent = "0";
+        slowestEl.textContent = "0";
+        dQuarter.textContent = "-";
+        dEighth.textContent = "-";
+        dSixteenth.textContent = "-";
+        dTriplet.textContent = "-";
+      });
+    },
+    seoContent: {
+      overview: "Free online tap tempo and BPM calculator. Tap any rhythm with your spacebar, mouse, or smartphone screen to accurately detect music speed, average tempo, and audio delay timings.",
+      features: [
+        "Instant BPM calculation with multi-tap rolling average algorithm",
+        "Spacebar, mouse click, and touch-screen compatible",
+        "Calculates studio delay and reverb millisecond timings (1/4, 1/8, 1/16, triplet)",
+        "Optional Web Audio metronome click sound feedback"
+      ],
+      howTo: [
+        "Tap the large button or press your Spacebar steadily to the beat of any song.",
+        "Watch the real-time BPM gauge update with the calculated tempo.",
+        "Use the delay millisecond chart below for syncing delay and reverb effects in your DAW."
+      ],
+      faqs: [
+        { q: "How many taps are needed for an accurate BPM reading?", a: "Tapping steadily for 4 to 8 beats provides an accurate reading within 1 BPM. Our algorithm uses a rolling average of your recent intervals." },
+        { q: "What are delay timings used for in music production?", a: "Delay timings (in milliseconds) allow audio producers to sync echo, delay pedals, and reverb pre-delay times exactly to the song's tempo in DAWs like Ableton, FL Studio, and Logic Pro." }
+      ]
+    }
   }
 ];
 

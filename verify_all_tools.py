@@ -36,14 +36,14 @@ print(f"TOTAL TOOLS: {total}")
 if duplicates:
     print(f"DUPLICATE IDS FOUND: {duplicates}")
 else:
-    print("ALL 100 TOOL IDS ARE GLOBALLY UNIQUE!")
+    print("ALL 105 TOOL IDS ARE GLOBALLY UNIQUE!")
 
 expected_counts = {
     "Text & Formatting": 25,
-    "Developer & Data": 25,
+    "Developer & Data": 28,
     "Everyday Math & Converters": 25,
-    "Media, CSS & Design": 15,
-    "Quick Utilities & Life Tools": 10
+    "Media, CSS & Design": 16,
+    "Quick Utilities & Life Tools": 11
 }
 
 all_passed = True
@@ -55,7 +55,7 @@ for cat, expected in expected_counts.items():
     else:
         print(f"PASS: {cat} has exact {actual} tools.")
 
-if all_passed and total == 100:
-    print("\nSUCCESS: All 100 tools are accounted for, unique, and validly structured!")
+if all_passed and total == 105:
+    print("\nSUCCESS: All 105 tools are accounted for, unique, and validly structured!")
 else:
     sys.exit(1)

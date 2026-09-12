@@ -1,4 +1,4 @@
-# OmniTools Hub - All-in-One Web Utilities (100 Micro-Tools)
+# OmniTools Hub - All-in-One Web Utilities (105 Micro-Tools)
 
 [![Live Website](https://img.shields.io/badge/Website-getomnitools.com-22c55e?style=for-the-badge&logo=google-chrome&logoColor=white)](https://getomnitools.com)
 [![Cloudflare](https://img.shields.io/badge/Hosted_on-Cloudflare_Pages-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://getomnitools.com)
@@ -16,7 +16,7 @@ A free, 100% client-side web utility hub ("Swiss Army knife") built to rank for 
 - **Zero Server Costs ($0/mo):** 100% client-side JavaScript execution. Static files deployable directly to Cloudflare Pages, Vercel, or GitHub Pages.
 - **Client-Side Privacy:** All operations run locally inside the browser. Sensitive user data (JSON, passwords, tokens, text) is never transmitted across the network.
 - **Offline PWA Support:** Installable as a Progressive Web App on macOS, Windows, iOS, and Android. Full offline functionality powered by Service Worker shell caching.
-- **5 Dedicated Category Hubs & 100 Tool Pages:** Pre-rendered semantic HTML pages with rich JSON-LD structured data (WebApplication, CollectionPage, FAQPage, HowTo, BreadcrumbList) and OpenGraph / Twitter Cards.
+- **5 Dedicated Category Hubs & 105 Tool Pages:** Pre-rendered semantic HTML pages with rich JSON-LD structured data (WebApplication, CollectionPage, FAQPage, HowTo, BreadcrumbList) and OpenGraph / Twitter Cards.
 - **Embeddable Tool Widgets:** Clean `?embed=true` mode allowing tech writers and developers to embed any tool into their blogs, docs, and wikis.
 - **Instant Search Engine Indexing:** Automated IndexNow integration (`scripts/submit_indexnow.py`) for rapid crawling across Bing, Yandex, Seznam, and AI search engines.
 - **Viral Launch Kit:** Ready-to-use launch copy for Hacker News, Reddit, and Product Hunt in `docs/LAUNCH_KIT.md`.
@@ -24,9 +24,9 @@ A free, 100% client-side web utility hub ("Swiss Army knife") built to rank for 
 
 ---
 
-## 🛠️ Complete 100-Tool Suite
+## 🛠️ Complete 105-Tool Suite
 
-All 100 tools from the roadmap are implemented with 100% client-side JavaScript, responsive UI, dark mode support, and AdSense-ready SEO content:
+All 105 tools are implemented with 100% client-side JavaScript, responsive UI, dark mode support, and AdSense-ready SEO content:
 
 ### Category 1: Text & Formatting (Tools 1–25)
 1. **Word & Character Counter** (`word-counter`)
@@ -55,7 +55,7 @@ All 100 tools from the roadmap are implemented with 100% client-side JavaScript,
 24. **Extract Emails from Text** (`extract-emails`)
 25. **Emoji Stripper** (`emoji-stripper`)
 
-### Category 2: Developer & Data (Tools 26–50)
+### Category 2: Developer & Data (Tools 26–53)
 26. **JSON Beautifier & Validator** (`json-beautifier`)
 27. **JSON Minifier** (`json-minifier`)
 28. **Base64 String Encoder / Decoder** (`base64-tool`)
@@ -81,62 +81,67 @@ All 100 tools from the roadmap are implemented with 100% client-side JavaScript,
 48. **Hash Generator (MD5, SHA-256 via Web Crypto)** (`hash-generator`)
 49. **User Agent Parser** (`user-agent-parser`)
 50. **Keycode Event Inspector** (`keycode-inspector`)
+51. **IPv4 Subnet & CIDR Calculator** (`subnet-calculator`)
+52. **HMAC Generator & Verifier** (`hmac-generator`)
+53. **HTTP Header Parser & Security Auditor** (`http-header-parser`)
 
-### Category 3: Everyday Math & Converters (Tools 51–75)
-51. **Percentage Increase/Decrease Calculator** (`percentage-calculator`)
-52. **Discount & Sales Tax Calculator** (`discount-tax-calculator`)
-53. **Tip & Bill Splitter** (`tip-splitter-calculator`)
-54. **Length Converter (Metric / Imperial)** (`length-converter`)
-55. **Weight & Mass Converter** (`weight-converter`)
-56. **Temperature Converter (°C, °F, K)** (`temperature-converter`)
-57. **Data Storage Converter (Bytes to TB)** (`data-storage-converter`)
-58. **Speed Converter (mph, km/h, m/s, knots)** (`speed-converter`)
-59. **Time Zone Converter & World Clock** (`timezone-converter`)
-60. **Epoch / Unix Timestamp to Human Date** (`timestamp-converter`)
-61. **Human Date to Unix Timestamp** (`human-date-to-unix`)
-62. **Age & Days Alive Calculator** (`age-calculator`)
-63. **Date Difference Calculator** (`date-difference-calculator`)
-64. **Aspect Ratio Scaler (16:9, 4:3, etc.)** (`aspect-ratio-calculator`)
-65. **Screen PPI / DPI Calculator** (`ppi-calculator`)
-66. **Compound Interest Calculator** (`compound-interest-calculator`)
-67. **Hourly Rate to Annual Salary Calculator** (`salary-calculator`)
-68. **GPA Calculator** (`gpa-calculator`)
-69. **Roman Numeral Converter** (`roman-numeral-converter`)
-70. **Random Number Generator** (`random-number-generator`)
-71. **Dice Roller & Coin Flipper** (`dice-coin-roller`)
-72. **Running Pace Calculator** (`running-pace-calculator`)
-73. **Fuel Cost Estimator** (`fuel-cost-calculator`)
-74. **Base Converter (Hex, Dec, Oct, Bin)** (`base-converter`)
-75. **Matrix Determinant Calculator** (`matrix-determinant-calculator`)
+### Category 3: Everyday Math & Converters (Tools 54–78)
+54. **Percentage Increase/Decrease Calculator** (`percentage-calculator`)
+55. **Discount & Sales Tax Calculator** (`discount-tax-calculator`)
+56. **Tip & Bill Splitter** (`tip-splitter-calculator`)
+57. **Length Converter (Metric / Imperial)** (`length-converter`)
+58. **Weight & Mass Converter** (`weight-converter`)
+59. **Temperature Converter (°C, °F, K)** (`temperature-converter`)
+60. **Data Storage Converter (Bytes to TB)** (`data-storage-converter`)
+61. **Speed Converter (mph, km/h, m/s, knots)** (`speed-converter`)
+62. **Time Zone Converter & World Clock** (`timezone-converter`)
+63. **Epoch / Unix Timestamp to Human Date** (`timestamp-converter`)
+64. **Human Date to Unix Timestamp** (`human-date-to-unix`)
+65. **Age & Days Alive Calculator** (`age-calculator`)
+66. **Date Difference Calculator** (`date-difference-calculator`)
+67. **Aspect Ratio Scaler (16:9, 4:3, etc.)** (`aspect-ratio-calculator`)
+68. **Screen PPI / DPI Calculator** (`ppi-calculator`)
+69. **Compound Interest Calculator** (`compound-interest-calculator`)
+70. **Hourly Rate to Annual Salary Calculator** (`salary-calculator`)
+71. **GPA Calculator** (`gpa-calculator`)
+72. **Roman Numeral Converter** (`roman-numeral-converter`)
+73. **Random Number Generator** (`random-number-generator`)
+74. **Dice Roller & Coin Flipper** (`dice-coin-roller`)
+75. **Running Pace Calculator** (`running-pace-calculator`)
+76. **Fuel Cost Estimator** (`fuel-cost-calculator`)
+77. **Base Converter (Hex, Dec, Oct, Bin)** (`base-converter`)
+78. **Matrix Determinant Calculator** (`matrix-determinant-calculator`)
 
-### Category 4: Media, CSS & Design (Tools 76–90)
-76. **Color Picker & Converter (HEX, RGB, HSL)** (`color-converter`)
-77. **Random Palette Generator** (`palette-generator`)
-78. **WCAG Color Contrast Checker** (`contrast-checker`)
-79. **QR Code Generator (SVG / Canvas)** (`qr-code-generator`)
-80. **Barcode Generator (Code 128)** (`barcode-generator`)
-81. **CSS Box Shadow Generator** (`box-shadow-generator`)
-82. **CSS Border Radius / Blob Generator** (`border-radius-generator`)
-83. **CSS Gradient Generator** (`gradient-generator`)
-84. **CSS Glassmorphism Generator** (`glassmorphism-generator`)
-85. **SVG Path Visualizer** (`svg-path-visualizer`)
-86. **In-Browser Image Resizer (Canvas)** (`image-resizer`)
-87. **In-Browser Image Cropper** (`image-cropper`)
-88. **Image Filter / Grayscale Tool** (`image-filter-tool`)
-89. **Favicon Generator (multi-size export)** (`favicon-generator`)
-90. **Tweet / Quote Card Image Maker** (`quote-card-maker`)
+### Category 4: Media, CSS & Design (Tools 79–94)
+79. **Color Picker & Converter (HEX, RGB, HSL)** (`color-converter`)
+80. **Random Palette Generator** (`palette-generator`)
+81. **WCAG Color Contrast Checker** (`contrast-checker`)
+82. **QR Code Generator (SVG / Canvas)** (`qr-code-generator`)
+83. **Barcode Generator (Code 128)** (`barcode-generator`)
+84. **CSS Box Shadow Generator** (`box-shadow-generator`)
+85. **CSS Border Radius / Blob Generator** (`border-radius-generator`)
+86. **CSS Gradient Generator** (`gradient-generator`)
+87. **CSS Glassmorphism Generator** (`glassmorphism-generator`)
+88. **SVG Path Visualizer** (`svg-path-visualizer`)
+89. **In-Browser Image Resizer (Canvas)** (`image-resizer`)
+90. **In-Browser Image Cropper** (`image-cropper`)
+91. **Image Filter / Grayscale Tool** (`image-filter-tool`)
+92. **Favicon Generator (multi-size export)** (`favicon-generator`)
+93. **Tweet / Quote Card Image Maker** (`quote-card-maker`)
+94. **CSS Clip-Path Maker & Polygon Editor** (`clip-path-generator`)
 
-### Category 5: Quick Utilities & Life Tools (Tools 91–100)
-91. **Strong Password Generator** (`password-generator`)
-92. **Diceware Passphrase Generator** (`diceware-generator`)
-93. **Stopwatch & Lap Tracker** (`stopwatch-timer`)
-94. **Countdown Timer with Audio Alert** (`countdown-timer`)
-95. **Pomodoro Focus Timer (25/5)** (`pomodoro-timer`)
-96. **Web Audio Metronome** (`metronome`)
-97. **LocalStorage Scratchpad / Notes** (`scratchpad`)
-98. **Screen Resolution & Viewport Inspector** (`screen-inspector`)
-99. **Browser Storage Cleaner** (`storage-cleaner`)
-100. **Network Ping / Latency Checker** (`network-latency-checker`)
+### Category 5: Quick Utilities & Life Tools (Tools 95–105)
+95. **Strong Password Generator** (`password-generator`)
+96. **Diceware Passphrase Generator** (`diceware-generator`)
+97. **Stopwatch & Lap Tracker** (`stopwatch-timer`)
+98. **Countdown Timer with Audio Alert** (`countdown-timer`)
+99. **Pomodoro Focus Timer (25/5)** (`pomodoro-timer`)
+100. **Web Audio Metronome** (`metronome`)
+101. **LocalStorage Scratchpad / Notes** (`scratchpad`)
+102. **Screen Resolution & Viewport Inspector** (`screen-inspector`)
+103. **Browser Storage Cleaner** (`storage-cleaner`)
+104. **Network Ping / Latency Checker** (`network-latency-checker`)
+105. **Tap Tempo BPM & Metronome Calculator** (`tap-tempo-bpm`)
 
 ---
 
@@ -164,7 +169,7 @@ All 100 tools from the roadmap are implemented with 100% client-side JavaScript,
 
 ---
 
-## 🧩 How to Add New Tools (Scaling from 20 to 100)
+## 🧩 How to Add New Tools (Scaling from 20 to 105)
 
 To add a new tool (e.g. `nato-alphabet`), open the corresponding category file in `js/tools/` (e.g. `text.js`) and append a tool object:
 

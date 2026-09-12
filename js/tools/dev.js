@@ -2339,6 +2339,558 @@ const devTools = [
       howTo: ["Click the interactive box.", "Press any keyboard button.", "Inspect exact JavaScript event values."],
       faqs: [{ q: "Why is event.keyCode deprecated?", a: "Modern web standards prefer event.key (for the character) and event.code (for the physical keyboard key position) to support international keyboard layouts." }]
     }
+  },
+
+  // 51. IPv4 Subnet & CIDR Calculator
+  {
+    id: "subnet-calculator",
+    title: "IPv4 Subnet & CIDR Calculator",
+    category: "Developer & Data",
+    icon: "🌐",
+    badge: "New",
+    description: "Calculate network address, usable host range, broadcast address, subnet mask, and wildcard mask with visual CIDR breakdown.",
+    keywords: ["subnet calculator", "cidr calculator", "ipv4 subnet", "ip subnet mask", "network address calculator", "cidr notation", "usable host range"],
+    render: (container) => {
+      container.innerHTML = `
+        <div class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-1.5 uppercase">IP Address</label>
+              <input id="sub-ip" type="text" value="192.168.1.1" class="w-full px-3 py-2 text-xs font-mono rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="e.g. 192.168.1.1">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-1.5 uppercase">CIDR Prefix</label>
+              <select id="sub-cidr" class="w-full px-3 py-2 text-xs font-mono rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"></select>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs font-medium text-zinc-400">Quick Presets:</span>
+            <button data-preset="192.168.1.1/24" class="sub-preset px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">192.168.1.1 /24</button>
+            <button data-preset="10.0.0.1/16" class="sub-preset px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">10.0.0.1 /16</button>
+            <button data-preset="172.16.0.1/12" class="sub-preset px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">172.16.0.1 /12</button>
+            <button data-preset="10.0.0.1/8" class="sub-preset px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">10.0.0.1 /8</button>
+            <button data-preset="192.168.1.1/30" class="sub-preset px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">/30 (P2P Link)</button>
+          </div>
+
+          <div id="sub-error" class="hidden p-3 text-xs rounded-xl bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-900"></div>
+
+          <div id="sub-results" class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
+            <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40">
+              <span class="text-[11px] text-zinc-400 block mb-0.5">Network Address</span>
+              <span id="sub-net" class="font-bold text-zinc-900 dark:text-zinc-100 text-sm">-</span>
+            </div>
+            <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40">
+              <span class="text-[11px] text-zinc-400 block mb-0.5">Broadcast Address</span>
+              <span id="sub-bcast" class="font-bold text-zinc-900 dark:text-zinc-100 text-sm">-</span>
+            </div>
+            <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40">
+              <span class="text-[11px] text-zinc-400 block mb-0.5">Usable Host Range</span>
+              <span id="sub-range" class="font-bold text-indigo-600 dark:text-indigo-400 text-xs">-</span>
+            </div>
+            <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40">
+              <span class="text-[11px] text-zinc-400 block mb-0.5">Usable Hosts / Total IPs</span>
+              <span id="sub-hosts" class="font-bold text-emerald-600 dark:text-emerald-400 text-sm">-</span>
+            </div>
+            <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40">
+              <span class="text-[11px] text-zinc-400 block mb-0.5">Subnet Mask</span>
+              <span id="sub-mask" class="font-bold text-zinc-900 dark:text-zinc-100">-</span>
+            </div>
+            <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40">
+              <span class="text-[11px] text-zinc-400 block mb-0.5">Wildcard Mask</span>
+              <span id="sub-wildcard" class="font-bold text-zinc-900 dark:text-zinc-100">-</span>
+            </div>
+            <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 sm:col-span-2">
+              <span class="text-[11px] text-zinc-400 block mb-0.5">IP Scope / Classification</span>
+              <span id="sub-class" class="font-semibold text-zinc-700 dark:text-zinc-300">-</span>
+            </div>
+            <div class="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 sm:col-span-2">
+              <span class="text-[11px] text-zinc-400 block mb-0.5">Binary Subnet Mask</span>
+              <span id="sub-binary" class="text-[11px] text-zinc-500 dark:text-zinc-400 break-all">-</span>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const ipInput = container.querySelector('#sub-ip');
+      const cidrSelect = container.querySelector('#sub-cidr');
+      const errorEl = container.querySelector('#sub-error');
+
+      // Populate CIDR dropdown /1 to /32
+      for (let i = 32; i >= 1; i--) {
+        const maskInt = (0xFFFFFFFF << (32 - i)) >>> 0;
+        const m1 = (maskInt >>> 24) & 255;
+        const m2 = (maskInt >>> 16) & 255;
+        const m3 = (maskInt >>> 8) & 255;
+        const m4 = maskInt & 255;
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = `/${i} (${m1}.${m2}.${m3}.${m4})`;
+        if (i === 24) opt.selected = true;
+        cidrSelect.appendChild(opt);
+      }
+
+      function parseIp(ipStr) {
+        const parts = ipStr.trim().split('.');
+        if (parts.length !== 4) return null;
+        const nums = parts.map(p => Number(p));
+        for (const n of nums) {
+          if (isNaN(n) || n < 0 || n > 255 || !Number.isInteger(n)) return null;
+        }
+        return (nums[0] << 24 | nums[1] << 16 | nums[2] << 8 | nums[3]) >>> 0;
+      }
+
+      function intToIp(intVal) {
+        return [
+          (intVal >>> 24) & 255,
+          (intVal >>> 16) & 255,
+          (intVal >>> 8) & 255,
+          intVal & 255
+        ].join('.');
+      }
+
+      function calculate() {
+        errorEl.classList.add('hidden');
+        const ipStr = ipInput.value.trim();
+        const cidr = parseInt(cidrSelect.value, 10);
+
+        const ipInt = parseIp(ipStr);
+        if (ipInt === null) {
+          errorEl.textContent = 'Please enter a valid IPv4 address (e.g. 192.168.1.1).';
+          errorEl.classList.remove('hidden');
+          return;
+        }
+
+        const maskInt = cidr === 0 ? 0 : ((0xFFFFFFFF << (32 - cidr)) >>> 0);
+        const wildcardInt = (~maskInt) >>> 0;
+        const netInt = (ipInt & maskInt) >>> 0;
+        const bcastInt = (netInt | wildcardInt) >>> 0;
+
+        const totalAddresses = Math.pow(2, 32 - cidr);
+        const usableHosts = cidr >= 31 ? (cidr === 31 ? 2 : 1) : Math.max(0, totalAddresses - 2);
+
+        let firstUsable = '-';
+        let lastUsable = '-';
+        if (cidr <= 30) {
+          firstUsable = intToIp(netInt + 1);
+          lastUsable = intToIp(bcastInt - 1);
+        } else if (cidr === 31) {
+          firstUsable = intToIp(netInt);
+          lastUsable = intToIp(bcastInt);
+        } else {
+          firstUsable = intToIp(netInt);
+          lastUsable = intToIp(netInt);
+        }
+
+        // Scope classification
+        const firstOctet = (ipInt >>> 24) & 255;
+        const secondOctet = (ipInt >>> 16) & 255;
+        let scope = "Public IPv4 Internet";
+        if (firstOctet === 10) scope = "Private Network (RFC 1918, Class A)";
+        else if (firstOctet === 172 && secondOctet >= 16 && secondOctet <= 31) scope = "Private Network (RFC 1918, Class B)";
+        else if (firstOctet === 192 && secondOctet === 168) scope = "Private Network (RFC 1918, Class C)";
+        else if (firstOctet === 127) scope = "Loopback Address (RFC 1122)";
+        else if (firstOctet === 169 && secondOctet === 254) scope = "Link-Local / APIPA (RFC 3927)";
+
+        container.querySelector('#sub-net').textContent = `${intToIp(netInt)} /${cidr}`;
+        container.querySelector('#sub-bcast').textContent = intToIp(bcastInt);
+        container.querySelector('#sub-range').textContent = `${firstUsable} – ${lastUsable}`;
+        container.querySelector('#sub-hosts').textContent = `${usableHosts.toLocaleString()} usable (${totalAddresses.toLocaleString()} total)`;
+        container.querySelector('#sub-mask').textContent = intToIp(maskInt);
+        container.querySelector('#sub-wildcard').textContent = intToIp(wildcardInt);
+        container.querySelector('#sub-class').textContent = scope;
+
+        const binaryStr = [
+          ((maskInt >>> 24) & 255).toString(2).padStart(8, '0'),
+          ((maskInt >>> 16) & 255).toString(2).padStart(8, '0'),
+          ((maskInt >>> 8) & 255).toString(2).padStart(8, '0'),
+          (maskInt & 255).toString(2).padStart(8, '0')
+        ].join('.');
+        container.querySelector('#sub-binary').textContent = binaryStr;
+      }
+
+      ipInput.addEventListener('input', calculate);
+      cidrSelect.addEventListener('change', calculate);
+
+      container.querySelectorAll('.sub-preset').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const [ip, c] = btn.dataset.preset.split('/');
+          ipInput.value = ip;
+          cidrSelect.value = c;
+          calculate();
+        });
+      });
+
+      calculate();
+    },
+    seoContent: {
+      overview: "Online IPv4 Subnet and CIDR Calculator. Calculate network range, broadcast addresses, usable host counts, wildcard masks, and binary netmasks with zero network latency.",
+      features: [
+        "Instant calculation of network, broadcast, and host range addresses",
+        "Supports all CIDR prefix notations from /1 to /32",
+        "Includes wildcard masks and RFC 1918 private/public IP classification",
+        "100% client-side bitwise calculation running in your browser"
+      ],
+      howTo: [
+        "Enter any IPv4 address into the IP Address field.",
+        "Select your CIDR prefix (/1 to /32) from the dropdown or click a quick preset.",
+        "Review the network boundaries, usable IP range, and host capacities."
+      ],
+      faqs: [
+        { q: "Why are there two fewer usable hosts than total IP addresses?", a: "In standard IPv4 subnets (/30 and larger), the first address is reserved as the Network identifier, and the final address is reserved as the Broadcast address." },
+        { q: "What is the difference between a subnet mask and a wildcard mask?", a: "A wildcard mask is the exact inverse (bitwise NOT) of a subnet mask. It is widely used in Cisco access control lists (ACLs) and OSPF network configurations." }
+      ]
+    }
+  },
+
+  // 52. In-Browser HMAC Generator (Web Crypto)
+  {
+    id: "hmac-generator",
+    title: "In-Browser HMAC Generator",
+    category: "Developer & Data",
+    icon: "🔐",
+    badge: "New",
+    description: "Generate cryptographically secure Hash-based Message Authentication Codes (HMAC) via native Web Crypto API with zero server transmission.",
+    keywords: ["hmac generator", "hmac sha256", "hmac sha512", "webhook signature generator", "crypto subtle hmac", "online hmac tool"],
+    render: (container) => {
+      container.innerHTML = `
+        <div class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-1.5 uppercase">Algorithm</label>
+              <select id="hmac-algo" class="w-full px-3 py-2 text-xs font-mono rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <option value="SHA-256" selected>HMAC-SHA-256 (Stripe, GitHub, AWS)</option>
+                <option value="SHA-512">HMAC-SHA-512 (High Security)</option>
+                <option value="SHA-384">HMAC-SHA-384</option>
+                <option value="SHA-1">HMAC-SHA-1 (Legacy)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-1.5 uppercase">Output Encoding</label>
+              <select id="hmac-enc" class="w-full px-3 py-2 text-xs font-mono rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <option value="hex" selected>Hexadecimal (Lowercase)</option>
+                <option value="hex-upper">Hexadecimal (UPPERCASE)</option>
+                <option value="base64">Base64</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-1.5 uppercase">Secret Key</label>
+            <div class="relative">
+              <input id="hmac-key" type="password" value="my_super_secret_webhook_key_123" class="w-full px-3 pr-10 py-2 text-xs font-mono rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Paste your private secret key here...">
+              <button id="hmac-toggle-key" class="absolute right-2.5 top-2 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 text-xs transition" title="Toggle secret visibility">👁️</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label class="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase">Input Message / Payload</label>
+              <div class="flex items-center gap-2">
+                <button id="hmac-sample" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline">Insert Sample Payload</button>
+                <button id="hmac-clear" class="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200">Clear</button>
+              </div>
+            </div>
+            <textarea id="hmac-message" rows="5" class="w-full p-3 font-mono text-xs rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Type or paste the raw payload string here...">{ "event": "payment_intent.succeeded", "amount": 2500 }</textarea>
+          </div>
+
+          <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/50 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-zinc-700 dark:text-zinc-300 flex items-center gap-1.5">
+                <span>Calculated HMAC Signature</span>
+                <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-mono">Web Crypto API</span>
+              </span>
+              <button id="hmac-copy" class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white transition flex items-center gap-1">Copy Hash</button>
+            </div>
+            <div id="hmac-output" class="p-3 font-mono text-xs break-all rounded-lg bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-indigo-600 dark:text-indigo-400 select-all">Calculating...</div>
+          </div>
+        </div>
+      `;
+
+      const algoSelect = container.querySelector('#hmac-algo');
+      const encSelect = container.querySelector('#hmac-enc');
+      const keyInput = container.querySelector('#hmac-key');
+      const msgInput = container.querySelector('#hmac-message');
+      const outputEl = container.querySelector('#hmac-output');
+      const toggleKeyBtn = container.querySelector('#hmac-toggle-key');
+
+      toggleKeyBtn.addEventListener('click', () => {
+        keyInput.type = keyInput.type === 'password' ? 'text' : 'password';
+      });
+
+      async function generateHmac() {
+        const keyText = keyInput.value;
+        const msgText = msgInput.value;
+        const algo = algoSelect.value;
+        const encoding = encSelect.value;
+
+        if (!keyText || !msgText) {
+          outputEl.textContent = 'Please enter both a secret key and an input message.';
+          return;
+        }
+
+        try {
+          const enc = new TextEncoder();
+          const keyData = enc.encode(keyText);
+          const msgData = enc.encode(msgText);
+
+          const cryptoKey = await window.crypto.subtle.importKey(
+            'raw',
+            keyData,
+            { name: 'HMAC', hash: { name: algo } },
+            false,
+            ['sign']
+          );
+
+          const signature = await window.crypto.subtle.sign('HMAC', cryptoKey, msgData);
+          const bytes = new Uint8Array(signature);
+
+          let result = '';
+          if (encoding === 'base64') {
+            let binary = '';
+            for (let i = 0; i < bytes.byteLength; i++) {
+              binary += String.fromCharCode(bytes[i]);
+            }
+            result = window.btoa(binary);
+          } else {
+            let hex = Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join('');
+            result = encoding === 'hex-upper' ? hex.toUpperCase() : hex;
+          }
+
+          outputEl.textContent = result;
+        } catch (err) {
+          outputEl.textContent = `Error generating HMAC: ${err.message}`;
+        }
+      }
+
+      algoSelect.addEventListener('change', generateHmac);
+      encSelect.addEventListener('change', generateHmac);
+      keyInput.addEventListener('input', generateHmac);
+      msgInput.addEventListener('input', generateHmac);
+
+      container.querySelector('#hmac-copy').addEventListener('click', () => {
+        Utils.copyToClipboard(outputEl.textContent);
+      });
+
+      container.querySelector('#hmac-clear').addEventListener('click', () => {
+        msgInput.value = '';
+        generateHmac();
+        msgInput.focus();
+      });
+
+      container.querySelector('#hmac-sample').addEventListener('click', () => {
+        msgInput.value = '{"id":"evt_12345","type":"charge.successful","created":1726185600}';
+        generateHmac();
+      });
+
+      generateHmac();
+    },
+    seoContent: {
+      overview: "Cryptographically secure in-browser HMAC generator. Compute HMAC-SHA256, HMAC-SHA512, and HMAC-SHA1 webhook signatures using the native browser Web Crypto API without exposing keys to remote servers.",
+      features: [
+        "100% client-side calculation using native window.crypto.subtle",
+        "Supports SHA-256, SHA-384, SHA-512, and SHA-1 algorithms",
+        "Supports Hexadecimal (lowercase/uppercase) and Base64 output encodings",
+        "Confidential: Your private API and webhook secret keys are never transmitted over the internet"
+      ],
+      howTo: [
+        "Select your HMAC hash algorithm (e.g. SHA-256 for Stripe/GitHub webhooks).",
+        "Enter your private secret key and message payload.",
+        "Choose your preferred output encoding (Hex or Base64) and copy the signature."
+      ],
+      faqs: [
+        { q: "Is it safe to paste my webhook secret key here?", a: "Yes. All computations execute locally in your browser memory using the Web Crypto API sandbox. Zero network packets or telemetry are transmitted." },
+        { q: "What is an HMAC used for?", a: "An HMAC (Hash-based Message Authentication Code) verifies both the data integrity and the authenticity of a message between two parties using a shared secret." }
+      ]
+    }
+  },
+
+  // 53. HTTP Header Parser & Security Audit
+  {
+    id: "http-header-parser",
+    title: "HTTP Header Parser & Security Audit",
+    category: "Developer & Data",
+    icon: "📋",
+    badge: "New",
+    description: "Parse raw HTTP request/response headers into structured key-values and run an instant security audit on CSP, HSTS, CORS, and clickjacking protections.",
+    keywords: ["http header parser", "security header checker", "parse http headers", "csp validator", "hsts checker", "http response headers"],
+    render: (container) => {
+      container.innerHTML = `
+        <div class="space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <label class="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase">Paste Raw HTTP Headers</label>
+            <div class="flex items-center gap-2">
+              <button id="hdr-sample-secure" class="px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">Sample: Secure Site</button>
+              <button id="hdr-sample-insecure" class="px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">Sample: Insecure / Minimal</button>
+              <button id="hdr-clear" class="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200">Clear</button>
+            </div>
+          </div>
+
+          <textarea id="hdr-input" rows="6" class="w-full p-3 font-mono text-xs rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="HTTP/1.1 200 OK&#10;Date: Mon, 12 Sep 2026 12:00:00 GMT&#10;Content-Type: text/html; charset=utf-8&#10;Strict-Transport-Security: max-age=31536000; includeSubDomains&#10;..."></textarea>
+
+          <!-- Security Score Banner -->
+          <div id="hdr-audit-box" class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/50 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider">Security Header Audit</span>
+              <span id="hdr-audit-score" class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300">-</span>
+            </div>
+            <div id="hdr-audit-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs"></div>
+          </div>
+
+          <!-- Parsed Headers Table -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider">Parsed Header Elements</span>
+              <span id="hdr-count" class="text-[11px] font-mono text-zinc-400">0 headers</span>
+            </div>
+            <div class="overflow-x-auto rounded-xl border border-zinc-200 dark:border-zinc-800">
+              <table class="w-full text-left text-xs font-mono">
+                <thead class="bg-zinc-100/70 dark:bg-zinc-850/60 text-zinc-600 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800">
+                  <tr>
+                    <th class="p-2.5 w-1/3">Header Name</th>
+                    <th class="p-2.5">Header Value</th>
+                  </tr>
+                </thead>
+                <tbody id="hdr-table-body" class="divide-y divide-zinc-200 dark:divide-zinc-800/60 bg-white dark:bg-zinc-900/40">
+                  <tr><td colspan="2" class="p-4 text-center text-zinc-400">No headers parsed yet.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const input = container.querySelector('#hdr-input');
+      const auditList = container.querySelector('#hdr-audit-list');
+      const auditScore = container.querySelector('#hdr-audit-score');
+      const tableBody = container.querySelector('#hdr-table-body');
+      const countEl = container.querySelector('#hdr-count');
+
+      const securityChecks = [
+        { name: 'Strict-Transport-Security', label: 'HSTS (Enforce HTTPS)', desc: 'Prevents SSL stripping attacks' },
+        { name: 'Content-Security-Policy', label: 'CSP (Content Security Policy)', desc: 'Mitigates Cross-Site Scripting (XSS)' },
+        { name: 'X-Frame-Options', label: 'X-Frame-Options', desc: 'Protects against clickjacking via iframes' },
+        { name: 'X-Content-Type-Options', label: 'X-Content-Type-Options (nosniff)', desc: 'Prevents MIME-sniffing vulnerabilities' },
+        { name: 'Referrer-Policy', label: 'Referrer-Policy', desc: 'Controls sensitive referrer URLs sent on outbound links' },
+        { name: 'Permissions-Policy', label: 'Permissions-Policy', desc: 'Restricts browser APIs (camera, mic, geolocation)' }
+      ];
+
+      function parseHeaders() {
+        const raw = input.value.trim();
+        if (!raw) {
+          tableBody.innerHTML = '<tr><td colspan="2" class="p-4 text-center text-zinc-400">No headers parsed yet.</td></tr>';
+          auditList.innerHTML = '';
+          auditScore.textContent = '-';
+          countEl.textContent = '0 headers';
+          return;
+        }
+
+        const lines = raw.split(/\r?\n/);
+        const headers = [];
+        const headerMap = {};
+
+        for (const line of lines) {
+          const colonIdx = line.indexOf(':');
+          if (colonIdx > 0) {
+            const key = line.slice(0, colonIdx).trim();
+            const val = line.slice(colonIdx + 1).trim();
+            headers.push({ key, val });
+            headerMap[key.toLowerCase()] = val;
+          }
+        }
+
+        countEl.textContent = `${headers.length} headers parsed`;
+
+        // Render Table
+        if (headers.length === 0) {
+          tableBody.innerHTML = '<tr><td colspan="2" class="p-4 text-center text-zinc-400">Could not identify key:value headers. Check format.</td></tr>';
+        } else {
+          tableBody.innerHTML = headers.map(h => `
+            <tr class="hover:bg-zinc-50 dark:hover:bg-zinc-800/40">
+              <td class="p-2.5 font-semibold text-zinc-900 dark:text-zinc-100 break-all">${Utils.escapeHtml(h.key)}</td>
+              <td class="p-2.5 text-zinc-600 dark:text-zinc-300 break-all">${Utils.escapeHtml(h.val)}</td>
+            </tr>
+          `).join('');
+        }
+
+        // Run Security Audit
+        let passed = 0;
+        auditList.innerHTML = securityChecks.map(check => {
+          const found = headerMap[check.name.toLowerCase()];
+          if (found) passed++;
+          return `
+            <div class="p-2.5 rounded-lg border ${found ? 'border-emerald-200 dark:border-emerald-900 bg-emerald-50/50 dark:bg-emerald-950/30 text-emerald-900 dark:text-emerald-200' : 'border-amber-200 dark:border-amber-900 bg-amber-50/50 dark:bg-amber-950/30 text-amber-900 dark:text-amber-200'}">
+              <div class="flex items-center justify-between mb-0.5">
+                <span class="font-bold">${check.label}</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded font-semibold ${found ? 'bg-emerald-200 dark:bg-emerald-800 text-emerald-900 dark:text-emerald-100' : 'bg-amber-200 dark:bg-amber-800 text-amber-900 dark:text-amber-100'}">${found ? 'PRESENT' : 'MISSING'}</span>
+              </div>
+              <p class="text-[11px] opacity-80">${check.desc}</p>
+            </div>
+          `;
+        }).join('');
+
+        const totalChecks = securityChecks.length;
+        const grade = passed === totalChecks ? 'A+ (Hardened)' : (passed >= 4 ? 'B (Good)' : (passed >= 2 ? 'C (Needs Work)' : 'F (Vulnerable)'));
+        auditScore.textContent = `${passed}/${totalChecks} - Grade: ${grade}`;
+      }
+
+      input.addEventListener('input', parseHeaders);
+
+      container.querySelector('#hdr-sample-secure').addEventListener('click', () => {
+        input.value = [
+          'HTTP/2 200 OK',
+          'Date: Sat, 12 Sep 2026 12:00:00 GMT',
+          'Content-Type: text/html; charset=UTF-8',
+          'Strict-Transport-Security: max-age=63072000; includeSubDomains; preload',
+          'Content-Security-Policy: default-src \\'self\\'; script-src \\'self\\' https://trusted.cdn.com',
+          'X-Frame-Options: DENY',
+          'X-Content-Type-Options: nosniff',
+          'Referrer-Policy: strict-origin-when-cross-origin',
+          'Permissions-Policy: geolocation=(), camera=(), microphone=()',
+          'Server: cloudflare'
+        ].join('\\n');
+        parseHeaders();
+      });
+
+      container.querySelector('#hdr-sample-insecure').addEventListener('click', () => {
+        input.value = [
+          'HTTP/1.1 200 OK',
+          'Date: Sat, 12 Sep 2026 12:00:00 GMT',
+          'Content-Type: text/html',
+          'Server: Apache/2.4.41 (Ubuntu)',
+          'X-Powered-By: PHP/7.4.3',
+          'Connection: keep-alive'
+        ].join('\\n');
+        parseHeaders();
+      });
+
+      container.querySelector('#hdr-clear').addEventListener('click', () => {
+        input.value = '';
+        parseHeaders();
+        input.focus();
+      });
+
+      // Initial sample
+      container.querySelector('#hdr-sample-secure').click();
+    },
+    seoContent: {
+      overview: "Parse and audit raw HTTP response and request headers. Analyze critical web application security headers including HSTS, CSP, X-Frame-Options, and Referrer-Policy with instant grade scoring.",
+      features: [
+        "Parses multi-line HTTP response headers into structured key-value tables",
+        "Automated security audit checking 6 essential OWASP defense headers",
+        "Evaluates Strict-Transport-Security (HSTS), Content-Security-Policy (CSP), and Clickjacking defenses",
+        "Runs 100% in your browser with zero network transmission"
+      ],
+      howTo: [
+        "Paste raw HTTP headers copied from curl -I, browser DevTools, or Postman.",
+        "Review the structured headers table and the security audit score.",
+        "Identify missing headers and implement suggested OWASP mitigations."
+      ],
+      faqs: [
+        { q: "What is the most critical HTTP security header?", a: "Content-Security-Policy (CSP) and Strict-Transport-Security (HSTS) are widely considered the most vital for preventing XSS and man-in-the-middle protocol downgrade attacks." },
+        { q: "How do I extract HTTP headers from my browser?", a: "Open browser DevTools (F12), navigate to the Network tab, refresh the page, click the main document request, and view the Response Headers section." }
+      ]
+    }
   }
 ];
 

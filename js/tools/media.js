@@ -2213,6 +2213,222 @@ const mediaTools = [
         }
       ]
     }
+  },
+
+  // 16. CSS Clip-Path Polygon Generator
+  {
+    id: "clip-path-generator",
+    title: "CSS Clip-Path Polygon Generator",
+    category: "Media, CSS & Design",
+    icon: "✂️",
+    badge: "New",
+    description: "Visually create and customize CSS clip-path polygon shapes with interactive draggable vertex points and instant CSS code output.",
+    keywords: ["css clip-path generator", "clip-path polygon maker", "clippy generator", "css shape generator", "polygon clip-path", "css geometric shapes"],
+    render: (container) => {
+      container.innerHTML = `
+        <div class="space-y-4">
+          <!-- Preset buttons -->
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mr-1 uppercase">Presets:</span>
+            <button data-shape="triangle" class="cp-preset px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">Triangle</button>
+            <button data-shape="trapezoid" class="cp-preset px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">Trapezoid</button>
+            <button data-shape="parallelogram" class="cp-preset px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">Parallelogram</button>
+            <button data-shape="rhombus" class="cp-preset px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">Rhombus</button>
+            <button data-shape="pentagon" class="cp-preset px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">Pentagon</button>
+            <button data-shape="hexagon" class="cp-preset px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">Hexagon</button>
+            <button data-shape="star" class="cp-preset px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">Star</button>
+            <button data-shape="cross" class="cp-preset px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">Cross</button>
+            <button data-shape="arrow" class="cp-preset px-2.5 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition">Arrow</button>
+          </div>
+
+          <!-- Interactive Editor Stage -->
+          <div class="flex flex-col md:flex-row items-center justify-center gap-6 p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40">
+            <div class="relative select-none" style="width: 280px; height: 280px;">
+              <!-- Background grid & clipped box -->
+              <div id="cp-target" class="w-full h-full rounded-none bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 shadow-md transition-all duration-75"></div>
+              <!-- Drag points overlay -->
+              <svg id="cp-svg-overlay" class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100">
+                <polygon id="cp-svg-poly" points="" fill="none" stroke="rgba(255,255,255,0.6)" stroke-dasharray="3,3" stroke-width="1"></polygon>
+              </svg>
+              <div id="cp-handles" class="absolute inset-0 w-full h-full"></div>
+            </div>
+
+            <!-- Controls & Coordinates -->
+            <div class="flex-1 w-full space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-semibold text-zinc-700 dark:text-zinc-300">Vertex Control Points</span>
+                <div class="flex items-center gap-2">
+                  <button id="cp-add-pt" class="px-2 py-0.5 text-xs font-semibold rounded bg-zinc-200 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition">+ Add Point</button>
+                  <button id="cp-del-pt" class="px-2 py-0.5 text-xs font-semibold rounded bg-zinc-200 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition">- Remove Point</button>
+                </div>
+              </div>
+              <p class="text-[11px] text-zinc-500 dark:text-zinc-400">Click and drag any white handle on the canvas to sculpt your geometric polygon.</p>
+              <div id="cp-points-list" class="max-h-36 overflow-y-auto space-y-1 font-mono text-xs pr-1"></div>
+            </div>
+          </div>
+
+          <!-- Generated CSS Output -->
+          <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/50 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-zinc-700 dark:text-zinc-300 uppercase tracking-wider">Generated CSS Rule</span>
+              <button id="cp-copy" class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white transition flex items-center gap-1">Copy CSS</button>
+            </div>
+            <pre id="cp-code" class="p-3 font-mono text-xs break-all rounded-lg bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-indigo-600 dark:text-indigo-400 select-all"></pre>
+          </div>
+        </div>
+      `;
+
+      const presets = {
+        triangle: [[50, 0], [0, 100], [100, 100]],
+        trapezoid: [[20, 0], [80, 0], [100, 100], [0, 100]],
+        parallelogram: [[25, 0], [100, 0], [75, 100], [0, 100]],
+        rhombus: [[50, 0], [100, 50], [50, 100], [0, 50]],
+        pentagon: [[50, 0], [100, 38], [82, 100], [18, 100], [0, 38]],
+        hexagon: [[25, 0], [75, 0], [100, 50], [75, 100], [25, 100], [0, 50]],
+        star: [[50, 0], [61, 35], [98, 35], [68, 57], [79, 91], [50, 70], [21, 91], [32, 57], [2, 35], [39, 35]],
+        cross: [[35, 0], [65, 0], [65, 35], [100, 35], [100, 65], [65, 65], [65, 100], [35, 100], [35, 65], [0, 65], [0, 35], [35, 35]],
+        arrow: [[40, 0], [40, 40], [100, 40], [100, 60], [40, 60], [40, 100], [0, 50]]
+      };
+
+      let currentPoints = JSON.parse(JSON.stringify(presets.triangle));
+      const target = container.querySelector('#cp-target');
+      const handlesContainer = container.querySelector('#cp-handles');
+      const polySvg = container.querySelector('#cp-svg-poly');
+      const codeEl = container.querySelector('#cp-code');
+      const pointsListEl = container.querySelector('#cp-points-list');
+
+      function updateUI() {
+        const polyStr = currentPoints.map(pt => `${pt[0]}% ${pt[1]}%`).join(', ');
+        const cssVal = `clip-path: polygon(${polyStr});\\n-webkit-clip-path: polygon(${polyStr});`;
+        target.style.clipPath = `polygon(${polyStr})`;
+        target.style.webkitClipPath = `polygon(${polyStr})`;
+        polySvg.setAttribute('points', currentPoints.map(pt => `${pt[0]},${pt[1]}`).join(' '));
+        codeEl.textContent = cssVal;
+
+        // Render point inputs
+        pointsListEl.innerHTML = currentPoints.map((pt, idx) => `
+          <div class="flex items-center gap-2 p-1 rounded bg-white dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700">
+            <span class="w-5 text-center text-zinc-400 font-semibold text-[10px]">#${idx + 1}</span>
+            <span class="text-zinc-500">X:</span>
+            <input type="number" min="0" max="100" value="${pt[0]}" data-idx="${idx}" data-axis="0" class="cp-pt-input w-12 px-1 py-0.5 text-center rounded border border-zinc-200 dark:border-zinc-600 bg-transparent">
+            <span class="text-zinc-500">Y:</span>
+            <input type="number" min="0" max="100" value="${pt[1]}" data-idx="${idx}" data-axis="1" class="cp-pt-input w-12 px-1 py-0.5 text-center rounded border border-zinc-200 dark:border-zinc-600 bg-transparent">
+          </div>
+        `).join('');
+
+        // Wire inputs
+        pointsListEl.querySelectorAll('.cp-pt-input').forEach(inp => {
+          inp.addEventListener('input', (e) => {
+            const idx = parseInt(e.target.dataset.idx, 10);
+            const axis = parseInt(e.target.dataset.axis, 10);
+            let val = parseInt(e.target.value, 10);
+            if (isNaN(val)) val = 0;
+            val = Math.max(0, Math.min(100, val));
+            currentPoints[idx][axis] = val;
+            renderHandles();
+            updateUI();
+          });
+        });
+      }
+
+      function renderHandles() {
+        handlesContainer.innerHTML = '';
+        currentPoints.forEach((pt, idx) => {
+          const dot = document.createElement('div');
+          dot.className = 'absolute w-4 h-4 rounded-full bg-white border-2 border-indigo-600 shadow-md cursor-grab active:cursor-grabbing transform -translate-x-1/2 -translate-y-1/2 transition-transform hover:scale-125 z-10';
+          dot.style.left = `${pt[0]}%`;
+          dot.style.top = `${pt[1]}%`;
+
+          let isDragging = false;
+
+          function onPointerDown(e) {
+            isDragging = true;
+            dot.setPointerCapture(e.pointerId);
+            e.preventDefault();
+          }
+
+          function onPointerMove(e) {
+            if (!isDragging) return;
+            const rect = handlesContainer.getBoundingClientRect();
+            let x = ((e.clientX - rect.left) / rect.width) * 100;
+            let y = ((e.clientY - rect.top) / rect.height) * 100;
+            x = Math.round(Math.max(0, Math.min(100, x)));
+            y = Math.round(Math.max(0, Math.min(100, y)));
+            currentPoints[idx] = [x, y];
+            dot.style.left = `${x}%`;
+            dot.style.top = `${y}%`;
+            updateUI();
+          }
+
+          function onPointerUp(e) {
+            if (isDragging) {
+              isDragging = false;
+              try { dot.releasePointerCapture(e.pointerId); } catch(err) {}
+            }
+          }
+
+          dot.addEventListener('pointerdown', onPointerDown);
+          dot.addEventListener('pointermove', onPointerMove);
+          dot.addEventListener('pointerup', onPointerUp);
+          dot.addEventListener('pointercancel', onPointerUp);
+
+          handlesContainer.appendChild(dot);
+        });
+      }
+
+      container.querySelectorAll('.cp-preset').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const shape = btn.dataset.shape;
+          if (presets[shape]) {
+            currentPoints = JSON.parse(JSON.stringify(presets[shape]));
+            renderHandles();
+            updateUI();
+          }
+        });
+      });
+
+      container.querySelector('#cp-add-pt').addEventListener('click', () => {
+        if (currentPoints.length < 16) {
+          const last = currentPoints[currentPoints.length - 1];
+          currentPoints.push([Math.min(100, last[0] + 10), Math.min(100, last[1] + 10)]);
+          renderHandles();
+          updateUI();
+        }
+      });
+
+      container.querySelector('#cp-del-pt').addEventListener('click', () => {
+        if (currentPoints.length > 3) {
+          currentPoints.pop();
+          renderHandles();
+          updateUI();
+        }
+      });
+
+      container.querySelector('#cp-copy').addEventListener('click', () => {
+        Utils.copyToClipboard(codeEl.textContent);
+      });
+
+      renderHandles();
+      updateUI();
+    },
+    seoContent: {
+      overview: "Free interactive CSS clip-path polygon maker. Create complex geometric CSS shapes, triangles, trapezoids, arrows, and stars with intuitive draggable vertex points.",
+      features: [
+        "Interactive visual canvas with fluid draggable vertex control points",
+        "Includes popular geometric presets: Triangle, Hexagon, Star, Cross, and Arrow",
+        "Generates standards-compliant clip-path: polygon() and -webkit-clip-path CSS code",
+        "Add or remove arbitrary polygon vertices in real time"
+      ],
+      howTo: [
+        "Select a geometric preset shape or click '+ Add Point' to start your polygon.",
+        "Drag the white circular handles on the preview canvas to position your vertices.",
+        "Click 'Copy CSS' to copy the generated clip-path code directly into your stylesheet."
+      ],
+      faqs: [
+        { q: "What is CSS clip-path?", a: "The clip-path CSS property creates a clipping region that sets what part of an element should show. Parts inside the polygon remain visible, while parts outside are hidden." },
+        { q: "Is clip-path supported by modern browsers?", a: "Yes. All modern browsers (Chrome, Edge, Safari, Firefox, iOS, Android) support CSS clip-path with near 100% global user compatibility." }
+      ]
+    }
   }
 ];
 
