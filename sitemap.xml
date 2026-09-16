@@ -2,679 +2,679 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://getomnitools.com/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/categories/text-formatting.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/categories/text-formatting</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/categories/developer-data.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/categories/developer-data</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/categories/everyday-math.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/categories/everyday-math</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/categories/media-css-design.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/categories/media-css-design</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/categories/quick-utilities.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/categories/quick-utilities</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/word-counter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/word-counter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/reading-time-estimator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/reading-time-estimator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/case-converter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/case-converter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/remove-whitespace.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/remove-whitespace</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/remove-line-breaks.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/remove-line-breaks</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/sort-lines.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/sort-lines</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/reverse-text.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/reverse-text</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/text-diff.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/text-diff</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/remove-duplicate-lines.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/remove-duplicate-lines</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/markdown-previewer.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/markdown-previewer</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/lorem-ipsum-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/lorem-ipsum-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/slug-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/slug-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/regex-find-replace.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/regex-find-replace</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/strip-html-tags.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/strip-html-tags</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/discord-markdown-styler.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/discord-markdown-styler</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/invisible-character-remover.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/invisible-character-remover</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/text-binary-converter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/text-binary-converter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/text-hex-converter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/text-hex-converter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/nato-phonetic-converter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/nato-phonetic-converter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/morse-code-translator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/morse-code-translator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/fancy-unicode-fonts.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/fancy-unicode-fonts</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/line-numberer.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/line-numberer</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/extract-urls.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/extract-urls</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/extract-emails.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/extract-emails</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/emoji-stripper.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/emoji-stripper</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/json-beautifier.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/json-beautifier</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/json-minifier.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/json-minifier</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/base64-tool.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/base64-tool</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/url-encoder-decoder.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/url-encoder-decoder</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/csv-to-json.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/csv-to-json</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/json-to-csv.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/json-to-csv</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/html-entity-encoder.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/html-entity-encoder</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/jwt-decoder.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/jwt-decoder</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/cron-explainer.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/cron-explainer</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/regex-matcher.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/regex-matcher</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/css-minifier.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/css-minifier</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/js-minifier.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/js-minifier</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/sql-formatter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/sql-formatter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/xml-to-json.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/xml-to-json</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/yaml-to-json.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/yaml-to-json</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/base64-image-tool.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/base64-image-tool</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/http-status-codes.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/http-status-codes</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/mime-types.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/mime-types</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/chmod-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/chmod-calculator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/curl-converter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/curl-converter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/markdown-table-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/markdown-table-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/uuid-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/uuid-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/hash-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/hash-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/user-agent-parser.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/user-agent-parser</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/keycode-inspector.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/keycode-inspector</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/subnet-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/subnet-calculator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/hmac-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/hmac-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/http-header-parser.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/http-header-parser</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/percentage-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/percentage-calculator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/discount-tax-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/discount-tax-calculator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/tip-splitter-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/tip-splitter-calculator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/length-converter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/length-converter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/weight-converter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/weight-converter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/temperature-converter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/temperature-converter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/data-storage-converter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/data-storage-converter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/speed-converter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/speed-converter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/timezone-converter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/timezone-converter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/timestamp-converter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/timestamp-converter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/human-date-to-unix.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/human-date-to-unix</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/age-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/age-calculator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/date-difference-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/date-difference-calculator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/aspect-ratio-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/aspect-ratio-calculator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/ppi-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/ppi-calculator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/compound-interest-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/compound-interest-calculator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/salary-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/salary-calculator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/gpa-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/gpa-calculator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/roman-numeral-converter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/roman-numeral-converter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/random-number-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/random-number-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/dice-coin-roller.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/dice-coin-roller</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/running-pace-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/running-pace-calculator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/fuel-cost-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/fuel-cost-calculator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/base-converter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/base-converter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/matrix-determinant-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/matrix-determinant-calculator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/color-converter.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/color-converter</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/palette-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/palette-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/contrast-checker.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/contrast-checker</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/qr-code-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/qr-code-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/barcode-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/barcode-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/box-shadow-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/box-shadow-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/border-radius-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/border-radius-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/gradient-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/gradient-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/glassmorphism-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/glassmorphism-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/svg-path-visualizer.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/svg-path-visualizer</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/image-resizer.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/image-resizer</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/image-cropper.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/image-cropper</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/image-filter-tool.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/image-filter-tool</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/favicon-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/favicon-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/quote-card-maker.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/quote-card-maker</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/clip-path-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/clip-path-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/password-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/password-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/diceware-generator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/diceware-generator</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/stopwatch-timer.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/stopwatch-timer</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/countdown-timer.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/countdown-timer</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/pomodoro-timer.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/pomodoro-timer</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/metronome.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/metronome</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/scratchpad.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/scratchpad</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/screen-inspector.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/screen-inspector</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/storage-cleaner.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/storage-cleaner</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/network-latency-checker.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/network-latency-checker</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/tools/tap-tempo-bpm.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/tools/tap-tempo-bpm</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/pages/about.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/pages/about</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://getomnitools.com/pages/privacy.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://getomnitools.com/pages/privacy</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

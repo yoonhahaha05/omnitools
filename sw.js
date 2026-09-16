@@ -1,5 +1,5 @@
 // OmniTools Service Worker - Offline Shell Caching
-const CACHE_NAME = 'omnitools-cache-v2';
+const CACHE_NAME = 'omnitools-cache-v3';
 
 const STATIC_ASSETS = [
   '/',
@@ -19,8 +19,8 @@ const STATIC_ASSETS = [
   '/js/tools/math.js',
   '/js/tools/media.js',
   '/js/tools/quick.js',
-  '/pages/about.html',
-  '/pages/privacy.html'
+  '/pages/about',
+  '/pages/privacy'
 ];
 
 self.addEventListener('install', (event) => {

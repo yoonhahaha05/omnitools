@@ -315,14 +315,14 @@ def generate_tool_html(tool, all_tools):
         "slug": "developer-data"
     })
     cat_slug = cat_meta['slug']
-    cat_url = f"{BASE_URL}/categories/{cat_slug}.html"
+    cat_url = f"{BASE_URL}/categories/{cat_slug}"
     
     # Related tools (3 from same category, excluding self)
     related = [t for t in all_tools if t['category'] == tool['category'] and t['id'] != tool['id']][:3]
     if len(related) < 3:
         related += [t for t in all_tools if t['id'] != tool['id']][:3 - len(related)]
         
-    canonical_url = f"{BASE_URL}/tools/{tool['id']}.html"
+    canonical_url = f"{BASE_URL}/tools/{tool['id']}"
     override = SEO_OVERRIDES.get(tool['id'], {})
     page_title = override.get('title', f"{tool['title']} - Free Online Tool (100% Client-Side) | OmniTools")
     meta_desc = override.get('description', tool['description'])
@@ -457,7 +457,7 @@ def generate_tool_html(tool, all_tools):
 
     # Related Tools Cards (Internal Linking for SEO)
     related_cards_html = "\n".join([f"""
-        <a href="{r['id']}.html" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
+        <a href="/tools/{r['id']}" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
           <div class="flex items-center justify-between mb-1.5">
             <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">{html.escape(r['category'])}</span>
             <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
@@ -502,7 +502,7 @@ def generate_tool_html(tool, all_tools):
   <meta name="twitter:image" content="{BASE_URL}/assets/og-image.png">
 
   <!-- Search Engine Verification -->
-  <meta name="google-site-verification" content="GSC_VERIFICATION_TOKEN">
+  <meta name="google-site-verification" content="">
 
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -566,7 +566,7 @@ def generate_tool_html(tool, all_tools):
       
       <!-- Brand -->
       <div class="flex items-center gap-3 shrink-0">
-        <a href="../index.html" class="flex items-center gap-2.5">
+        <a href="/" class="flex items-center gap-2.5">
           <div class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center">
             <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
           </div>
@@ -576,7 +576,7 @@ def generate_tool_html(tool, all_tools):
 
       <!-- Quick Search / Catalog Link -->
       <div class="flex-1 max-w-md mx-4 hidden sm:block">
-        <a href="../index.html" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-850 bg-zinc-100/70 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
+        <a href="/" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-850 bg-zinc-100/70 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
           <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
           <span>Search tools...</span>
           <kbd class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-300/70 dark:border-zinc-750 bg-white dark:bg-zinc-800/80 text-zinc-400 shadow-2xs">⌘K</kbd>
@@ -585,12 +585,12 @@ def generate_tool_html(tool, all_tools):
 
       <!-- Action Controls -->
       <div class="flex items-center gap-2 shrink-0">
-        <a href="../categories/{cat_slug}.html" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+        <a href="/categories/{cat_slug}" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
           <i data-lucide="folder" class="w-3.5 h-3.5"></i>
           <span class="hidden sm:inline">{html.escape(tool['category'])}</span>
         </a>
 
-        <a href="../index.html" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+        <a href="/" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
           <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
           <span class="hidden sm:inline">All Tools</span>
         </a>
@@ -613,9 +613,9 @@ def generate_tool_html(tool, all_tools):
     <!-- Breadcrumbs & Tool Action Buttons -->
     <div class="breadcrumb-bar flex flex-wrap items-center justify-between gap-3 text-xs">
       <div class="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">
-        <a href="../index.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Catalog</a>
+        <a href="/" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Catalog</a>
         <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
-        <a href="../categories/{cat_slug}.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">{html.escape(tool['category'])}</a>
+        <a href="/categories/{cat_slug}" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">{html.escape(tool['category'])}</a>
         <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
         <span class="text-zinc-900 dark:text-zinc-200 font-semibold">{html.escape(tool['title'])}</span>
       </div>
@@ -714,11 +714,11 @@ def generate_tool_html(tool, all_tools):
       <div class="flex items-center gap-2 font-mono text-[11px]">
         <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
         <span class="text-zinc-300 dark:text-zinc-700">/</span>
-        <span>100 Client-Side Micro-Utilities</span>
+        <span>105 Client-Side Micro-Utilities</span>
       </div>
       <div class="flex items-center gap-5 text-xs">
-        <a href="../pages/about.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
-        <a href="../pages/privacy.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
+        <a href="/pages/about" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
+        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
         <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1">
           <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
           <span>Support</span>
@@ -815,14 +815,14 @@ def generate_tool_html(tool, all_tools):
     return page_content
 
 def generate_category_html(category, tools_in_cat, all_categories):
-    canonical_url = f"{BASE_URL}/categories/{category['slug']}.html"
+    canonical_url = f"{BASE_URL}/categories/{category['slug']}"
     page_title = category['meta_title']
     
     # Generate tools grid cards
     tool_cards = []
     for t in tools_in_cat:
         tool_cards.append(f"""
-        <a href="../tools/{t['id']}.html" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+        <a href="/tools/{t['id']}" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
           <div>
             <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
               <i data-lucide="{Utils_get_icon(t['icon'], t['category'])}" class="w-4 h-4"></i>
@@ -840,7 +840,7 @@ def generate_category_html(category, tools_in_cat, all_categories):
         is_active = c['slug'] == category['slug']
         active_cls = "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-950 font-bold" if is_active else "bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600"
         cat_tabs.append(f"""
-        <a href="{c['slug']}.html" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap {active_cls}">
+        <a href="/categories/{c['slug']}" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap {active_cls}">
           {html.escape(c['name'])} ({c['badge'].split()[0]})
         </a>""")
     cat_tabs_html = "\n".join(cat_tabs)
@@ -876,7 +876,7 @@ def generate_category_html(category, tools_in_cat, all_categories):
                         "@type": "ListItem",
                         "position": idx + 1,
                         "name": t['title'],
-                        "url": f"{BASE_URL}/tools/{t['id']}.html"
+                        "url": f"{BASE_URL}/tools/{t['id']}"
                     } for idx, t in enumerate(tools_in_cat)
                 ]
             }
@@ -1018,7 +1018,7 @@ def generate_category_html(category, tools_in_cat, all_categories):
       
       <!-- Brand -->
       <div class="flex items-center gap-3 shrink-0">
-        <a href="../index.html" class="flex items-center gap-2.5">
+        <a href="/" class="flex items-center gap-2.5">
           <div class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center">
             <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
           </div>
@@ -1028,7 +1028,7 @@ def generate_category_html(category, tools_in_cat, all_categories):
 
       <!-- Quick Search / Catalog Link -->
       <div class="flex-1 max-w-md mx-4 hidden sm:block">
-        <a href="../index.html" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-850 bg-zinc-100/70 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
+        <a href="/" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-850 bg-zinc-100/70 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
           <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
           <span>Search tools...</span>
           <kbd class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-300/70 dark:border-zinc-750 bg-white dark:bg-zinc-800/80 text-zinc-400 shadow-2xs">⌘K</kbd>
@@ -1037,7 +1037,7 @@ def generate_category_html(category, tools_in_cat, all_categories):
 
       <!-- Action Controls -->
       <div class="flex items-center gap-2 shrink-0">
-        <a href="../index.html" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+        <a href="/" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
           <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
           <span>All Tools</span>
         </a>
@@ -1059,7 +1059,7 @@ def generate_category_html(category, tools_in_cat, all_categories):
     
     <!-- Breadcrumbs -->
     <div class="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">
-      <a href="../index.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Home</a>
+      <a href="/" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Home</a>
       <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
       <span class="text-zinc-900 dark:text-zinc-200 font-semibold">{html.escape(category['name'])}</span>
     </div>
@@ -1115,11 +1115,11 @@ def generate_category_html(category, tools_in_cat, all_categories):
       <div class="flex items-center gap-2 font-mono text-[11px]">
         <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
         <span class="text-zinc-300 dark:text-zinc-700">/</span>
-        <span>100 Client-Side Micro-Utilities</span>
+        <span>105 Client-Side Micro-Utilities</span>
       </div>
       <div class="flex items-center gap-5 text-xs">
-        <a href="../pages/about.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
-        <a href="../pages/privacy.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
+        <a href="/pages/about" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
+        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
         <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1">
           <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
           <span>Support</span>
@@ -1261,7 +1261,7 @@ def generate_sitemap(tools):
     # 2. 5 Category Hub Pages (Priority 0.9)
     for cat in CATEGORIES:
         urls.append(f"""  <url>
-    <loc>{BASE_URL}/categories/{cat['slug']}.html</loc>
+    <loc>{BASE_URL}/categories/{cat['slug']}</loc>
     <lastmod>{now}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -1270,7 +1270,7 @@ def generate_sitemap(tools):
     # 3. All 100 Tools (Priority 0.8)
     for tool in tools:
         urls.append(f"""  <url>
-    <loc>{BASE_URL}/tools/{tool['id']}.html</loc>
+    <loc>{BASE_URL}/tools/{tool['id']}</loc>
     <lastmod>{now}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1278,13 +1278,13 @@ def generate_sitemap(tools):
 
     # 4. About & Privacy (Priority 0.5)
     urls.append(f"""  <url>
-    <loc>{BASE_URL}/pages/about.html</loc>
+    <loc>{BASE_URL}/pages/about</loc>
     <lastmod>{now}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>""")
     urls.append(f"""  <url>
-    <loc>{BASE_URL}/pages/privacy.html</loc>
+    <loc>{BASE_URL}/pages/privacy</loc>
     <lastmod>{now}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

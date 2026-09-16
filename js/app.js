@@ -222,15 +222,15 @@ const App = {
               
               <div class="flex items-center gap-2 flex-wrap mt-2.5 text-xs text-zinc-500 dark:text-zinc-400">
                 <span class="text-zinc-400">Popular:</span>
-                <a href="tools/json-beautifier.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">JSON Formatter</a>
+                <a href="/tools/json-beautifier" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">JSON Formatter</a>
                 <span>•</span>
-                <a href="tools/word-counter.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Word Counter</a>
+                <a href="/tools/word-counter" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Word Counter</a>
                 <span>•</span>
-                <a href="tools/text-diff.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Diff Checker</a>
+                <a href="/tools/text-diff" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Diff Checker</a>
                 <span>•</span>
-                <a href="tools/base64-tool.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Base64</a>
+                <a href="/tools/base64-tool" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Base64</a>
                 <span>•</span>
-                <a href="tools/timestamp-converter.html" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Unix Timestamp</a>
+                <a href="/tools/timestamp-converter" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Unix Timestamp</a>
               </div>
             </div>
           </div>
@@ -347,7 +347,7 @@ const App = {
     if (this.viewMode === 'compact') {
       // Compact List Row View
       return `
-        <a href="tools/${tool.id}.html" class="tool-row flex items-center justify-between p-3 rounded-lg border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:bg-zinc-50 dark:hover:bg-zinc-800/60 hover:border-zinc-300 dark:hover:border-zinc-700 transition group">
+        <a href="/tools/${tool.id}" class="tool-row flex items-center justify-between p-3 rounded-lg border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:bg-zinc-50 dark:hover:bg-zinc-800/60 hover:border-zinc-300 dark:hover:border-zinc-700 transition group">
           <div class="flex items-center gap-3 min-w-0 pr-4">
             <div class="w-7 h-7 rounded-md bg-zinc-100 dark:bg-zinc-800/80 flex items-center justify-center shrink-0 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white transition">
               <i data-lucide="${iconName}" class="w-3.5 h-3.5"></i>
@@ -374,7 +374,7 @@ const App = {
 
     // Clean Grid Card View
     return `
-      <a href="tools/${tool.id}.html" class="tool-card block p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition group relative">
+      <a href="/tools/${tool.id}" class="tool-card block p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition group relative">
         <div class="flex items-start justify-between mb-2">
           <div class="w-7 h-7 rounded-md bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-zinc-300">
             <i data-lucide="${iconName}" class="w-3.5 h-3.5"></i>
@@ -572,7 +572,7 @@ const App = {
     const embedBtn = document.getElementById('tool-embed-btn');
     if (embedBtn) {
       embedBtn.addEventListener('click', () => {
-        const embedUrl = `${window.location.origin}/tools/${tool.id}.html?embed=true`;
+        const embedUrl = `${window.location.origin}/tools/${tool.id}?embed=true`;
         const iframeCode = `<iframe src="${embedUrl}" width="100%" height="450" frameborder="0" style="border:1px solid #e4e4e7;border-radius:12px;overflow:hidden;" title="${tool.title}"></iframe>`;
         Utils.copyToClipboard(iframeCode, 'Embed code copied to clipboard');
       });
