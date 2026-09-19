@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy - OmniTools</title>
-  <meta name="description" content="OmniTools client-side privacy architecture policy, local memory sandboxing, and cookie disclosures.">
+  <meta name="description" content="OmniTools client-side privacy architecture policy, GDPR &amp; CCPA compliance, local memory sandboxing, and advertising disclosures.">
   <link rel="canonical" href="https://getomnitools.com/pages/privacy">
 
   <!-- Favicon & PWA Manifest -->
@@ -17,7 +17,7 @@
   <!-- Open Graph & Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Privacy Policy - OmniTools">
-  <meta property="og:description" content="Client-side privacy guarantee. Zero tracking, zero remote processing.">
+  <meta property="og:description" content="Client-side privacy guarantee. Zero server tracking, zero remote processing.">
   <meta property="og:url" content="https://getomnitools.com/pages/privacy">
   <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -47,42 +47,71 @@
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 antialiased py-12 px-4 sm:px-6 lg:px-8 font-sans">
-  <div class="max-w-2xl mx-auto bg-white dark:bg-[#101319] p-7 sm:p-10 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xs">
+  <div class="max-w-3xl mx-auto bg-white dark:bg-[#101319] p-7 sm:p-10 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xs">
     <div class="mb-8 border-b border-zinc-100 dark:border-zinc-800 pb-6">
       <a href="/" class="inline-flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition mb-4">
         <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
         <span>Back to tools</span>
       </a>
       <h1 class="text-2xl sm:text-3xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">Privacy Policy</h1>
-      <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1.5">Last updated September 2026</p>
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1.5">Last updated: September 2026</p>
     </div>
 
     <div class="space-y-6 text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+      
       <section>
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">1. Client-Side Execution</h2>
-        <p>OmniTools processes data locally. All utilities—including word counting, cryptographic hashing, JSON formatting, Base64 encoding, regex testing, and conversions—execute entirely within your browser via JavaScript. None of the text, credentials, files, or tokens you enter are sent to our servers.</p>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">1. Client-Side Execution Guarantee</h2>
+        <p>OmniTools is architected around a strict <strong>zero-knowledge, client-side processing model</strong>. All 105 tools—including cryptographic hashing, JSON formatting, Base64 encoding, regex testing, subnet calculation, and image manipulation—execute strictly inside your browser's local sandbox memory.</p>
+        <p class="mt-2">None of the text, source code, credentials, tokens, IP addresses, or files you input into OmniTools are transmitted to our servers or stored in any remote database.</p>
       </section>
 
       <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">2. Local Storage Usage</h2>
-        <p>OmniTools uses your browser's local <code>localStorage</code> API solely to preserve your explicit user preferences: theme selection (Dark/Light mode), view layout density (Grid/List mode), and your list of favorite or recently opened tools. This data stays on your device.</p>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">2. Local Storage &amp; Client State</h2>
+        <p>OmniTools utilizes the HTML5 <code>localStorage</code> API solely to store your personal user interface preferences on your local device:</p>
+        <ul class="list-disc pl-5 mt-2 space-y-1 text-xs text-zinc-500 dark:text-zinc-400">
+          <li><strong>Theme Mode:</strong> Dark or Light mode state (<code>omnitools_theme</code>).</li>
+          <li><strong>Layout Density:</strong> Grid or compact table display preferences.</li>
+          <li><strong>Favorites &amp; History:</strong> Pinned tools and recently used tool identifiers.</li>
+        </ul>
+        <p class="mt-2 text-xs">This data resides strictly on your machine and can be cleared at any time through your browser's storage settings or DevTools.</p>
       </section>
 
       <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">3. Zero Data Logging</h2>
-        <p>We do not track keystrokes, clipboard contents, or processed file names. You can verify this at any time by inspecting the browser Network tab (F12) while using any tool.</p>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">3. Third-Party Advertising &amp; Cookies (Google AdSense)</h2>
+        <p>To keep OmniTools completely free and maintain our global CDN infrastructure, we serve non-intrusive advertisements provided by Google AdSense.</p>
+        <p class="mt-2">Google and third-party advertising partners may use cookies, web beacons, and similar technologies to serve ads based on your prior visits to this website or other sites on the Internet:</p>
+        <ul class="list-disc pl-5 mt-2 space-y-1 text-xs text-zinc-500 dark:text-zinc-400">
+          <li>Google's use of advertising cookies enables it and its partners to serve personalized advertisements based on browsing activity.</li>
+          <li>You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" class="text-zinc-900 dark:text-zinc-100 underline font-medium">Google Ads Settings</a>.</li>
+          <li>Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" class="text-zinc-900 dark:text-zinc-100 underline font-medium">aboutads.info</a> or <a href="https://www.youronlinechoices.eu/" target="_blank" rel="noopener noreferrer" class="text-zinc-900 dark:text-zinc-100 underline font-medium">Your Online Choices (EU)</a>.</li>
+        </ul>
       </section>
 
       <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">4. Third-Party Advertising &amp; Cookies (Google AdSense)</h2>
-        <p>OmniTools uses Google AdSense to serve non-intrusive advertisements to support free hosting. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other sites across the Internet.</p>
-        <p class="mt-2">Google's use of advertising cookies enables it and its partners to serve ads based on your visits to our site and/or other sites on the Internet. You may opt out of personalized advertising at any time by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" class="text-zinc-900 dark:text-zinc-100 underline font-medium">Google Ads Settings</a> or through <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" class="text-zinc-900 dark:text-zinc-100 underline font-medium">aboutads.info</a>.</p>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">4. GDPR Compliance (European Economic Area)</h2>
+        <p>If you are located in the EEA, the United Kingdom, or Switzerland, you hold specific statutory rights under the General Data Protection Regulation (GDPR). Because OmniTools does not collect, log, or process personal data on our servers, we do not maintain identifiable personal profiles. For cookie consent choices regarding advertising partners, you can adjust your preferences via your browser or the opt-out links above.</p>
       </section>
 
       <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">5. Contact</h2>
-        <p>If you have any questions or feedback regarding OmniTools, reach out to us at <a href="mailto:support@getomnitools.com" class="text-zinc-900 dark:text-zinc-100 font-medium underline">support@getomnitools.com</a>.</p>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">5. California Privacy Rights (CCPA / CPRA)</h2>
+        <p>Under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA), California residents are entitled to disclosures regarding the collection, sale, and sharing of personal information. OmniTools <strong>does not sell or rent personal information</strong> entered into our calculators and utilities to any third party.</p>
       </section>
+
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">6. Contact Data Protection Officer</h2>
+        <p>For inquiries, feedback, or verification regarding our privacy architecture, contact our team at <a href="mailto:support@getomnitools.com" class="text-zinc-900 dark:text-zinc-100 font-medium underline">support@getomnitools.com</a> or visit our <a href="/pages/contact" class="underline font-medium text-zinc-900 dark:text-zinc-100">Contact &amp; Support</a> page.</p>
+      </section>
+
+      <!-- Global Legal & Trust Footer -->
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5 flex flex-wrap items-center justify-between gap-3 text-xs text-zinc-400">
+        <div class="flex items-center gap-4">
+          <a href="/pages/about" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition">About</a>
+          <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition">Contact &amp; Support</a>
+          <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition">Terms of Service</a>
+        </div>
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition underline">Support Project</a>
+      </section>
+
     </div>
   </div>
 

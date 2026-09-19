@@ -143,6 +143,38 @@
         "@type": "Answer",
         "text": "16:9 is the standard aspect ratio for high-definition television and modern computer displays."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate the new height if I know the width?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply the new width by the original height, then divide by the original width: $\\text{New Height} = (\\text{New Width} \\times \\text{Original Height}) / \\text{Original Width}$."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the CSS aspect-ratio property better than padding-bottom hacks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The modern CSS `aspect-ratio` property is natively supported in all modern browsers and eliminates the need for container wrappers and `padding-bottom: 56.25%` hacks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Euclid's algorithm for aspect ratios?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Euclid's algorithm finds the Greatest Common Divisor (GCD) of two numbers by repeatedly dividing the remainder until it reaches zero, reducing raw dimensions like 1920\u00d71080 to their simplest fractional form (16:9)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data stored, logged, or transmitted to external servers when using Aspect Ratio Scaler?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. OmniTools operates on a strict zero-knowledge architecture. All computation, text processing, cryptographic hashing, and conversions execute 100% inside your browser's local sandbox memory. No inputs ever cross the internet."
+      }
     }
   ]
 }
@@ -300,43 +332,127 @@
     </div>
 
     <!-- Pre-rendered Semantic SEO Article, Instructions & Technical Notes -->
-    <div class="seo-deep-dive p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-5 text-xs sm:text-sm">
+    <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-1.5">Overview & Purpose</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm">
-          The Aspect Ratio Scaler calculates proportional dimensions when resizing images, video clips, canvas elements, and web frames.
-        </p>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2">The OmniTools Aspect Ratio Calculator computes proportional width and height dimensions based on fundamental geometric ratios and greatest common divisor (GCD) algorithms.
+When designing responsive websites, rendering 4K/1080p video, or configuring CSS container queries, preserving exact aspect ratios prevents layout shifts (Cumulative Layout Shift, CLS) and visual distortion.
+Our calculator calculates exact matching dimensions, finds the simplest integer aspect ratio using Euclid&#x27;s GCD algorithm, and generates ready-to-use CSS `aspect-ratio` properties for modern web layouts.</p>
       </div>
 
-          <div>
-            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Technical Capabilities</h3>
-            <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Technical Specifications &amp; Reference</h3>
+        <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+          <table class="w-full text-left bg-zinc-50/40 dark:bg-zinc-900/20">
+            <thead class="bg-zinc-100/80 dark:bg-zinc-800/60">
+              <tr><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Standard Ratio</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Common Resolutions</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Common Medium</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Decimal Factor</th></tr>
+            </thead>
+            <tbody>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">16:9</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1920×1080, 2560×1440, 3840×2160</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Widescreen HDTV, YouTube, Laptops</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1.777...</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">9:16</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1080×1920, 720×1280</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">TikTok, Instagram Stories, YouTube Shorts</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">0.5625</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">4:3</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1024×768, 1600×1200</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Retro monitors, iPad displays, photography</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1.333...</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">21:9</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">2560×1080, 3440×1440</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Ultrawide gaming monitors, CinemaScope</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">2.333...</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1:1</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1080×1080, 500×500</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Instagram feed posts, avatars, app icons</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1.000</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Real-World Industry &amp; Everyday Scenarios</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Responsive Web Design:</strong> Configuring modern CSS `aspect-ratio: 16 / 9` and setting width/height attributes on `<img>` tags to eliminate CLS.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Video Production &amp; Streaming:</strong> Calculating downscaled or upscaled canvas resolutions for YouTube, TikTok, Instagram Reels, and Twitch.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>UI/UX Design:</strong> Scaling modal viewports, card thumbnails, and hero banners while retaining exact proportional composition.</li>
+        </ul>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">CSS &amp; Code Equivalents for Aspect Ratio Calculation</h3>
+        <div class="space-y-3">
+
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">Bash / Terminal CLI:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code># Find image dimensions and aspect ratio via ImageMagick
+identify -format &quot;%w x %h\n&quot; image.png
+
+# Using ffprobe for video dimensions
+ffprobe -v error -select_streams v:0 -show_entries stream=width,height input.mp4</code></pre>
+          </div>
+
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">Python 3:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code>import math
+
+def get_aspect_ratio(width, height):
+    gcd = math.gcd(width, height)
+    return f&quot;{width // gcd}:{height // gcd}&quot;
+
+print(get_aspect_ratio(1920, 1080)) # &#x27;16:9&#x27;</code></pre>
+          </div>
+
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">JavaScript / Node.js:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code>// Modern CSS aspect ratio property
+/* CSS Aspect Ratio Standard */
+.video-player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Technical Capabilities</h3>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
             <li>Presets for 16:9, 4:3, 1:1, 21:9, and 9:16 mobile formats</li>
             <li>Bi-directional height and width calculation</li>
             <li>Live responsive proportion box</li>
-            </ul>
-          </div>
+        </ul>
+      </div>
 
-          <div>
-            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Usage Steps</h3>
-            <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Usage Steps &amp; Workflow</h3>
+        <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
             <li>Pick a standard ratio preset or type custom ratio values.</li>
             <li>Type your target width or height.</li>
             <li>The corresponding dimension will scale automatically.</li>
-            </ol>
+        </ol>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-3">Frequently Asked Questions</h3>
+        <div class="space-y-2.5">
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is 16:9 resolution?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">16:9 is the standard aspect ratio for high-definition television and modern computer displays.</p>
           </div>
 
-          <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-3">Frequently Asked Questions</h3>
-            <div class="space-y-2.5">
-
-              <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-                <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is 16:9 resolution?</h4>
-                <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">16:9 is the standard aspect ratio for high-definition television and modern computer displays.</p>
-              </div>
-            </div>
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">How do I calculate the new height if I know the width?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Multiply the new width by the original height, then divide by the original width: $\text{New Height} = (\text{New Width} \times \text{Original Height}) / \text{Original Width}$.</p>
           </div>
-    </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why is the CSS aspect-ratio property better than padding-bottom hacks?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The modern CSS `aspect-ratio` property is natively supported in all modern browsers and eliminates the need for container wrappers and `padding-bottom: 56.25%` hacks.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is Euclid&#x27;s algorithm for aspect ratios?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Euclid&#x27;s algorithm finds the Greatest Common Divisor (GCD) of two numbers by repeatedly dividing the remainder until it reaches zero, reducing raw dimensions like 1920×1080 to their simplest fractional form (16:9).</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is my data stored, logged, or transmitted to external servers when using Aspect Ratio Scaler?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. OmniTools operates on a strict zero-knowledge architecture. All computation, text processing, cryptographic hashing, and conversions execute 100% inside your browser&#x27;s local sandbox memory. No inputs ever cross the internet.</p>
+          </div>
+        </div>
+      </div>
+    </article>
 
     <!-- Related Utilities (Internal Linking Engine for Google SEO) -->
     <div class="related-tools-section space-y-3 pt-2">
@@ -382,10 +498,12 @@
         <span class="text-zinc-300 dark:text-zinc-700">/</span>
         <span>105 Client-Side Micro-Utilities</span>
       </div>
-      <div class="flex items-center gap-5 text-xs">
+      <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs">
         <a href="/pages/about" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
-        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1">
+        <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact &amp; Support</a>
+        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy Policy</a>
+        <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Terms of Service</a>
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
           <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
           <span>Support</span>
         </a>

@@ -143,6 +143,38 @@
         "@type": "Answer",
         "text": "URL-safe Base64 substitutes '+' with '-' and '/' with '_', and strips trailing padding '=' signs."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Base64 encrypt my data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Base64 is an encoding scheme, NOT encryption. Anyone can decode a Base64 string instantly. Never use Base64 alone to protect passwords, keys, or sensitive credentials."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does Base64 increase data size by ~33%?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Base64 represents 3 bytes (24 bits) of data using 4 ASCII characters (32 bits). This 4:3 ratio naturally creates an overhead expansion of approximately 33.3%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I encode binary files safely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Our client-side FileReader API reads binary files directly into Uint8Array buffers, ensuring byte-for-byte fidelity without data loss."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data stored, logged, or transmitted to external servers when using Base64 String Encoder / Decoder?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. OmniTools operates on a strict zero-knowledge architecture. All computation, text processing, cryptographic hashing, and conversions execute 100% inside your browser's local sandbox memory. No inputs ever cross the internet."
+      }
     }
   ]
 }
@@ -300,43 +332,122 @@
     </div>
 
     <!-- Pre-rendered Semantic SEO Article, Instructions & Technical Notes -->
-    <div class="seo-deep-dive p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-5 text-xs sm:text-sm">
+    <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-1.5">Overview & Purpose</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm">
-          The OmniTools Base64 Encoder &amp; Decoder provides conversion between raw text and Base64-encoded strings with full Unicode (UTF-8) support.
-        </p>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2">The OmniTools Base64 Encoder and Decoder converts binary and string data to ASCII radix-64 representations in compliance with RFC 4648. 
+Base64 encoding takes 3 bytes of binary data (24 bits) and maps them into 4 printable ASCII characters (6 bits each) chosen from a 64-character index table (A–Z, a–z, 0–9, +, /). When the input byte count is not divisible by 3, &#x27;=&#x27; padding characters are appended to maintain alignment.
+Standard JavaScript `btoa()` and `atob()` methods throw exceptions when encountering multi-byte Unicode strings (emojis, accented characters, Asian characters). OmniTools uses a UTF-8 byte stream encoder to ensure seamless conversion of international character sets without corrupted characters. Furthermore, URL-safe Base64 mode replaces &#x27;+&#x27; and &#x27;/&#x27; with &#x27;-&#x27; and &#x27;_&#x27; to allow safe embedding in URLs and JWT payloads.</p>
       </div>
 
-          <div>
-            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Technical Capabilities</h3>
-            <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Technical Specifications &amp; Reference</h3>
+        <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+          <table class="w-full text-left bg-zinc-50/40 dark:bg-zinc-900/20">
+            <thead class="bg-zinc-100/80 dark:bg-zinc-800/60">
+              <tr><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Variant</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Alphabet</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Padding</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">URL Safe?</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Primary Standards</th></tr>
+            </thead>
+            <tbody>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Standard Base64</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">A–Z, a–z, 0–9, +, /</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Yes (&#x27;=&#x27;)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">No (requires %-encoding)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">RFC 4648 §4, MIME RFC 2045</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">URL-Safe Base64</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">A–Z, a–z, 0–9, -, _</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Optional / Stripped</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Yes (safe in query strings)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">RFC 4648 §5, JWT RFC 7515</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Base64 Data URI</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">data:[mime];base64,[data]</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Yes</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">HTML/CSS Only</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">RFC 2397 Data URI scheme</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Real-World Industry &amp; Everyday Scenarios</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Web Development &amp; APIs:</strong> Encoding Basic Authentication authorization headers (`Authorization: Basic <base64>`).</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Data URIs &amp; Inline Assets:</strong> Embedding small SVG icons, fonts, and images directly into CSS and HTML files.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Data Serialization:</strong> Safely transmitting binary payloads through text-only transmission channels (JSON, XML, Email).</li>
+        </ul>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Terminal &amp; Code Equivalents for Base64 Encoding &amp; Decoding</h3>
+        <div class="space-y-3">
+
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">Bash / Terminal CLI:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code># Encode string to Base64 in Bash
+echo -n &quot;OmniTools&quot; | base64
+
+# Decode Base64 string
+echo &quot;T21uaVRvb2xz&quot; | base64 --decode</code></pre>
+          </div>
+
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">Python 3:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code>import base64
+
+# Unicode-safe Base64 in Python
+encoded = base64.b64encode(&#x27;OmniTools 🚀&#x27;.encode(&#x27;utf-8&#x27;)).decode(&#x27;ascii&#x27;)
+decoded = base64.b64decode(encoded).decode(&#x27;utf-8&#x27;)
+print(f&#x27;Encoded: {encoded} -&gt; Decoded: {decoded}&#x27;)</code></pre>
+          </div>
+
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">JavaScript / Node.js:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code>// Node.js Buffer Base64
+const str = &#x27;OmniTools 🚀&#x27;;
+const b64 = Buffer.from(str, &#x27;utf-8&#x27;).toString(&#x27;base64&#x27;);
+const original = Buffer.from(b64, &#x27;base64&#x27;).toString(&#x27;utf-8&#x27;);
+console.log({ b64, original });</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Technical Capabilities</h3>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
             <li>Full UTF-8 support for accented characters, emojis, and non-ASCII text</li>
             <li>URL-safe mode replaces &#x27;+&#x27; and &#x27;/&#x27; with &#x27;-&#x27; and &#x27;_&#x27;</li>
             <li>Bi-directional instant encoding and decoding</li>
-            </ul>
-          </div>
+        </ul>
+      </div>
 
-          <div>
-            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Usage Steps</h3>
-            <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Usage Steps &amp; Workflow</h3>
+        <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
             <li>Choose either &#x27;Encode&#x27; or &#x27;Decode&#x27; mode.</li>
             <li>Paste your text into the top box.</li>
             <li>View and copy the converted output in real-time.</li>
-            </ol>
+        </ol>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-3">Frequently Asked Questions</h3>
+        <div class="space-y-2.5">
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is URL-safe Base64?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">URL-safe Base64 substitutes &#x27;+&#x27; with &#x27;-&#x27; and &#x27;/&#x27; with &#x27;_&#x27;, and strips trailing padding &#x27;=&#x27; signs.</p>
           </div>
 
-          <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-3">Frequently Asked Questions</h3>
-            <div class="space-y-2.5">
-
-              <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-                <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is URL-safe Base64?</h4>
-                <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">URL-safe Base64 substitutes &#x27;+&#x27; with &#x27;-&#x27; and &#x27;/&#x27; with &#x27;_&#x27;, and strips trailing padding &#x27;=&#x27; signs.</p>
-              </div>
-            </div>
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does Base64 encrypt my data?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Base64 is an encoding scheme, NOT encryption. Anyone can decode a Base64 string instantly. Never use Base64 alone to protect passwords, keys, or sensitive credentials.</p>
           </div>
-    </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why does Base64 increase data size by ~33%?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Base64 represents 3 bytes (24 bits) of data using 4 ASCII characters (32 bits). This 4:3 ratio naturally creates an overhead expansion of approximately 33.3%.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I encode binary files safely?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes. Our client-side FileReader API reads binary files directly into Uint8Array buffers, ensuring byte-for-byte fidelity without data loss.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is my data stored, logged, or transmitted to external servers when using Base64 String Encoder / Decoder?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. OmniTools operates on a strict zero-knowledge architecture. All computation, text processing, cryptographic hashing, and conversions execute 100% inside your browser&#x27;s local sandbox memory. No inputs ever cross the internet.</p>
+          </div>
+        </div>
+      </div>
+    </article>
 
     <!-- Related Utilities (Internal Linking Engine for Google SEO) -->
     <div class="related-tools-section space-y-3 pt-2">
@@ -382,10 +493,12 @@
         <span class="text-zinc-300 dark:text-zinc-700">/</span>
         <span>105 Client-Side Micro-Utilities</span>
       </div>
-      <div class="flex items-center gap-5 text-xs">
+      <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs">
         <a href="/pages/about" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
-        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1">
+        <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact &amp; Support</a>
+        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy Policy</a>
+        <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Terms of Service</a>
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
           <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
           <span>Support</span>
         </a>

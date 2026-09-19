@@ -143,6 +143,38 @@
         "@type": "Answer",
         "text": "A Version 4 UUID is a 128-bit identifier generated using random numbers with negligible probability of collision."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can two users generate the same UUID v4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Statistically impossible under normal operating conditions. With 122 bits of true entropy, there are $5.3 \\times 10^{36}$ possible combinations\u2014vastly exceeding the number of stars in the observable universe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are UUIDs formatted with dashes (8-4-4-4-12)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The standard 8-4-4-4-12 hexadecimal grouping represents the historical subfields of Version 1 UUIDs (time_low, time_mid, time_hi_and_version, clock_seq, node) as defined in RFC 4122."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the generated UUIDs saved or tracked?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Never. Generation executes 100% locally on your machine via your browser's Web Cryptography subsystem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data stored, logged, or transmitted to external servers when using UUID / GUID (v4) Generator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. OmniTools operates on a strict zero-knowledge architecture. All computation, text processing, cryptographic hashing, and conversions execute 100% inside your browser's local sandbox memory. No inputs ever cross the internet."
+      }
     }
   ]
 }
@@ -300,43 +332,122 @@
     </div>
 
     <!-- Pre-rendered Semantic SEO Article, Instructions & Technical Notes -->
-    <div class="seo-deep-dive p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-5 text-xs sm:text-sm">
+    <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-1.5">Overview & Purpose</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm">
-          The OmniTools UUID Generator produces RFC 4122 version-4 universally unique identifiers (UUIDs/GUIDs) generated using the cryptographically secure `crypto.randomUUID()` Web API.
-        </p>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2">The OmniTools UUID Generator creates cryptographically secure Version 4 Universally Unique Identifiers in strict compliance with RFC 4122. 
+A Version 4 UUID contains 128 bits of data, with 122 bits generated from a cryptographically secure pseudorandom number generator (CSPRNG), 4 bits reserved for the version identifier (`0100` = version 4), and 2 bits for the RFC 4122 variant (`10` = variant 1).
+The probability of generating two identical v4 UUIDs (a collision) is infinitesimal: approximately 1 in $2^{122}$ (or roughly 1 in $5.3 \times 10^{36}$). Even when generating 1 billion UUIDs per second for 100 years, the probability of a duplicate remains below one in a billion.
+Our generator uses the native browser Web Cryptography API (`crypto.getRandomValues()`), guaranteeing enterprise-grade cryptographic entropy without network latency.</p>
       </div>
 
-          <div>
-            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Technical Capabilities</h3>
-            <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Technical Specifications &amp; Reference</h3>
+        <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+          <table class="w-full text-left bg-zinc-50/40 dark:bg-zinc-900/20">
+            <thead class="bg-zinc-100/80 dark:bg-zinc-800/60">
+              <tr><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">UUID Version</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Generation Basis</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Random Bits</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">RFC Standard</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Collision Risk</th></tr>
+            </thead>
+            <tbody>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Version 1</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">MAC Address &amp; Timestamp</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">0 bits (Deterministic)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">RFC 4122 §4.2</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Risk of machine tracking</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Version 3</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">MD5 Hash &amp; Namespace</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">0 bits (Deterministic)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">RFC 4122 §4.3</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Vulnerable to MD5 collisions</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Version 4</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">CSPRNG Random Entropy</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">122 bits</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">RFC 4122 §4.4</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Virtually zero collision risk</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Version 5</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">SHA-1 Hash &amp; Namespace</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">0 bits (Deterministic)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">RFC 4122 §4.3</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Deterministic / Reproducible</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Real-World Industry &amp; Everyday Scenarios</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Database Primary Keys:</strong> Generating globally unique non-sequential entity IDs across distributed database clusters (PostgreSQL, MongoDB, CockroachDB).</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Distributed Tracing &amp; Observability:</strong> Assigning unique request IDs (X-Correlation-ID) across microservice HTTP headers.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Session &amp; Token Management:</strong> Creating unguessable nonce values and secure temporary transaction tokens.</li>
+        </ul>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Terminal &amp; Code Equivalents for UUID Generation</h3>
+        <div class="space-y-3">
+
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">Bash / Terminal CLI:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code># Generate v4 UUID in Linux / macOS
+uuidgen
+
+# Generate lowercase v4 UUID via python
+python3 -c &quot;import uuid; print(uuid.uuid4())&quot;</code></pre>
+          </div>
+
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">Python 3:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code>import uuid
+
+# Generate RFC 4122 v4 UUID
+new_id = uuid.uuid4()
+print(f&#x27;Standard UUID: {new_id}&#x27;)
+print(f&#x27;Hex digits: {new_id.hex}&#x27;)</code></pre>
+          </div>
+
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">JavaScript / Node.js:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code>// Native Web Crypto UUID (Browser &amp; Node.js 16+)
+const uniqueId = crypto.randomUUID();
+console.log(uniqueId);</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Technical Capabilities</h3>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
             <li>Cryptographically secure randomness powered by native Web Crypto</li>
             <li>Generate between 1 and 100 UUIDs in one click</li>
             <li>Options for uppercase letters and hyphen omission</li>
-            </ul>
-          </div>
+        </ul>
+      </div>
 
-          <div>
-            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Usage Steps</h3>
-            <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Usage Steps &amp; Workflow</h3>
+        <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
             <li>Set how many UUIDs you need.</li>
             <li>Select your formatting preferences.</li>
             <li>Click &#x27;Generate New&#x27; and copy.</li>
-            </ol>
+        </ol>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-3">Frequently Asked Questions</h3>
+        <div class="space-y-2.5">
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is a UUID v4?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A Version 4 UUID is a 128-bit identifier generated using random numbers with negligible probability of collision.</p>
           </div>
 
-          <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-3">Frequently Asked Questions</h3>
-            <div class="space-y-2.5">
-
-              <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-                <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is a UUID v4?</h4>
-                <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A Version 4 UUID is a 128-bit identifier generated using random numbers with negligible probability of collision.</p>
-              </div>
-            </div>
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can two users generate the same UUID v4?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Statistically impossible under normal operating conditions. With 122 bits of true entropy, there are $5.3 \times 10^{36}$ possible combinations—vastly exceeding the number of stars in the observable universe.</p>
           </div>
-    </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why are UUIDs formatted with dashes (8-4-4-4-12)?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The standard 8-4-4-4-12 hexadecimal grouping represents the historical subfields of Version 1 UUIDs (time_low, time_mid, time_hi_and_version, clock_seq, node) as defined in RFC 4122.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are the generated UUIDs saved or tracked?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Never. Generation executes 100% locally on your machine via your browser&#x27;s Web Cryptography subsystem.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is my data stored, logged, or transmitted to external servers when using UUID / GUID (v4) Generator?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. OmniTools operates on a strict zero-knowledge architecture. All computation, text processing, cryptographic hashing, and conversions execute 100% inside your browser&#x27;s local sandbox memory. No inputs ever cross the internet.</p>
+          </div>
+        </div>
+      </div>
+    </article>
 
     <!-- Related Utilities (Internal Linking Engine for Google SEO) -->
     <div class="related-tools-section space-y-3 pt-2">
@@ -382,10 +493,12 @@
         <span class="text-zinc-300 dark:text-zinc-700">/</span>
         <span>105 Client-Side Micro-Utilities</span>
       </div>
-      <div class="flex items-center gap-5 text-xs">
+      <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs">
         <a href="/pages/about" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
-        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1">
+        <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact &amp; Support</a>
+        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy Policy</a>
+        <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Terms of Service</a>
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
           <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
           <span>Support</span>
         </a>

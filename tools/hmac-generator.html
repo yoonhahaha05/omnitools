@@ -151,6 +151,30 @@
         "@type": "Answer",
         "text": "An HMAC (Hash-based Message Authentication Code) verifies both the data integrity and the authenticity of a message between two parties using a shared secret."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes HMAC more secure than standard hashing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A standard hash $H(key + message)$ is vulnerable to length-extension attacks. HMAC solves this through its nested two-pass hashing construction with inner and outer pads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I verify a webhook signature securely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Always use a constant-time comparison algorithm (such as crypto.timingSafeEqual in Node.js or hmac.compare_digest in Python) to prevent timing side-channel attacks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are secret keys saved in my browser cache?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Keys are kept in transient JavaScript memory and are immediately cleared when you close or refresh the tab."
+      }
     }
   ]
 }
@@ -308,49 +332,122 @@
     </div>
 
     <!-- Pre-rendered Semantic SEO Article, Instructions & Technical Notes -->
-    <div class="seo-deep-dive p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-5 text-xs sm:text-sm">
+    <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-1.5">Overview & Purpose</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm">
-          Cryptographically secure in-browser HMAC generator. Compute HMAC-SHA256, HMAC-SHA512, and HMAC-SHA1 webhook signatures using the native browser Web Crypto API without exposing keys to remote servers.
-        </p>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2">The OmniTools HMAC Generator calculates Hash-based Message Authentication Codes in accordance with RFC 2104. 
+HMAC provides cryptographic data integrity and authenticity verification by combining a cryptographic hash function (SHA-256, SHA-512, SHA-384, or SHA-1) with a shared secret key through inner and outer padding passes ($H(K \oplus \text{opad} \parallel H(K \oplus \text{ipad} \parallel m))$).
+Our implementation uses the native browser Web Cryptography API (`window.crypto.subtle.sign`), ensuring hardware-accelerated cryptographic performance without third-party dependencies. Sensitive webhook signing secrets, API tokens, and authorization headers never cross the internet.</p>
       </div>
 
-          <div>
-            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Technical Capabilities</h3>
-            <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Technical Specifications &amp; Reference</h3>
+        <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+          <table class="w-full text-left bg-zinc-50/40 dark:bg-zinc-900/20">
+            <thead class="bg-zinc-100/80 dark:bg-zinc-800/60">
+              <tr><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Algorithm</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Digest Size</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Block Size</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Security Level</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Primary Standards</th></tr>
+            </thead>
+            <tbody>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">HMAC-SHA256</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">256 bits (64 hex)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">512 bits</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Strong (Recommended)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">NIST SP 800-107, RFC 4868</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">HMAC-SHA512</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">512 bits (128 hex)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1024 bits</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Very Strong</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">NIST SP 800-107, FIPS 180-4</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">HMAC-SHA384</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">384 bits (96 hex)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1024 bits</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Strong</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">FIPS 180-4, NSA Suite B</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">HMAC-SHA1</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">160 bits (40 hex)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">512 bits</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Legacy / Deprecated</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">RFC 2104 (Legacy webhooks only)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Real-World Industry &amp; Everyday Scenarios</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Webhook Signature Verification:</strong> Validating incoming webhook payloads from payment gateways (Stripe, PayPal, Adyen) and developer platforms (GitHub, Twilio).</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>API Request Authentication:</strong> Generating AWS Signature Version 4 (SigV4) headers or custom HMAC request tokens.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Data Integrity &amp; Tamper Detection:</strong> Ensuring transmitted configuration files or session tokens have not been modified in transit.</li>
+        </ul>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Terminal &amp; Code Equivalents for HMAC Generation</h3>
+        <div class="space-y-3">
+
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">Bash / Terminal CLI:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code># HMAC-SHA256 in Bash via OpenSSL
+echo -n &quot;payload_data&quot; | openssl dgst -sha256 -hmac &quot;secret_key&quot;</code></pre>
+          </div>
+
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">Python 3:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code>import hmac, hashlib
+
+secret = b&#x27;secret_key&#x27;
+msg = b&#x27;payload_data&#x27;
+h = hmac.new(secret, msg, hashlib.sha256).hexdigest()
+print(&#x27;HMAC-SHA256:&#x27;, h)</code></pre>
+          </div>
+
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">JavaScript / Node.js:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code>// Node.js HMAC
+const crypto = require(&#x27;crypto&#x27;);
+const hmac = crypto.createHmac(&#x27;sha256&#x27;, &#x27;secret_key&#x27;)
+                   .update(&#x27;payload_data&#x27;)
+                   .digest(&#x27;hex&#x27;);
+console.log(hmac);</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Technical Capabilities</h3>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
             <li>100% client-side calculation using native window.crypto.subtle</li>
             <li>Supports SHA-256, SHA-384, SHA-512, and SHA-1 algorithms</li>
             <li>Supports Hexadecimal (lowercase/uppercase) and Base64 output encodings</li>
             <li>Confidential: Your private API and webhook secret keys are never transmitted over the internet</li>
-            </ul>
-          </div>
+        </ul>
+      </div>
 
-          <div>
-            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Usage Steps</h3>
-            <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Usage Steps &amp; Workflow</h3>
+        <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
             <li>Select your HMAC hash algorithm (e.g. SHA-256 for Stripe/GitHub webhooks).</li>
             <li>Enter your private secret key and message payload.</li>
             <li>Choose your preferred output encoding (Hex or Base64) and copy the signature.</li>
-            </ol>
+        </ol>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-3">Frequently Asked Questions</h3>
+        <div class="space-y-2.5">
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is it safe to paste my webhook secret key here?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes. All computations execute locally in your browser memory using the Web Crypto API sandbox. Zero network packets or telemetry are transmitted.</p>
           </div>
 
-          <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-3">Frequently Asked Questions</h3>
-            <div class="space-y-2.5">
-
-              <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-                <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is it safe to paste my webhook secret key here?</h4>
-                <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes. All computations execute locally in your browser memory using the Web Crypto API sandbox. Zero network packets or telemetry are transmitted.</p>
-              </div>
-
-              <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-                <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is an HMAC used for?</h4>
-                <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">An HMAC (Hash-based Message Authentication Code) verifies both the data integrity and the authenticity of a message between two parties using a shared secret.</p>
-              </div>
-            </div>
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is an HMAC used for?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">An HMAC (Hash-based Message Authentication Code) verifies both the data integrity and the authenticity of a message between two parties using a shared secret.</p>
           </div>
-    </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What makes HMAC more secure than standard hashing?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A standard hash $H(key + message)$ is vulnerable to length-extension attacks. HMAC solves this through its nested two-pass hashing construction with inner and outer pads.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">How can I verify a webhook signature securely?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Always use a constant-time comparison algorithm (such as crypto.timingSafeEqual in Node.js or hmac.compare_digest in Python) to prevent timing side-channel attacks.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are secret keys saved in my browser cache?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Keys are kept in transient JavaScript memory and are immediately cleared when you close or refresh the tab.</p>
+          </div>
+        </div>
+      </div>
+    </article>
 
     <!-- Related Utilities (Internal Linking Engine for Google SEO) -->
     <div class="related-tools-section space-y-3 pt-2">
@@ -396,10 +493,12 @@
         <span class="text-zinc-300 dark:text-zinc-700">/</span>
         <span>105 Client-Side Micro-Utilities</span>
       </div>
-      <div class="flex items-center gap-5 text-xs">
+      <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs">
         <a href="/pages/about" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
-        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1">
+        <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact &amp; Support</a>
+        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy Policy</a>
+        <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Terms of Service</a>
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
           <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
           <span>Support</span>
         </a>

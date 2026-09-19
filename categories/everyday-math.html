@@ -655,6 +655,20 @@
       </div>
     </div>
 
+    <!-- Category Deep-Dive Architecture Guide -->
+    <div class="p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 space-y-4 text-xs sm:text-sm">
+      <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Domain Architecture &amp; Privacy Standards</h2>
+      <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed">
+        Precision in numerical computation is paramount. OmniTools avoids common JavaScript floating-point representation bugs by employing rigorous rounding heuristics, BigInt for large integers, and the native ECMAScript Internationalization API (Intl) for locale-aware number and currency formatting.
+      </p>
+      <div class="pt-2">
+        <h3 class="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Governing Specifications &amp; RFC Standards</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-[11px] font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-750">IEEE 754-2019 Floating-Point Arithmetic</span><span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-[11px] font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-750">ISO 8601 Date and Time Representations</span><span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-[11px] font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-750">NIST Special Publication 811 (SI Units)</span><span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-[11px] font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-750">FINRA Financial Math Guidelines</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Category Technical Guide & FAQs -->
 
         <div class="space-y-3 pt-4">
@@ -683,10 +697,12 @@
         <span class="text-zinc-300 dark:text-zinc-700">/</span>
         <span>105 Client-Side Micro-Utilities</span>
       </div>
-      <div class="flex items-center gap-5 text-xs">
+      <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs">
         <a href="/pages/about" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
-        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1">
+        <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact &amp; Support</a>
+        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy Policy</a>
+        <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Terms of Service</a>
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
           <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
           <span>Support</span>
         </a>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service - OmniTools</title>
+  <meta name="description" content="OmniTools Terms of Service. Understand our client-side software usage policies, warranties, calculation accuracy disclaimers, and widget embedding rights.">
+  <link rel="canonical" href="https://getomnitools.com/pages/terms">
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#0e1117">
+
+  <!-- Open Graph & Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Terms of Service - OmniTools">
+  <meta property="og:description" content="Terms of service, client-side execution parameters, and liability disclaimers.">
+  <meta property="og:url" content="https://getomnitools.com/pages/terms">
+  <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 antialiased py-12 px-4 sm:px-6 lg:px-8 font-sans">
+  <div class="max-w-3xl mx-auto bg-white dark:bg-[#101319] p-7 sm:p-10 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xs">
+    <div class="mb-8 border-b border-zinc-100 dark:border-zinc-800 pb-6">
+      <a href="/" class="inline-flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition mb-4">
+        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+        <span>Back to tools</span>
+      </a>
+      <h1 class="text-2xl sm:text-3xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">Terms of Service</h1>
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1.5">Effective Date: September 2026</p>
+    </div>
+
+    <div class="space-y-6 text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+      
+      <section>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">1. Agreement to Terms</h2>
+        <p>By accessing or utilizing OmniTools (available at <a href="https://getomnitools.com" class="underline font-medium text-zinc-900 dark:text-zinc-100">getomnitools.com</a>) or any associated tools, APIs, embed widgets, or documentation, you agree to be bound by these Terms of Service. If you do not agree to all terms and conditions, you must not access or use the platform.</p>
+      </section>
+
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">2. Nature of Software: 100% Client-Side Execution</h2>
+        <p>OmniTools provides browser-executed micro-utilities designed to process data locally within your browser sandbox via JavaScript, HTML5 Canvas, Web Workers, Web Audio API, and the Web Cryptography API (SubtleCrypto).</p>
+        <p class="mt-2">Because computations execute client-side on your local hardware, OmniTools does not store, transmit, process, or back up the files, passwords, cryptographic keys, code snippets, or texts you manipulate. You maintain sole ownership and responsibility for preserving your original and converted data.</p>
+      </section>
+
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">3. Disclaimers of Warranties &amp; Calculation Accuracy</h2>
+        <p>OmniTools is provided on an <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong> basis without warranties of any kind, whether express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, non-infringement, or accuracy of results.</p>
+        <div class="mt-3 p-3.5 rounded-xl border border-amber-200 dark:border-amber-900/50 bg-amber-50/50 dark:bg-amber-950/20 text-xs text-amber-900 dark:text-amber-200 space-y-1.5">
+          <div class="font-bold flex items-center gap-1.5">
+            <i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-amber-600 dark:text-amber-400"></i>
+            <span>Important Notice Regarding Calculations:</span>
+          </div>
+          <p>While we make every effort to conform to established specifications (RFC 8259, RFC 2104, IEEE 754 floating-point standards), calculations (including compound interest, tax estimators, subnet boundaries, and cryptographic hashes) should not be used as the sole basis for critical financial, legal, medical, or life-safety decisions. Always independently verify calculations before deploying them in production systems.</p>
+        </div>
+      </section>
+
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">4. Permitted Use &amp; Embeddable Widget License</h2>
+        <p>You are granted a non-exclusive, worldwide, royalty-free license to use OmniTools for personal, academic, and commercial purposes.</p>
+        <p class="mt-2"><strong>Embedding Widgets:</strong> You may embed individual tools in your internal wikis, educational coursework, or blog posts using the <code>?embed=true</code> URL query parameter provided that you retain the visible attribution link back to OmniTools.</p>
+        <p class="mt-2"><strong>Prohibited Actions:</strong> You may not attempt to mirror or scrape the site for the purpose of running an identical competing domain, inject malicious payloads, bypass CORS restrictions, or launch Denial-of-Service attacks against our static content delivery infrastructure.</p>
+      </section>
+
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">5. Third-Party Advertisements &amp; External Links</h2>
+        <p>OmniTools displays advertisements via Google AdSense to fund ongoing hosting, domain maintenance, and development costs. We are not responsible for the contents, products, or services advertised by third-party sponsors or linked external sites. Your interactions with advertisers are governed solely by their respective terms and privacy policies.</p>
+      </section>
+
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">6. Limitation of Liability</h2>
+        <p>In no event shall OmniTools, its creators, contributors, or hosting partners be liable for any direct, indirect, incidental, consequential, special, or exemplary damages—including but not limited to loss of data, loss of profits, system downtime, cryptographic key corruption, or calculation inaccuracies—arising out of or in connection with your use or inability to use the platform.</p>
+      </section>
+
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">7. Changes to Terms</h2>
+        <p>We reserve the right to modify these Terms at any time. When updates are published, the "Effective Date" at the top of this document will be updated accordingly. Continued use of OmniTools following such updates constitutes your acceptance of the revised Terms.</p>
+      </section>
+
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">8. Contact Information</h2>
+        <p>For questions regarding these Terms or licensing permissions, please contact our legal team at <a href="mailto:support@getomnitools.com" class="text-zinc-900 dark:text-zinc-100 underline font-medium">support@getomnitools.com</a> or visit our <a href="/pages/contact" class="underline font-medium text-zinc-900 dark:text-zinc-100">Contact &amp; Support</a> page.</p>
+      </section>
+
+      <!-- Global Legal & Trust Footer -->
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5 flex flex-wrap items-center justify-between gap-3 text-xs text-zinc-400">
+        <div class="flex items-center gap-4">
+          <a href="/pages/about" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition">About</a>
+          <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition">Contact</a>
+          <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition">Privacy Policy</a>
+        </div>
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition underline">Support Project</a>
+      </section>
+
+    </div>
+  </div>
+
+  <script>
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches || localStorage.getItem('omnitools_theme') === '"dark"') {
+      document.documentElement.classList.add('dark');
+    }
+    if (window.lucide) lucide.createIcons();
+  </script>
+</body>
+</html>

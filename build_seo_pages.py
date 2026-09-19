@@ -12,6 +12,14 @@ Extracts all 100 tools and generates:
 
 import os, re, glob, json, html
 from datetime import datetime
+from seo_content import (
+    get_tool_deep_dive,
+    get_tool_use_cases,
+    get_tool_cli_snippets,
+    get_tool_spec_table,
+    get_expanded_faqs,
+    CATEGORY_GUIDES
+)
 
 BASE_URL = "https://getomnitools.com"
 TOOLS_DIR = "tools"
@@ -376,8 +384,9 @@ def generate_tool_html(tool, all_tools):
     }
     schemas.append(breadcrumb_schema)
     
-    # 3. FAQ schema (if exists)
-    if tool['faqs']:
+    # 3. Expanded FAQ schema (4-6 comprehensive Q&As)
+    all_faqs = get_expanded_faqs(tool)
+    if all_faqs:
         faq_schema = {
             "@context": "https://schema.org",
             "@type": "FAQPage",
@@ -389,7 +398,7 @@ def generate_tool_html(tool, all_tools):
                         "@type": "Answer",
                         "text": faq['a']
                     }
-                } for faq in tool['faqs']
+                } for faq in all_faqs
             ]
         }
         schemas.append(faq_schema)
@@ -415,45 +424,115 @@ def generate_tool_html(tool, all_tools):
         for s in schemas
     ])
     
+    # Deep dive mechanics paragraphs
+    deep_dive_text = get_tool_deep_dive(tool)
+    deep_dive_paragraphs = "\n".join([f'        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2">{html.escape(p.strip())}</p>' for p in deep_dive_text.split("\n\n") if p.strip()])
+
+    # Specifications / Cheat Sheet Table
+    spec_table = get_tool_spec_table(tool)
+    spec_table_html = ""
+    if spec_table:
+        headers_th = "".join([f'<th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">{html.escape(h)}</th>' for h in spec_table['headers']])
+        rows_tr = []
+        for row in spec_table['rows']:
+            cells_td = "".join([f'<td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">{html.escape(c)}</td>' for c in row])
+            rows_tr.append(f'<tr>{cells_td}</tr>')
+        rows_html = "\n".join(rows_tr)
+        spec_table_html = f"""
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Technical Specifications &amp; Reference</h3>
+        <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+          <table class="w-full text-left bg-zinc-50/40 dark:bg-zinc-900/20">
+            <thead class="bg-zinc-100/80 dark:bg-zinc-800/60">
+              <tr>{headers_th}</tr>
+            </thead>
+            <tbody>
+{rows_html}
+            </tbody>
+          </table>
+        </div>
+      </div>"""
+
+    # Real-World Use Cases
+    use_cases = get_tool_use_cases(tool)
+    use_cases_items = "\n".join([f'        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed">{uc}</li>' for uc in use_cases])
+    use_cases_html = f"""
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Real-World Industry &amp; Everyday Scenarios</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+{use_cases_items}
+        </ul>
+      </div>"""
+
+    # Terminal & Code Equivalents
+    cli_snippet = get_tool_cli_snippets(tool)
+    cli_html = ""
+    if cli_snippet:
+        bash_block = f"""
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">Bash / Terminal CLI:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code>{html.escape(cli_snippet['bash'])}</code></pre>
+          </div>""" if 'bash' in cli_snippet else ""
+        python_block = f"""
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">Python 3:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code>{html.escape(cli_snippet['python'])}</code></pre>
+          </div>""" if 'python' in cli_snippet else ""
+        js_block = f"""
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">JavaScript / Node.js:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code>{html.escape(cli_snippet['js'])}</code></pre>
+          </div>""" if 'js' in cli_snippet else ""
+          
+        cli_html = f"""
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">{html.escape(cli_snippet['title'])}</h3>
+        <div class="space-y-3">
+{bash_block}
+{python_block}
+{js_block}
+        </div>
+      </div>"""
+
     # Pre-rendered Features list
     features_html = ""
     if tool['features']:
         features_items = "\n".join([f'            <li>{html.escape(f)}</li>' for f in tool['features']])
         features_html = f"""
-          <div>
-            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Technical Capabilities</h3>
-            <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Technical Capabilities</h3>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
 {features_items}
-            </ul>
-          </div>"""
+        </ul>
+      </div>"""
 
     # Pre-rendered HowTo list
     howto_html = ""
     if tool['howTo']:
         howto_items = "\n".join([f'            <li>{html.escape(h)}</li>' for h in tool['howTo']])
         howto_html = f"""
-          <div>
-            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Usage Steps</h3>
-            <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Usage Steps &amp; Workflow</h3>
+        <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
 {howto_items}
-            </ol>
-          </div>"""
+        </ol>
+      </div>"""
 
-    # Pre-rendered FAQs list
+    # Pre-rendered FAQs list (using all_faqs)
     faqs_html = ""
-    if tool['faqs']:
+    if all_faqs:
         faq_blocks = "\n".join([f"""
-              <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-                <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">{html.escape(faq['q'])}</h4>
-                <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">{html.escape(faq['a'])}</p>
-              </div>""" for faq in tool['faqs']])
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">{html.escape(faq['q'])}</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">{html.escape(faq['a'])}</p>
+          </div>""" for faq in all_faqs])
         faqs_html = f"""
-          <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-3">Frequently Asked Questions</h3>
-            <div class="space-y-2.5">
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-3">Frequently Asked Questions</h3>
+        <div class="space-y-2.5">
 {faq_blocks}
-            </div>
-          </div>"""
+        </div>
+      </div>"""
 
     # Related Tools Cards (Internal Linking for SEO)
     related_cards_html = "\n".join([f"""
@@ -686,17 +765,18 @@ def generate_tool_html(tool, all_tools):
     </div>
 
     <!-- Pre-rendered Semantic SEO Article, Instructions & Technical Notes -->
-    <div class="seo-deep-dive p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-5 text-xs sm:text-sm">
+    <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-1.5">Overview & Purpose</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm">
-          {html.escape(tool['overview'])}
-        </p>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
+{deep_dive_paragraphs}
       </div>
+{spec_table_html}
+{use_cases_html}
+{cli_html}
 {features_html}
 {howto_html}
 {faqs_html}
-    </div>
+    </article>
 
     <!-- Related Utilities (Internal Linking Engine for Google SEO) -->
     <div class="related-tools-section space-y-3 pt-2">
@@ -716,10 +796,12 @@ def generate_tool_html(tool, all_tools):
         <span class="text-zinc-300 dark:text-zinc-700">/</span>
         <span>105 Client-Side Micro-Utilities</span>
       </div>
-      <div class="flex items-center gap-5 text-xs">
+      <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs">
         <a href="/pages/about" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
-        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1">
+        <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact &amp; Support</a>
+        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy Policy</a>
+        <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Terms of Service</a>
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
           <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
           <span>Support</span>
         </a>
@@ -1104,6 +1186,20 @@ def generate_category_html(category, tools_in_cat, all_categories):
       </div>
     </div>
 
+    <!-- Category Deep-Dive Architecture Guide -->
+    <div class="p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 space-y-4 text-xs sm:text-sm">
+      <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Domain Architecture &amp; Privacy Standards</h2>
+      <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed">
+        {CATEGORY_GUIDES.get(category['slug'], {}).get('architecture_summary', category['description'])}
+      </p>
+      <div class="pt-2">
+        <h3 class="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Governing Specifications &amp; RFC Standards</h3>
+        <div class="flex flex-wrap gap-2">
+          {"".join([f'<span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-[11px] font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-750">{html.escape(s)}</span>' for s in CATEGORY_GUIDES.get(category['slug'], {}).get('standards', [])])}
+        </div>
+      </div>
+    </div>
+
     <!-- Category Technical Guide & FAQs -->
 {cat_faqs_html}
 
@@ -1117,10 +1213,12 @@ def generate_category_html(category, tools_in_cat, all_categories):
         <span class="text-zinc-300 dark:text-zinc-700">/</span>
         <span>105 Client-Side Micro-Utilities</span>
       </div>
-      <div class="flex items-center gap-5 text-xs">
+      <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs">
         <a href="/pages/about" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">About</a>
-        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy</a>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1">
+        <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact &amp; Support</a>
+        <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy Policy</a>
+        <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Terms of Service</a>
+        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
           <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
           <span>Support</span>
         </a>
@@ -1276,18 +1374,13 @@ def generate_sitemap(tools):
     <priority>0.8</priority>
   </url>""")
 
-    # 4. About & Privacy (Priority 0.5)
-    urls.append(f"""  <url>
-    <loc>{BASE_URL}/pages/about</loc>
+    # 4. Compliance & Trust Pages (Priority 0.6)
+    for p in ["about", "contact", "privacy", "terms"]:
+        urls.append(f"""  <url>
+    <loc>{BASE_URL}/pages/{p}</loc>
     <lastmod>{now}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>""")
-    urls.append(f"""  <url>
-    <loc>{BASE_URL}/pages/privacy</loc>
-    <lastmod>{now}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>""")
         
     sitemap_content = f"""<?xml version="1.0" encoding="UTF-8"?>
