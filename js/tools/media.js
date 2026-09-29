@@ -6,11 +6,11 @@ const mediaTools = [
   // 76. Color Picker & Converter
   {
     id: "color-converter",
-    title: "What is this hex color in RGB?",
+    title: "Color Picker & Converter (HEX, RGB, HSL)",
     category: "Media, CSS & Design",
     icon: "🎨",
     badge: "Popular",
-    description: "Pick a color or paste a hex code. Hex, RGB, and HSL stay in sync.",
+    description: "Convert color formats between HEX, RGB, HSL, and CSS notation with interactive swatch and random generator.",
     keywords: ["color converter", "hex to rgb", "rgb to hex", "hex to hsl", "color picker", "css color"],
     render: (container) => {
       container.innerHTML = `
@@ -158,11 +158,11 @@ const mediaTools = [
   // 77. Random Palette Generator
   {
     id: "palette-generator",
-    title: "Give me a color palette.",
+    title: "Random Palette Generator",
     category: "Media, CSS & Design",
     icon: "🎨",
     badge: "Popular",
-    description: "Generate five colors that work together. Lock the ones you want to keep.",
+    description: "Generate 5-color harmonic palettes with individual color locks, harmony modes, and CSS variable export.",
     keywords: ["palette generator", "color scheme", "color palette", "random palette", "css colors"],
     render: (container) => {
       container.innerHTML = `
@@ -325,11 +325,11 @@ const mediaTools = [
   // 78. WCAG Color Contrast Checker
   {
     id: "contrast-checker",
-    title: "Can people read this text on this background?",
+    title: "WCAG Color Contrast Checker",
     category: "Media, CSS & Design",
     icon: "👁️",
     badge: "Popular",
-    description: "Pick the text color and the background. You see if it passes WCAG.",
+    description: "Check accessibility contrast ratio between foreground and background colors according to WCAG 2.1 AA and AAA standards.",
     keywords: ["contrast checker", "wcag contrast", "accessibility checker", "color contrast", "a11y contrast"],
     render: (container) => {
       container.innerHTML = `
@@ -513,11 +513,11 @@ const mediaTools = [
   // 79. QR Code Generator
   {
     id: "qr-code-generator",
-    title: "Make a QR code for this link.",
+    title: "QR Code Generator",
     category: "Media, CSS & Design",
     icon: "📱",
     badge: "Popular",
-    description: "Paste the URL. Download the code.",
+    description: "Generate high-resolution QR codes for websites, WiFi, and plain text with direct PNG download.",
     keywords: ["qr code generator", "create qr code", "free qr code", "qr maker", "barcode generator"],
     render: (container) => {
       container.innerHTML = `
@@ -621,11 +621,11 @@ const mediaTools = [
   // 80. Barcode Generator (Code 128)
   {
     id: "barcode-generator",
-    title: "Make a barcode for this number.",
+    title: "Barcode Generator (Code 128)",
     category: "Media, CSS & Design",
     icon: "🏷️",
     badge: "New",
-    description: "Type the code. Download the barcode.",
+    description: "Generate standard Code 128 barcodes directly in the browser on HTML5 canvas with downloadable PNG export.",
     keywords: ["barcode generator", "code 128", "barcode maker", "printable barcode", "free barcode"],
     render: (container) => {
       container.innerHTML = `
@@ -788,10 +788,10 @@ const mediaTools = [
   // 81. CSS Box Shadow Generator
   {
     id: "box-shadow-generator",
-    title: "What CSS makes this shadow?",
+    title: "CSS Box Shadow Generator",
     category: "Media, CSS & Design",
     icon: "🔳",
-    description: "Move the sliders. Copy the box-shadow line.",
+    description: "Design realistic, layered CSS box shadows with interactive sliders and instant CSS code output.",
     keywords: ["css box shadow", "box shadow generator", "shadow builder", "css shadow", "drop shadow css"],
     render: (container) => {
       container.innerHTML = `
@@ -914,11 +914,11 @@ const mediaTools = [
   // 82. CSS Border Radius / Blob Generator
   {
     id: "border-radius-generator",
-    title: "What CSS makes this rounded corner?",
+    title: "CSS Border Radius / Blob Generator",
     category: "Media, CSS & Design",
     icon: "🫧",
     badge: "New",
-    description: "Move the sliders. Copy the border-radius.",
+    description: "Design organic 8-point CSS border-radius blobs with interactive sliders and random generator.",
     keywords: ["border radius generator", "css blob", "blob generator", "css shape", "border radius 8 points"],
     render: (container) => {
       container.innerHTML = `
@@ -1058,11 +1058,11 @@ const mediaTools = [
   // 83. CSS Gradient Generator
   {
     id: "gradient-generator",
-    title: "What CSS makes this gradient?",
+    title: "CSS Gradient Generator",
     category: "Media, CSS & Design",
     icon: "🌈",
     badge: "Popular",
-    description: "Pick the colors. Copy the gradient line.",
+    description: "Create linear and radial CSS gradients with angle controls, color stops, presets, and CSS output.",
     keywords: ["css gradient generator", "gradient maker", "linear gradient", "radial gradient", "css background"],
     render: (container) => {
       container.innerHTML = `
@@ -1202,11 +1202,11 @@ const mediaTools = [
   // 84. CSS Glassmorphism Generator
   {
     id: "glassmorphism-generator",
-    title: "What CSS makes this frosted glass look?",
+    title: "CSS Glassmorphism Generator",
     category: "Media, CSS & Design",
     icon: "🪟",
     badge: "Popular",
-    description: "Set the blur and the transparency. Copy the CSS.",
+    description: "Generate frosted glass UI styles with backdrop-filter blur, background opacity, and border elevation controls.",
     keywords: ["glassmorphism generator", "css frosted glass", "backdrop filter blur", "glassmorphism css", "glass card"],
     render: (container) => {
       container.innerHTML = `
@@ -1337,11 +1337,11 @@ const mediaTools = [
   // 85. SVG Path Visualizer
   {
     id: "svg-path-visualizer",
-    title: "What does this SVG path draw?",
+    title: "SVG Path Visualizer",
     category: "Media, CSS & Design",
     icon: "📐",
     badge: "New",
-    description: "Paste the path. You see the shape.",
+    description: "Preview, inspect, and analyze SVG path strings (`d` attribute) with interactive scaling and stroke controls.",
     keywords: ["svg path visualizer", "svg viewer", "svg d attribute", "svg inspector", "svg path preview"],
     render: (container) => {
       container.innerHTML = `
@@ -1447,11 +1447,11 @@ const mediaTools = [
   // 86. In-Browser Image Resizer (Canvas)
   {
     id: "image-resizer",
-    title: "This image is too big.",
+    title: "In-Browser Image Resizer (Canvas)",
     category: "Media, CSS & Design",
     icon: "🖼️",
     badge: "Popular",
-    description: "Drop the photo. Set the size and download it. The file stays on this device.",
+    description: "Resize JPG, PNG, and WebP images directly in your browser using HTML5 Canvas with zero cloud uploads.",
     keywords: ["image resizer", "resize photo", "canvas image resizer", "compress image", "scale image"],
     render: (container) => {
       container.innerHTML = `
@@ -1620,11 +1620,11 @@ const mediaTools = [
   // 87. In-Browser Image Cropper
   {
     id: "image-cropper",
-    title: "Crop this photo.",
+    title: "In-Browser Image Cropper",
     category: "Media, CSS & Design",
     icon: "✂️",
     badge: "New",
-    description: "Drop the image. Pick the frame and download it. The file stays on this device.",
+    description: "Crop photos to square (1:1), 4:3, or 16:9 aspect ratios right in the browser with live canvas export.",
     keywords: ["image cropper", "crop photo", "crop image online", "aspect ratio crop", "avatar crop"],
     render: (container) => {
       container.innerHTML = `
@@ -1757,11 +1757,11 @@ const mediaTools = [
   // 88. Image Filter / Grayscale Tool
   {
     id: "image-filter-tool",
-    title: "Make this photo black and white.",
+    title: "Image Filter / Grayscale Tool",
     category: "Media, CSS & Design",
     icon: "🎞️",
     badge: "New",
-    description: "Drop the image. Apply the filter and download it. The file stays on this device.",
+    description: "Apply client-side image filters such as Grayscale, Sepia, Invert, Blur, and High-Contrast with instant canvas download.",
     keywords: ["image filter", "grayscale tool", "black and white filter", "sepia photo", "invert colors photo"],
     render: (container) => {
       container.innerHTML = `
@@ -1912,11 +1912,11 @@ const mediaTools = [
   // 89. Favicon Generator (multi-size export)
   {
     id: "favicon-generator",
-    title: "I need a favicon.",
+    title: "Favicon Generator (multi-size export)",
     category: "Media, CSS & Design",
     icon: "⭐",
     badge: "Popular",
-    description: "Type a letter or pick a shape. Download the sizes a site needs.",
+    description: "Generate multi-size web favicons (16x16, 32x32, 48x48, 180x180 Apple Touch) with custom emoji, text, or shapes.",
     keywords: ["favicon generator", "create favicon", "apple touch icon", "favicon png", "browser icon maker"],
     render: (container) => {
       container.innerHTML = `
@@ -2052,11 +2052,11 @@ const mediaTools = [
   // 90. Tweet / Quote Card Image Maker
   {
     id: "quote-card-maker",
-    title: "Make a quote card I can post.",
+    title: "Tweet / Quote Card Image Maker",
     category: "Media, CSS & Design",
     icon: "💬",
     badge: "Popular",
-    description: "Type the quote. Download the image.",
+    description: "Design and export beautiful quote cards and tweet graphics for social media (Twitter, LinkedIn, Instagram) on canvas.",
     keywords: ["quote card maker", "tweet image maker", "social media card generator", "quote graphic", "tweet generator"],
     render: (container) => {
       container.innerHTML = `
@@ -2218,11 +2218,11 @@ const mediaTools = [
   // 16. CSS Clip-Path Polygon Generator
   {
     id: "clip-path-generator",
-    title: "What CSS clips this into a shape?",
+    title: "CSS Clip-Path Polygon Generator",
     category: "Media, CSS & Design",
     icon: "✂️",
     badge: "New",
-    description: "Drag the points. Copy the clip-path.",
+    description: "Visually create and customize CSS clip-path polygon shapes with interactive draggable vertex points and instant CSS code output.",
     keywords: ["css clip-path generator", "clip-path polygon maker", "clippy generator", "css shape generator", "polygon clip-path", "css geometric shapes"],
     render: (container) => {
       container.innerHTML = `

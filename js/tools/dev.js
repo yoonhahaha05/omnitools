@@ -7,11 +7,11 @@ const devTools = [
   // 26. JSON Beautifier & Validator
   {
     id: "json-beautifier",
-    title: "Is this JSON valid?",
+    title: "JSON Beautifier & Validator",
     category: "Developer & Data",
     icon: "🔧",
     badge: "Popular",
-    description: "Paste it. You see it formatted, or the exact spot that is broken.",
+    description: "Format, validate, beautify, and minify JSON with real-time error detection and indentation controls.",
     keywords: ["json beautifier", "json validator", "json formatter", "format json", "minify json", "json parser"],
     render: (container) => {
       container.innerHTML = `
@@ -111,11 +111,11 @@ const devTools = [
   // 27. JSON Minifier
   {
     id: "json-minifier",
-    title: "How do I shrink this JSON?",
+    title: "JSON Minifier",
     category: "Developer & Data",
     icon: "🗜️",
     badge: "New",
-    description: "Paste it. Extra spaces come out so the payload is smaller.",
+    description: "Compress JSON data by stripping all unnecessary whitespace and line breaks for lightweight network transfer.",
     keywords: ["json minifier", "compress json", "minify json", "json compact", "shrink json"],
     render: (container) => {
       container.innerHTML = `
@@ -176,11 +176,11 @@ const devTools = [
   // 28. Base64 String Encoder / Decoder
   {
     id: "base64-tool",
-    title: "What does this Base64 say?",
+    title: "Base64 String Encoder / Decoder",
     category: "Developer & Data",
     icon: "🔤",
     badge: "Essential",
-    description: "Paste the encoded text or the plain text. It converts both ways.",
+    description: "Encode and decode standard and URL-safe Base64 strings with full UTF-8 international character support.",
     keywords: ["base64 encoder", "base64 decoder", "btoa", "atob", "base64 converter", "url-safe base64"],
     render: (container) => {
       container.innerHTML = `
@@ -275,11 +275,11 @@ const devTools = [
   // 29. URL Encoder / Decoder
   {
     id: "url-encoder-decoder",
-    title: "Why is this URL full of percent signs?",
+    title: "URL Encoder / Decoder",
     category: "Developer & Data",
     icon: "🔗",
     badge: "New",
-    description: "Paste the link or the text. Encode it or decode it.",
+    description: "Encode and decode URLs or URI components, and inspect query string parameters in a clean table.",
     keywords: ["url encoder", "url decoder", "percent encoding", "encodeuricomponent", "parse url parameters"],
     render: (container) => {
       container.innerHTML = `
@@ -385,11 +385,11 @@ const devTools = [
   // 30. CSV to JSON Converter
   {
     id: "csv-to-json",
-    title: "How do I turn this spreadsheet into JSON?",
+    title: "CSV to JSON Converter",
     category: "Developer & Data",
     icon: "📊",
     badge: "New",
-    description: "Paste the CSV. You get a JSON list you can copy.",
+    description: "Convert tabular CSV data into structured JSON objects with delimiter controls and file download.",
     keywords: ["csv to json", "csv converter", "parse csv", "csv to json array", "convert spreadsheet to json"],
     render: (container) => {
       container.innerHTML = `
@@ -521,11 +521,11 @@ const devTools = [
   // 31. JSON to CSV Converter
   {
     id: "json-to-csv",
-    title: "How do I turn this JSON into a spreadsheet?",
+    title: "JSON to CSV Converter",
     category: "Developer & Data",
     icon: "📑",
     badge: "New",
-    description: "Paste the JSON. You get CSV you can open in Excel or Sheets.",
+    description: "Convert JSON arrays of objects into formatted CSV spreadsheets with automatic header detection.",
     keywords: ["json to csv", "export json to csv", "convert json to excel", "json spreadsheet"],
     render: (container) => {
       container.innerHTML = `
@@ -620,11 +620,11 @@ const devTools = [
   // 32. HTML Entity Encoder / Decoder
   {
     id: "html-entity-encoder",
-    title: "How do I make this safe to put in HTML?",
+    title: "HTML Entity Encoder / Decoder",
     category: "Developer & Data",
     icon: "🔣",
     badge: "New",
-    description: "Paste the text. Turn characters into HTML entities, or turn them back.",
+    description: "Convert special characters into HTML entities (&amp;, &lt;, &gt;) and decode entities back to readable text.",
     keywords: ["html entity encoder", "html entity decoder", "html entities", "escape html", "unescape html"],
     render: (container) => {
       container.innerHTML = `
@@ -678,11 +678,11 @@ const devTools = [
   // 33. JWT Token Decoder
   {
     id: "jwt-decoder",
-    title: "What is in this token?",
+    title: "JWT Token Decoder",
     category: "Developer & Data",
     icon: "🛡️",
     badge: "Essential",
-    description: "Paste the JWT. You see who it is for and when it expires.",
+    description: "Decode and inspect JSON Web Tokens (JWT) headers, payloads, and expiration times safely without secret leakage.",
     keywords: ["jwt decoder", "jwt parser", "decode jwt", "json web token", "jwt inspector"],
     render: (container) => {
       container.innerHTML = `
@@ -780,11 +780,11 @@ const devTools = [
   // 34. Cron Expression Explainer
   {
     id: "cron-explainer",
-    title: "What does this cron expression mean?",
+    title: "Cron Expression Explainer",
     category: "Developer & Data",
     icon: "⏰",
     badge: "New",
-    description: "Paste the schedule, like 0 9 * * 1. You see it in plain English and the next run times.",
+    description: "Translate 5-field cron schedule expressions into clear human English and preview the next 5 execution timestamps.",
     keywords: ["cron explainer", "cron expression", "crontab generator", "cron schedule", "cron syntax"],
     render: (container) => {
       container.innerHTML = `
@@ -887,11 +887,11 @@ const devTools = [
   // 35. Regex Sandbox & Matcher
   {
     id: "regex-matcher",
-    title: "Does this pattern match?",
+    title: "Regex Sandbox & Matcher",
     category: "Developer & Data",
     icon: "🎯",
     badge: "New",
-    description: "Paste the text and the regex. Matches and groups light up.",
+    description: "Interactive JavaScript regular expression tester with live highlight matches, capture groups, and cheat sheet.",
     keywords: ["regex sandbox", "regex matcher", "regular expression tester", "regex tester", "regex debugger"],
     render: (container) => {
       container.innerHTML = `
@@ -981,11 +981,11 @@ const devTools = [
   // 36. CSS Minifier
   {
     id: "css-minifier",
-    title: "How do I make this CSS smaller?",
+    title: "CSS Minifier",
     category: "Developer & Data",
     icon: "🎨",
     badge: "New",
-    description: "Paste the stylesheet. Comments and extra spaces come out.",
+    description: "Minify and compress raw CSS stylesheets by stripping comments, whitespace, and redundant rules.",
     keywords: ["css minifier", "compress css", "clean css", "shrink stylesheet", "minify stylesheet"],
     render: (container) => {
       container.innerHTML = `
@@ -1050,11 +1050,11 @@ const devTools = [
   // 37. JavaScript Minifier
   {
     id: "js-minifier",
-    title: "How do I make this JavaScript smaller?",
+    title: "JavaScript Minifier",
     category: "Developer & Data",
     icon: "⚡",
     badge: "New",
-    description: "Paste the code. Comments and extra spaces come out.",
+    description: "Lightweight client-side JavaScript code compressor removing comments and unnecessary spaces.",
     keywords: ["javascript minifier", "compress js", "minify javascript", "js compressor", "clean js"],
     render: (container) => {
       container.innerHTML = `
@@ -1116,11 +1116,11 @@ const devTools = [
   // 38. SQL Formatter
   {
     id: "sql-formatter",
-    title: "How do I make this SQL readable?",
+    title: "SQL Formatter",
     category: "Developer & Data",
     icon: "🗄️",
     badge: "New",
-    description: "Paste the query. It gets indented so you can see the joins.",
+    description: "Format, capitalize, and indent messy SQL database queries for PostgreSQL, MySQL, and SQLite.",
     keywords: ["sql formatter", "format sql", "beautify sql", "sql prettifier", "sql query formatter"],
     render: (container) => {
       container.innerHTML = `
@@ -1192,11 +1192,11 @@ const devTools = [
   // 39. XML to JSON Converter
   {
     id: "xml-to-json",
-    title: "How do I turn this XML into JSON?",
+    title: "XML to JSON Converter",
     category: "Developer & Data",
     icon: "📜",
     badge: "New",
-    description: "Paste the XML or the feed. You get JSON.",
+    description: "Convert XML document trees and RSS feeds into structured, nested JSON objects with indentation.",
     keywords: ["xml to json", "convert xml to json", "xml parser", "rss to json", "soap to json"],
     render: (container) => {
       container.innerHTML = `
@@ -1300,11 +1300,11 @@ const devTools = [
   // 40. YAML to JSON Converter
   {
     id: "yaml-to-json",
-    title: "How do I turn this YAML into JSON?",
+    title: "YAML to JSON Converter",
     category: "Developer & Data",
     icon: "📄",
     badge: "New",
-    description: "Paste the config. You get JSON.",
+    description: "Convert YAML configuration files into valid JSON objects with support for nested keys and arrays.",
     keywords: ["yaml to json", "convert yaml", "yaml parser", "docker-compose to json", "k8s yaml to json"],
     render: (container) => {
       container.innerHTML = `
@@ -1406,11 +1406,11 @@ const devTools = [
   // 41. Base64 Image Encoder / Decoder
   {
     id: "base64-image-tool",
-    title: "How do I turn this image into code I can paste?",
+    title: "Base64 Image Encoder / Decoder",
     category: "Developer & Data",
     icon: "🖼️",
     badge: "New",
-    description: "Drop the image, or paste a Base64 string to see the picture. The file stays on this device.",
+    description: "Convert images to Base64 data URIs for inline CSS/HTML, or decode Base64 strings to preview and download images.",
     keywords: ["base64 image encoder", "base64 image decoder", "image to base64", "data uri generator"],
     render: (container) => {
       container.innerHTML = `
@@ -1512,11 +1512,11 @@ const devTools = [
   // 42. HTTP Status Code Lookup
   {
     id: "http-status-codes",
-    title: "What does this HTTP status mean?",
+    title: "HTTP Status Code Lookup",
     category: "Developer & Data",
     icon: "📡",
     badge: "New",
-    description: "Type the code, like 404 or 502. You get what it means and what to check.",
+    description: "Searchable reference of all 1xx, 2xx, 3xx, 4xx, and 5xx HTTP status codes with official specifications and debugging tips.",
     keywords: ["http status codes", "404 not found", "500 internal server error", "http codes lookup", "rest api status codes"],
     render: (container) => {
       container.innerHTML = `
@@ -1594,11 +1594,11 @@ const devTools = [
   // 43. MIME Type Reference
   {
     id: "mime-types",
-    title: "What Content-Type is this file?",
+    title: "MIME Type Reference",
     category: "Developer & Data",
     icon: "📑",
     badge: "New",
-    description: "Type the extension, like .webp or .pdf. You get the matching MIME type.",
+    description: "Searchable catalog of standard MIME media types, file extensions, and Content-Type header formats.",
     keywords: ["mime types", "content-type header", "file mime type", "mime type lookup", "media types"],
     render: (container) => {
       container.innerHTML = `
@@ -1670,11 +1670,11 @@ const devTools = [
   // 44. Linux / Chmod Permissions Calculator
   {
     id: "chmod-calculator",
-    title: "What chmod number is this permission?",
+    title: "Linux / Chmod Permissions Calculator",
     category: "Developer & Data",
     icon: "🔒",
     badge: "New",
-    description: "Check the boxes, or type 755. You see who can read, write, and run it.",
+    description: "Interactive permission matrix to calculate Linux chmod octal values (755, 644) and symbolic notation.",
     keywords: ["chmod calculator", "linux permissions", "chmod 755", "chmod 644", "octal permissions"],
     render: (container) => {
       container.innerHTML = `
@@ -1768,11 +1768,11 @@ const devTools = [
   // 45. Curl to Fetch/Python Converter
   {
     id: "curl-converter",
-    title: "How do I turn this curl command into code?",
+    title: "Curl to Fetch / Python Converter",
     category: "Developer & Data",
     icon: "🔄",
     badge: "New",
-    description: "Paste the curl. You get JavaScript fetch or Python requests.",
+    description: "Convert cURL command strings into ready-to-run JavaScript fetch() and Python requests code snippets.",
     keywords: ["curl converter", "curl to fetch", "curl to python", "curl to javascript", "convert curl"],
     render: (container) => {
       container.innerHTML = `
@@ -1886,11 +1886,11 @@ const devTools = [
   // 46. Markdown Table Generator
   {
     id: "markdown-table-generator",
-    title: "How do I make a Markdown table?",
+    title: "Markdown Table Generator",
     category: "Developer & Data",
     icon: "🧮",
     badge: "New",
-    description: "Fill in the cells. Copy the table into GitHub or a README.",
+    description: "Visual spreadsheet editor to build, align, and generate GitHub-flavored Markdown tables with 1-click copy.",
     keywords: ["markdown table generator", "create markdown table", "markdown spreadsheet", "gh table"],
     render: (container) => {
       container.innerHTML = `
@@ -1987,11 +1987,11 @@ const devTools = [
   // 47. UUID / GUID (v4) Generator
   {
     id: "uuid-generator",
-    title: "I need a unique ID.",
+    title: "UUID / GUID (v4) Generator",
     category: "Developer & Data",
     icon: "🆔",
     badge: "Popular",
-    description: "Click generate. You get an ID you can paste into a database or a test.",
+    description: "Generate cryptographically secure v4 UUIDs / GUIDs in bulk with uppercase, lowercase, and hyphen toggles.",
     keywords: ["uuid generator", "guid generator", "uuid v4", "random uuid", "generate guid", "crypto uuid"],
     render: (container) => {
       container.innerHTML = `
@@ -2059,11 +2059,11 @@ const devTools = [
   // 48. Hash Generator (MD5, SHA-256 via Web Crypto API)
   {
     id: "hash-generator",
-    title: "What is the checksum of this text?",
+    title: "Cryptographic Hash Generator",
     category: "Developer & Data",
     icon: "#️⃣",
     badge: "Popular",
-    description: "Paste the text. You get MD5, SHA-1, SHA-256, and SHA-512.",
+    description: "Generate SHA-1, SHA-256, SHA-512, and MD5 cryptographic hashes using hardware-accelerated Web Crypto.",
     keywords: ["hash generator", "sha256 generator", "sha512", "sha1", "md5 hash", "checksum"],
     render: (container) => {
       container.innerHTML = `
@@ -2152,11 +2152,11 @@ const devTools = [
   // 49. User Agent Parser
   {
     id: "user-agent-parser",
-    title: "What browser is this user agent?",
+    title: "User Agent Parser",
     category: "Developer & Data",
     icon: "💻",
     badge: "New",
-    description: "Paste the string, or look at the one from this browser.",
+    description: "Inspect your active browser User Agent or paste any UA string to extract Browser, OS, Engine, and Device category.",
     keywords: ["user agent parser", "parse user agent", "my user agent", "browser detection", "ua lookup"],
     render: (container) => {
       container.innerHTML = `
@@ -2252,11 +2252,11 @@ const devTools = [
   // 50. Keycode Event Inspector
   {
     id: "keycode-inspector",
-    title: "What code does this key send?",
+    title: "Keycode Event Inspector",
     category: "Developer & Data",
     icon: "⌨️",
     badge: "New",
-    description: "Press a key. You see the name, the code, and the modifiers.",
+    description: "Live interactive keyboard listener displaying event.key, event.code, keyCode, and modifier flags for JavaScript developers.",
     keywords: ["keycode inspector", "javascript keycode", "keyboard event tester", "event key code", "key listener"],
     render: (container) => {
       container.innerHTML = `
@@ -2344,11 +2344,11 @@ const devTools = [
   // 51. IPv4 Subnet & CIDR Calculator
   {
     id: "subnet-calculator",
-    title: "What addresses are in this subnet?",
+    title: "IPv4 Subnet & CIDR Calculator",
     category: "Developer & Data",
     icon: "🌐",
     badge: "New",
-    description: "Enter the IP and the mask, like 192.168.1.0/24. You see the range.",
+    description: "Calculate network address, usable host range, broadcast address, subnet mask, and wildcard mask with visual CIDR breakdown.",
     keywords: ["subnet calculator", "cidr calculator", "ipv4 subnet", "ip subnet mask", "network address calculator", "cidr notation", "usable host range"],
     render: (container) => {
       container.innerHTML = `
@@ -2546,11 +2546,11 @@ const devTools = [
   // 52. In-Browser HMAC Generator (Web Crypto)
   {
     id: "hmac-generator",
-    title: "What is the HMAC for this message?",
+    title: "In-Browser HMAC Generator",
     category: "Developer & Data",
     icon: "🔐",
     badge: "New",
-    description: "Paste the message and the secret. They stay on this device.",
+    description: "Generate cryptographically secure Hash-based Message Authentication Codes (HMAC) via native Web Crypto API with zero server transmission.",
     keywords: ["hmac generator", "hmac sha256", "hmac sha512", "webhook signature generator", "crypto subtle hmac", "online hmac tool"],
     render: (container) => {
       container.innerHTML = `
@@ -2708,11 +2708,11 @@ const devTools = [
   // 53. HTTP Header Parser & Security Audit
   {
     id: "http-header-parser",
-    title: "Are these response headers safe?",
+    title: "HTTP Header Parser & Security Audit",
     category: "Developer & Data",
     icon: "📋",
     badge: "New",
-    description: "Paste the headers. You see them listed, plus CSP, HSTS, and CORS.",
+    description: "Parse raw HTTP request/response headers into structured key-values and run an instant security audit on CSP, HSTS, CORS, and clickjacking protections.",
     keywords: ["http header parser", "security header checker", "parse http headers", "csp validator", "hsts checker", "http response headers"],
     render: (container) => {
       container.innerHTML = `

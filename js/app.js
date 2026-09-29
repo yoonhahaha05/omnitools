@@ -185,7 +185,7 @@ const App = {
 
   renderHome() {
     const allTools = ToolRegistry.getAllTools();
-    document.title = "What are you trying to figure out? | OmniTools";
+    document.title = `OmniTools - Precision Client-Side Web Utilities (${allTools.length} Offline Tools)`;
     const main = document.getElementById('main-content');
     if (!main) return;
 
@@ -208,29 +208,29 @@ const App = {
         ${!this.searchQuery && this.currentCategory === 'all' ? `
           <div class="py-2 sm:py-4 space-y-3">
             <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
-              What are you trying to figure out?
+              Web utilities that run locally in your browser
             </h1>
             <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
-              Count the words, split the bill, check the time, or see if the JSON is valid.
+              Fast, free developer and formatting tools. Your input stays on this device. Ads use cookies.
             </p>
 
             <div class="pt-2 max-w-xl">
               <div class="relative">
-                <input id="hero-search" type="text" value="${Utils.escapeHtml(this.searchQuery)}" placeholder="What do you need to figure out?" class="w-full pl-9 pr-4 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 transition shadow-xs">
+                <input id="hero-search" type="text" value="${Utils.escapeHtml(this.searchQuery)}" placeholder="Search utilities (⌘K)..." class="w-full pl-9 pr-4 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 transition shadow-xs">
                 <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
               </div>
               
               <div class="flex items-center gap-2 flex-wrap mt-2.5 text-xs text-zinc-500 dark:text-zinc-400">
                 <span class="text-zinc-400">Popular:</span>
-                <a href="/tools/json-beautifier" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Is this JSON valid?</a>
+                <a href="/tools/json-beautifier" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">JSON Formatter</a>
                 <span>•</span>
-                <a href="/tools/word-counter" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">How many words is this?</a>
+                <a href="/tools/word-counter" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Word Counter</a>
                 <span>•</span>
-                <a href="/tools/tip-splitter-calculator" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">How much does each person owe?</a>
+                <a href="/tools/text-diff" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Diff Checker</a>
                 <span>•</span>
-                <a href="/tools/salary-calculator" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">What is $18 an hour per year?</a>
+                <a href="/tools/base64-tool" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Base64</a>
                 <span>•</span>
-                <a href="/tools/timezone-converter" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">What time is 9am New York in Seoul?</a>
+                <a href="/tools/timestamp-converter" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Unix Timestamp</a>
               </div>
             </div>
           </div>
