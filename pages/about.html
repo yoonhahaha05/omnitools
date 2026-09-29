@@ -28,7 +28,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
+  <script src="/js/consent.js" defer></script>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -78,7 +78,7 @@
         <span>Back to tools</span>
       </a>
       <h1 class="text-2xl sm:text-3xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">About OmniTools</h1>
-      <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1.5">The zero-server, privacy-first web utility workstation built for software engineers, writers, and analysts.</p>
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1.5">A free, on-device web utility site for software engineers, writers, and analysts.</p>
     </div>
 
     <div class="space-y-7 text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
@@ -87,7 +87,13 @@
       <section>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2.5">Why OmniTools Exists</h2>
         <p>The modern web is filled with utility websites that should be simple, but aren't. Most online JSON formatters, Base64 decoders, regex testers, and subnet calculators force users through bloated server-side round trips, intrusive cookie walls, captchas, and popup ads. Worse still, pasting confidential API tokens, environment variables, customer records, or internal passwords into an unfamiliar third-party server creates serious compliance and security risks.</p>
-        <p class="mt-2.5"><strong>OmniTools was created to prove there is a better way.</strong> By leveraging contemporary browser Web APIs—including the native Web Cryptography API, Web Workers, HTML5 Canvas, and the Internationalization API—every single calculation, formatting routine, and cryptographic hash executes entirely inside your device's memory.</p>
+        <p class="mt-2.5"><strong>OmniTools was created to prove there is a better way.</strong> By leveraging contemporary browser Web APIs—including the native Web Cryptography API, Web Workers, HTML5 Canvas, and the Internationalization API—every calculation, formatting routine, and cryptographic hash executes inside your device's memory. Advertising is separate: after you accept cookies, Google AdSense may set cookies to show ads. Those cookies are not your tool input.</p>
+      </section>
+
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-6">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2.5">Who publishes this site</h2>
+        <p>OmniTools is an independent website. It is not a company. The publisher is the maintainer of the public repository <a href="https://github.com/yoonhahaha05/omnitools" class="underline font-medium text-zinc-900 dark:text-zinc-100" target="_blank" rel="noopener noreferrer">github.com/yoonhahaha05/omnitools</a> (GitHub account <a href="https://github.com/yoonhahaha05" class="underline font-medium text-zinc-900 dark:text-zinc-100" target="_blank" rel="noopener noreferrer">yoonhahaha05</a>).</p>
+        <p class="mt-2.5">Questions and bug reports go to <a href="mailto:support@getomnitools.com" class="underline font-medium text-zinc-900 dark:text-zinc-100">support@getomnitools.com</a> or a <a href="https://github.com/yoonhahaha05/omnitools/issues" class="underline font-medium text-zinc-900 dark:text-zinc-100" target="_blank" rel="noopener noreferrer">GitHub issue</a>. The issue tracker is the channel that is confirmed to reach the maintainer.</p>
       </section>
 
       <!-- Architecture Breakdown Cards -->
@@ -98,10 +104,10 @@
           <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 space-y-1.5">
             <div class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
               <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
-              <span>Zero-Telemetry Execution</span>
+              <span>On-device tool input</span>
             </div>
             <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-              No keystrokes, clipboard inputs, or uploaded files ever leave your device. All 105 tools run in isolated browser JavaScript heaps with zero backend analytics beacons.
+              Text, files, tokens, and calculations stay in the browser. OmniTools does not run its own analytics. Ads use cookies only after you accept them.
             </p>
           </div>
 
@@ -140,9 +146,9 @@
 
       <!-- Client-Side Verification Guide (E-E-A-T Proof) -->
       <section class="border-t border-zinc-100 dark:border-zinc-800 pt-6">
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2.5">How to Independently Audit Our Privacy Guarantee</h2>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2.5">How to check where your input goes</h2>
         <p class="text-xs text-zinc-500 dark:text-zinc-400 mb-3">
-          We encourage every security engineer, compliance officer, and privacy advocate to verify our zero-server claims directly in their browser:
+          You can confirm that tool input stays in the browser:
         </p>
         <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/40 space-y-2 text-xs">
           <div class="flex items-start gap-2.5">
@@ -155,7 +161,7 @@
           </div>
           <div class="flex items-start gap-2.5">
             <span class="font-mono font-bold text-zinc-950 dark:text-zinc-100 bg-zinc-200 dark:bg-zinc-800 px-1.5 py-0.5 rounded">3</span>
-            <p class="text-zinc-600 dark:text-zinc-300">Type, paste sensitive tokens, hash keys, or format large JSON files. You will observe exactly <strong>0 outgoing requests</strong>. All processing happens in local JavaScript memory.</p>
+            <p class="text-zinc-600 dark:text-zinc-300">Type, paste tokens, or format JSON. Tool actions do not send that input to an OmniTools server. If you accepted ads, you will see requests to Google's ad domains. Those requests are the ads, not your document.</p>
           </div>
         </div>
       </section>
@@ -164,7 +170,7 @@
       <section class="border-t border-zinc-100 dark:border-zinc-800 pt-6">
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">Our Engineering Commitment</h2>
         <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-          OmniTools is maintained with an emphasis on accuracy, speed, and clean code. We run continuous automated regression tests against all 105 tools to verify that edge cases, unicode encodings, leap-year calculations, and cryptographic digests remain mathematically sound. If you ever detect a bug or calculation drift, we provide direct communication via our <a href="/pages/contact" class="underline hover:text-zinc-900 dark:hover:text-zinc-100">Contact page</a>.
+          OmniTools is maintained in public. If a result looks wrong, report it on the <a href="/pages/contact" class="underline hover:text-zinc-900 dark:hover:text-zinc-100">contact page</a> or in a <a href="https://github.com/yoonhahaha05/omnitools/issues" class="underline hover:text-zinc-900 dark:hover:text-zinc-100" target="_blank" rel="noopener noreferrer">GitHub issue</a>.
         </p>
       </section>
 
@@ -175,7 +181,7 @@
           <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition">Privacy Policy</a>
           <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition">Terms of Service</a>
         </div>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition underline">Support Project</a>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition underline">GitHub</a>
       </section>
 
     </div>

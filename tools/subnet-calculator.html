@@ -54,7 +54,7 @@
     };
     window.adsbygoogle = window.adsbygoogle || [];
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
+  <script src="/js/consent.js" defer></script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -245,9 +245,9 @@
           <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
         </button>
 
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
-          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span>Support</span>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
         </a>
       </div>
     </div>
@@ -306,7 +306,7 @@
 
     <div class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-500">
       <i data-lucide="shield" class="w-3.5 h-3.5"></i>
-      <span>Runs locally in your browser. Sensitive data is never sent to a server.</span>
+      <span>Your input stays on this device. Ads use cookies.</span>
     </div>
 
     <!-- Embed Mode Attribution Banner (shown only when embedded inside iframes) -->
@@ -335,9 +335,10 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2">The OmniTools IPv4 Subnet and CIDR Calculator performs real-time bitwise network calculations based on RFC 1519 (Classless Inter-Domain Routing) and RFC 791 (Internet Protocol). 
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The OmniTools IPv4 Subnet and CIDR Calculator performs real-time bitwise network calculations based on RFC 1519 (Classless Inter-Domain Routing) and RFC 791 (Internet Protocol). 
 By converting standard IPv4 dotted-decimal octets into 32-bit binary integers, the calculator applies bitwise AND operations with the subnet mask to determine the exact network base address, broadcast address, and host capacity.
-In modern cloud engineering (AWS VPC, Google Cloud VPC, Azure VNet) and on-premises network architecture, precise subnet allocation prevents IP address exhaustion and routing overlap conflicts. All computations occur instantly inside your browser with zero network transmission, keeping your internal network topology confidential.</p>
+In modern cloud engineering (AWS VPC, Google Cloud VPC, Azure VNet) and on-premises network architecture, precise subnet allocation prevents IP address exhaustion and routing overlap conflicts. The arithmetic runs in your browser.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. Take 192.168.1.10/24. The prefix /24 means the first 24 bits are the network, so the mask is 255.255.255.0. The network address is 192.168.1.0. The broadcast address is 192.168.1.255. Of the 256 addresses in the block, 254 can be assigned to hosts (192.168.1.1 through 192.168.1.254).</p>
       </div>
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -360,7 +361,7 @@ In modern cloud engineering (AWS VPC, Google Cloud VPC, Azure VNet) and on-premi
       </div>
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Real-World Industry &amp; Everyday Scenarios</h3>
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
         <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
         <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Cloud Infrastructure (AWS/GCP/Azure):</strong> Planning non-overlapping VPC CIDR blocks and public/private subnet allocations for multi-tier microservices.</li>
         <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Enterprise Network Engineering:</strong> Configuring router access control lists (ACLs), DHCP scope ranges, and OSPF/BGP routing summaries.</li>
@@ -504,9 +505,9 @@ console.log(cidrToMask(24)); // &#x27;255.255.255.0&#x27;</code></pre>
         <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact &amp; Support</a>
         <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy Policy</a>
         <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Terms of Service</a>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
-          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span>Support</span>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
         </a>
       </div>
     </div>

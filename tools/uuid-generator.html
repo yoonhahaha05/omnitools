@@ -54,7 +54,7 @@
     };
     window.adsbygoogle = window.adsbygoogle || [];
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
+  <script src="/js/consent.js" defer></script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -167,14 +167,6 @@
         "@type": "Answer",
         "text": "Never. Generation executes 100% locally on your machine via your browser's Web Cryptography subsystem."
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data stored, logged, or transmitted to external servers when using UUID / GUID (v4) Generator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. OmniTools operates on a strict zero-knowledge architecture. All computation, text processing, cryptographic hashing, and conversions execute 100% inside your browser's local sandbox memory. No inputs ever cross the internet."
-      }
     }
   ]
 }
@@ -245,9 +237,9 @@
           <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
         </button>
 
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
-          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span>Support</span>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
         </a>
       </div>
     </div>
@@ -306,7 +298,7 @@
 
     <div class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-500">
       <i data-lucide="shield" class="w-3.5 h-3.5"></i>
-      <span>Runs locally in your browser. Sensitive data is never sent to a server.</span>
+      <span>Your input stays on this device. Ads use cookies.</span>
     </div>
 
     <!-- Embed Mode Attribution Banner (shown only when embedded inside iframes) -->
@@ -335,10 +327,10 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2">The OmniTools UUID Generator creates cryptographically secure Version 4 Universally Unique Identifiers in strict compliance with RFC 4122. 
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The OmniTools UUID Generator creates cryptographically secure Version 4 Universally Unique Identifiers in strict compliance with RFC 4122. 
 A Version 4 UUID contains 128 bits of data, with 122 bits generated from a cryptographically secure pseudorandom number generator (CSPRNG), 4 bits reserved for the version identifier (`0100` = version 4), and 2 bits for the RFC 4122 variant (`10` = variant 1).
 The probability of generating two identical v4 UUIDs (a collision) is infinitesimal: approximately 1 in $2^{122}$ (or roughly 1 in $5.3 \times 10^{36}$). Even when generating 1 billion UUIDs per second for 100 years, the probability of a duplicate remains below one in a billion.
-Our generator uses the native browser Web Cryptography API (`crypto.getRandomValues()`), guaranteeing enterprise-grade cryptographic entropy without network latency.</p>
+The generator uses crypto.getRandomValues() in the browser.</p>
       </div>
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -359,7 +351,7 @@ Our generator uses the native browser Web Cryptography API (`crypto.getRandomVal
       </div>
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Real-World Industry &amp; Everyday Scenarios</h3>
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
         <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
         <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Database Primary Keys:</strong> Generating globally unique non-sequential entity IDs across distributed database clusters (PostgreSQL, MongoDB, CockroachDB).</li>
         <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Distributed Tracing &amp; Observability:</strong> Assigning unique request IDs (X-Correlation-ID) across microservice HTTP headers.</li>
@@ -440,11 +432,6 @@ console.log(uniqueId);</code></pre>
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are the generated UUIDs saved or tracked?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Never. Generation executes 100% locally on your machine via your browser&#x27;s Web Cryptography subsystem.</p>
           </div>
-
-          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is my data stored, logged, or transmitted to external servers when using UUID / GUID (v4) Generator?</h4>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. OmniTools operates on a strict zero-knowledge architecture. All computation, text processing, cryptographic hashing, and conversions execute 100% inside your browser&#x27;s local sandbox memory. No inputs ever cross the internet.</p>
-          </div>
         </div>
       </div>
     </article>
@@ -498,9 +485,9 @@ console.log(uniqueId);</code></pre>
         <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact &amp; Support</a>
         <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy Policy</a>
         <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Terms of Service</a>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
-          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span>Support</span>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
         </a>
       </div>
     </div>

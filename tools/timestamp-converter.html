@@ -54,7 +54,7 @@
     };
     window.adsbygoogle = window.adsbygoogle || [];
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
+  <script src="/js/consent.js" defer></script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -146,34 +146,18 @@
     },
     {
       "@type": "Question",
-      "name": "Is my data stored, logged, or transmitted to external servers when using Unix Timestamp & Epoch Converter?",
+      "name": "Why do some timestamps have 13 digits?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. OmniTools operates on a strict zero-knowledge architecture. All computation, text processing, cryptographic hashing, and conversions execute 100% inside your browser's local sandbox memory. No inputs ever cross the internet."
+        "text": "JavaScript Date.now() returns milliseconds. Unix time in most databases and in Python's time.time() is seconds. Ten digits means seconds. Thirteen digits means milliseconds."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I use Unix Timestamp & Epoch Converter without an active internet connection?",
+      "name": "Does the converter change my clock?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes! OmniTools is a certified Progressive Web App (PWA) with full service-worker offline caching. Once loaded, all calculations, converters, and tools remain completely functional offline."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are there file size or character limits when using this tool?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Because processing takes place directly on your device hardware without remote server timeouts, limits are bounded only by your machine's available RAM and browser execution limits."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I embed Unix Timestamp & Epoch Converter into my company's internal wiki or developer blog?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Add `?embed=true` to the URL to launch a clean, distraction-free widget version designed for embedding inside iframes, Notion, Confluence, or technical documentation."
+        "text": "No. It only reads the timestamp you paste and formats it with the browser's Date object."
       }
     }
   ]
@@ -240,9 +224,9 @@
           <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
         </button>
 
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
-          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span>Support</span>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
         </a>
       </div>
     </div>
@@ -301,7 +285,7 @@
 
     <div class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-500">
       <i data-lucide="shield" class="w-3.5 h-3.5"></i>
-      <span>Runs locally in your browser. Sensitive data is never sent to a server.</span>
+      <span>Your input stays on this device. Ads use cookies.</span>
     </div>
 
     <!-- Embed Mode Attribution Banner (shown only when embedded inside iframes) -->
@@ -330,19 +314,32 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2">The OmniTools Unix Timestamp &amp; Epoch Converter is an enterprise-grade utility designed to process data with zero latency and complete client-side confidentiality. 
-Operating in accordance with modern web engineering standards, this tool executes 100% inside your browser&#x27;s local JavaScript environment.</p>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2">In traditional web setups, sending copy, tokens, calculations, or files to a cloud server introduces latency, exposes sensitive payload data to external logs, and creates unnecessary third-party dependencies. 
-OmniTools solves this by performing all algorithmic processing, formatting, and mathematical operations directly on your device CPU. Sensitive customer records, private credentials, and personal drafts never touch an external server or database.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">A Unix timestamp counts seconds since 1970-01-01 00:00:00 UTC. That instant is called the epoch. A 10-digit number is seconds. A 13-digit number is milliseconds. This converter treats a value under 10,000,000,000 as seconds and multiplies it by 1,000 before building a date. Larger values are already milliseconds.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The page shows the same instant in UTC and in the time zone of the computer you are using.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. 1700000000 is 10 digits, so it is seconds. It is 2023-11-14 22:13:20 UTC. If your computer is set to Korea Standard Time (UTC+9), the local line reads Wed Nov 15 2023 07:13:20 GMT+0900.</p>
       </div>
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Technical Specifications &amp; Reference</h3>
+        <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+          <table class="w-full text-left bg-zinc-50/40 dark:bg-zinc-900/20">
+            <thead class="bg-zinc-100/80 dark:bg-zinc-800/60">
+              <tr><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Digits</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Unit</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Example</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">UTC result</th></tr>
+            </thead>
+            <tbody>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">10</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Seconds</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1700000000</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">2023-11-14 22:13:20</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">13</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Milliseconds</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1700000000000</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">2023-11-14 22:13:20</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">10</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Seconds</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">0</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1970-01-01 00:00:00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Real-World Industry &amp; Everyday Scenarios</h3>
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
         <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
-        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Daily Workflow Efficiency:</strong> Accelerating routine technical tasks with zero setup, zero installations, and zero authentication requirements.</li>
-        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Hardware &amp; Network Diagnostics:</strong> Auditing screen viewport dimensions, audio latency timings, or network latency parameters directly in your browser.</li>
-        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Security &amp; Password Hygiene:</strong> Generating cryptographically strong passwords or passphrases via Web Crypto without reliance on remote password services.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Log lines:</strong> A server log stores 1700000000. Paste it to see the UTC time instead of counting seconds by hand.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>API fields:</strong> JSON often stores created_at as seconds. If the number has 13 digits, it is already milliseconds and should not be multiplied by 1,000 again.</li>
         </ul>
       </div>
 
@@ -374,23 +371,13 @@ OmniTools solves this by performing all algorithmic processing, formatting, and 
           </div>
 
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is my data stored, logged, or transmitted to external servers when using Unix Timestamp &amp; Epoch Converter?</h4>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. OmniTools operates on a strict zero-knowledge architecture. All computation, text processing, cryptographic hashing, and conversions execute 100% inside your browser&#x27;s local sandbox memory. No inputs ever cross the internet.</p>
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why do some timestamps have 13 digits?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">JavaScript Date.now() returns milliseconds. Unix time in most databases and in Python&#x27;s time.time() is seconds. Ten digits means seconds. Thirteen digits means milliseconds.</p>
           </div>
 
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I use Unix Timestamp &amp; Epoch Converter without an active internet connection?</h4>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes! OmniTools is a certified Progressive Web App (PWA) with full service-worker offline caching. Once loaded, all calculations, converters, and tools remain completely functional offline.</p>
-          </div>
-
-          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are there file size or character limits when using this tool?</h4>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Because processing takes place directly on your device hardware without remote server timeouts, limits are bounded only by your machine&#x27;s available RAM and browser execution limits.</p>
-          </div>
-
-          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I embed Unix Timestamp &amp; Epoch Converter into my company&#x27;s internal wiki or developer blog?</h4>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes. Add `?embed=true` to the URL to launch a clean, distraction-free widget version designed for embedding inside iframes, Notion, Confluence, or technical documentation.</p>
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does the converter change my clock?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. It only reads the timestamp you paste and formats it with the browser&#x27;s Date object.</p>
           </div>
         </div>
       </div>
@@ -445,9 +432,9 @@ OmniTools solves this by performing all algorithmic processing, formatting, and 
         <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact &amp; Support</a>
         <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy Policy</a>
         <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Terms of Service</a>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
-          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span>Support</span>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
         </a>
       </div>
     </div>

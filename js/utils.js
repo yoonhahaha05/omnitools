@@ -314,16 +314,8 @@ const Utils = {
    * Safely initialize any unmounted AdSense units
    */
   initAdUnits() {
-    try {
-      if (typeof window === 'undefined') return;
-      window.adsbygoogle = window.adsbygoogle || [];
-      const uninitialized = document.querySelectorAll('.adsbygoogle:not([data-adsbygoogle-status]):not([data-ad-inited])');
-      uninitialized.forEach((el) => {
-        el.setAttribute('data-ad-inited', 'true');
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      });
-    } catch (e) {
-      // Gracefully handled if ad blocker is active or offline
+    if (window.OmniConsent && typeof window.OmniConsent.refresh === 'function') {
+      window.OmniConsent.refresh();
     }
   }
 };

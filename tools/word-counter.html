@@ -54,7 +54,7 @@
     };
     window.adsbygoogle = window.adsbygoogle || [];
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
+  <script src="/js/consent.js" defer></script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -245,9 +245,9 @@
           <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
         </button>
 
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
-          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span>Support</span>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
         </a>
       </div>
     </div>
@@ -306,7 +306,7 @@
 
     <div class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-500">
       <i data-lucide="shield" class="w-3.5 h-3.5"></i>
-      <span>Runs locally in your browser. Sensitive data is never sent to a server.</span>
+      <span>Your input stays on this device. Ads use cookies.</span>
     </div>
 
     <!-- Embed Mode Attribution Banner (shown only when embedded inside iframes) -->
@@ -335,9 +335,12 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2">The OmniTools Word Counter and Text Metric Analyzer provides real-time lexical analysis using Unicode-compliant grapheme and word-boundary segmentation. 
-Standard whitespace-splitting often miscounts words containing hyphens, em-dashes, apostrophes, and non-Latin character sets (CJK ideographs, Arabic, Cyrillic). Our engine applies internationalized regex tokenization to accurately distinguish distinct linguistic units.
-In addition to raw character and word counts, OmniTools calculates whitespace-free characters, sentence complexity, paragraph breaks, and reading/speaking times based on adult silent reading benchmarks (200 words per minute) and public speaking speech pacing (130 words per minute). All metrics update reactively as you type with zero network lag.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The word counter splits text on whitespace. A hyphenated word such as client-side stays one word, because the split happens on spaces, tabs, and line breaks, not on punctuation. Characters are the length of the string, including spaces. The no-space count removes whitespace first.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">A sentence is a stretch of text that ends with a period, question mark, or exclamation point. A paragraph is a block separated by a blank line.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Reading time uses 200 words per minute, a common estimate for silent adult reading. The page shows that duration in seconds until it reaches a minute.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. Paste this line:</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Ship the JSON formatter today. Check the diff before you merge.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">That is 11 words, 63 characters, and 53 characters without spaces. It is 2 sentences and 1 paragraph. Reading time is 3 seconds, because 11 words at 200 words per minute is 3.3 seconds, and the counter rounds that to 3.</p>
       </div>
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -359,7 +362,7 @@ In addition to raw character and word counts, OmniTools calculates whitespace-fr
       </div>
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Real-World Industry &amp; Everyday Scenarios</h3>
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
         <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
         <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Content &amp; Copywriting:</strong> Adhering to strict character limits for Google Search meta titles (50–60 chars), meta descriptions (150–160 chars), and social media posts.</li>
         <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Academic &amp; Essay Writing:</strong> Monitoring word count boundaries for university thesis papers, scholarship essays, and academic journals.</li>
@@ -499,9 +502,9 @@ console.log({ words, readingTimeMin });</code></pre>
         <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact &amp; Support</a>
         <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy Policy</a>
         <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Terms of Service</a>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
-          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span>Support</span>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
         </a>
       </div>
     </div>

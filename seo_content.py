@@ -10,8 +10,8 @@ import html
 CATEGORY_GUIDES = {
     "developer-data": {
         "title": "Developer & Data Engineering Reference",
-        "description": "Enterprise-grade data manipulation, decoding, parsing, and cryptographic hashing tools executed 100% inside client-side browser memory.",
-        "architecture_summary": "Modern web development requires frequent inspection of serialized payloads, token validation, and cryptographic signature generation. Using cloud-based converters presents serious operational security risks by exposing sensitive API tokens, database connection strings, and user credentials to third-party logs. OmniTools processes all developer operations locally using Web Cryptography (crypto.subtle), native JSON parsers, and WebAssembly, guaranteeing absolute zero data leakage.",
+        "description": "JSON, tokens, encodings, and hashes, run in the browser.",
+        "architecture_summary": "Modern web development requires frequent inspection of serialized payloads, token validation, and cryptographic signature generation. Using cloud-based converters presents serious operational security risks by exposing sensitive API tokens, database connection strings, and user credentials to third-party logs. OmniTools runs these operations in the browser, so the payload you paste is not uploaded to an OmniTools server.",
         "standards": ["RFC 8259 (JSON Data Interchange Format)", "RFC 2104 (HMAC Keyed-Hashing)", "RFC 4122 (UUID v4 Generation)", "RFC 4648 (Base16/32/64 Encodings)", "RFC 7519 (JSON Web Tokens)"]
     },
     "text-formatting": {
@@ -45,7 +45,9 @@ TOOL_DETAILS = {
     "subnet-calculator": {
         "deep_dive": """The OmniTools IPv4 Subnet and CIDR Calculator performs real-time bitwise network calculations based on RFC 1519 (Classless Inter-Domain Routing) and RFC 791 (Internet Protocol). 
 By converting standard IPv4 dotted-decimal octets into 32-bit binary integers, the calculator applies bitwise AND operations with the subnet mask to determine the exact network base address, broadcast address, and host capacity.
-In modern cloud engineering (AWS VPC, Google Cloud VPC, Azure VNet) and on-premises network architecture, precise subnet allocation prevents IP address exhaustion and routing overlap conflicts. All computations occur instantly inside your browser with zero network transmission, keeping your internal network topology confidential.""",
+In modern cloud engineering (AWS VPC, Google Cloud VPC, Azure VNet) and on-premises network architecture, precise subnet allocation prevents IP address exhaustion and routing overlap conflicts. The arithmetic runs in your browser.
+
+Worked example. Take 192.168.1.10/24. The prefix /24 means the first 24 bits are the network, so the mask is 255.255.255.0. The network address is 192.168.1.0. The broadcast address is 192.168.1.255. Of the 256 addresses in the block, 254 can be assigned to hosts (192.168.1.1 through 192.168.1.254).""",
         "use_cases": [
             "<strong>Cloud Infrastructure (AWS/GCP/Azure):</strong> Planning non-overlapping VPC CIDR blocks and public/private subnet allocations for multi-tier microservices.",
             "<strong>Enterprise Network Engineering:</strong> Configuring router access control lists (ACLs), DHCP scope ranges, and OSPF/BGP routing summaries.",
@@ -107,7 +109,16 @@ Our implementation uses the native browser Web Cryptography API (`window.crypto.
     "json-beautifier": {
         "deep_dive": """The OmniTools JSON Beautifier, Validator, and Formatter parses raw JSON documents according to RFC 8259 specifications. 
 It constructs an abstract syntax representation in client memory, normalizes string escapes, detects structural syntax errors (such as unquoted keys, trailing commas, or missing brackets), and re-serializes the data with configurable 2-space, 4-space, or tab indentation.
-Unlike server-side JSON formatters that upload your data to remote application servers, OmniTools executes entirely within your browser's V8 or JavaScriptCore engine. Proprietary API responses, internal environment variables, database records, and customer records remain 100% private.""",
+The formatter uses the browser's JSON.parse and JSON.stringify. It does not accept comments, single-quoted keys, or trailing commas, because those are not valid JSON.
+
+Worked example. Paste {"name":"Ada","ok":true} and choose 2-space indent. The result is:
+
+{
+  "name": "Ada",
+  "ok": true
+}
+
+A trailing comma, as in {"name":"Ada",}, is rejected. Remove the comma and format again.""",
         "use_cases": [
             "<strong>API Debugging &amp; Payload Inspection:</strong> Formatting unreadable minified REST and GraphQL JSON payloads returned from production servers.",
             "<strong>Configuration File Validation:</strong> Cleaning and linting complex configuration files (package.json, tsconfig.json, Kubernetes ConfigMaps).",
@@ -137,9 +148,17 @@ Unlike server-side JSON formatters that upload your data to remote application s
         ]
     },
     "word-counter": {
-        "deep_dive": """The OmniTools Word Counter and Text Metric Analyzer provides real-time lexical analysis using Unicode-compliant grapheme and word-boundary segmentation. 
-Standard whitespace-splitting often miscounts words containing hyphens, em-dashes, apostrophes, and non-Latin character sets (CJK ideographs, Arabic, Cyrillic). Our engine applies internationalized regex tokenization to accurately distinguish distinct linguistic units.
-In addition to raw character and word counts, OmniTools calculates whitespace-free characters, sentence complexity, paragraph breaks, and reading/speaking times based on adult silent reading benchmarks (200 words per minute) and public speaking speech pacing (130 words per minute). All metrics update reactively as you type with zero network lag.""",
+        "deep_dive": """The word counter splits text on whitespace. A hyphenated word such as client-side stays one word, because the split happens on spaces, tabs, and line breaks, not on punctuation. Characters are the length of the string, including spaces. The no-space count removes whitespace first.
+
+A sentence is a stretch of text that ends with a period, question mark, or exclamation point. A paragraph is a block separated by a blank line.
+
+Reading time uses 200 words per minute, a common estimate for silent adult reading. The page shows that duration in seconds until it reaches a minute.
+
+Worked example. Paste this line:
+
+Ship the JSON formatter today. Check the diff before you merge.
+
+That is 11 words, 63 characters, and 53 characters without spaces. It is 2 sentences and 1 paragraph. Reading time is 3 seconds, because 11 words at 200 words per minute is 3.3 seconds, and the counter rounds that to 3.""",
         "use_cases": [
             "<strong>Content &amp; Copywriting:</strong> Adhering to strict character limits for Google Search meta titles (50–60 chars), meta descriptions (150–160 chars), and social media posts.",
             "<strong>Academic &amp; Essay Writing:</strong> Monitoring word count boundaries for university thesis papers, scholarship essays, and academic journals.",
@@ -170,7 +189,9 @@ In addition to raw character and word counts, OmniTools calculates whitespace-fr
     "base64-tool": {
         "deep_dive": """The OmniTools Base64 Encoder and Decoder converts binary and string data to ASCII radix-64 representations in compliance with RFC 4648. 
 Base64 encoding takes 3 bytes of binary data (24 bits) and maps them into 4 printable ASCII characters (6 bits each) chosen from a 64-character index table (A–Z, a–z, 0–9, +, /). When the input byte count is not divisible by 3, '=' padding characters are appended to maintain alignment.
-Standard JavaScript `btoa()` and `atob()` methods throw exceptions when encountering multi-byte Unicode strings (emojis, accented characters, Asian characters). OmniTools uses a UTF-8 byte stream encoder to ensure seamless conversion of international character sets without corrupted characters. Furthermore, URL-safe Base64 mode replaces '+' and '/' with '-' and '_' to allow safe embedding in URLs and JWT payloads.""",
+Standard JavaScript btoa and atob throw on characters outside Latin-1. This encoder turns the text into UTF-8 bytes first, so accented letters and emoji round-trip. URL-safe mode replaces + with - and / with _.
+
+Worked example. Encode the word OmniTools. The result is T21uaVRvb2xz. Decoding that string returns OmniTools. The word is 9 bytes, which divides evenly by 3, so there is no = padding.""",
         "use_cases": [
             "<strong>Web Development &amp; APIs:</strong> Encoding Basic Authentication authorization headers (`Authorization: Basic <base64>`).",
             "<strong>Data URIs &amp; Inline Assets:</strong> Embedding small SVG icons, fonts, and images directly into CSS and HTML files.",
@@ -199,7 +220,9 @@ Standard JavaScript `btoa()` and `atob()` methods throw exceptions when encounte
     "jwt-decoder": {
         "deep_dive": """The OmniTools JWT Decoder inspects and unpacks JSON Web Tokens in accordance with RFC 7519. 
 A JWT consists of three dot-separated Base64URL-encoded segments: the Header (algorithm and token type), the Payload (claims, subject, issuer, expiration, and custom data), and the Cryptographic Signature.
-Pasting production JWTs or OAuth tokens into cloud-based decoders exposes sensitive session keys, user IDs, internal microservice roles, and permissions to third-party databases. OmniTools executes client-side decoding in local browser memory without making external requests. It parses claims, checks timestamp validity (iat, exp, nbf), and converts Unix epoch timestamps into human-readable local dates.""",
+This page decodes the header and payload. It does not check the signature. A signature check needs the secret or public key, and that key should not be pasted into a browser tool.
+
+Worked example. The payload segment eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ decodes to {"sub":"1234567890","name":"John Doe","iat":1516239022}. The iat value 1516239022 is 2018-01-18 01:30:22 UTC. Anyone who has the token can read those claims. The signature only tells a verifier that the issuer signed them.""",
         "use_cases": [
             "<strong>OAuth 2.0 &amp; OpenID Connect:</strong> Inspecting ID tokens and access tokens issued by identity providers (Auth0, Okta, Firebase, AWS Cognito).",
             "<strong>Token Expiration Audits:</strong> Checking `exp` (expiration) and `nbf` (not before) claims to troubleshoot authentication session drops.",
@@ -263,7 +286,7 @@ Our calculator calculates exact matching dimensions, finds the simplest integer 
         "deep_dive": """The OmniTools UUID Generator creates cryptographically secure Version 4 Universally Unique Identifiers in strict compliance with RFC 4122. 
 A Version 4 UUID contains 128 bits of data, with 122 bits generated from a cryptographically secure pseudorandom number generator (CSPRNG), 4 bits reserved for the version identifier (`0100` = version 4), and 2 bits for the RFC 4122 variant (`10` = variant 1).
 The probability of generating two identical v4 UUIDs (a collision) is infinitesimal: approximately 1 in $2^{122}$ (or roughly 1 in $5.3 \\times 10^{36}$). Even when generating 1 billion UUIDs per second for 100 years, the probability of a duplicate remains below one in a billion.
-Our generator uses the native browser Web Cryptography API (`crypto.getRandomValues()`), guaranteeing enterprise-grade cryptographic entropy without network latency.""",
+The generator uses crypto.getRandomValues() in the browser.""",
         "use_cases": [
             "<strong>Database Primary Keys:</strong> Generating globally unique non-sequential entity IDs across distributed database clusters (PostgreSQL, MongoDB, CockroachDB).",
             "<strong>Distributed Tracing &amp; Observability:</strong> Assigning unique request IDs (X-Correlation-ID) across microservice HTTP headers.",
@@ -289,85 +312,249 @@ Our generator uses the native browser Web Cryptography API (`crypto.getRandomVal
             {"q": "Why are UUIDs formatted with dashes (8-4-4-4-12)?", "a": "The standard 8-4-4-4-12 hexadecimal grouping represents the historical subfields of Version 1 UUIDs (time_low, time_mid, time_hi_and_version, clock_seq, node) as defined in RFC 4122."},
             {"q": "Are the generated UUIDs saved or tracked?", "a": "Never. Generation executes 100% locally on your machine via your browser's Web Cryptography subsystem."}
         ]
+    },
+    "timestamp-converter": {
+        "deep_dive": """A Unix timestamp counts seconds since 1970-01-01 00:00:00 UTC. That instant is called the epoch. A 10-digit number is seconds. A 13-digit number is milliseconds. This converter treats a value under 10,000,000,000 as seconds and multiplies it by 1,000 before building a date. Larger values are already milliseconds.
+
+The page shows the same instant in UTC and in the time zone of the computer you are using.
+
+Worked example. 1700000000 is 10 digits, so it is seconds. It is 2023-11-14 22:13:20 UTC. If your computer is set to Korea Standard Time (UTC+9), the local line reads Wed Nov 15 2023 07:13:20 GMT+0900.""",
+        "use_cases": [
+            "<strong>Log lines:</strong> A server log stores 1700000000. Paste it to see the UTC time instead of counting seconds by hand.",
+            "<strong>API fields:</strong> JSON often stores created_at as seconds. If the number has 13 digits, it is already milliseconds and should not be multiplied by 1,000 again."
+        ],
+        "spec_table": {
+            "headers": ["Digits", "Unit", "Example", "UTC result"],
+            "rows": [
+                ["10", "Seconds", "1700000000", "2023-11-14 22:13:20"],
+                ["13", "Milliseconds", "1700000000000", "2023-11-14 22:13:20"],
+                ["10", "Seconds", "0", "1970-01-01 00:00:00"]
+            ]
+        },
+        "extra_faqs": [
+            {"q": "Why do some timestamps have 13 digits?", "a": "JavaScript Date.now() returns milliseconds. Unix time in most databases and in Python's time.time() is seconds. Ten digits means seconds. Thirteen digits means milliseconds."},
+            {"q": "Does the converter change my clock?", "a": "No. It only reads the timestamp you paste and formats it with the browser's Date object."}
+        ]
+    },
+    "text-diff": {
+        "deep_dive": """The diff checker compares two texts one line at a time. It does not mark a changed word inside a line. If line 3 differs, the whole original line is shown with a minus and the whole new line is shown with a plus. Lines that match are shown unchanged. A line that exists only on the right is an addition. A line that exists only on the left is a deletion.
+
+Worked example. Original:
+
+alpha
+beta
+gamma
+
+Modified:
+
+alpha
+beta v2
+gamma
+delta
+
+The result keeps alpha, marks beta as removed and beta v2 as added, keeps gamma, and marks delta as added.""",
+        "use_cases": [
+            "<strong>A small edit:</strong> Paste the old paragraph on the left and the new paragraph on the right before you send it.",
+            "<strong>Config files:</strong> Compare two .env or JSON exports when you need to see which lines changed."
+        ],
+        "extra_faqs": [
+            {"q": "Does it ignore spaces?", "a": "No. A line with a trailing space is not equal to the same line without that space."},
+            {"q": "Can it diff a moved paragraph?", "a": "It compares by line number, not by content that moved. If you insert a line at the top, every following line is reported as changed."}
+        ]
+    },
+    "regex-matcher": {
+        "deep_dive": """The regex sandbox compiles the pattern with JavaScript's RegExp. The flags you check are passed through: g finds every match, i ignores letter case, and m changes how ^ and $ treat line breaks. Parentheses create capture groups, and the page lists those groups next to each match.
+
+Worked example. Pattern \\b(\\w+)\\s+\\1\\b with the g flag, tested against "the the cat sat sat". It matches "the the" and "sat sat". Group 1 is the repeated word: the, then sat. The pattern means a word, whitespace, then the same word again.
+
+A pattern that is not valid JavaScript, such as an unclosed bracket, shows the browser's syntax error instead of matches.""",
+        "use_cases": [
+            "<strong>Repeated words:</strong> \\b(\\w+)\\s+\\1\\b finds doubled words in a draft.",
+            "<strong>A date:</strong> \\d{4}-\\d{2}-\\d{2} finds values shaped like 2026-09-29. It does not check that the month is real."
+        ],
+        "extra_faqs": [
+            {"q": "Is this the same regex as Python?", "a": "No. Lookbehind, possessive quantifiers, and some escape sequences differ. Test the pattern in the language that will run it."},
+            {"q": "What does the g flag change?", "a": "Without g, the search stops at the first match. With g, every non-overlapping match is listed."}
+        ]
+    },
+    "percentage-calculator": {
+        "deep_dive": """The page has three calculations.
+
+A percent of a number is (percent / 100) times the number.
+What percent one number is of another is (part / whole) times 100.
+The change from an old number to a new number is ((new - old) / old) times 100. A negative result is a decrease.
+
+Worked example. 15% of 250 is 37.5. 45 is 25% of 180, because 45 / 180 = 0.25. Going from 80 to 100 is a 25% increase, because (100 - 80) / 80 = 0.25.""",
+        "use_cases": [
+            "<strong>A discount:</strong> 20% of 80 is 16, so the sale price is 64.",
+            "<strong>A raise:</strong> From 80 to 100 is +25%, not +20. The base is the old number."
+        ],
+        "spec_table": {
+            "headers": ["Question", "Formula", "Example", "Result"],
+            "rows": [
+                ["p% of n", "(p / 100) × n", "15% of 250", "37.5"],
+                ["a is what % of b", "(a / b) × 100", "45 of 180", "25%"],
+                ["Change from a to b", "((b - a) / a) × 100", "80 to 100", "+25%"]
+            ]
+        },
+        "extra_faqs": [
+            {"q": "Why is 80 to 100 not a 20% increase?", "a": "Twenty is 20% of 100, but the change is measured from the starting value. Twenty is 25% of 80."},
+            {"q": "What happens if the starting number is 0?", "a": "Percent change divides by the old number. From 0 to any other number, that division is undefined, so the result is not a meaningful percent."}
+        ]
+    },
+    "cron-explainer": {
+        "deep_dive": """A standard cron expression has five fields, in this order: minute, hour, day of month, month, day of week. Stars mean every value. A range such as 1-5 limits the field. A step such as */15 means every 15 units.
+
+This explainer turns those five fields into one English sentence. It expects exactly five fields. A six-field expression that includes seconds, or a name like @daily, is reported as invalid.
+
+Worked example. 0 9 * * 1-5 reads: Runs at minute 0, past hour 9:00, Monday through Friday. That is 09:00 on Monday, Tuesday, Wednesday, Thursday, and Friday.
+
+The five upcoming times under the sentence are spaced 15 minutes apart from your clock. They illustrate a list of times. They are not a full cron calendar.""",
+        "use_cases": [
+            "<strong>A weekday job:</strong> 0 9 * * 1-5 is 09:00 on weekdays.",
+            "<strong>The first of the month:</strong> 0 0 1 * * is 00:00 on day 1 of every month."
+        ],
+        "spec_table": {
+            "headers": ["Field", "Allowed values", "Example", "Meaning"],
+            "rows": [
+                ["Minute", "0–59", "0", "On the hour"],
+                ["Hour", "0–23", "9", "09:00"],
+                ["Day of month", "1–31", "*", "Every day"],
+                ["Month", "1–12", "*", "Every month"],
+                ["Day of week", "0–6 (0 = Sunday)", "1-5", "Monday through Friday"]
+            ]
+        },
+        "extra_faqs": [
+            {"q": "Why was my expression rejected?", "a": "It needs five fields separated by spaces. @daily and expressions with a seconds field are a different dialect."},
+            {"q": "Does day-of-week 0 mean Sunday?", "a": "Yes. In this explainer, 0 and 7 both mean Sunday. 1 is Monday and 5 is Friday."}
+        ]
+    },
+    "qr-code-generator": {
+        "deep_dive": """A QR code stores the text you type as a grid of dark and light modules. A phone camera reads that grid back into the same text. This generator draws the code in the browser from the contents of the box. It does not upload the text, and the PNG download is produced on your computer.
+
+The box is plain text. A web address works because a URL is text. A Wi-Fi setup works only if you paste the WIFI: string yourself. The page does not build that string for you.
+
+Worked example. Type https://getomnitools.com and download the PNG. Scanning it should open that address. A longer text makes a denser code. If the text is too long for the size you picked, shorten the text or raise the error-correction setting the control offers.""",
+        "use_cases": [
+            "<strong>A link:</strong> Paste a full https URL, including the scheme, so the camera opens it.",
+            "<strong>A Wi-Fi string:</strong> WIFI:T:WPA;S:NetworkName;P:secret;; is plain text a phone can interpret. Replace the name and password before you encode it."
+        ],
+        "extra_faqs": [
+            {"q": "Does the QR code expire?", "a": "No. The image only contains the text you encoded. It keeps working until you stop hosting the address, or until you change a password that was written into the text."},
+            {"q": "Is the text sent to a QR service?", "a": "No. The image is drawn in your browser."}
+        ]
+    },
+    "password-generator": {
+        "deep_dive": """The generator builds each character with crypto.getRandomValues, the browser's cryptographic random source. It does not use Math.random. You choose the length and which sets to include: A–Z, a–z, 0–9, and the symbol set shown on the page.
+
+The strength line is entropy, estimated as length × log2(pool size), rounded to the nearest integer. Under 40 bits is labeled Weak. From 40 to 64 bits is Medium. 65 bits and above is Very Strong.
+
+Worked example. Leave every set checked and set the length to 16. The default pool has 91 characters, and 16 × log2(91) rounds to 104 bits, so the meter says Very Strong. Each click produces a different password. The page does not store it.
+
+A password made only of digits at length 8 is 8 × log2(10), about 27 bits, and the meter labels it Weak.""",
+        "use_cases": [
+            "<strong>An account password:</strong> Use 16 or more characters with letters, numbers, and symbols, then store it in a password manager.",
+            "<strong>A shorter code:</strong> If a site rejects symbols, turn symbols off and add length until the meter is still Very Strong."
+        ],
+        "extra_faqs": [
+            {"q": "Can I recover a password the page just made?", "a": "No. It exists only in the text box until you copy it or refresh."},
+            {"q": "Is a Very Strong label a guarantee?", "a": "It measures length and alphabet size. It does not know whether you reused the password on another site."}
+        ]
+    },
+    "salary-calculator": {
+        "deep_dive": """Hourly pay converts to a gross salary with three inputs: the hourly wage, hours per week, and paid weeks per year.
+
+Weekly pay is wage × hours per week.
+Annual pay is weekly pay × weeks per year.
+Monthly pay is annual pay ÷ 12, rounded to the nearest dollar.
+The daily figure assumes a five-day week: wage × (hours per week ÷ 5). It is not a calendar-day rate.
+
+Worked example. $35 an hour, 40 hours a week, 52 weeks: weekly pay is $1,400. Annual pay is $72,800. Monthly pay rounds to $6,067. The daily figure is $280, which is 8 hours at $35.
+
+This is gross pay. It does not subtract tax, unpaid leave, or overtime.""",
+        "use_cases": [
+            "<strong>A job offer:</strong> Compare $35 an hour at 40 hours with a salaried offer of $70,000. At 52 weeks the hourly offer is $72,800 gross.",
+            "<strong>A shorter year:</strong> A contractor paid 48 weeks changes the annual total. Set weeks to 48 instead of 52."
+        ],
+        "spec_table": {
+            "headers": ["Input", "Formula", "$35, 40 h, 52 wk"],
+            "rows": [
+                ["Weekly", "wage × hours", "$1,400"],
+                ["Annual", "weekly × weeks", "$72,800"],
+                ["Monthly", "annual ÷ 12, rounded", "$6,067"],
+                ["Daily", "wage × (hours ÷ 5)", "$280"]
+            ]
+        },
+        "extra_faqs": [
+            {"q": "Does this include tax?", "a": "No. The results are gross. Income tax, social insurance, and benefits are not deducted."},
+            {"q": "What if I work four days a week?", "a": "Put the real weekly hours in the hours field. The daily line still divides those hours by 5, so use weekly and annual when your week is not five days."}
+        ]
+    },
+    "compound-interest-calculator": {
+        "deep_dive": """The calculator compounds monthly. The monthly rate is the annual rate divided by 12. Over n months, with starting principal P and a deposit M added each month, the future value is:
+
+P × (1 + r)^n + M × ((1 + r)^n − 1) / r
+
+r is the monthly rate. If the annual rate is 0, the future value is P plus M × n.
+
+Total principal is P plus every monthly deposit. Interest is the future value minus that principal. Results are rounded to the nearest dollar. This is a projection, not a quote from a bank.
+
+Worked example. Start with $5,000, add $200 a month, at 7.5% a year, for 10 years. That is 120 months and a monthly rate of 0.00625. The future value rounds to $46,146. You put in $29,000 ($5,000 plus $200 × 120). The interest line rounds to $17,146.""",
+        "use_cases": [
+            "<strong>A savings plan:</strong> $5,000 now and $200 a month at 7.5% for 10 years projects to about $46,146.",
+            "<strong>No monthly add:</strong> Set the monthly deposit to 0 to see growth on the starting amount alone."
+        ],
+        "extra_faqs": [
+            {"q": "Why is this different from my bank's number?", "a": "Banks may compound daily, charge fees, or change the rate. This page always compounds monthly and uses the rate you type."},
+            {"q": "Are the deposits made at the start or end of the month?", "a": "The formula treats each deposit as earning interest for the remaining months after it is added, which is the ordinary end-of-month annuity."}
+        ]
+    },
+    "contrast-checker": {
+        "deep_dive": """Contrast is the WCAG ratio between two colors. The page converts each hex color to relative luminance with the sRGB formula in WCAG 2.1, then computes (lighter + 0.05) / (darker + 0.05).
+
+Normal text passes AA at 4.5:1 and AAA at 7:1. Large text passes AA at 3:1 and AAA at 4.5:1. The UI badge uses 3:1.
+
+Worked example. Text #0F172A on background #FFFFFF has a ratio of 17.85:1. That passes AAA for normal text, large text, and UI. Black #000000 on white is 21:1, the highest ratio two opaque colors can have. #767676 on white is about 4.54:1, which passes AA for normal text and fails AAA.""",
+        "use_cases": [
+            "<strong>Body text:</strong> #0F172A on #FFFFFF is 17.85:1 and passes AAA.",
+            "<strong>A gray that is close to the line:</strong> #767676 on white is about 4.54:1. It passes AA for normal text and fails AAA."
+        ],
+        "spec_table": {
+            "headers": ["Use", "AA", "AAA"],
+            "rows": [
+                ["Normal text", "4.5:1", "7:1"],
+                ["Large text", "3:1", "4.5:1"],
+                ["UI components and icons", "3:1", "3:1 on this page"]
+            ]
+        },
+        "extra_faqs": [
+            {"q": "What counts as large text?", "a": "WCAG large text is 18pt (24px) and up, or 14pt (about 18.5px) bold and up. This page does not measure your font. It only reports the ratio."},
+            {"q": "Do transparent colors work?", "a": "Enter a 6-digit hex color such as #0F172A. The checker does not blend alpha against a page behind the element."}
+        ]
     }
 }
 
 def get_tool_deep_dive(tool):
-    """Returns an authoritative, in-depth architectural explanation for any tool."""
+    """Unique guide for priority tools. One specific paragraph for the rest."""
     if tool['id'] in TOOL_DETAILS:
         return TOOL_DETAILS[tool['id']]['deep_dive']
-    
-    cat = tool['category']
-    cat_guide = CATEGORY_GUIDES.get(cat, CATEGORY_GUIDES['developer-data'])
-    
-    return f"""The OmniTools {tool['title']} is an enterprise-grade utility designed to process data with zero latency and complete client-side confidentiality. 
-Operating in accordance with modern web engineering standards, this tool executes 100% inside your browser's local JavaScript environment. 
 
-In traditional web setups, sending copy, tokens, calculations, or files to a cloud server introduces latency, exposes sensitive payload data to external logs, and creates unnecessary third-party dependencies. 
-OmniTools solves this by performing all algorithmic processing, formatting, and mathematical operations directly on your device CPU. Sensitive customer records, private credentials, and personal drafts never touch an external server or database."""
+    description = (tool.get('description') or '').strip()
+    if description and not description.endswith('.'):
+        description += '.'
+    return f"{tool['title']}. {description} It runs in your browser, so what you type is not uploaded to an OmniTools server."
 
 def get_tool_use_cases(tool):
-    """Returns 3 concrete real-world engineering or creative scenarios."""
-    if tool['id'] in TOOL_DETAILS:
+    """Only tools with a written guide get scenario bullets."""
+    if tool['id'] in TOOL_DETAILS and TOOL_DETAILS[tool['id']].get('use_cases'):
         return TOOL_DETAILS[tool['id']]['use_cases']
-    
-    cat = tool['category']
-    if cat == "developer-data":
-        return [
-            f"<strong>Production Debugging &amp; Inspection:</strong> Rapidly inspecting, formatting, or validating payloads during microservice development without transmitting confidential API data to third-party servers.",
-            f"<strong>Data Pipeline Preparation:</strong> Cleansing, transforming, or re-encoding serialized data structures before loading into databases or analytical workflows.",
-            f"<strong>Continuous Integration &amp; Scripting:</strong> Verifying output formatting and expected outputs prior to writing automated unit and integration tests."
-        ]
-    elif cat == "text-formatting":
-        return [
-            f"<strong>Editorial &amp; Copywriting:</strong> Preparing clean, standards-compliant text for digital publishing, blogs, email newsletters, and content management systems.",
-            f"<strong>Data Cleaning &amp; Preprocessing:</strong> Removing irregular whitespace, hidden control characters, or duplicate lines from raw text exports and CSVs.",
-            f"<strong>Code &amp; Markdown Documentation:</strong> Formatting technical copy, documentation, and release notes to maintain consistent typography and casing."
-        ]
-    elif cat == "everyday-math":
-        return [
-            f"<strong>Financial &amp; Business Forecasting:</strong> Executing high-precision financial projections, split calculations, and tax planning calculations with instant results.",
-            f"<strong>Engineering &amp; Unit Conversion:</strong> Converting physical, scientific, temporal, or digital metrics across international measurement standards.",
-            f"<strong>Time &amp; Schedule Management:</strong> Reconciling international time zone offsets and Unix epoch timestamps across global teams and server architectures."
-        ]
-    elif cat == "media-css-design":
-        return [
-            f"<strong>Responsive Front-End Architecture:</strong> Generating production-ready CSS snippets that conform to modern W3C specifications across mobile and desktop viewports.",
-            f"<strong>Digital Asset Optimization:</strong> Transforming, cropping, or resizing visual media directly in browser memory without lossy re-encoding or cloud latency.",
-            f"<strong>Design System Compliance:</strong> Checking color contrast ratios (WCAG 2.1) and testing custom palettes to ensure inclusive accessibility."
-        ]
-    else:
-        return [
-            f"<strong>Daily Workflow Efficiency:</strong> Accelerating routine technical tasks with zero setup, zero installations, and zero authentication requirements.",
-            f"<strong>Hardware &amp; Network Diagnostics:</strong> Auditing screen viewport dimensions, audio latency timings, or network latency parameters directly in your browser.",
-            f"<strong>Security &amp; Password Hygiene:</strong> Generating cryptographically strong passwords or passphrases via Web Crypto without reliance on remote password services."
-        ]
+    return []
 
 def get_tool_cli_snippets(tool):
-    """Returns copyable CLI or programming snippets for technical reference."""
+    """Only include a code sample when it was written for this tool."""
     if tool['id'] in TOOL_DETAILS and 'cli_snippet' in TOOL_DETAILS[tool['id']]:
         return TOOL_DETAILS[tool['id']]['cli_snippet']
-    
-    tid = tool['id']
-    title = tool['title']
-    cat = tool['category']
-    
-    if cat == "developer-data":
-        return {
-            "title": f"Terminal & Code Equivalents for {title}",
-            "bash": f"# Quick terminal verification in Bash\n# Example command line pipeline\necho 'payload' | tr '[:lower:]' '[:upper:]'",
-            "python": f"# Python standard library equivalent\n# Real-time processing without third-party packages\nprint('Processed locally via Python 3')",
-            "js": f"// JavaScript / Node.js equivalent\nconst input = 'sample_data';\nconsole.log(input);"
-        }
-    elif cat == "text-formatting":
-        return {
-            "title": f"Terminal & Code Equivalents for {title}",
-            "bash": f"# Text processing via standard Linux utilities\ncat input.txt | tr -s ' '",
-            "python": f"# Python string manipulation\ntext = 'Sample Text'\nprint(text.strip())",
-            "js": f"// JavaScript String manipulation\nconst str = 'Sample Text';\nconsole.log(str.trim());"
-        }
-    else:
-        return None
+    return None
 
 def get_tool_spec_table(tool):
     """Returns a structured specification or cheat sheet table for the tool."""
@@ -376,38 +563,12 @@ def get_tool_spec_table(tool):
     return None
 
 def get_expanded_faqs(tool):
-    """Returns an expanded list of 4-6 authoritative FAQs for the tool."""
+    """Keep each tool's own questions. Do not stamp the same FAQ onto every page."""
     existing = list(tool.get('faqs', []))
-    
+
     if tool['id'] in TOOL_DETAILS and 'extra_faqs' in TOOL_DETAILS[tool['id']]:
         for extra in TOOL_DETAILS[tool['id']]['extra_faqs']:
             if not any(f['q'] == extra['q'] for f in existing):
                 existing.append(extra)
-    
-    # Universal authoritative fallbacks
-    universal_faqs = [
-        {
-            "q": f"Is my data stored, logged, or transmitted to external servers when using {tool['title']}?",
-            "a": "No. OmniTools operates on a strict zero-knowledge architecture. All computation, text processing, cryptographic hashing, and conversions execute 100% inside your browser's local sandbox memory. No inputs ever cross the internet."
-        },
-        {
-            "q": f"Can I use {tool['title']} without an active internet connection?",
-            "a": "Yes! OmniTools is a certified Progressive Web App (PWA) with full service-worker offline caching. Once loaded, all calculations, converters, and tools remain completely functional offline."
-        },
-        {
-            "q": f"Are there file size or character limits when using this tool?",
-            "a": "Because processing takes place directly on your device hardware without remote server timeouts, limits are bounded only by your machine's available RAM and browser execution limits."
-        },
-        {
-            "q": f"Can I embed {tool['title']} into my company's internal wiki or developer blog?",
-            "a": "Yes. Add `?embed=true` to the URL to launch a clean, distraction-free widget version designed for embedding inside iframes, Notion, Confluence, or technical documentation."
-        }
-    ]
-    
-    for u in universal_faqs:
-        if len(existing) >= 5:
-            break
-        if not any(f['q'] == u['q'] for f in existing):
-            existing.append(u)
-            
+
     return existing

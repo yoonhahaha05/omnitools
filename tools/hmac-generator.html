@@ -54,7 +54,7 @@
     };
     window.adsbygoogle = window.adsbygoogle || [];
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
+  <script src="/js/consent.js" defer></script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -245,9 +245,9 @@
           <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
         </button>
 
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
-          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span>Support</span>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
         </a>
       </div>
     </div>
@@ -306,7 +306,7 @@
 
     <div class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-500">
       <i data-lucide="shield" class="w-3.5 h-3.5"></i>
-      <span>Runs locally in your browser. Sensitive data is never sent to a server.</span>
+      <span>Your input stays on this device. Ads use cookies.</span>
     </div>
 
     <!-- Embed Mode Attribution Banner (shown only when embedded inside iframes) -->
@@ -335,7 +335,7 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2">The OmniTools HMAC Generator calculates Hash-based Message Authentication Codes in accordance with RFC 2104. 
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The OmniTools HMAC Generator calculates Hash-based Message Authentication Codes in accordance with RFC 2104. 
 HMAC provides cryptographic data integrity and authenticity verification by combining a cryptographic hash function (SHA-256, SHA-512, SHA-384, or SHA-1) with a shared secret key through inner and outer padding passes ($H(K \oplus \text{opad} \parallel H(K \oplus \text{ipad} \parallel m))$).
 Our implementation uses the native browser Web Cryptography API (`window.crypto.subtle.sign`), ensuring hardware-accelerated cryptographic performance without third-party dependencies. Sensitive webhook signing secrets, API tokens, and authorization headers never cross the internet.</p>
       </div>
@@ -358,7 +358,7 @@ Our implementation uses the native browser Web Cryptography API (`window.crypto.
       </div>
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Real-World Industry &amp; Everyday Scenarios</h3>
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
         <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
         <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Webhook Signature Verification:</strong> Validating incoming webhook payloads from payment gateways (Stripe, PayPal, Adyen) and developer platforms (GitHub, Twilio).</li>
         <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>API Request Authentication:</strong> Generating AWS Signature Version 4 (SigV4) headers or custom HMAC request tokens.</li>
@@ -498,9 +498,9 @@ console.log(hmac);</code></pre>
         <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact &amp; Support</a>
         <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy Policy</a>
         <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Terms of Service</a>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
-          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span>Support</span>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
         </a>
       </div>
     </div>

@@ -54,7 +54,7 @@
     };
     window.adsbygoogle = window.adsbygoogle || [];
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
+  <script src="/js/consent.js" defer></script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -167,14 +167,6 @@
         "@type": "Answer",
         "text": "Standard JSON strictly disallows comments (// or /* */). Our formatter adheres to the official RFC 8259 standard to ensure output is valid across all production parsers."
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data stored, logged, or transmitted to external servers when using JSON Beautifier & Validator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. OmniTools operates on a strict zero-knowledge architecture. All computation, text processing, cryptographic hashing, and conversions execute 100% inside your browser's local sandbox memory. No inputs ever cross the internet."
-      }
     }
   ]
 }
@@ -245,9 +237,9 @@
           <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
         </button>
 
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
-          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span>Support</span>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
         </a>
       </div>
     </div>
@@ -306,7 +298,7 @@
 
     <div class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-500">
       <i data-lucide="shield" class="w-3.5 h-3.5"></i>
-      <span>Runs locally in your browser. Sensitive data is never sent to a server.</span>
+      <span>Your input stays on this device. Ads use cookies.</span>
     </div>
 
     <!-- Embed Mode Attribution Banner (shown only when embedded inside iframes) -->
@@ -335,9 +327,15 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2">The OmniTools JSON Beautifier, Validator, and Formatter parses raw JSON documents according to RFC 8259 specifications. 
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The OmniTools JSON Beautifier, Validator, and Formatter parses raw JSON documents according to RFC 8259 specifications. 
 It constructs an abstract syntax representation in client memory, normalizes string escapes, detects structural syntax errors (such as unquoted keys, trailing commas, or missing brackets), and re-serializes the data with configurable 2-space, 4-space, or tab indentation.
-Unlike server-side JSON formatters that upload your data to remote application servers, OmniTools executes entirely within your browser&#x27;s V8 or JavaScriptCore engine. Proprietary API responses, internal environment variables, database records, and customer records remain 100% private.</p>
+The formatter uses the browser&#x27;s JSON.parse and JSON.stringify. It does not accept comments, single-quoted keys, or trailing commas, because those are not valid JSON.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. Paste {&quot;name&quot;:&quot;Ada&quot;,&quot;ok&quot;:true} and choose 2-space indent. The result is:</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">{
+  &quot;name&quot;: &quot;Ada&quot;,
+  &quot;ok&quot;: true
+}</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">A trailing comma, as in {&quot;name&quot;:&quot;Ada&quot;,}, is rejected. Remove the comma and format again.</p>
       </div>
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -360,7 +358,7 @@ Unlike server-side JSON formatters that upload your data to remote application s
       </div>
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Real-World Industry &amp; Everyday Scenarios</h3>
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
         <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
         <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>API Debugging &amp; Payload Inspection:</strong> Formatting unreadable minified REST and GraphQL JSON payloads returned from production servers.</li>
         <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Configuration File Validation:</strong> Cleaning and linting complex configuration files (package.json, tsconfig.json, Kubernetes ConfigMaps).</li>
@@ -441,11 +439,6 @@ console.log(formatted);</code></pre>
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does OmniTools support JSON5 or JSON with comments?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Standard JSON strictly disallows comments (// or /* */). Our formatter adheres to the official RFC 8259 standard to ensure output is valid across all production parsers.</p>
           </div>
-
-          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is my data stored, logged, or transmitted to external servers when using JSON Beautifier &amp; Validator?</h4>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. OmniTools operates on a strict zero-knowledge architecture. All computation, text processing, cryptographic hashing, and conversions execute 100% inside your browser&#x27;s local sandbox memory. No inputs ever cross the internet.</p>
-          </div>
         </div>
       </div>
     </article>
@@ -499,9 +492,9 @@ console.log(formatted);</code></pre>
         <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact &amp; Support</a>
         <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy Policy</a>
         <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Terms of Service</a>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
-          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span>Support</span>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
         </a>
       </div>
     </div>

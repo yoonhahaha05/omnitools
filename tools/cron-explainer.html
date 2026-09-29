@@ -54,7 +54,7 @@
     };
     window.adsbygoogle = window.adsbygoogle || [];
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3261737439776294" crossorigin="anonymous"></script>
+  <script src="/js/consent.js" defer></script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -146,34 +146,18 @@
     },
     {
       "@type": "Question",
-      "name": "Is my data stored, logged, or transmitted to external servers when using Cron Expression Explainer?",
+      "name": "Why was my expression rejected?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. OmniTools operates on a strict zero-knowledge architecture. All computation, text processing, cryptographic hashing, and conversions execute 100% inside your browser's local sandbox memory. No inputs ever cross the internet."
+        "text": "It needs five fields separated by spaces. @daily and expressions with a seconds field are a different dialect."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I use Cron Expression Explainer without an active internet connection?",
+      "name": "Does day-of-week 0 mean Sunday?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes! OmniTools is a certified Progressive Web App (PWA) with full service-worker offline caching. Once loaded, all calculations, converters, and tools remain completely functional offline."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are there file size or character limits when using this tool?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Because processing takes place directly on your device hardware without remote server timeouts, limits are bounded only by your machine's available RAM and browser execution limits."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I embed Cron Expression Explainer into my company's internal wiki or developer blog?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Add `?embed=true` to the URL to launch a clean, distraction-free widget version designed for embedding inside iframes, Notion, Confluence, or technical documentation."
+        "text": "Yes. In this explainer, 0 and 7 both mean Sunday. 1 is Monday and 5 is Friday."
       }
     }
   ]
@@ -245,9 +229,9 @@
           <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
         </button>
 
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
-          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span>Support</span>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
         </a>
       </div>
     </div>
@@ -306,7 +290,7 @@
 
     <div class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-500">
       <i data-lucide="shield" class="w-3.5 h-3.5"></i>
-      <span>Runs locally in your browser. Sensitive data is never sent to a server.</span>
+      <span>Your input stays on this device. Ads use cookies.</span>
     </div>
 
     <!-- Embed Mode Attribution Banner (shown only when embedded inside iframes) -->
@@ -335,19 +319,35 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2">The OmniTools Cron Expression Explainer is an enterprise-grade utility designed to process data with zero latency and complete client-side confidentiality. 
-Operating in accordance with modern web engineering standards, this tool executes 100% inside your browser&#x27;s local JavaScript environment.</p>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2">In traditional web setups, sending copy, tokens, calculations, or files to a cloud server introduces latency, exposes sensitive payload data to external logs, and creates unnecessary third-party dependencies. 
-OmniTools solves this by performing all algorithmic processing, formatting, and mathematical operations directly on your device CPU. Sensitive customer records, private credentials, and personal drafts never touch an external server or database.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">A standard cron expression has five fields, in this order: minute, hour, day of month, month, day of week. Stars mean every value. A range such as 1-5 limits the field. A step such as */15 means every 15 units.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">This explainer turns those five fields into one English sentence. It expects exactly five fields. A six-field expression that includes seconds, or a name like @daily, is reported as invalid.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. 0 9 * * 1-5 reads: Runs at minute 0, past hour 9:00, Monday through Friday. That is 09:00 on Monday, Tuesday, Wednesday, Thursday, and Friday.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The five upcoming times under the sentence are spaced 15 minutes apart from your clock. They illustrate a list of times. They are not a full cron calendar.</p>
       </div>
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Technical Specifications &amp; Reference</h3>
+        <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+          <table class="w-full text-left bg-zinc-50/40 dark:bg-zinc-900/20">
+            <thead class="bg-zinc-100/80 dark:bg-zinc-800/60">
+              <tr><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Field</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Allowed values</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Example</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Meaning</th></tr>
+            </thead>
+            <tbody>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Minute</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">0–59</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">0</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">On the hour</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Hour</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">0–23</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">9</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">09:00</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Day of month</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1–31</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">*</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Every day</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Month</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1–12</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">*</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Every month</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Day of week</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">0–6 (0 = Sunday)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1-5</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Monday through Friday</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
-        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Real-World Industry &amp; Everyday Scenarios</h3>
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
         <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
-        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Daily Workflow Efficiency:</strong> Accelerating routine technical tasks with zero setup, zero installations, and zero authentication requirements.</li>
-        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Hardware &amp; Network Diagnostics:</strong> Auditing screen viewport dimensions, audio latency timings, or network latency parameters directly in your browser.</li>
-        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Security &amp; Password Hygiene:</strong> Generating cryptographically strong passwords or passphrases via Web Crypto without reliance on remote password services.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A weekday job:</strong> 0 9 * * 1-5 is 09:00 on weekdays.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>The first of the month:</strong> 0 0 1 * * is 00:00 on day 1 of every month.</li>
         </ul>
       </div>
 
@@ -380,23 +380,13 @@ OmniTools solves this by performing all algorithmic processing, formatting, and 
           </div>
 
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is my data stored, logged, or transmitted to external servers when using Cron Expression Explainer?</h4>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. OmniTools operates on a strict zero-knowledge architecture. All computation, text processing, cryptographic hashing, and conversions execute 100% inside your browser&#x27;s local sandbox memory. No inputs ever cross the internet.</p>
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why was my expression rejected?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">It needs five fields separated by spaces. @daily and expressions with a seconds field are a different dialect.</p>
           </div>
 
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I use Cron Expression Explainer without an active internet connection?</h4>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes! OmniTools is a certified Progressive Web App (PWA) with full service-worker offline caching. Once loaded, all calculations, converters, and tools remain completely functional offline.</p>
-          </div>
-
-          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are there file size or character limits when using this tool?</h4>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Because processing takes place directly on your device hardware without remote server timeouts, limits are bounded only by your machine&#x27;s available RAM and browser execution limits.</p>
-          </div>
-
-          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
-            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I embed Cron Expression Explainer into my company&#x27;s internal wiki or developer blog?</h4>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes. Add `?embed=true` to the URL to launch a clean, distraction-free widget version designed for embedding inside iframes, Notion, Confluence, or technical documentation.</p>
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does day-of-week 0 mean Sunday?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes. In this explainer, 0 and 7 both mean Sunday. 1 is Monday and 5 is Friday.</p>
           </div>
         </div>
       </div>
@@ -451,9 +441,9 @@ OmniTools solves this by performing all algorithmic processing, formatting, and 
         <a href="/pages/contact" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact &amp; Support</a>
         <a href="/pages/privacy" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Privacy Policy</a>
         <a href="/pages/terms" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Terms of Service</a>
-        <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
-          <i data-lucide="coffee" class="w-3.5 h-3.5 text-amber-500"></i>
-          <span>Support</span>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
         </a>
       </div>
     </div>

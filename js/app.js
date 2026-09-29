@@ -211,7 +211,7 @@ const App = {
               Web utilities that run locally in your browser
             </h1>
             <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
-              Fast, free developer and formatting tools. Zero latency, works offline, and sensitive data never leaves your device.
+              Fast, free developer and formatting tools. Your input stays on this device. Ads use cookies.
             </p>
 
             <div class="pt-2 max-w-xl">
@@ -484,7 +484,7 @@ const App = {
         <!-- Clean Privacy Note -->
         <div class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-500">
           <i data-lucide="shield" class="w-3.5 h-3.5"></i>
-          <span>Runs locally in your browser. Sensitive data is never sent to a server.</span>
+          <span>Your input stays on this device. Ads use cookies.</span>
         </div>
 
         <!-- Google AdSense In-Tool Responsive Placement -->
