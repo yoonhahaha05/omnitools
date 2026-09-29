@@ -7,11 +7,11 @@ const mathTools = [
   // 51. Percentage Increase/Decrease Calculator
   {
     id: "percentage-calculator",
-    title: "Percentage Calculator",
+    title: "What is 15% of 80?",
     category: "Everyday Math & Converters",
     icon: "➗",
     badge: "Popular",
-    description: "Multi-mode percentage calculator: calculate percentage of a number, ratio percentages, and percentage increase or decrease.",
+    description: "Enter the numbers. You get the percent, the increase, or the decrease.",
     keywords: ["percentage calculator", "percent increase", "percent decrease", "calculate percent", "discount calculator"],
     render: (container) => {
       container.innerHTML = `
@@ -104,11 +104,11 @@ const mathTools = [
   // 52. Discount & Sales Tax Calculator
   {
     id: "discount-tax-calculator",
-    title: "Discount & Sales Tax Calculator",
+    title: "What will this cost after the discount and tax?",
     category: "Everyday Math & Converters",
     icon: "🏷️",
     badge: "New",
-    description: "Calculate final sale price, discount savings, and sales tax with full itemized financial breakdown.",
+    description: "Enter the price, the percent off, and the tax rate. You see what you pay.",
     keywords: ["discount calculator", "sales tax calculator", "sale price", "tax savings", "shopping calculator"],
     render: (container) => {
       container.innerHTML = `
@@ -189,11 +189,11 @@ const mathTools = [
   // 53. Tip & Bill Splitter
   {
     id: "tip-splitter-calculator",
-    title: "Tip & Bill Splitter",
+    title: "How much does each person owe?",
     category: "Everyday Math & Converters",
     icon: "💵",
     badge: "New",
-    description: "Calculate restaurant gratuity tips, split checks fairly among friends, and round up totals.",
+    description: "Enter the bill, the tip, and how many people. You see each share.",
     keywords: ["tip calculator", "bill splitter", "split check", "restaurant tip", "gratuity calculator"],
     render: (container) => {
       container.innerHTML = `
@@ -286,11 +286,11 @@ const mathTools = [
   // 54. Length Converter (Metric / Imperial)
   {
     id: "length-converter",
-    title: "Length Converter (Metric / Imperial)",
+    title: "How many feet is 180 centimeters?",
     category: "Everyday Math & Converters",
     icon: "📏",
     badge: "New",
-    description: "Convert distance and length across millimeters, centimeters, meters, kilometers, inches, feet, yards, and miles.",
+    description: "Type the number and pick the units.",
     keywords: ["length converter", "metric to imperial", "meters to feet", "inches to cm", "distance converter"],
     render: (container) => {
       container.innerHTML = `
@@ -374,11 +374,11 @@ const mathTools = [
   // 55. Weight & Mass Converter
   {
     id: "weight-converter",
-    title: "Weight & Mass Converter",
+    title: "How many pounds is 70 kilograms?",
     category: "Everyday Math & Converters",
     icon: "⚖️",
     badge: "New",
-    description: "Convert weight and mass between kilograms, grams, milligrams, pounds, ounces, and metric tons.",
+    description: "Type the number and pick the units.",
     keywords: ["weight converter", "mass converter", "kg to lbs", "pounds to kilograms", "grams to ounces"],
     render: (container) => {
       container.innerHTML = `
@@ -456,11 +456,11 @@ const mathTools = [
   // 56. Temperature Converter (°C, °F, K)
   {
     id: "temperature-converter",
-    title: "Temperature Converter (°C, °F, K)",
+    title: "What is 180°C in Fahrenheit?",
     category: "Everyday Math & Converters",
     icon: "🌡️",
     badge: "New",
-    description: "Convert temperatures between Celsius, Fahrenheit, and Kelvin in real-time with physical reference points.",
+    description: "Type the temperature. Celsius, Fahrenheit, and Kelvin update together.",
     keywords: ["temperature converter", "celsius to fahrenheit", "fahrenheit to celsius", "kelvin converter"],
     render: (container) => {
       container.innerHTML = `
@@ -542,11 +542,11 @@ const mathTools = [
   // 57. Data Storage Converter (Bytes to TB)
   {
     id: "data-storage-converter",
-    title: "Data Storage Converter (Bytes to TB)",
+    title: "How many GB is 500 MB?",
     category: "Everyday Math & Converters",
     icon: "💾",
     badge: "New",
-    description: "Convert digital file sizes across Bytes, KB, MB, GB, TB, and PB in both decimal and binary (KiB, GiB) standards.",
+    description: "Type the size. Bytes through terabytes, including GiB and MiB.",
     keywords: ["data storage converter", "bytes to gb", "mb to gb", "gib to gb", "file size calculator"],
     render: (container) => {
       container.innerHTML = `
@@ -623,11 +623,11 @@ const mathTools = [
   // 58. Speed Converter (mph, km/h, m/s)
   {
     id: "speed-converter",
-    title: "Speed Converter (mph, km/h, m/s)",
+    title: "What is 60 mph in km/h?",
     category: "Everyday Math & Converters",
     icon: "🏎️",
     badge: "New",
-    description: "Convert velocity across km/h, mph, m/s, knots, ft/s, and Mach speed with context benchmarks.",
+    description: "Type the speed. Miles, kilometers, meters per second, and knots update together.",
     keywords: ["speed converter", "mph to kmh", "km/h to mph", "knots to mph", "velocity converter"],
     render: (container) => {
       container.innerHTML = `
@@ -701,11 +701,11 @@ const mathTools = [
   // 59. Time Zone Converter & World Clock
   {
     id: "timezone-converter",
-    title: "Time Zone Converter & World Clock",
+    title: "What time is 9am New York in Seoul?",
     category: "Everyday Math & Converters",
     icon: "🌐",
     badge: "New",
-    description: "Compare time across global time zones (UTC, EST, PST, GMT, CET, JST, AEST) with live digital clocks.",
+    description: "Pick the two places. You see both clocks.",
     keywords: ["timezone converter", "world clock", "utc to est", "pst to est", "time difference"],
     render: (container) => {
       container.innerHTML = `
@@ -767,11 +767,11 @@ const mathTools = [
   // 60. Epoch / Unix Timestamp to Human Date
   {
     id: "timestamp-converter",
-    title: "Unix Timestamp & Epoch Converter",
+    title: "What time is this Unix timestamp?",
     category: "Everyday Math & Converters",
     icon: "⏰",
     badge: "Essential",
-    description: "Convert Unix epoch timestamps (seconds & milliseconds) to human-readable dates and parse dates back to timestamps.",
+    description: "Paste the number from the log. You see the date.",
     keywords: ["unix timestamp", "epoch converter", "timestamp to date", "current timestamp", "epoch time"],
     render: (container) => {
       container.innerHTML = `
@@ -842,11 +842,11 @@ const mathTools = [
   // 61. Human Date to Unix Timestamp
   {
     id: "human-date-to-unix",
-    title: "Human Date to Unix Timestamp",
+    title: "What is this date as a Unix timestamp?",
     category: "Everyday Math & Converters",
     icon: "📅",
     badge: "New",
-    description: "Convert any calendar date and time into Unix epoch seconds and milliseconds with timezone selection.",
+    description: "Pick the date and time. You get seconds and milliseconds.",
     keywords: ["date to unix", "date to timestamp", "convert date to epoch", "epoch generator"],
     render: (container) => {
       container.innerHTML = `
@@ -909,11 +909,11 @@ const mathTools = [
   // 62. Age & Days Alive Calculator
   {
     id: "age-calculator",
-    title: "Age & Days Alive Calculator",
+    title: "How old am I in days?",
     category: "Everyday Math & Converters",
     icon: "🎂",
     badge: "New",
-    description: "Calculate your exact age in years, months, days, total days alive, and next birthday countdown.",
+    description: "Enter the birthday. You see years, months, days, and the next birthday.",
     keywords: ["age calculator", "days alive calculator", "birthday countdown", "how old am i", "calculate age"],
     render: (container) => {
       container.innerHTML = `
@@ -1014,11 +1014,11 @@ const mathTools = [
   // 63. Date Difference Calculator
   {
     id: "date-difference-calculator",
-    title: "Date Difference Calculator",
+    title: "How many days are there between these dates?",
     category: "Everyday Math & Converters",
     icon: "📆",
     badge: "New",
-    description: "Calculate duration between two dates in years, months, days, weeks, and working business days.",
+    description: "Pick the start and the end. You see days, weeks, and weekdays.",
     keywords: ["date difference", "days between dates", "duration calculator", "business days calculator"],
     render: (container) => {
       container.innerHTML = `
@@ -1115,11 +1115,11 @@ const mathTools = [
   // 64. Aspect Ratio Scaler (16:9, 4:3, etc.)
   {
     id: "aspect-ratio-calculator",
-    title: "Aspect Ratio Scaler",
+    title: "What height keeps this at 16:9?",
     category: "Everyday Math & Converters",
     icon: "📐",
     badge: "Popular",
-    description: "Calculate proportional width and height dimensions for video, photos, and responsive UI layouts.",
+    description: "Enter the width or the height. The other side stays in ratio.",
     keywords: ["aspect ratio calculator", "16:9 calculator", "image scale", "proportional scale", "resolution scaler"],
     render: (container) => {
       container.innerHTML = `
@@ -1224,11 +1224,11 @@ const mathTools = [
   // 65. Screen PPI / DPI Calculator
   {
     id: "ppi-calculator",
-    title: "Screen PPI / DPI Calculator",
+    title: "What is the PPI of this screen?",
     category: "Everyday Math & Converters",
     icon: "🖥️",
     badge: "New",
-    description: "Calculate display pixel density (Pixels Per Inch - PPI), dot pitch, and total pixel count from resolution and diagonal size.",
+    description: "Enter the resolution and the diagonal size. You get pixels per inch.",
     keywords: ["ppi calculator", "dpi calculator", "pixels per inch", "screen density", "dot pitch calculator"],
     render: (container) => {
       container.innerHTML = `
@@ -1314,11 +1314,11 @@ const mathTools = [
   // 66. Compound Interest Calculator
   {
     id: "compound-interest-calculator",
-    title: "Compound Interest Calculator",
+    title: "How much will this grow?",
     category: "Everyday Math & Converters",
     icon: "📈",
     badge: "New",
-    description: "Forecast investment growth over time with initial deposit, regular monthly contributions, and compounding frequencies.",
+    description: "Enter what you start with, what you add each month, and the rate. You see the balance.",
     keywords: ["compound interest calculator", "investment growth", "future value calculator", "compound interest formula"],
     render: (container) => {
       container.innerHTML = `
@@ -1409,11 +1409,11 @@ const mathTools = [
   // 67. Hourly Rate to Annual Salary Calculator
   {
     id: "salary-calculator",
-    title: "Hourly Rate to Annual Salary Calculator",
+    title: "What is $18 an hour per year?",
     category: "Everyday Math & Converters",
     icon: "💼",
     badge: "New",
-    description: "Convert hourly pay rates into daily, weekly, monthly, and yearly gross salaries based on work hours.",
+    description: "Enter the hourly rate and the hours. You see the week, the month, and the year.",
     keywords: ["hourly to salary", "salary calculator", "wage converter", "hourly rate conversion", "annual income calculator"],
     render: (container) => {
       container.innerHTML = `
@@ -1495,11 +1495,11 @@ const mathTools = [
   // 68. GPA Calculator
   {
     id: "gpa-calculator",
-    title: "GPA Calculator",
+    title: "What is my GPA?",
     category: "Everyday Math & Converters",
     icon: "🎓",
     badge: "New",
-    description: "Calculate weighted Grade Point Average (GPA) on a 4.0 scale with custom course credits and grades.",
+    description: "Enter each grade and how many credits it is worth. You get the average on a 4.0 scale.",
     keywords: ["gpa calculator", "grade point average", "calculate gpa", "college gpa", "4.0 gpa calculator"],
     render: (container) => {
       container.innerHTML = `
@@ -1594,11 +1594,11 @@ const mathTools = [
   // 69. Roman Numeral Converter
   {
     id: "roman-numeral-converter",
-    title: "Roman Numeral Converter",
+    title: "What is 2026 in Roman numerals?",
     category: "Everyday Math & Converters",
     icon: "🏛️",
     badge: "New",
-    description: "Convert Arabic numbers (1–3,999) to Roman numerals (I, V, X, L, C, D, M) and decode Roman strings back to numbers.",
+    description: "Type the number or the Roman numerals. It converts both ways.",
     keywords: ["roman numeral converter", "arabic to roman", "roman to arabic", "roman numbers", "roman letters"],
     render: (container) => {
       container.innerHTML = `
@@ -1682,11 +1682,11 @@ const mathTools = [
   // 70. Random Number Generator
   {
     id: "random-number-generator",
-    title: "Random Number Generator",
+    title: "Pick a number between 1 and 100.",
     category: "Everyday Math & Converters",
     icon: "🎲",
     badge: "New",
-    description: "Generate cryptographically secure random integers or decimals in any range with unique and sorting options.",
+    description: "Set the range and how many you need.",
     keywords: ["random number generator", "rng", "random integer", "crypto random", "pick random number"],
     render: (container) => {
       container.innerHTML = `
@@ -1789,11 +1789,11 @@ const mathTools = [
   // 71. Dice Roller & Coin Flipper
   {
     id: "dice-coin-roller",
-    title: "Dice Roller & Coin Flipper",
+    title: "Roll a d20.",
     category: "Everyday Math & Converters",
     icon: "🎲",
     badge: "New",
-    description: "Flip realistic coins (Heads / Tails) and roll polyhedral RPG tabletop dice (d4, d6, d8, d10, d12, d20, d100).",
+    description: "Pick the die, or flip a coin.",
     keywords: ["dice roller", "coin flipper", "flip a coin", "roll d20", "rpg dice roller"],
     render: (container) => {
       container.innerHTML = `
@@ -1866,11 +1866,11 @@ const mathTools = [
   // 72. Running Pace Calculator
   {
     id: "running-pace-calculator",
-    title: "Running Pace Calculator",
+    title: "What pace do I need for a 25-minute 5K?",
     category: "Everyday Math & Converters",
     icon: "🏃",
     badge: "New",
-    description: "Calculate running pace (min/km or min/mile), finish times, and split schedules for 5K, 10K, Half, and Marathons.",
+    description: "Enter the distance and the time, or the pace you want to hold.",
     keywords: ["running pace calculator", "marathon pace", "5k pace", "pace to time", "runner splits"],
     render: (container) => {
       container.innerHTML = `
@@ -1964,11 +1964,11 @@ const mathTools = [
   // 73. Fuel Cost Estimator
   {
     id: "fuel-cost-calculator",
-    title: "Fuel Cost Estimator",
+    title: "How much gas will this trip cost?",
     category: "Everyday Math & Converters",
     icon: "⛽",
     badge: "New",
-    description: "Estimate road trip gasoline costs and fuel consumption based on distance, fuel economy, and gas prices.",
+    description: "Enter the distance, the mpg, and the price per gallon.",
     keywords: ["fuel cost estimator", "gas cost calculator", "road trip fuel calculator", "trip cost", "mileage calculator"],
     render: (container) => {
       container.innerHTML = `
@@ -2057,11 +2057,11 @@ const mathTools = [
   // 74. Base Converter (Hex, Dec, Oct, Bin)
   {
     id: "base-converter",
-    title: "Base Converter (Hex, Dec, Oct, Bin)",
+    title: "What is this number in hex?",
     category: "Everyday Math & Converters",
     icon: "🔢",
     badge: "New",
-    description: "Simultaneous base conversion between Binary (2), Octal (8), Decimal (10), and Hexadecimal (16).",
+    description: "Type the value. Binary, octal, decimal, and hex update together.",
     keywords: ["base converter", "hex to dec", "bin to hex", "binary to decimal", "radix converter"],
     render: (container) => {
       container.innerHTML = `
@@ -2116,11 +2116,11 @@ const mathTools = [
   // 75. Matrix Determinant Calculator
   {
     id: "matrix-determinant-calculator",
-    title: "Matrix Determinant Calculator",
+    title: "What is the determinant of this matrix?",
     category: "Everyday Math & Converters",
     icon: "🔲",
     badge: "New",
-    description: "Calculate determinants for 2x2 and 3x3 square matrices with step-by-step formula expansion.",
+    description: "Enter a 2x2 or 3x3. You see the result and the steps.",
     keywords: ["matrix determinant", "determinant calculator", "matrix math", "linear algebra calculator"],
     render: (container) => {
       container.innerHTML = `
