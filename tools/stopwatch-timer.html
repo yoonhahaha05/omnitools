@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "No. The timer calculates elapsed time based on native `Date.now()` timestamp deltas, ensuring accuracy even if browser tab execution is throttled."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How precise is the millisecond digit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The clock source is sub-millisecond. The display rounds to milliseconds. A busy page can delay painting, not the underlying timestamp."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does reset keep the CSV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Export before you reset. Reset clears the lap list."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Stopwatch &amp; Lap Tracker. High-precision digital stopwatch with millisecond accuracy, split lap times, and lap table export. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Elapsed time is the difference of two performance timestamps, not a count of timer ticks. That is why switching tabs does not make the clock fall behind: when the page wakes up it subtracts the start time from the current time. A lap stores that elapsed value. A split is the difference between this lap and the previous one.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. Start, wait, and lap at 10.00 seconds, then lap again at 26.50 seconds. Lap 1 is 10.00 cumulative and 10.00 split. Lap 2 is 26.50 cumulative and 16.50 split. The CSV contains those rows. Pausing freezes the displayed elapsed time. Reset drops the laps.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Two laps:</strong> Cumulative 10.00 and 26.50 means splits of 10.00 and 16.50.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A hidden tab:</strong> The next paint catches up to the real elapsed time instead of skipping ticks.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does the stopwatch drift if I switch tabs?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. The timer calculates elapsed time based on native `Date.now()` timestamp deltas, ensuring accuracy even if browser tab execution is throttled.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">How precise is the millisecond digit?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The clock source is sub-millisecond. The display rounds to milliseconds. A busy page can delay painting, not the underlying timestamp.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does reset keep the CSV?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Export before you reset. Reset clears the lap list.</p>
           </div>
         </div>
       </div>

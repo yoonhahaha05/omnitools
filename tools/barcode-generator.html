@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Yes. Code 128 is one of the most versatile barcode formats in the world, encoding all 128 ASCII characters including letters, digits, and punctuation marks."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this a UPC or an EAN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Those are fixed-digit product codes with their own check digits. This page draws Code 128."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why will a phone not scan a very short bar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The quiet zone or the bar height is too small. Leave margin around the image and keep the bars at least a couple of millimeters tall when printed."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Barcode Generator (Code 128). Generate standard Code 128 barcodes directly in the browser on HTML5 canvas with downloadable PNG export. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Code 128 encodes ASCII in bars of four widths. The page uses code set B, which covers letters, digits, and the usual punctuation. A start symbol, the data, a checksum symbol, and a stop symbol are painted on a canvas. You can download that canvas as a PNG. The scanner needs quiet space on both sides of the bars. The page does not look up a product database.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. The payload SKU-1042 is legal Code 128B because every character is ASCII. The checksum depends on the start code and on a weighted sum of the symbol values, so changing one character changes bars in more than one place. A module width of 2 device pixels is easier to scan when printed than a width of 1. Height does not carry data. It only needs to be tall enough for the scanner.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A shelf label:</strong> SKU-1042 as Code 128, downloaded as a PNG.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A small printer:</strong> Raise the module width if a 1-pixel bar disappears on paper.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can Code 128 encode letters and numbers?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes. Code 128 is one of the most versatile barcode formats in the world, encoding all 128 ASCII characters including letters, digits, and punctuation marks.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is this a UPC or an EAN?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Those are fixed-digit product codes with their own check digits. This page draws Code 128.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why will a phone not scan a very short bar?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The quiet zone or the bar height is too small. Leave margin around the image and keep the bars at least a couple of millimeters tall when printed.</p>
           </div>
         </div>
       </div>

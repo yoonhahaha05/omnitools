@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "It substitutes normal letters with flipped Unicode symbols that visually mirror standard characters."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does character reversal split emoji?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Emoji that use a modifier or a zero-width joiner can break into separate code points. The flip is by code unit order, not by grapheme."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is upside-down text the same as a reversal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Upside-down text substitutes lookalike Unicode letters. The original reading order is usually kept."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Reverse Text (Characters &amp; Words). Reverse text character-by-character, flip words in sentences, reverse line order, or invert upside-down. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Character reversal flips the string in memory order, so &quot;hello&quot; becomes &quot;olleh&quot;. Word reversal keeps each word intact and flips their order, so &quot;hello world&quot; becomes &quot;world hello&quot;. Line reversal flips the order of lines and leaves each line readable. Upside-down mode does not reverse the string. It substitutes letters with Unicode characters that look flipped, such as u for n-like shapes.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. &quot;cafe time&quot; reversed by characters is &quot;emit efac&quot;. Reversed by words it is &quot;time cafe&quot;. The upside-down style is a different string of code points, so a search for &quot;cafe&quot; will not match it.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Character flip:</strong> "hello" becomes "olleh".</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Word order:</strong> "one two three" becomes "three two one".</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">How does upside down text work?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">It substitutes normal letters with flipped Unicode symbols that visually mirror standard characters.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does character reversal split emoji?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Emoji that use a modifier or a zero-width joiner can break into separate code points. The flip is by code unit order, not by grapheme.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is upside-down text the same as a reversal?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Upside-down text substitutes lookalike Unicode letters. The original reading order is usually kept.</p>
           </div>
         </div>
       </div>

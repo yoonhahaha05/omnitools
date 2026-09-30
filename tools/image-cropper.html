@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "A 1:1 square aspect ratio is standard for profile avatars across GitHub, Twitter, Discord, and Slack."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I drag the crop rectangle to the corner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The window stays centered. Use zoom to choose how much of the middle you keep."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What format is the download?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PNG. Convert it afterward if you need JPEG."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">In-Browser Image Cropper. Crop photos to square (1:1), 4:3, or 16:9 aspect ratios right in the browser with live canvas export. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The crop is a centered window at a fixed aspect ratio. 1:1 is a square, used for avatars. 4:3 is the old photo and slide ratio. 16:9 is widescreen. The zoom slider scales the image behind that window. Export draws the window to a PNG. Faces outside the window are not in the file.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A 4000×3000 photo is already 4:3, so a 4:3 crop at zoom 1 keeps the whole frame. A 1:1 crop of the same photo uses the middle 3000×3000 and drops 500 pixels from each side. A 16:9 crop uses the full width and a shorter height: 4000 × (9/16) = 2250 pixels tall, centered vertically.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>An avatar:</strong> 1:1, zoomed until the face fills the square.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A 16:9 still from a 4:3 photo:</strong> The full width stays. The top and bottom are cut.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is the best aspect ratio for profile pictures?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A 1:1 square aspect ratio is standard for profile avatars across GitHub, Twitter, Discord, and Slack.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I drag the crop rectangle to the corner?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The window stays centered. Use zoom to choose how much of the middle you keep.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What format is the download?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">PNG. Convert it afterward if you need JPEG.</p>
           </div>
         </div>
       </div>

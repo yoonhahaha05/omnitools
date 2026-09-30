@@ -151,6 +151,22 @@
         "@type": "Answer",
         "text": "Open browser DevTools (F12), navigate to the Network tab, refresh the page, click the main document request, and view the Response Headers section."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a high score mean the site is secure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It means those headers were in the paste. A weak CSP still counts as present. Read the directive, not only the checkmark."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I copy response headers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "curl -I https://example.com, or DevTools, Network, the document request, Response Headers. Copy the lines, not the HTML body."
+      }
     }
   ]
 }
@@ -311,10 +327,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">HTTP Header Parser &amp; Security Audit. Parse raw HTTP request/response headers into structured key-values and run an instant security audit on CSP, HSTS, CORS, and clickjacking protections. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Paste the raw header block, one field per line, in the form Name: value. The page splits on the first colon and lists the pairs. The audit then looks for a short set of response headers that change browser behavior: Strict-Transport-Security, Content-Security-Policy, X-Frame-Options or a CSP frame-ancestors, X-Content-Type-Options, Referrer-Policy, and Permissions-Policy.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A block that contains Strict-Transport-Security: max-age=31536000; includeSubDomains and X-Content-Type-Options: nosniff records those as present. A block with no Content-Security-Policy is flagged missing. The audit does not request the URL. It only reads what you pasted. A request header block from curl -I is the response status line plus headers. The status line is not a Name: value pair.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>HSTS:</strong> max-age=31536000 is one year in seconds.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A missing CSP:</strong> The audit marks Content-Security-Policy absent. It does not invent a policy.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -348,6 +372,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">How do I extract HTTP headers from my browser?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Open browser DevTools (F12), navigate to the Network tab, refresh the page, click the main document request, and view the Response Headers section.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does a high score mean the site is secure?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">It means those headers were in the paste. A weak CSP still counts as present. Read the directive, not only the checkmark.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">How do I copy response headers?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">curl -I https://example.com, or DevTools, Network, the document request, Response Headers. Copy the lines, not the HTML body.</p>
           </div>
         </div>
       </div>

@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "JavaScript and modern databases often use millisecond timestamps (13 digits) rather than seconds (10 digits)."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my local midnight a different number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unix time is UTC. Midnight in New York in January is 05:00 UTC, so the number is five hours later than UTC midnight."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do leap seconds appear?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Unix time repeats or skips so that each day is 86,400 seconds. The converter follows that convention."
+      }
     }
   ]
 }
@@ -298,10 +314,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Human Date to Unix Timestamp. Convert any calendar date and time into Unix epoch seconds and milliseconds with timezone selection. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Unix time is seconds since 1970-01-01 00:00:00 UTC, ignoring leap seconds. A 10-digit number is seconds. A 13-digit number is milliseconds, which is what Date.now() returns in JavaScript. Multiplying seconds by 1,000 switches between them.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. 2024-01-01 00:00:00 UTC is 1704067200 seconds and 1704067200000 milliseconds. 2000-01-01 00:00:00 UTC is 946684800. A timestamp of 0 is the start of 1970 UTC. Times before that are negative. The picker on this page builds those numbers from the date and time you select.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>New Year 2024 UTC:</strong> 1704067200 seconds.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>JavaScript:</strong> The same instant in milliseconds is 1704067200000.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -328,6 +352,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why do some timestamps have 13 digits?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">JavaScript and modern databases often use millisecond timestamps (13 digits) rather than seconds (10 digits).</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why is my local midnight a different number?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Unix time is UTC. Midnight in New York in January is 05:00 UTC, so the number is five hours later than UTC midnight.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Do leap seconds appear?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Unix time repeats or skips so that each day is 86,400 seconds. The converter follows that convention.</p>
           </div>
         </div>
       </div>

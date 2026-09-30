@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Natural sorting handles numbers inside strings intuitively so that 'item2' comes before 'item10'."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does alphabetical sort ignore case?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A plain A\u2013Z sort does not. \"Apple\" sorts before \"apple\" because uppercase code points come first. Use a case-insensitive option when the list should ignore that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are leading spaces part of the sort key?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A line that starts with a space sorts differently from the same word without it. Trim lines first if the spaces are accidental."
+      }
     }
   ]
 }
@@ -303,10 +319,32 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Sort Lines Alphabetically (A–Z / Z–A). Sort lines of text alphabetically or numerically, with options for natural sort and reverse ordering. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Each line is one record. Alphabetical sort uses Unicode code points, so uppercase letters sort before lowercase in a plain A–Z pass. Natural sort compares digit runs as numbers, so file2 comes before file10. Length sort orders by character count, shortest first, unless you reverse it.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. The lines file1, file10, file2 sort alphabetically as file1, file10, file2. Natural order is file1, file2, file10. Reversed alphabetical order is file2, file10, file1. Blank lines stay as empty records unless you remove them first.</p>
       </div>
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Technical Specifications &amp; Reference</h3>
+        <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+          <table class="w-full text-left bg-zinc-50/40 dark:bg-zinc-900/20">
+            <thead class="bg-zinc-100/80 dark:bg-zinc-800/60">
+              <tr><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Lines</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Alphabetical</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Natural</th></tr>
+            </thead>
+            <tbody>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">file1, file10, file2</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">file1, file10, file2</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">file1, file2, file10</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">item2, item10</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">item10, item2</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">item2, item10</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>File names:</strong> file1, file10, file2 become file1, file2, file10 with natural sort.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A word list:</strong> Reverse alphabetical order puts zebra above apple.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +372,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is natural sort?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Natural sorting handles numbers inside strings intuitively so that &#x27;item2&#x27; comes before &#x27;item10&#x27;.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does alphabetical sort ignore case?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A plain A–Z sort does not. &quot;Apple&quot; sorts before &quot;apple&quot; because uppercase code points come first. Use a case-insensitive option when the list should ignore that.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are leading spaces part of the sort key?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes. A line that starts with a space sorts differently from the same word without it. Trim lines first if the spaces are accidental.</p>
           </div>
         </div>
       </div>

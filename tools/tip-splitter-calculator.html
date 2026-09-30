@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Standard tip rates in the United States typically range between 15% and 20% for good service."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the tip calculated on the pre-tax bill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It uses the bill amount you type. If that amount already includes tax, the tip includes tax too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the split a cent short?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each share is rounded to the nearest cent. Add the leftover cent to one person's share."
+      }
     }
   ]
 }
@@ -303,10 +319,34 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Tip &amp; Bill Splitter. Calculate restaurant gratuity tips, split checks fairly among friends, and round up totals. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Tip = bill × percent / 100. Total = bill + tip. Each person&#x27;s share is the total divided by the number of people. The page rounds money to cents at the end, so the per-person figures can be off by a cent from a hand split.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A $86.40 bill at 18% is a tip of $15.55 and a total of $101.95. Split three ways, each person pays $33.98, and 3 × $33.98 = $101.94, one cent under the total because of rounding. At 20% the tip is $17.28 and the total is $103.68, which divides to $34.56 exactly.</p>
       </div>
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Technical Specifications &amp; Reference</h3>
+        <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+          <table class="w-full text-left bg-zinc-50/40 dark:bg-zinc-900/20">
+            <thead class="bg-zinc-100/80 dark:bg-zinc-800/60">
+              <tr><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Tip</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">On $86.40</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Common use</th></tr>
+            </thead>
+            <tbody>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">15%</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">$12.96</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Adequate service</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">18%</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">$15.55</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">A usual sit-down tip</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">20%</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">$17.28</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">A strong default in many US cities</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">25%</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">$21.60</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Excellent service or a bar tab</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>$86.40 at 18% for 3 people:</strong> Tip $15.55. Each share rounds to $33.98.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>The same bill at 20%:</strong> Tip $17.28. Each of 3 people pays $34.56.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +374,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is the standard US restaurant tip percentage?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Standard tip rates in the United States typically range between 15% and 20% for good service.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is the tip calculated on the pre-tax bill?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">It uses the bill amount you type. If that amount already includes tax, the tip includes tax too.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why is the split a cent short?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Each share is rounded to the nearest cent. Add the leftover cent to one person&#x27;s share.</p>
           </div>
         </div>
       </div>

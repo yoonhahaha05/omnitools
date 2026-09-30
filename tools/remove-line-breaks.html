@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "PDF documents encode text by absolute coordinates on the page rather than flowing paragraphs, resulting in arbitrary line breaks when copied."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Which line endings are recognized?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both LF and CRLF count as a break. A trailing break at the end of the paste does not add an extra empty paragraph."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I join lines with a comma?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Set the delimiter to a comma or any other string. The default is a space, which is what you want for prose."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Remove Line Breaks. Remove unwanted newline breaks and merge paragraphs or lines into continuous text. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">PDF and email text often inserts a break at the end of every visual line. This tool joins those lines with a delimiter you choose, usually a single space. A paragraph option keeps a blank line (two breaks in a row) so real paragraphs do not merge.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. Three PDF lines &quot;The quick\nbrown fox\njumps&quot; joined with a space become &quot;The quick brown fox jumps&quot;. If you keep paragraph breaks, &quot;Line one\n\nLine two&quot; stays two paragraphs, while single breaks inside each paragraph still join.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A PDF paragraph:</strong> "The quick" / "brown fox" / "jumps" becomes one sentence.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Two paragraphs:</strong> A blank line between them is kept when paragraph preservation is on.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why do PDFs add line breaks everywhere?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">PDF documents encode text by absolute coordinates on the page rather than flowing paragraphs, resulting in arbitrary line breaks when copied.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Which line endings are recognized?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Both LF and CRLF count as a break. A trailing break at the end of the paste does not add an extra empty paragraph.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I join lines with a comma?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes. Set the delimiter to a comma or any other string. The default is a space, which is what you want for prose.</p>
           </div>
         </div>
       </div>

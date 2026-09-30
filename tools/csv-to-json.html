@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Escaped quotes and commas within double quotes are parsed accurately according to RFC 4180."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "What if two columns share a header name?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Later cells overwrite earlier ones for that key. Rename the duplicate header before converting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a trailing comma add a column?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A trailing delimiter produces an extra empty field. Delete it if you did not mean an empty column."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">CSV to JSON Converter. Convert tabular CSV data into structured JSON objects with delimiter controls and file download. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The first row is the header. Each later row becomes an object. Cells are split on the delimiter you choose: comma, tab, semicolon, or pipe. A field wrapped in double quotes may contain the delimiter and a newline. A quote inside a quoted field is written as two quotes, which is the RFC 4180 rule. Numbers and booleans can be converted from text.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. The sheet name,age followed by Ada,36 and Bo,41 becomes [{&quot;name&quot;:&quot;Ada&quot;,&quot;age&quot;:36},{&quot;name&quot;:&quot;Bo&quot;,&quot;age&quot;:41}] when numeric conversion is on. The cell &quot;hello, world&quot; stays one field because of the quotes. A row with fewer cells than the header gets empty values for the missing keys.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Two people:</strong> name,age / Ada,36 / Bo,41 becomes an array of two objects.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A comma inside a name:</strong> Quote the cell so it stays one field.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">How are quotes inside CSV cells handled?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Escaped quotes and commas within double quotes are parsed accurately according to RFC 4180.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What if two columns share a header name?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Later cells overwrite earlier ones for that key. Rename the duplicate header before converting.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does a trailing comma add a column?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A trailing delimiter produces an extra empty field. Delete it if you did not mean an empty column.</p>
           </div>
         </div>
       </div>

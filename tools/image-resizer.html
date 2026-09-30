@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "No! Because processing happens directly in your browser's memory using HTML5 Canvas, you can resize images without server bandwidth limits."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does resizing a JPEG make it sharper?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. You can only throw pixels away or stretch the ones you have. There is no new detail."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the original file modified?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The download is a new file. The original stays where it was."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">In-Browser Image Resizer (Canvas). Resize JPG, PNG, and WebP images directly in your browser using HTML5 Canvas with zero cloud uploads. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The file is decoded in the browser and drawn onto a canvas at the pixel size you set. Aspect lock computes the other side so the ratio stays constant: new height = new width × (original height / original width). The canvas is then encoded as PNG, JPEG, or WebP and downloaded. The bytes never leave the machine.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A 4000×3000 photo locked to width 1200 becomes 1200×900, because 3000/4000 = 0.75. Unlocked, you can force 1200×1200 and the picture stretches. JPEG output is lossy and usually smaller. PNG is lossless and larger. A canvas still has a browser size limit. A photo tens of thousands of pixels on a side can fail to allocate.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A 4000×3000 photo to 1200 wide:</strong> The locked height is 900.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A thumbnail:</strong> Export JPEG. Use PNG when you need hard edges or transparency.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is there any file size or upload limit?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No! Because processing happens directly in your browser&#x27;s memory using HTML5 Canvas, you can resize images without server bandwidth limits.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does resizing a JPEG make it sharper?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. You can only throw pixels away or stretch the ones you have. There is no new detail.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is the original file modified?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. The download is a new file. The original stays where it was.</p>
           </div>
         </div>
       </div>

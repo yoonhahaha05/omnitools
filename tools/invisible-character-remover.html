@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Copying text from rich text editors, chat applications, or PDFs often brings along hidden formatting bytes."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Will this remove emoji skin-tone joiners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "U+200D is also used to join emoji into one glyph, such as a family sequence. Stripping it splits those emoji."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the counter include ordinary spaces?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ordinary spaces are visible. The counter is for the hidden and non-breaking characters the cleaner targets."
+      }
     }
   ]
 }
@@ -303,10 +319,36 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Invisible Character &amp; Zero-Width Stripper. Detect and remove zero-width spaces, hidden BOMs, non-breaking spaces, and malicious invisible unicode characters. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Some characters take no visible space. U+200B is zero-width space, U+200C zero-width non-joiner, U+200D zero-width joiner, and U+FEFF is the byte-order mark. U+00A0 is a non-breaking space, which looks like a space but does not match a normal space in search. Trojan Source attacks use bidi controls such as U+202E to display code in a different order than the compiler reads.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. The word &quot;hel\u200Blo&quot; looks like hello and has length 6, not 5. After a strip of zero-width characters the length is 5 and a search for hello matches. A file that starts with U+FEFF loses that mark, which matters when a hash or a shebang check fails on an otherwise identical script.</p>
       </div>
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Technical Specifications &amp; Reference</h3>
+        <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+          <table class="w-full text-left bg-zinc-50/40 dark:bg-zinc-900/20">
+            <thead class="bg-zinc-100/80 dark:bg-zinc-800/60">
+              <tr><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Code point</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Name</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">What you see</th></tr>
+            </thead>
+            <tbody>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">U+200B</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Zero-width space</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Nothing</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">U+200C</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Zero-width non-joiner</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Nothing</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">U+200D</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Zero-width joiner</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Nothing</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">U+FEFF</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Byte order mark</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Nothing</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">U+00A0</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">No-break space</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">A space that does not wrap</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">U+202E</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Right-to-left override</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Following text drawn backwards</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A search miss:</strong> hello with a U+200B in the middle looks normal and does not match until the mark is removed.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A BOM:</strong> U+FEFF at the start of a script is removed so the first visible character is the real start of the file.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +376,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What causes zero-width spaces?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Copying text from rich text editors, chat applications, or PDFs often brings along hidden formatting bytes.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Will this remove emoji skin-tone joiners?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">U+200D is also used to join emoji into one glyph, such as a family sequence. Stripping it splits those emoji.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does the counter include ordinary spaces?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Ordinary spaces are visible. The counter is for the hidden and non-breaking characters the cleaner targets.</p>
           </div>
         </div>
       </div>

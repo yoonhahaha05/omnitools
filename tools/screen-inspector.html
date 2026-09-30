@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "DPR is the ratio between physical display pixels and CSS logical pixels. Apple Retina screens typically have a DPR of 2.0x, while 4K monitors can range from 1.5x to 3.0x."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the screen narrower than the monitor I bought?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The page reports CSS pixels. A 2880-wide panel at DPR 2 is 1440 CSS pixels."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do the Tailwind labels change my page?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. They only name the width you are at. They do not load Tailwind."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Screen Resolution &amp; Viewport Inspector. Inspect live viewport dimensions, physical screen resolution, device pixel ratio (Retina / 4K), and CSS breakpoint. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The viewport is the browser&#x27;s layout window, in CSS pixels, and it changes when you resize. The screen size is the display, also reported in CSS pixels. Device pixel ratio is physical pixels per CSS pixel. A ratio of 2 means a 1440-wide layout viewport is 2880 device pixels across, which is the usual Retina case. The breakpoint label matches the width to the common Tailwind bounds: sm 640, md 768, lg 1024, xl 1280, 2xl 1536.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A laptop at DPR 2 with a maximized window might show a viewport near 1440×800, a screen of 1440×900, and DPR 2. Narrow the window to 700 pixels and the breakpoint label moves to sm, because 700 is at least 640 and below 768. Color depth is the screen.colorDepth value, often 24. Touch is whether the browser reports a touch screen. It can be true on a laptop with a touch panel even when you are using a mouse.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A Retina laptop:</strong> DPR 2. A 1440 CSS-pixel width is 2880 physical pixels.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A responsive check:</strong> Drag the window across 768 and 1024 and watch the breakpoint label change.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is Device Pixel Ratio (DPR)?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">DPR is the ratio between physical display pixels and CSS logical pixels. Apple Retina screens typically have a DPR of 2.0x, while 4K monitors can range from 1.5x to 3.0x.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why is the screen narrower than the monitor I bought?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The page reports CSS pixels. A 2880-wide panel at DPR 2 is 1440 CSS pixels.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Do the Tailwind labels change my page?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. They only name the width you are at. They do not load Tailwind.</p>
           </div>
         </div>
       </div>

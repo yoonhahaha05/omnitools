@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Trailing whitespace bloats file sizes, creates messy git diffs, and can cause formatting defects in markdown."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Are line breaks removed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool only changes spaces and tabs. Use Remove Line Breaks if you want one paragraph."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it remove non-breaking spaces?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It targets ordinary spaces and tabs. A non-breaking space (U+00A0) is a different character. Use the invisible-character tool for those."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Remove Extra Spaces &amp; Whitespace. Clean messy text by stripping multiple consecutive spaces, leading/trailing spaces, and tabs. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The cleaner collapses runs of spaces and tabs. A trailing-space option strips spaces at the end of each line, which is the usual cause of noisy git diffs. Tabs can be turned into a fixed run of spaces so a pasted table lines up.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. The line &quot;  hello   world  &quot; with collapse and trim becomes &quot;hello world&quot;. Two lines that end with three spaces lose those spaces and keep the line break. A tab between &quot;a&quot; and &quot;b&quot; becomes spaces if you choose that option, so the bytes change even when the words look the same.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A pasted paragraph:</strong> "  hello   world  " becomes "hello world".</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A diff cleanup:</strong> Trailing spaces on each line are removed and the line breaks stay.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why should I strip trailing whitespace?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Trailing whitespace bloats file sizes, creates messy git diffs, and can cause formatting defects in markdown.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are line breaks removed?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. This tool only changes spaces and tabs. Use Remove Line Breaks if you want one paragraph.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does it remove non-breaking spaces?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">It targets ordinary spaces and tabs. A non-breaking space (U+00A0) is a different character. Use the invisible-character tool for those.</p>
           </div>
         </div>
       </div>

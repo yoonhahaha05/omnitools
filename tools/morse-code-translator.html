@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Standard telegraph audio typically ranges between 550 Hz and 750 Hz."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How long is a dot at 16 WPM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "75 milliseconds. The page uses 1200 divided by the WPM value."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What separates words?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A slash in the Morse text. A single space separates letters inside a word."
+      }
     }
   ]
 }
@@ -298,10 +314,33 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Morse Code Translator (with Audio). Translate text to Morse code and back with real-time Web Audio sound synthesis and playback. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">A dot is a short mark and a dash is a long mark, three times the dot. Letters in a word are separated by a space. Words are separated by a slash. The audio uses the Web Audio oscillator. At the default 16 words per minute, the dot length is 1200 / 16 = 75 milliseconds. A dash is 225 milliseconds.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. SOS is ... --- ... with no extra letter spaces inside the prosign if you type it as one run, and the page&#x27;s letter mode prints S as ..., O as ---, S as .... The letter A is .- and E is a single dot. Decoding &quot;.... . .-.. .-.. ---&quot; returns HELLO.</p>
       </div>
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Technical Specifications &amp; Reference</h3>
+        <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+          <table class="w-full text-left bg-zinc-50/40 dark:bg-zinc-900/20">
+            <thead class="bg-zinc-100/80 dark:bg-zinc-800/60">
+              <tr><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Character</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Morse</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Character</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Morse</th></tr>
+            </thead>
+            <tbody>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">A</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">.-</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">E</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">.</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">S</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">...</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">O</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">---</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">N</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">-.</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">T</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>SOS:</strong> ... --- ...</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>HELLO:</strong> .... . .-.. .-.. ---</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -328,6 +367,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What frequency is used for Morse audio?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Standard telegraph audio typically ranges between 550 Hz and 750 Hz.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">How long is a dot at 16 WPM?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">75 milliseconds. The page uses 1200 divided by the WPM value.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What separates words?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A slash in the Morse text. A single space separates letters inside a word.</p>
           </div>
         </div>
       </div>

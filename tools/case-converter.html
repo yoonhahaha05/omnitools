@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "In camelCase, words are joined without spaces, and each word except the first starts with a capital letter."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Will camelCase split XMLHttpRequest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if the words are already separated by spaces, hyphens, or underscores. Inner capitals in a single token are left together."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to digits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Digits are their own word when spaces separate them. \"http 2 client\" becomes http2Client in camelCase and http_2_client in snake_case."
+      }
     }
   ]
 }
@@ -303,10 +319,35 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Case Converter. Instantly transform text to UPPERCASE, lowercase, Title Case, camelCase, snake_case, kebab-case, and PascalCase. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Each button rewrites the same string with a different word boundary. Spaces, hyphens, and underscores are treated as separators. camelCase and PascalCase then delete the separators and capitalize the following word. snake_case and kebab-case lowercase everything and join with _ or -.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. The input &quot;user login count&quot; becomes USER LOGIN COUNT, user login count, User Login Count, userLoginCount, UserLoginCount, user_login_count, and user-login-count. Going the other way, a lowercase letter followed by an uppercase letter is a word break, so userLoginCount becomes user_login_count. Consecutive capitals stay together: XMLHttpRequest becomes xmlhttp_request, not xml_http_request.</p>
       </div>
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Technical Specifications &amp; Reference</h3>
+        <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+          <table class="w-full text-left bg-zinc-50/40 dark:bg-zinc-900/20">
+            <thead class="bg-zinc-100/80 dark:bg-zinc-800/60">
+              <tr><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Input</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Case</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Result</th></tr>
+            </thead>
+            <tbody>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">user login count</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">camelCase</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">userLoginCount</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">user login count</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">PascalCase</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">UserLoginCount</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">user login count</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">snake_case</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">user_login_count</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">user login count</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">kebab-case</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">user-login-count</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">user login count</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Title Case</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">User Login Count</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A JSON key:</strong> "user login count" becomes userLoginCount or user_login_count.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A URL fragment:</strong> The same phrase becomes user-login-count in kebab-case.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +375,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is camelCase?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">In camelCase, words are joined without spaces, and each word except the first starts with a capital letter.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Will camelCase split XMLHttpRequest?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Only if the words are already separated by spaces, hyphens, or underscores. Inner capitals in a single token are left together.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What happens to digits?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Digits are their own word when spaces separate them. &quot;http 2 client&quot; becomes http2Client in camelCase and http_2_client in snake_case.</p>
           </div>
         </div>
       </div>

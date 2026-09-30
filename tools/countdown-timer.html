@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "The audio chime plays directly through browser Web Audio, provided the tab remains open."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Will the chime fire if the tab is in the background?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browsers throttle background timers and often block audio. Keep the tab open and focused if you need the sound."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I set hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter the total in minutes. 90 minutes is an hour and a half."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Countdown Timer with Audio Alert. Custom countdown timer with audio chime alert, preset buttons, and progress visualization. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">You set minutes and seconds, or you use a preset of 1, 5, 10, 15, or 30 minutes. The deadline is computed when you press start. Each frame shows the remaining time until that deadline, so a stalled tab does not extend the countdown. At zero the page plays a short chime through the Web Audio oscillator. The tab has to stay open for the sound to play. Locking the screen or closing the tab silences it.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A 5-minute preset is 300 seconds. Start it at 12:00:00 and it reaches zero at 12:05:00. Pausing at 12:02:00 with 3:00 left, then starting again, schedules a new deadline 3 minutes out. It does not try to hit the original 12:05:00.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A 5-minute preset:</strong> 300 seconds from the moment you press start.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A kitchen timer:</strong> Set 12 minutes. Leave the tab in the foreground so the chime can play.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does the chime work when my screen is off or on mobile?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The audio chime plays directly through browser Web Audio, provided the tab remains open.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Will the chime fire if the tab is in the background?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Browsers throttle background timers and often block audio. Keep the tab open and focused if you need the sound.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I set hours?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Enter the total in minutes. 90 minutes is an hour and a half.</p>
           </div>
         </div>
       </div>

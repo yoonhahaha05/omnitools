@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "A negative spread radius shrinks the shadow size inwards, creating subtle and realistic lighting effects that avoid harsh borders under cards."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a negative Y do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The shadow sits above the box. Use it when the light source is below the element."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I stack two shadows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSS allows a comma-separated list. This generator writes one shadow. Paste a second declaration yourself if you need both a tight edge and a wide glow."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">CSS Box Shadow Generator. Design realistic, layered CSS box shadows with interactive sliders and instant CSS code output. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The CSS is box-shadow: x y blur spread color. X and Y are offsets in pixels. Positive X moves the shadow right. Positive Y moves it down. Blur spreads the edge. Spread grows or shrinks the shadow before the blur. A negative spread pulls the shadow inward. The shadow does not change layout. It paints outside the border box, unless inset is set.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) is a soft drop under a card: no horizontal shift, 8 pixels down, 24 pixels of blur, no spread, 18% black. A hairline lift is 0 1px 2px rgba(0, 0, 0, 0.08). A hard offset, the kind used in brutalist layouts, is 8px 8px 0 #111, with zero blur.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A card:</strong> 0 8px 24px rgba(0, 0, 0, 0.18).</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A hard offset:</strong> 8px 8px 0 #111, with the blur left at 0.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What does negative spread radius do in box-shadow?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A negative spread radius shrinks the shadow size inwards, creating subtle and realistic lighting effects that avoid harsh borders under cards.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What does a negative Y do?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The shadow sits above the box. Use it when the light source is below the element.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I stack two shadows?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">CSS allows a comma-separated list. This generator writes one shadow. Paste a second declaration yourself if you need both a tight edge and a wide glow.</p>
           </div>
         </div>
       </div>

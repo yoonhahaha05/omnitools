@@ -534,6 +534,12 @@ Worked example. Text #0F172A on background #FFFFFF has a ratio of 17.85:1. That 
     }
 }
 
+from seo_guides import EXTRA_TOOL_DETAILS as _EXTRA_TOOL_DETAILS
+
+for _guide_id, _guide in _EXTRA_TOOL_DETAILS.items():
+    if _guide_id not in TOOL_DETAILS:
+        TOOL_DETAILS[_guide_id] = _guide
+
 def get_tool_deep_dive(tool):
     """Unique guide for priority tools. One specific paragraph for the rest."""
     if tool['id'] in TOOL_DETAILS:

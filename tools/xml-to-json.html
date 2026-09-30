@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Attributes are nested under an @attributes key on their parent element."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do namespaces go?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The prefix stays on the key as written, such as soap:Body. xmlns declarations are attributes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are CDATA sections kept as tags?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The text inside CDATA becomes a string value. The CDATA wrapper is not a JSON key."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">XML to JSON Converter. Convert XML document trees and RSS feeds into structured, nested JSON objects with indentation. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Each element becomes a key. Attributes are collected under @attributes so they are not confused with child elements. When the same child tag appears more than once, those children become an array. Text content is the value when an element has no child elements. The converter does not fetch remote DTDs.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. &lt;user id=&quot;7&quot;&gt;&lt;name&gt;Ada&lt;/name&gt;&lt;/user&gt; becomes {&quot;user&quot;:{&quot;@attributes&quot;:{&quot;id&quot;:&quot;7&quot;},&quot;name&quot;:&quot;Ada&quot;}}. Two &lt;item&gt;a&lt;/item&gt;&lt;item&gt;b&lt;/item&gt; siblings become &quot;item&quot;: [&quot;a&quot;, &quot;b&quot;]. A single item stays a string or an object, not a one-element array, so check the shape before you iterate.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>An element with an id:</strong> id lands in @attributes. The name element stays a child.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Repeated tags:</strong> Two item elements become a JSON array.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">How are XML attributes converted?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Attributes are nested under an @attributes key on their parent element.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Where do namespaces go?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The prefix stays on the key as written, such as soap:Body. xmlns declarations are attributes.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are CDATA sections kept as tags?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The text inside CDATA becomes a string value. The CDATA wrapper is not a JSON key.</p>
           </div>
         </div>
       </div>

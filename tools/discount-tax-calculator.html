@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "In most jurisdictions, sales tax is calculated on the discounted subtotal price."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the tax is included in the shelf price?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This page adds tax on top of the discounted price. It does not back tax out of a tax-inclusive price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the discount be over 100%?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The discount input is capped at 100, so the subtotal cannot go below zero."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Discount &amp; Sales Tax Calculator. Calculate final sale price, discount savings, and sales tax with full itemized financial breakdown. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Discount comes off the original price first. Tax is applied to what remains, which is how most US sales-tax rules work. Savings = price × discount / 100. Subtotal = price − savings. Tax amount = subtotal × tax / 100. Total = subtotal + tax amount.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A $120 item at 25% off and 8.5% tax. Savings are 120 × 0.25 = $30.00. Subtotal is $90.00. Tax is 90 × 0.085 = $7.65. The total is $97.65. Tax on the original $120 would have been $10.20, which is the wrong base once a discount exists.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>$120 at 25% off and 8.5% tax:</strong> You save $30.00 and pay $97.65.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Tax only:</strong> Set the discount to 0. A $120 item at 8.5% tax totals $130.20.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is sales tax calculated before or after discounts?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">In most jurisdictions, sales tax is calculated on the discounted subtotal price.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What if the tax is included in the shelf price?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">This page adds tax on top of the discounted price. It does not back tax out of a tax-inclusive price.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can the discount be over 100%?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The discount input is capped at 100, so the subtotal cannot go below zero.</p>
           </div>
         </div>
       </div>

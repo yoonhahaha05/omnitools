@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "A User Agent is an HTTP request header string that identifies the application, OS, and software vendor requesting web content."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do Chrome and Edge both mention Safari?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They kept the historical tokens so old server checks would not reject them. The parser uses the Chrome or Edg token to pick the real browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I rely on this for access control?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The header is not authenticated. Use it for statistics and debugging."
+      }
     }
   ]
 }
@@ -298,10 +314,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">User Agent Parser. Inspect your active browser User Agent or paste any UA string to extract Browser, OS, Engine, and Device category. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">A User-Agent header is a single line the browser sends with each request. This page tokenizes that line into a browser name, a version, an engine, an OS, and a device class. The same parser runs on your current navigator.userAgent or on a string you paste from a log.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A current Chrome on Windows line contains Mozilla/5.0, Windows NT 10.0, AppleWebKit, Chrome/ and a version, and Safari/537.36. The Safari token is historical compatibility, not proof of Safari. The browser is Chrome because the Chrome token is present. A Googlebot line contains Googlebot and a browser compatibility section. Treat the result as a hint. Clients can send any string they want.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Your browser:</strong> The page reads navigator.userAgent and labels the browser and OS.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A log line:</strong> Paste a captured header to see the same fields without running that browser.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -328,6 +352,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is a User Agent?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A User Agent is an HTTP request header string that identifies the application, OS, and software vendor requesting web content.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why do Chrome and Edge both mention Safari?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">They kept the historical tokens so old server checks would not reject them. The parser uses the Chrome or Edg token to pick the real browser.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I rely on this for access control?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. The header is not authenticated. Use it for statistics and debugging.</p>
           </div>
         </div>
       </div>

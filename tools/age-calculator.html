@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Using an average resting human heart rate of 75 beats per minute."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the year count on the birthday itself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On the anniversary the year count increases and the remaining months and days are zero."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is 75 bpm a medical measurement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It is a fixed average so the lifetime figure is comparable. A resting rate of 60 bpm would be 20% lower."
+      }
     }
   ]
 }
@@ -298,10 +314,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Age &amp; Days Alive Calculator. Calculate your exact age in years, months, days, total days alive, and next birthday countdown. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Age is the calendar difference from the birth date to today: full years, then the remaining months, then the remaining days. Total days alive is the count of midnights between the two dates. Hours are that count times 24. The heartbeat line uses 75 beats per minute, so heartbeats = days × 24 × 60 × 75.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. Someone born on 2000-01-01, measured on 2026-01-01, is 26 years, 0 months, and 0 days. The span is 9,497 days if you count the 26 years including the seven leap days from 2000 through 2024 (2000, 2004, 2008, 2012, 2016, 2020, 2024). 26 × 365 = 9,490, plus 7 is 9,497. Hours are 227,928. The heartbeat estimate is 9,497 × 24 × 60 × 75 = 1,025,676,000 beats, about 1.03 billion. Next birthday is the following 1 January.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Born 1 January 2000, as of 1 January 2026:</strong> 26 years and 9,497 days.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Heartbeats:</strong> Those 9,497 days at 75 bpm estimate about 1.03 billion beats.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -328,6 +352,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">How is heartbeats estimated?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Using an average resting human heart rate of 75 beats per minute.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does the year count on the birthday itself?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">On the anniversary the year count increases and the remaining months and days are zero.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is 75 bpm a medical measurement?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. It is a fixed average so the lifetime figure is comparable. A resting rate of 60 bpm would be 20% lower.</p>
           </div>
         </div>
       </div>

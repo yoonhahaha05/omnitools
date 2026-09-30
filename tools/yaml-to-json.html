@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Yes, standard key-value specifications and configurations translate cleanly to JSON."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this convert JSON back to YAML?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The direction is YAML to JSON only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did 1.10 become 1.1?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An unquoted 1.10 is a number, and JSON will not keep the trailing zero. Quote it if the zeros matter."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">YAML to JSON Converter. Convert YAML configuration files into valid JSON objects with support for nested keys and arrays. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Indentation defines nesting. A key and value sit on one line, or the value is a nested block under a deeper indent. A line starting with - is a list item. true, false, null, and numbers are converted to JSON types. Quoted strings stay strings, so &quot;01&quot; does not become the number 1.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A Kubernetes-style fragment replicas: 2 and image: nginx:1.25 becomes {&quot;replicas&quot;: 2, &quot;image&quot;: &quot;nginx:1.25&quot;}. A list ports:\n  - 80\n  - 443 becomes &quot;ports&quot;: [80, 443]. Tabs are not valid YAML indentation. Use spaces.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A deployment snippet:</strong> replicas: 2 becomes the number 2, and the image tag stays a string.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A port list:</strong> Two dash lines become a JSON array of numbers.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I use this for Kubernetes YAML?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes, standard key-value specifications and configurations translate cleanly to JSON.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does this convert JSON back to YAML?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. The direction is YAML to JSON only.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why did 1.10 become 1.1?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">An unquoted 1.10 is a number, and JSON will not keep the trailing zero. Quote it if the zeros matter.</p>
           </div>
         </div>
       </div>

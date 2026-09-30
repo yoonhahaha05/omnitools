@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "A slug is the human-readable ending part of a URL address identifying a particular page on a website."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Are apostrophes kept?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. \"Don't stop\" becomes dont-stop. The apostrophe is not a word separator that leaves a gap. It is removed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about non-Latin letters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Accented Latin letters are folded to ASCII. Scripts that have no ASCII fold are dropped, so add your own transliteration first if the title is not Latin."
+      }
     }
   ]
 }
@@ -298,10 +314,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">URL Slug Generator. Generate clean, SEO-friendly URL slugs from any headline, title, or string with customizable separators. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">A slug is the path segment of a URL. This tool lowercases the title, strips accents, removes characters that are not letters or digits, and joins the remaining words with the separator you pick. The default separator is a hyphen.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. &quot;Crème Brûlée — 10 Tips!&quot; becomes &quot;creme-brulee-10-tips&quot;. The é and û lose their accents, the em dash and exclamation mark are dropped, and the number stays. With an underscore separator the same title is &quot;creme_brulee_10_tips&quot;. Leading and trailing separators are removed, so a title that is only punctuation becomes an empty string.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A blog title:</strong> "Crème Brûlée — 10 Tips!" becomes creme-brulee-10-tips.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A file-style key:</strong> The same title with underscores is creme_brulee_10_tips.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -328,6 +352,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is an SEO slug?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A slug is the human-readable ending part of a URL address identifying a particular page on a website.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are apostrophes kept?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. &quot;Don&#x27;t stop&quot; becomes dont-stop. The apostrophe is not a word separator that leaves a gap. It is removed.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What about non-Latin letters?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Accented Latin letters are folded to ASCII. Scripts that have no ASCII fold are dropped, so add your own transliteration first if the title is not Latin.</p>
           </div>
         </div>
       </div>

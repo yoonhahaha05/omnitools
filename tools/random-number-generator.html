@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Yes, it uses crypto.getRandomValues rather than Math.random, ensuring non-deterministic entropy."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the result be predicted from the clock?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. crypto.getRandomValues uses the browser's cryptographic generator, not the current time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the largest list?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The control caps the count at 100 numbers per click."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Random Number Generator. Generate cryptographically secure random integers or decimals in any range with unique and sorting options. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Numbers come from crypto.getRandomValues, not Math.random. The page maps those bytes into the inclusive integer range you set. Asking for several numbers can keep duplicates or reject them. Sorting is optional and happens after generation.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A range of 1 to 6 is one fair die: each face has probability 1/6. Five draws with duplicates allowed can return 3, 3, 6, 1, 3. The same request with unique values on cannot repeat 3, and it can return at most 6 numbers. A range of 10 to 10 always returns 10. Inclusive means both ends can appear, so 1 to 10 really has 10 possible results, not 9.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>One die:</strong> Integers from 1 through 6, each face equally likely.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A lottery draw:</strong> Turn unique on so the same number is not drawn twice.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is this cryptographically random?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes, it uses crypto.getRandomValues rather than Math.random, ensuring non-deterministic entropy.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can the result be predicted from the clock?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. crypto.getRandomValues uses the browser&#x27;s cryptographic generator, not the current time.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is the largest list?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The control caps the count at 100 numbers per click.</p>
           </div>
         </div>
       </div>

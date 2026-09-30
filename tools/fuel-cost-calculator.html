@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Total Gallons = Distance / MPG. Total Cost = Gallons * Price Per Gallon."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this include food, tolls, or the return trip?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It includes fuel only. Turn on the round-trip control to double the distance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is 30 mpg in liters per 100 km?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 7.84 L/100 km. The calculator itself takes miles, mpg, and a price per gallon."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Fuel Cost Estimator. Estimate road trip gasoline costs and fuel consumption based on distance, fuel economy, and gas prices. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Gallons used = distance in miles / miles per gallon. Cost = gallons × price per gallon. A round trip doubles the distance before that division. Splitting by passengers divides the cost, not the gallons.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. 360 miles in a car that gets 30 mpg uses 12 gallons. At $3.49 a gallon the fuel costs $41.88. A round trip is 720 miles, 24 gallons, and $83.76. Three passengers sharing the one-way cost pay $13.96 each. The page uses US gallons and miles. A liter-based car needs the consumption converted first: 30 mpg is about 7.84 L/100 km.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>360 miles at 30 mpg and $3.49:</strong> 12 gallons, $41.88.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>The same trip out and back:</strong> 24 gallons, $83.76.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">How is fuel consumption calculated?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Total Gallons = Distance / MPG. Total Cost = Gallons * Price Per Gallon.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does this include food, tolls, or the return trip?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">It includes fuel only. Turn on the round-trip control to double the distance.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is 30 mpg in liters per 100 km?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">About 7.84 L/100 km. The calculator itself takes miles, mpg, and a price per gallon.</p>
           </div>
         </div>
       </div>

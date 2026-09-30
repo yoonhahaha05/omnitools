@@ -308,7 +308,7 @@ const quickTools = [
       faqs: [
         {
           q: "Why are passphrases better than random character passwords?",
-          a: "A 5-word passphrase like 'Beacon-Glacier-Falcon-Horizon-Echo' is easy for humans to type and remember, yet has over 64 bits of entropy—making it mathematically uncrackable via brute-force dictionary attacks."
+          a: "Five words from this page's 332-word list are about 42 bits. A hyphen does not add strength. The number on the page is log2 of the list size times the word count."
         }
       ]
     }

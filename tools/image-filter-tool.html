@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "The tool processes images at native resolution up to canvas limits and outputs crisp PNG images."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the filters the same as CSS filter()?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The look matches those effects. The result here is baked into the downloaded pixels. It is not a CSS rule on an img element."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a filter change the pixel dimensions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Width and height stay the same. Blur does not crop the edges."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Image Filter / Grayscale Tool. Apply client-side image filters such as Grayscale, Sepia, Invert, Blur, and High-Contrast with instant canvas download. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Filters run on a canvas. Grayscale drops color. Sepia maps the pixels toward brown. Invert swaps each channel for 255 minus itself. Brightness and contrast scale the sample. Blur averages neighbors. The download is the filtered canvas as a PNG, at the source pixel size up to what the browser can allocate.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A white pixel rgb(255, 255, 255) stays white in grayscale and in invert. A red pixel rgb(255, 0, 0) in invert becomes rgb(0, 255, 255), which is cyan. Grayscale of that red is a mid-dark gray, because red is weighted less than green in the usual luminance mix. Applying invert twice returns the original color. The source file is not overwritten.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A document scan:</strong> Grayscale, then raise contrast, then download a PNG.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A negative:</strong> Invert once. Invert again if you need the original colors back.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does applying filters reduce image resolution?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The tool processes images at native resolution up to canvas limits and outputs crisp PNG images.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are the filters the same as CSS filter()?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The look matches those effects. The result here is baked into the downloaded pixels. It is not a CSS rule on an img element.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does a filter change the pixel dimensions?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Width and height stay the same. Blur does not crop the edges.</p>
           </div>
         </div>
       </div>

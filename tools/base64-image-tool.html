@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Base64 images eliminate HTTP request round-trips for small icons, logos, and email templates."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the text look longer than the file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Base64 uses four characters for every three bytes, plus the data: prefix. Expect about a 33% increase."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which image types are accepted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The file is encoded as the type the browser reports, commonly PNG, JPEG, WebP, or GIF."
+      }
     }
   ]
 }
@@ -298,10 +314,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Base64 Image Encoder / Decoder. Convert images to Base64 data URIs for inline CSS/HTML, or decode Base64 strings to preview and download images. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">An image file is read in the browser and printed as a data URI: data:image/png;base64, followed by the standard Base64 of the bytes. The same string can be used as an img src or as a CSS url(). Decoding parses that URI and lets you download the bytes as a file again. Nothing is uploaded.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A 1-pixel PNG is a short Base64 body beginning iVBORw0KGgo, which is the PNG signature in Base64. The URI is larger than the file by about 4/3, so a 30 KB icon becomes roughly 40 KB of text. That trade is reasonable for a tiny icon in an email. It is a poor trade for a photograph.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A small icon:</strong> The data URI starts with data:image/png;base64, and can be an img src.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A round trip:</strong> Decode that URI to download the same PNG bytes.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -328,6 +352,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">When should I use Base64 images?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Base64 images eliminate HTTP request round-trips for small icons, logos, and email templates.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why does the text look longer than the file?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Base64 uses four characters for every three bytes, plus the data: prefix. Expect about a 33% increase.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Which image types are accepted?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The file is encoded as the type the browser reports, commonly PNG, JPEG, WebP, or GIF.</p>
           </div>
         </div>
       </div>

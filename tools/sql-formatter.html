@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "No, it is strictly a client-side string formatter with zero database connections."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Will this add missing commas or fix a bad join?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It only changes whitespace and keyword case."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which dialects are the keywords from?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The shared core used by PostgreSQL, MySQL, and SQLite. Vendor-specific functions are left as identifiers."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">SQL Formatter. Format, capitalize, and indent messy SQL database queries for PostgreSQL, MySQL, and SQLite. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The formatter uppercases recognized keywords and puts major clauses on their own lines. SELECT, FROM, WHERE, JOIN, GROUP BY, ORDER BY, and LIMIT are the usual breaks. It does not connect to a database and it does not check that tables exist. Identifiers you quoted stay as you wrote them.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. select id, name from users where active = 1 order by name becomes a SELECT list, a FROM line, a WHERE line, and an ORDER BY line, with the keywords in capitals. A string literal &#x27;select&#x27; is not uppercased, because it is data. A missing comma is still a missing comma after formatting.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A one-line query:</strong> SELECT, FROM, WHERE, and ORDER BY each land on their own line.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A keyword inside a string:</strong> 'select' stays lowercase.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does this execute queries against my database?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No, it is strictly a client-side string formatter with zero database connections.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Will this add missing commas or fix a bad join?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. It only changes whitespace and keyword case.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Which dialects are the keywords from?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The shared core used by PostgreSQL, MySQL, and SQLite. Vendor-specific functions are left as identifiers.</p>
           </div>
         </div>
       </div>

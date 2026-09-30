@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Encoding characters like < and > prevents browser parsers from mistaking text for executable HTML tags."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I encode a whole HTML document?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Encoding the tags of a document you want the browser to render will show the tags as text. Encode untrusted text, not the template."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this encode every non-ASCII letter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Named encoding targets the markup characters. Letters such as \u00e9 can stay as themselves in a UTF-8 page."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">HTML Entity Encoder / Decoder. Convert special characters into HTML entities (&amp;amp;, &amp;lt;, &amp;gt;) and decode entities back to readable text. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Encoding replaces characters that HTML treats as markup. &lt; becomes &amp;lt;, &gt; becomes &amp;gt;, &amp; becomes &amp;amp;, and quotes can become &amp;quot;. Decoding reverses named and numeric entities through the browser parser. The result of encoding is safe to place in HTML text. It is not a complete policy for URLs or event-handler attributes.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. The text Tom &amp; Jerry &lt;script&gt; encodes to Tom &amp;amp; Jerry &amp;lt;script&amp;gt;. A browser shows that as the original words and does not start a script. The entity &amp;amp;amp; decodes once to &amp;amp; and a second decode would produce &amp;. Numeric &amp;#60; is the same character as &amp;lt;.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A label:</strong> The words Tom &amp; Jerry followed by a script tag are encoded so the brackets show as text.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A double-encoded string:</strong> &amp;amp; decodes once to &amp;.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why encode HTML entities?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Encoding characters like &lt; and &gt; prevents browser parsers from mistaking text for executable HTML tags.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Should I encode a whole HTML document?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Encoding the tags of a document you want the browser to render will show the tags as text. Encode untrusted text, not the template.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does this encode every non-ASCII letter?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Named encoding targets the markup characters. Letters such as é can stay as themselves in a UTF-8 page.</p>
           </div>
         </div>
       </div>

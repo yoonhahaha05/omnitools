@@ -141,7 +141,23 @@
       "name": "Why are passphrases better than random character passwords?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A 5-word passphrase like 'Beacon-Glacier-Falcon-Horizon-Echo' is easy for humans to type and remember, yet has over 64 bits of entropy\u2014making it mathematically uncrackable via brute-force dictionary attacks."
+        "text": "Five words from this page's 332-word list are about 42 bits. A hyphen does not add strength. The number on the page is log2 of the list size times the word count."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is this lower than the 64-bit figure people quote?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "64 bits is five words from a 7,776-word list. This page has 332 entries, so five words are about 42 bits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do separators change the strength?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. They change memorability and typing. The entropy is in the word choices and the optional number."
       }
     }
   ]
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Diceware Passphrase Generator. Generate memorable, cryptographically secure multi-word passphrases using the Diceware method and entropy estimation. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The generator picks from its own list of 332 entries, using crypto.getRandomValues. Entropy on the page is the word count times log2(332), which is about 8.4 bits per word. That is the list this page actually uses. The classic Diceware and EFF lists are 7,776 words and about 12.9 bits per word. This page is not those lists.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. Five words are about 41.9 bits. Six words are about 50.3 bits. The optional number is an integer from 10 to 99, which adds log2(90), about 6.5 bits, not a full extra word. A hyphen or space adds no entropy. It only changes how the phrase is typed. Choosing the words yourself also adds no entropy the page can count, because the math assumes the generator picked uniformly. For a master password, prefer a longer phrase or a generator with a larger list.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Five words from this list:</strong> About 42 bits.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Six words plus a number from 10 to 99:</strong> About 50 bits from the words and about 6.5 bits from the number.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -333,7 +357,17 @@
 
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why are passphrases better than random character passwords?</h4>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A 5-word passphrase like &#x27;Beacon-Glacier-Falcon-Horizon-Echo&#x27; is easy for humans to type and remember, yet has over 64 bits of entropy—making it mathematically uncrackable via brute-force dictionary attacks.</p>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Five words from this page&#x27;s 332-word list are about 42 bits. A hyphen does not add strength. The number on the page is log2 of the list size times the word count.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why is this lower than the 64-bit figure people quote?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">64 bits is five words from a 7,776-word list. This page has 332 entries, so five words are about 42 bits.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Do separators change the strength?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. They change memorability and typing. The entropy is in the word choices and the optional number.</p>
           </div>
         </div>
       </div>

@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Yes, enter any number in the Start Number box."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does padding change the number's value?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. 01 is still line 1. The zeros are only there so the prefixes have the same width."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a line already starts with a number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The prefix is added in front. The old number stays part of the line text."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Line Numberer. Add sequential numbers, zero-padding, or custom prefixes/suffixes to each line of text. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Each non-empty line, or every line if you include blanks, gets a prefix. The start number and the step are integers. Padding adds leading zeros so that 1 and 10 line up: width 2 prints 01, width 3 prints 001. The separator is the text between the number and the line, often a period, a pipe, or a tab.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. Three lines starting at 1 with padding 2 and separator &quot;. &quot; become &quot;01. first&quot;, &quot;02. second&quot;, &quot;03. third&quot;. Starting at 10 with the same padding prints 10, 11, and 12, because those values already have two digits. Blank lines are skipped when that option is on, and the counter does not increment for them.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A short list:</strong> 01. first, 02. second, 03. third.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A snippet starting at line 40:</strong> Set the start to 40 and the labels follow the source.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I start numbering from a negative or higher number?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes, enter any number in the Start Number box.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does padding change the number&#x27;s value?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. 01 is still line 1. The zeros are only there so the prefixes have the same width.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What if a line already starts with a number?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The prefix is added in front. The old number stays part of the line text.</p>
           </div>
         </div>
       </div>

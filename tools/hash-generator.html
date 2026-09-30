@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "SHA-256 is an industry-standard 256-bit cryptographic hash function that produces a unique 64-character hexadecimal digest."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this hash a file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It hashes the text you type, as UTF-8. It does not read a file from disk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a matching SHA-256 proof that the text is safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It only proves the bytes match a digest you already trust. It does not mean the content is correct or benign."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Cryptographic Hash Generator. Generate SHA-1, SHA-256, SHA-512, and MD5 cryptographic hashes using hardware-accelerated Web Crypto. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">A hash maps bytes to a fixed digest. SHA-256 is 32 bytes, printed as 64 hex characters. SHA-512 is 64 bytes, 128 hex characters. SHA-1 is 20 bytes, 40 hex characters. MD5 is 16 bytes, 32 hex characters. The same input always produces the same digest. A one-bit change produces a different digest. These are not encryption: you cannot turn the digest back into the text.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. The UTF-8 bytes of hello are SHA-256 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824. The empty string is e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855. hello with a trailing space is a different digest. SHA-1 and MD5 are shown for compatibility checks. Do not use them for new passwords or signatures.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>hello:</strong> SHA-256 starts 2cf24dba5fb0a30e.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>The empty string:</strong> SHA-256 starts e3b0c44298fc1c14.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is SHA-256?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">SHA-256 is an industry-standard 256-bit cryptographic hash function that produces a unique 64-character hexadecimal digest.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does this hash a file?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">It hashes the text you type, as UTF-8. It does not read a file from disk.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is a matching SHA-256 proof that the text is safe?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">It only proves the bytes match a digest you already trust. It does not mean the content is correct or benign.</p>
           </div>
         </div>
       </div>

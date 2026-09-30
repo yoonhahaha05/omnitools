@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Yes, linear-gradient and radial-gradient syntax is natively supported across all modern browsers without vendor prefixes."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I still need -webkit-linear-gradient?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not for current browsers. The unprefixed linear-gradient and radial-gradient are enough."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which property does the CSS belong on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually background-image, or the background shorthand. It is not a color value by itself."
+      }
     }
   ]
 }
@@ -308,10 +324,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">CSS Gradient Generator. Create linear and radial CSS gradients with angle controls, color stops, presets, and CSS output. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">A linear gradient paints along a line. The angle 0deg points up, 90deg points right, and 180deg points down. Color stops are positions along that line. A radial gradient paints outward from the center. The page writes the modern syntax without vendor prefixes.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. linear-gradient(180deg, #0f172a, #334155) is a dark slate fade from top to bottom. The same colors at 90deg fade from left to right. Two stops at 0% and 100% are a smooth blend. A hard stripe is two stops at the same position: #0f172a 50%, #334155 50%. radial-gradient(circle, #fff, #0f172a) is light in the middle and dark at the edges.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A page background:</strong> linear-gradient(180deg, #0f172a, #334155).</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A hard split:</strong> Put both color stops at 50%.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -340,6 +364,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Do all modern browsers support CSS gradients?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes, linear-gradient and radial-gradient syntax is natively supported across all modern browsers without vendor prefixes.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Do I still need -webkit-linear-gradient?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Not for current browsers. The unprefixed linear-gradient and radial-gradient are enough.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Which property does the CSS belong on?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Usually background-image, or the background shorthand. It is not a color value by itself.</p>
           </div>
         </div>
       </div>

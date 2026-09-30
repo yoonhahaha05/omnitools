@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Monday through Friday (5 days per week), excluding Saturdays and Sundays."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Are holidays removed from business days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Only Saturday and Sunday are excluded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the end date is earlier?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Swap the dates. A duration is the absolute span, and the page expects the start first."
+      }
     }
   ]
 }
@@ -298,10 +314,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Date Difference Calculator. Calculate duration between two dates in years, months, days, weeks, and working business days. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Calendar days are the number of midnights from the start date to the end date. Business days count Monday through Friday only. Saturday and Sunday are skipped. Public holidays are not skipped, because the page does not have a holiday calendar.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. Friday 2 January 2026 through Friday 16 January 2026 is 14 calendar days. The page counts weekdays on the start date and on every following day except the end date. Those dates are 2, 5, 6, 7, 8, 9, 12, 13, 14, and 15 January, which is 10 business days. The 16th is not included. The two weekends inside the span are four days. Two dates that are the same day are 0.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>2 January through 16 January 2026:</strong> 14 calendar days and 10 business days. The end date is not counted.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>The same start and end:</strong> The difference is 0 days.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -328,6 +352,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What defines a business day?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Monday through Friday (5 days per week), excluding Saturdays and Sundays.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are holidays removed from business days?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Only Saturday and Sunday are excluded.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What if the end date is earlier?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Swap the dates. A duration is the absolute span, and the page expects the start first.</p>
           </div>
         </div>
       </div>

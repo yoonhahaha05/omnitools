@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Wrap pattern segments in parentheses like (\\\\w+) and refer to them as $1, $2 in the replacement box."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did $1 print literally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The pattern needs parentheses around the part you want to keep. $1 is empty when there is no first capture group."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which regex dialect is this?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JavaScript. Lookbehind works in current browsers. Possessive quantifiers and some Perl verbs do not."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Regex Find &amp; Replace. Search text using regular expressions with capture groups and replace with dynamic string formatting. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The pattern is a JavaScript regular expression. Parentheses create capture groups. In the replacement, $1 is the first group, $2 the second, and $&amp; is the whole match. The g flag replaces every match. Without g, only the first match changes. The i flag ignores case. The m flag makes ^ and $ match at each line.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. Text &quot;id=4; id=12&quot; with pattern id=(\d+) and replacement item-$1 and the g flag becomes &quot;item-4; item-12&quot;. The same replacement without g changes only &quot;id=4&quot;. A pattern of ^\s+ with an empty replacement and the m flag strips leading space on every line.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Rename ids:</strong> id=(\d+) replaced with item-$1 turns id=4 and id=12 into item-4 and item-12.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Trim each line:</strong> ^\s+ replaced with nothing, with the m flag, removes leading spaces.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">How do I use capture groups?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Wrap pattern segments in parentheses like (\\w+) and refer to them as $1, $2 in the replacement box.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why did $1 print literally?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The pattern needs parentheses around the part you want to keep. $1 is empty when there is no first capture group.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Which regex dialect is this?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">JavaScript. Lookbehind works in current browsers. Possessive quantifiers and some Perl verbs do not.</p>
           </div>
         </div>
       </div>

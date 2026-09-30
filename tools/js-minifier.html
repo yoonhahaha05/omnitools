@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "No, variable and function names are preserved to prevent runtime syntax breakages."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the output as a production bundle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only as a light pass. It will not tree-shake, mangle, or transpile. Use a bundler for that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are regex literals treated as comments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A regex such as /\\s+/ is syntax, not a comment. Comment removal targets // and /* */ outside strings."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">JavaScript Minifier. Lightweight client-side JavaScript code compressor removing comments and unnecessary spaces. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">This compressor strips comments and extra blank space. It does not rename variables, inline functions, or rewrite syntax. That is why it is safer than a full bundler and also why the savings are smaller. A URL in a string that contains // is not a comment.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. The function function add(a, b) { return a + b; } // sum loses the comment and the extra spaces, and the name add is still add. If the minifier had shortened add to e, every caller would break. Strings and template literals keep their contents, including spaces you typed on purpose.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A small function:</strong> The comment is removed and the name add stays add.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A string with //:</strong> Those slashes are data, not a comment, and they remain.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does this perform variable mangling?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No, variable and function names are preserved to prevent runtime syntax breakages.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I use the output as a production bundle?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Only as a light pass. It will not tree-shake, mangle, or transpile. Use a bundler for that.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are regex literals treated as comments?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A regex such as /\s+/ is syntax, not a comment. Comment removal targets // and /* */ outside strings.</p>
           </div>
         </div>
       </div>

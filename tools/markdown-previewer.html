@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Markdown is a lightweight markup language designed for clean formatting that translates to HTML."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Are raw HTML tags in the Markdown rendered?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The preview shows the formatted document. Do not paste untrusted HTML if you plan to reuse the exported markup on a site."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a fenced code block run?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It is displayed as code."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Markdown Live Previewer &amp; Exporter. Write, preview, and convert Markdown text into formatted HTML with one-click HTML export. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The left pane is the Markdown source. The right pane is the HTML it renders. Headings, lists, links, emphasis, and fenced code blocks follow the usual CommonMark-style mapping. Copy HTML gives the fragment. Download writes a small HTML file you can open on its own.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. The source &quot;# Notes\n\n- alpha\n- beta&quot; renders as an h1 followed by a ul with two li elements. A fenced block marked js stays a code block. It is not executed. An inline link [OmniTools](https://getomnitools.com/) becomes an anchor with that href.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A short note:</strong> "# Notes" plus two list items becomes an h1 and a ul.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A README check:</strong> Copy the HTML fragment to see the tags before you commit the Markdown.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is Markdown?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Markdown is a lightweight markup language designed for clean formatting that translates to HTML.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are raw HTML tags in the Markdown rendered?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The preview shows the formatted document. Do not paste untrusted HTML if you plan to reuse the exported markup on a site.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does a fenced code block run?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. It is displayed as code.</p>
           </div>
         </div>
       </div>

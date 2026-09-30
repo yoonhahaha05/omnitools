@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Yes, the browser's native Intl API automatically applies regional DST rules."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Which zone is the input in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The datetime-local value is read as a time in the computer's own zone, then shown in the eight cities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Kolkata observe daylight saving?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Asia/Kolkata stays at UTC+5:30 all year."
+      }
     }
   ]
 }
@@ -298,10 +314,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Time Zone Converter &amp; World Clock. Compare time across global time zones (UTC, EST, PST, GMT, CET, JST, AEST) with live digital clocks. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The page takes one civil date and time and formats it in eight zones with the browser Intl API: UTC, New York, Los Angeles, London, Paris, Tokyo, Sydney, and Kolkata. Daylight-saving rules come from the time-zone database in the browser, not from a fixed offset written on this page.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. 2026-01-15 12:00 in New York is 17:00 UTC, 09:00 in Los Angeles, 22:00 in Paris, and 02:00 on 16 January in Tokyo. In January, New York is UTC−5 and Los Angeles is UTC−8. In July those become UTC−4 and UTC−7. London in July is UTC+1, not UTC+0. The same clock time typed in July will not match the January offsets.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Noon in New York on 15 January:</strong> 17:00 UTC, 09:00 in Los Angeles, 02:00 next day in Tokyo.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A July meeting:</strong> New York is four hours behind UTC, not five. Recheck summer dates.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -328,6 +352,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does this handle Daylight Saving Time?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes, the browser&#x27;s native Intl API automatically applies regional DST rules.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Which zone is the input in?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The datetime-local value is read as a time in the computer&#x27;s own zone, then shown in the eight cities.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does Kolkata observe daylight saving?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Asia/Kolkata stays at UTC+5:30 all year.</p>
           </div>
         </div>
       </div>

@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "No. Your notes are stored in your browser's persistent `localStorage` and will reload whenever you revisit OmniTools."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this sync to my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. localStorage stays on this browser profile. Move the text with the download, or copy it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can another website read the note?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The browser only exposes localStorage to the same origin."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">LocalStorage Private Scratchpad. Auto-saving private notepad stored in your local browser storage with instant word count and .txt export. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The note is saved in localStorage on this origin, under a key the page owns. Each change writes the current text. Closing the tab does not clear localStorage. Clearing site data, using a private window, or opening a different browser profile does. The word count is the same whitespace split used elsewhere: trimmed text, split on spaces. Download writes a .txt file of the current contents. The text is not sent to a server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A 1,200-character note is a few kilobytes. Browsers typically allow about 5 MB for an origin&#x27;s localStorage, so the pad is for notes, not a document archive. If storage is full, the write throws and the latest edit stays only on screen. Export a copy before you clear browsing data.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A draft you reopen tomorrow:</strong> It is still in localStorage on this browser.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A backup:</strong> Download the .txt. Clearing site data deletes the stored copy.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Will my notes disappear if I close the browser tab?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Your notes are stored in your browser&#x27;s persistent `localStorage` and will reload whenever you revisit OmniTools.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does this sync to my phone?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. localStorage stays on this browser profile. Move the text with the download, or copy it.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can another website read the note?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. The browser only exposes localStorage to the same origin.</p>
           </div>
         </div>
       </div>

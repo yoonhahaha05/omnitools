@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Harmonic Analogous or Cool Tech palettes work best for software interfaces because they provide balanced contrast without visual clashing."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the palettes saved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Copy the hex values or the CSS variables before you generate again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does harmony guarantee a contrast ratio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Check a text color against its background on the contrast checker. Harmony is about hue spacing."
+      }
     }
   ]
 }
@@ -308,10 +324,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Random Palette Generator. Generate 5-color harmonic palettes with individual color locks, harmony modes, and CSS variable export. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Each click builds five colors from a harmony rule. Analogous colors sit next to each other on the hue wheel, about 30 degrees apart. Complementary colors sit opposite, 180 degrees apart. A lock freezes a swatch so the next click changes only the unlocked ones. Copy CSS writes custom properties, --color-1 through --color-5, with the current hex values.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A base hue of 210 (a blue) in an analogous set stays in the blue-cyan range. The same base in a complementary set adds a hue near 30, which is orange. Locking swatch 3 and generating again keeps that hex and replaces the other four. The variables paste into :root { --color-1: #1d4ed8; … }.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A blue interface:</strong> Analogous harmony stays around hue 210 instead of jumping to a random opposite.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>One color you want to keep:</strong> Lock that swatch. Generate replaces the other four.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -340,6 +364,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What color harmony algorithm is best for UI design?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Harmonic Analogous or Cool Tech palettes work best for software interfaces because they provide balanced contrast without visual clashing.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are the palettes saved?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Copy the hex values or the CSS variables before you generate again.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does harmony guarantee a contrast ratio?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Check a text color against its background on the contrast checker. Harmony is about hue spacing.</p>
           </div>
         </div>
       </div>

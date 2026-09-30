@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Yes, because they are native Unicode characters rather than downloadable font files, they render on virtually all modern phones and computers."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do some letters stay plain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A few styles have no character for every letter, digit, or accent. Those characters are left unchanged."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this in source code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can paste it, and it will confuse readers and some tools. Keep identifiers in ASCII."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Fancy Unicode Font Generator. Convert text into 16+ aesthetic Unicode fonts (Gothic, Cursive, Bold, Double-Struck) for Instagram, TikTok, and Twitter. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">These styles are other Unicode letters, not a font file. Mathematical bold A is U+1D400, which looks like A and is a different character. That is why the text pastes into Instagram, Discord, and a tweet without installing anything. It also means a search for the plain word will miss the styled word, and a screen reader may spell the letters oddly.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. Plain &quot;Hi&quot; in mathematical bold is two characters from the bold range, not the ASCII bytes 0x48 and 0x69. The string length in code points stays 2. A password field that rejects non-ASCII will reject the styled copy. Use plain text for passwords, URLs, and code.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A display name:</strong> Styled letters paste into a bio because they are Unicode, not an image.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A search:</strong> The styled word will not match the ASCII spelling. Keep a plain copy if people need to find it.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Do these fonts work everywhere?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes, because they are native Unicode characters rather than downloadable font files, they render on virtually all modern phones and computers.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why do some letters stay plain?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A few styles have no character for every letter, digit, or accent. Those characters are left unchanged.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I use this in source code?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">You can paste it, and it will confuse readers and some tools. Keep identifiers in ASCII.</p>
           </div>
         </div>
       </div>

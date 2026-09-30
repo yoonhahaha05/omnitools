@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "The converter merges all unique keys across all objects to ensure no data is lost."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert one object that is not in an array?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wrap it in [ ]. The converter expects a list of rows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to nested objects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A nested object is not flattened into columns. Stringify it first, or it will appear as a single cell."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">JSON to CSV Converter. Convert JSON arrays of objects into formatted CSV spreadsheets with automatic header detection. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The input must be an array of objects. The header row is the union of keys, so an object that omits a key still gets a column. Missing values are empty cells. Fields that contain a comma, a quote, or a newline are wrapped in double quotes, and quotes inside are doubled.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. [{&quot;name&quot;:&quot;Ada&quot;,&quot;city&quot;:&quot;Paris&quot;},{&quot;name&quot;:&quot;Bo&quot;,&quot;note&quot;:&quot;hello, world&quot;}] becomes a header name,city,note and a second data row whose note cell is quoted: &quot;hello, world&quot;. Bo has no city, so that cell is empty. Ada has no note, so her note cell is empty.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Two objects:</strong> Keys are merged into one header even when one object lacks city.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A comma in a value:</strong> hello, world is quoted so a spreadsheet keeps it in one cell.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What if objects have different keys?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The converter merges all unique keys across all objects to ensure no data is lost.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I convert one object that is not in an array?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Wrap it in [ ]. The converter expects a list of rows.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What happens to nested objects?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A nested object is not flattened into columns. Stringify it first, or it will appear as a single cell.</p>
           </div>
         </div>
       </div>

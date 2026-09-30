@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "No, all extraction happens 100% locally in your browser memory."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Will this catch every address the RFC allows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Quoted local parts and rare domain forms are outside the pattern. Ordinary name@domain addresses are the ones it is built for."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are addresses inside image names ignored?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Any matching string is extracted, including one that appears in a filename or a code comment."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Extract Emails from Text. Scan messages and documents to extract all valid email addresses into an exportable, deduplicated list. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The pattern looks for a local part, an @, and a domain with a dot. Matches are lowercased and de-duplicated, so Ada@Example.com and ada@example.com become one row. The scan does not send the text anywhere. It only reads the string in the page.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. &quot;Write ada@example.com or ADA@example.com by Friday&quot; produces a single line, ada@example.com. &quot;not-an-email&quot; and &quot;a@b&quot; without a dotted domain are skipped. An address wrapped in angle brackets, &lt;ada@example.com&gt;, still yields ada@example.com.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A messy signature:</strong> ada@example.com and ADA@example.com become one lowercase address.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A thread:</strong> Each distinct address is one line, in first-seen order.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is my customer data sent anywhere?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No, all extraction happens 100% locally in your browser memory.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Will this catch every address the RFC allows?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Quoted local parts and rare domain forms are outside the pattern. Ordinary name@domain addresses are the ones it is built for.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are addresses inside image names ignored?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Any matching string is extracted, including one that appears in a filename or a code comment.</p>
           </div>
         </div>
       </div>

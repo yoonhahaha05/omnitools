@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "HSL stands for Hue, Saturation, and Lightness. Unlike RGB, HSL represents color in a way that matches human perception, making it vastly easier to adjust lightness or tint for hover and active button states."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does HSL look different from RGB for the same hex?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is the same color. HSL is a different coordinate system. #FF0000 and hsl(0, 100%, 50%) paint the same red."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I enter an 8-digit hex with alpha?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use six digits, RRGGBB. Alpha is not part of the conversion."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Color Picker &amp; Converter (HEX, RGB, HSL). Convert color formats between HEX, RGB, HSL, and CSS notation with interactive swatch and random generator. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The page keeps one color in three notations. Hex is three bytes, red, green, and blue, written as six digits. RGB writes those bytes as decimals from 0 to 255. HSL rewrites the same color as a hue in degrees, a saturation, and a lightness. Moving any one control updates the others. A random color replaces all three.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. Pure red is #FF0000, rgb(255, 0, 0), and hsl(0, 100%, 50%). White is #FFFFFF and hsl(0, 0%, 100%). Black is #000000 and hsl(0, 0%, 0%). A mid gray #808080 is rgb(128, 128, 128) and hsl(0, 0%, 50%). Hue is undefined for a gray because saturation is zero. The CSS you copy is whichever notation you click.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Brand red:</strong> #FF0000 is rgb(255, 0, 0) and hsl(0, 100%, 50%).</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A gray:</strong> #808080 is rgb(128, 128, 128) and hsl(0, 0%, 50%).</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is HSL and why use it?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">HSL stands for Hue, Saturation, and Lightness. Unlike RGB, HSL represents color in a way that matches human perception, making it vastly easier to adjust lightness or tint for hover and active button states.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why does HSL look different from RGB for the same hex?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">It is the same color. HSL is a different coordinate system. #FF0000 and hsl(0, 100%, 50%) paint the same red.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I enter an 8-digit hex with alpha?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Use six digits, RRGGBB. Alpha is not part of the conversion.</p>
           </div>
         </div>
       </div>

@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Yes, it produces standard GFM table format compatible with GitHub, GitLab, and Markdown parsers."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need the outer pipes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GitHub accepts a leading and trailing pipe. The generator includes them so the row is obvious."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a cell contain a newline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Markdown table cells are one line. Put a <br> in the cell only if the renderer you use allows inline HTML."
+      }
     }
   ]
 }
@@ -303,10 +319,22 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Markdown Table Generator. Visual spreadsheet editor to build, align, and generate GitHub-flavored Markdown tables with 1-click copy. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">GitHub-flavored Markdown tables need a header row, a separator row of dashes, and then the body. A colon on the separator sets alignment: :--- is left, :---: is center, ---: is right. This page edits the cells in a grid and prints that text.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. Headers Tool and Status, and one body row word counter and ready, become:</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">| Tool | Status |
+| --- | --- |
+| word counter | ready |</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">A pipe typed inside a cell is escaped so it does not start a new column. Extra spaces are padded so the raw Markdown lines up in a monospace editor. The alignment does not change the values.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A two-column status:</strong> A header, a dash row, and one body row.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A right-aligned number column:</strong> The separator uses ---: under that column.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +362,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does this support GitHub Markdown?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes, it produces standard GFM table format compatible with GitHub, GitLab, and Markdown parsers.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Do I need the outer pipes?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">GitHub accepts a leading and trailing pipe. The generator includes them so the row is obvious.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can a cell contain a newline?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Markdown table cells are one line. Put a &lt;br&gt; in the cell only if the renderer you use allows inline HTML.</p>
           </div>
         </div>
       </div>

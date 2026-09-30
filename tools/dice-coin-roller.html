@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "In D&D, rolling a 20 on a 20-sided die is a 'Natural 20', typically denoting an automatic critical success."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the roller add a modifier?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. If your game needs 1d20+5, add 5 to the face yourself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the rolls stored?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only on screen until you roll again or leave the page."
+      }
     }
   ]
 }
@@ -293,10 +309,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Dice Roller &amp; Coin Flipper. Flip realistic coins (Heads / Tails) and roll polyhedral RPG tabletop dice (d4, d6, d8, d10, d12, d20, d100). It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">A coin flip is two outcomes, heads or tails, each 1/2. A die with F faces returns an integer from 1 through F. The set here is d4, d6, d8, d10, d12, d20, and d100. A natural 20 is the face 20 on a d20. A natural 1 is the face 1. The page reports the face. It does not add ability modifiers from a game.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. One d20 has a 5% chance of a natural 20 and a 5% chance of a natural 1. Two coins are not this control: each click flips one coin. A d100 is 1 through 100, not two d10s glued together, though the probabilities match a percentile roll.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A d20:</strong> Each face from 1 to 20 has probability 1/20.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A coin:</strong> One flip, heads or tails, probability 1/2 each.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -322,6 +346,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is a natural 20?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">In D&amp;D, rolling a 20 on a 20-sided die is a &#x27;Natural 20&#x27;, typically denoting an automatic critical success.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does the roller add a modifier?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. If your game needs 1d20+5, add 5 to the face yourself.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are the rolls stored?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Only on screen until you roll again or leave the page.</p>
           </div>
         </div>
       </div>

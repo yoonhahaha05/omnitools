@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Yes, duplicate links are collapsed into unique entries."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Are ftp and mailto links included?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Only http and https are extracted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the order change?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "URLs stay in the order they first appeared."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Extract URLs from Text. Scan unstructured text and automatically extract all HTTP/HTTPS links and web addresses into a clean list. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The scan keeps strings that start with http:// or https://. Surrounding punctuation that is not part of a URL, such as a closing parenthesis or a comma at the end of a sentence, is not included. Duplicates collapse to one line. The result is one URL per line.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. The sentence &quot;See https://getomnitools.com/tools/word-counter, and again https://getomnitools.com/tools/word-counter.&quot; yields one line, https://getomnitools.com/tools/word-counter. A bare www.example.com without a scheme is not matched. A mailto link is not an http URL and is left out.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A paragraph with the same link twice:</strong> The list contains that URL once.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A link before a comma:</strong> The comma stays in the sentence and out of the URL.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does it filter duplicate URLs?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes, duplicate links are collapsed into unique entries.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are ftp and mailto links included?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Only http and https are extracted.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does the order change?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">URLs stay in the order they first appeared.</p>
           </div>
         </div>
       </div>

@@ -151,6 +151,22 @@
         "@type": "Answer",
         "text": "Yes. All modern browsers (Chrome, Edge, Safari, Firefox, iOS, Android) support CSS clip-path with near 100% global user compatibility."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does clip-path make the element smaller for flex layout?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The border box stays the same. Only painting and hit testing are clipped."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use pixel vertices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The generator writes percentages so the shape scales with the element. Pixels are valid CSS, but they will not stretch."
+      }
     }
   ]
 }
@@ -311,10 +327,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">CSS Clip-Path Polygon Generator. Visually create and customize CSS clip-path polygon shapes with interactive draggable vertex points and instant CSS code output. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">clip-path: polygon() keeps the part of the element inside a polygon and hides the rest. Each vertex is a pair of percentages of the element box. The first value is X, from the left. The second is Y, from the top. The shape does not change the layout box. Text and hit testing follow the clipped region in supporting browsers. The snippet includes the -webkit- prefix for older Safari.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A downward triangle is polygon(50% 100%, 0 0, 100% 0). An upward triangle is polygon(50% 0, 100% 100%, 0 100%). A diamond is polygon(50% 0, 100% 50%, 50% 100%, 0 50%). Dragging a handle rewrites that vertex. Adding a point inserts another pair. A rectangle with four corners at the edges looks unchanged, because the polygon covers the whole box.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>An upward triangle:</strong> polygon(50% 0, 100% 100%, 0 100%).</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A diamond:</strong> polygon(50% 0, 100% 50%, 50% 100%, 0 50%).</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -348,6 +372,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is clip-path supported by modern browsers?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Yes. All modern browsers (Chrome, Edge, Safari, Firefox, iOS, Android) support CSS clip-path with near 100% global user compatibility.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does clip-path make the element smaller for flex layout?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. The border box stays the same. Only painting and hit testing are clipped.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Can I use pixel vertices?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The generator writes percentages so the shape scales with the element. Pixels are valid CSS, but they will not stretch.</p>
           </div>
         </div>
       </div>

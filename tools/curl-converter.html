@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Right-click any network request in the Network tab, select Copy -> Copy as cURL."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do I copy curl in Chrome?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DevTools, Network, right-click the request, Copy, Copy as cURL."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are cookies turned into a cookie jar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Cookie header is copied as a header. The page does not create a requests session or a browser cookie store."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Curl to Fetch / Python Converter. Convert cURL command strings into ready-to-run JavaScript fetch() and Python requests code snippets. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">A curl command from DevTools already contains the method, URL, headers, and body. This page reads those pieces and prints the same request as fetch or as Python requests. It does not send the request.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. curl -X POST https://example.com/api -H &#x27;Content-Type: application/json&#x27; -d &#x27;{&quot;a&quot;:1}&#x27; becomes a fetch call with method POST, that header, and body &#x27;{&quot;a&quot;:1}&#x27;, plus a requests.post call with the same header and a json or data argument. A -H &#x27;Authorization: Bearer …&#x27; is copied through. Treat the output as a secret if the curl you pasted contained one.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A POST from DevTools:</strong> method, URL, JSON header, and body land in fetch and in requests.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A bearer token:</strong> The Authorization header is copied. Do not commit it.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">How do I get cURL from Chrome DevTools?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Right-click any network request in the Network tab, select Copy -&gt; Copy as cURL.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Where do I copy curl in Chrome?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">DevTools, Network, right-click the request, Copy, Copy as cURL.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are cookies turned into a cookie jar?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A Cookie header is copied as a header. The page does not create a requests session or a browser cookie store.</p>
           </div>
         </div>
       </div>

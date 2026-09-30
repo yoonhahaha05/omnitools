@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Older MySQL or Latin1 database encodings crash or truncate strings when encountering 4-byte UTF-8 emoji sequences."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Are #, *, and other typed emoticons removed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The strip targets Unicode emoji. A typed :-) is three ASCII characters and stays."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the text direction change?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Remaining characters stay in their original order."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Emoji Stripper. Remove all Unicode emojis, symbols, and emoticons from text to prepare clean strings for databases or formal documents. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Emoji are removed and the remaining text is closed up so you do not get a double space where the picture was. Flags, skin-tone modifiers, and joined sequences count as emoji. Digits, punctuation, and letters stay.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. &quot;Ship it 🚀 now&quot; becomes &quot;Ship it now&quot; with one space. &quot;café&quot; keeps the é, because it is a letter, not an emoji. A line that is only emoji becomes empty. Older utf8mb3 MySQL columns reject 4-byte characters, which is why a strip is used before that kind of insert. A current utf8mb4 column can store the emoji, so stripping is a product choice, not a database requirement.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A status line:</strong> "Ship it 🚀 now" becomes "Ship it now".</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A name field:</strong> Letters and accents stay. Emoji in the name are removed.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why strip emojis before database inserts?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Older MySQL or Latin1 database encodings crash or truncate strings when encountering 4-byte UTF-8 emoji sequences.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Are #, *, and other typed emoticons removed?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The strip targets Unicode emoji. A typed :-) is three ASCII characters and stays.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does the text direction change?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Remaining characters stay in their original order.</p>
           </div>
         </div>
       </div>

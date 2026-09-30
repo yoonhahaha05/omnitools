@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "A matrix with a determinant of zero is singular and cannot be inverted."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a negative determinant mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The linear map flips orientation. The matrix can still be inverted. Only zero means it cannot."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does row order matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Swapping two rows multiplies the determinant by \u22121. The page uses the numbers in the cells as you typed them."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Matrix Determinant Calculator. Calculate determinants for 2x2 and 3x3 square matrices with step-by-step formula expansion. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The determinant is a single number computed from a square matrix. For a 2×2 matrix [[a, b], [c, d]] it is ad − bc. For a 3×3 matrix it is a(ei − fh) − b(di − fg) + c(dh − eg), using the usual layout [[a, b, c], [d, e, f], [g, h, i]]. A determinant of 0 means the matrix is singular and has no inverse.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. [[4, 7], [2, 6]] has determinant 4×6 − 7×2 = 24 − 14 = 10. [[1, 2], [2, 4]] has determinant 4 − 4 = 0, so those rows are multiples and the matrix cannot be inverted. The 3×3 identity has determinant 1.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>[[4, 7], [2, 6]]:</strong> Determinant 10.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>[[1, 2], [2, 4]]:</strong> Determinant 0. No inverse.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What does a zero determinant mean?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">A matrix with a determinant of zero is singular and cannot be inverted.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What does a negative determinant mean?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The linear map flips orientation. The matrix can still be inverted. Only zero means it cannot.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does row order matter?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Swapping two rows multiplies the determinant by −1. The page uses the numbers in the cells as you typed them.</p>
           </div>
         </div>
       </div>

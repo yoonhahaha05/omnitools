@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "The 'd' attribute contains a series of path commands (such as M for moveto, L for lineto, C for cubic bezier curve, and Z for closepath) that instruct the browser how to trace the geometric outline."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the shape clipped?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The coordinates are larger than the viewBox. Raise the viewBox width and height, or scale the path down."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between M and m?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "M jumps to an absolute point. m jumps by a delta from the current point."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">SVG Path Visualizer. Preview, inspect, and analyze SVG path strings (`d` attribute) with interactive scaling and stroke controls. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The d attribute is a list of commands. M x y moves the pen. L x y draws a straight line. H and V draw horizontal and vertical lines. C takes two control points and an end point for a cubic Bézier. Q is the quadratic version. Z closes the path back to the last move. Lowercase commands are relative to the current point. Uppercase commands are absolute.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. M 10 10 L 90 10 L 90 90 Z is a right triangle missing the hypotenuse drawn as two sides and a close, actually a triangle once Z returns to the start. A rectangle is M 10 10 H 90 V 90 H 10 Z. The page strokes and fills that path and can copy a full &lt;svg&gt; wrapper around it. The viewBox has to contain the coordinates or the shape sits outside the visible area.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A triangle:</strong> M 10 80 L 50 10 L 90 80 Z.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A rectangle:</strong> M 10 10 H 90 V 90 H 10 Z.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What does the &#x27;d&#x27; attribute mean in an SVG path?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The &#x27;d&#x27; attribute contains a series of path commands (such as M for moveto, L for lineto, C for cubic bezier curve, and Z for closepath) that instruct the browser how to trace the geometric outline.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Why is the shape clipped?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">The coordinates are larger than the viewBox. Raise the viewBox width and height, or scale the path down.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is the difference between M and m?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">M jumps to an absolute point. m jumps by a delta from the current point.</p>
           </div>
         </div>
       </div>

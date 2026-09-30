@@ -143,6 +143,22 @@
         "@type": "Answer",
         "text": "Apple defines Retina displays as having around 220+ PPI for laptops and 300+ PPI for phones held at typical viewing distances."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Is PPI the same as DPI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On a screen, people use them for the same idea: pixels along one inch. Print DPI is dots of ink, which this page does not measure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does window size change the result?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Enter the panel's pixel width, pixel height, and diagonal. The browser window is a different measurement."
+      }
     }
   ]
 }
@@ -303,10 +319,18 @@
     <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Screen PPI / DPI Calculator. Calculate display pixel density (Pixels Per Inch - PPI), dot pitch, and total pixel count from resolution and diagonal size. It runs in your browser, so what you type is not uploaded to an OmniTools server.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">PPI is the diagonal pixel count divided by the diagonal size in inches. Diagonal pixels = sqrt(width² + height²). A 1920×1080 screen has a diagonal of sqrt(1920² + 1080²) = 2202.9 pixels. Dot pitch in millimeters is 25.4 / PPI.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A 24-inch 1920×1080 monitor is 2202.9 / 24 = 91.8 PPI. A 6.1-inch 1170×2532 phone is sqrt(1170² + 2532²) = 2789.1 pixels, then 2789.1 / 6.1 = 457 PPI. Megapixels are width × height / 1,000,000, so 1920×1080 is 2.07 MP. Apple&#x27;s loose &#x27;Retina&#x27; line was about 220 PPI for a laptop and about 300 PPI for a phone, because the viewing distance is different.</p>
       </div>
 
 
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A 24-inch 1080p monitor:</strong> 91.8 PPI.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A 6.1-inch 1170×2532 phone:</strong> about 457 PPI.</li>
+        </ul>
+      </div>
 
 
       <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
@@ -334,6 +358,16 @@
           <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
             <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">What is considered a Retina display?</h4>
             <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Apple defines Retina displays as having around 220+ PPI for laptops and 300+ PPI for phones held at typical viewing distances.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Is PPI the same as DPI?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">On a screen, people use them for the same idea: pixels along one inch. Print DPI is dots of ink, which this page does not measure.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Does window size change the result?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">No. Enter the panel&#x27;s pixel width, pixel height, and diagonal. The browser window is a different measurement.</p>
           </div>
         </div>
       </div>
