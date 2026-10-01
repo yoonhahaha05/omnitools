@@ -434,7 +434,7 @@ const App = {
       <div class="space-y-5 max-w-4xl mx-auto">
         
         <!-- Breadcrumbs & Tool Action Buttons -->
-        <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="flex flex-wrap items-center gap-3 text-xs">
           <div class="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">
             <a href="#/" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Catalog</a>
             <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
@@ -442,25 +442,10 @@ const App = {
             <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
             <span class="text-zinc-900 dark:text-zinc-200 font-medium">${tool.title}</span>
           </div>
-
-          <div class="flex items-center gap-2">
-            <button id="tool-fav-btn" class="px-2.5 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
-              <i data-lucide="star" class="w-3.5 h-3.5 ${isFav ? 'text-amber-500 fill-amber-500' : 'text-zinc-400'}"></i>
-              <span>${isFav ? 'Favorited' : 'Favorite'}</span>
-            </button>
-            <button id="tool-share-btn" class="px-2.5 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
-              <i data-lucide="link" class="w-3.5 h-3.5 text-zinc-400"></i>
-              <span>Share</span>
-            </button>
-            <button id="tool-embed-btn" class="px-2.5 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs" title="Copy embed code">
-              <i data-lucide="code" class="w-3.5 h-3.5 text-zinc-400"></i>
-              <span>Embed</span>
-            </button>
-          </div>
         </div>
 
         <!-- Tool Header Banner -->
-        <div class="p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800">
+        <div class="tool-header-card p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800">
           <div class="flex items-start gap-3.5">
             <div class="w-9 h-9 rounded-md bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200 shrink-0">
               <i data-lucide="${iconName}" class="w-4 h-4"></i>
@@ -479,6 +464,21 @@ const App = {
         <!-- Interactive Tool Arena Container -->
         <div id="tool-arena" class="p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800">
           <!-- Tool mounts here -->
+        </div>
+
+        <div class="tool-action-bar flex items-center gap-2">
+          <button id="tool-fav-btn" class="px-2.5 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
+            <i data-lucide="star" class="w-3.5 h-3.5 ${isFav ? 'text-amber-500 fill-amber-500' : 'text-zinc-400'}"></i>
+            <span>${isFav ? 'Favorited' : 'Favorite'}</span>
+          </button>
+          <button id="tool-share-btn" class="px-2.5 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
+            <i data-lucide="link" class="w-3.5 h-3.5 text-zinc-400"></i>
+            <span>Share</span>
+          </button>
+          <button id="tool-embed-btn" class="px-2.5 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs" title="Copy embed code">
+            <i data-lucide="code" class="w-3.5 h-3.5 text-zinc-400"></i>
+            <span>Embed</span>
+          </button>
         </div>
 
         <!-- Clean Privacy Note -->

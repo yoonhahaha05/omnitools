@@ -10,7 +10,7 @@ const quickTools = [
     category: "Quick Utilities & Life Tools",
     icon: "🔑",
     badge: "Popular",
-    description: "Create cryptographically random passwords with custom lengths, character sets, and an entropy strength meter.",
+    description: "Set the length. Copy it. It is generated on this device.",
     keywords: ["password generator", "strong password", "random password", "secure password", "generate password"],
     render: (container) => {
       container.innerHTML = `
@@ -156,7 +156,7 @@ const quickTools = [
     category: "Quick Utilities & Life Tools",
     icon: "🎲",
     badge: "Popular",
-    description: "Generate memorable, cryptographically secure multi-word passphrases using the Diceware method and entropy estimation.",
+    description: "Pick how many words. Copy the phrase.",
     keywords: ["diceware generator", "passphrase generator", "memorable password", "correct horse battery staple", "eff wordlist"],
     render: (container) => {
       container.innerHTML = `
@@ -321,7 +321,7 @@ const quickTools = [
     category: "Quick Utilities & Life Tools",
     icon: "⏱️",
     badge: "Popular",
-    description: "High-precision digital stopwatch with millisecond accuracy, split lap times, and lap table export.",
+    description: "Tap start. Laps stay on the page.",
     keywords: ["stopwatch", "lap tracker", "timer", "online stopwatch", "chronometer"],
     render: (container) => {
       container.innerHTML = `
@@ -463,7 +463,7 @@ const quickTools = [
     category: "Quick Utilities & Life Tools",
     icon: "⏳",
     badge: "Popular",
-    description: "Custom countdown timer with audio chime alert, preset buttons, and progress visualization.",
+    description: "Pick the minutes. It chimes when it hits zero.",
     keywords: ["countdown timer", "online timer", "kitchen timer", "timer with sound", "alarm timer"],
     render: (container) => {
       container.innerHTML = `
@@ -626,7 +626,7 @@ const quickTools = [
     category: "Quick Utilities & Life Tools",
     icon: "🍅",
     badge: "Popular",
-    description: "Productivity timer with 25-minute focus intervals, 5-minute short breaks, 15-minute long breaks, and audio chime alerts.",
+    description: "Press start. It breaks the hour into work and rest.",
     keywords: ["pomodoro timer", "focus timer", "productivity timer", "work timer", "study timer"],
     render: (container) => {
       container.innerHTML = `
@@ -760,7 +760,7 @@ const quickTools = [
     category: "Quick Utilities & Life Tools",
     icon: "🎵",
     badge: "New",
-    description: "Drift-free musical metronome powered by Web Audio API with BPM slider, tap tempo, and visual beat indicators.",
+    description: "Set the tempo and press play.",
     keywords: ["metronome", "online metronome", "web audio metronome", "bpm counter", "tap tempo"],
     render: (container) => {
       container.innerHTML = `
@@ -954,7 +954,7 @@ const quickTools = [
     category: "Quick Utilities & Life Tools",
     icon: "📋",
     badge: "Popular",
-    description: "Auto-saving private notepad stored in your local browser storage with instant word count and .txt export.",
+    description: "Type it. It is still here when you come back. It does not get uploaded.",
     keywords: ["scratchpad", "notes", "notepad", "local storage notes", "quick notes"],
     render: (container) => {
       container.innerHTML = `
@@ -1022,7 +1022,7 @@ const quickTools = [
     category: "Quick Utilities & Life Tools",
     icon: "🖥️",
     badge: "Popular",
-    description: "Inspect live viewport dimensions, physical screen resolution, device pixel ratio (Retina / 4K), and CSS breakpoint.",
+    description: "This page reads the width, height, and pixel density of the device you are on.",
     keywords: ["screen resolution", "viewport size", "device pixel ratio", "css breakpoint", "display inspector"],
     render: (container) => {
       container.innerHTML = `
@@ -1129,7 +1129,7 @@ const quickTools = [
     category: "Quick Utilities & Life Tools",
     icon: "🧹",
     badge: "New",
-    description: "Audit and selectively clear LocalStorage, SessionStorage, and site cookies with privacy breakdown.",
+    description: "See the saved data for this site and clear what you do not want.",
     keywords: ["browser storage cleaner", "clear localstorage", "clear cookies", "storage auditor", "cache cleaner"],
     render: (container) => {
       container.innerHTML = `
@@ -1257,7 +1257,7 @@ const quickTools = [
     category: "Quick Utilities & Life Tools",
     icon: "📡",
     badge: "Popular",
-    description: "Measure real-time HTTP round-trip ping, latency, and jitter using edge CDN endpoints directly in your browser.",
+    description: "Run the check. You see the ping.",
     keywords: ["ping test", "network latency", "jitter test", "connection speed", "http ping"],
     render: (container) => {
       container.innerHTML = `
@@ -1384,7 +1384,7 @@ const quickTools = [
     category: "Quick Utilities & Life Tools",
     icon: "🥁",
     badge: "New",
-    description: "Tap to the beat with your spacebar, mouse, or touch screen to instantly calculate exact music BPM, average tempo, and delay millisecond timings.",
+    description: "Tap along to the beat. You get the tempo.",
     keywords: ["tap tempo", "bpm calculator", "tap bpm", "tempo finder", "delay time calculator", "music tempo calculator", "tap tempo online"],
     render: (container) => {
       container.innerHTML = `

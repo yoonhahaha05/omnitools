@@ -156,19 +156,22 @@ body.embed-mode #consent-manage {
 }
 
 #consent-banner {
-  position: fixed;
-  z-index: 70;
-  left: 1rem;
-  right: 1rem;
-  bottom: 1rem;
-  max-width: 40rem;
-  margin: 0 auto;
-  padding: 1rem 1rem 0.9rem;
-  border-radius: 0.9rem;
-  border: 1px solid #e4e4e7;
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+  margin: 0;
+  padding: 0.65rem 1rem;
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 1px solid #e4e4e7;
   background: #fff;
   color: #3f3f46;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+  box-shadow: none;
 }
 
 .dark #consent-banner {
@@ -179,8 +182,9 @@ body.embed-mode #consent-manage {
 
 .consent-copy {
   margin: 0;
-  font-size: 0.8125rem;
-  line-height: 1.5;
+  flex: 1 1 16rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
 }
 
 .consent-actions {
@@ -189,7 +193,8 @@ body.embed-mode #consent-manage {
   align-items: center;
   justify-content: flex-end;
   gap: 0.5rem;
-  margin-top: 0.85rem;
+  margin-top: 0;
+  margin-left: auto;
 }
 
 .consent-link {
@@ -244,4 +249,18 @@ body.embed-mode #consent-manage {
 
 .dark #consent-manage:hover {
   color: #fafafa;
+}
+
+/* The tool sits directly under its subtitle. Share actions come after the box. */
+.tool-header-card:has(+ #tool-arena) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-bottom: 0.85rem;
+}
+
+.tool-header-card + #tool-arena {
+  margin-top: 0;
+  border-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }

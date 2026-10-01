@@ -257,21 +257,6 @@
         <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
         <span class="text-zinc-900 dark:text-zinc-200 font-semibold">UUID / GUID (v4) Generator</span>
       </div>
-
-      <div class="tool-action-bar flex items-center gap-2">
-        <button id="tool-fav-btn" data-tool-id="uuid-generator" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
-          <i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>
-          <span id="fav-label">Favorite</span>
-        </button>
-        <button id="tool-share-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
-          <i data-lucide="link" class="w-3.5 h-3.5 text-zinc-400"></i>
-          <span>Share</span>
-        </button>
-        <button id="tool-embed-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs" title="Copy embeddable widget snippet">
-          <i data-lucide="code" class="w-3.5 h-3.5 text-zinc-400"></i>
-          <span>Embed</span>
-        </button>
-      </div>
     </div>
 
     <!-- Tool Header -->
@@ -285,7 +270,7 @@
             UUID / GUID (v4) Generator
           </h1>
           <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">
-            Generate cryptographically secure v4 UUIDs / GUIDs in bulk with uppercase, lowercase, and hyphen toggles.
+            Click generate. You get an ID you can paste into a database or a test.
           </p>
         </div>
       </div>
@@ -295,6 +280,21 @@
     <div id="tool-arena" class="p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
       <div class="text-xs text-zinc-400 font-mono py-8 text-center">Loading interactive utility workspace...</div>
     </div>
+
+    <div class="tool-action-bar flex items-center gap-2">
+        <button id="tool-fav-btn" data-tool-id="uuid-generator" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
+          <i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span id="fav-label">Favorite</span>
+        </button>
+        <button id="tool-share-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
+          <i data-lucide="link" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span>Share</span>
+        </button>
+        <button id="tool-embed-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs" title="Copy embeddable widget snippet">
+          <i data-lucide="code" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span>Embed</span>
+        </button>
+      </div>
 
     <div class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-500">
       <i data-lucide="shield" class="w-3.5 h-3.5"></i>
@@ -447,7 +447,7 @@ console.log(uniqueId);</code></pre>
             <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
           </div>
           <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">JSON Beautifier &amp; Validator</div>
-          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">Format, validate, beautify, and minify JSON with real-time error detection and indentation controls.</p>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">Paste it. You see it formatted, or the exact spot that is broken.</p>
         </a>
 
         <a href="/tools/json-minifier" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
@@ -456,7 +456,7 @@ console.log(uniqueId);</code></pre>
             <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
           </div>
           <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">JSON Minifier</div>
-          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">Compress JSON data by stripping all unnecessary whitespace and line breaks for lightweight network transfer.</p>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">Paste it. Extra spaces come out so the payload is smaller.</p>
         </a>
 
         <a href="/tools/base64-tool" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
@@ -465,7 +465,7 @@ console.log(uniqueId);</code></pre>
             <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
           </div>
           <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">Base64 String Encoder / Decoder</div>
-          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">Encode and decode standard and URL-safe Base64 strings with full UTF-8 international character support.</p>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">Paste the encoded text or the plain text. It converts both ways.</p>
         </a>
       </div>
     </div>

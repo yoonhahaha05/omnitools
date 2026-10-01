@@ -10,7 +10,7 @@ const mediaTools = [
     category: "Media, CSS & Design",
     icon: "🎨",
     badge: "Popular",
-    description: "Convert color formats between HEX, RGB, HSL, and CSS notation with interactive swatch and random generator.",
+    description: "Pick a color or paste a hex code. Hex, RGB, and HSL stay in sync.",
     keywords: ["color converter", "hex to rgb", "rgb to hex", "hex to hsl", "color picker", "css color"],
     render: (container) => {
       container.innerHTML = `
@@ -162,7 +162,7 @@ const mediaTools = [
     category: "Media, CSS & Design",
     icon: "🎨",
     badge: "Popular",
-    description: "Generate 5-color harmonic palettes with individual color locks, harmony modes, and CSS variable export.",
+    description: "Generate five colors that work together. Lock the ones you want to keep.",
     keywords: ["palette generator", "color scheme", "color palette", "random palette", "css colors"],
     render: (container) => {
       container.innerHTML = `
@@ -329,7 +329,7 @@ const mediaTools = [
     category: "Media, CSS & Design",
     icon: "👁️",
     badge: "Popular",
-    description: "Check accessibility contrast ratio between foreground and background colors according to WCAG 2.1 AA and AAA standards.",
+    description: "Pick the text color and the background. You see if it passes WCAG.",
     keywords: ["contrast checker", "wcag contrast", "accessibility checker", "color contrast", "a11y contrast"],
     render: (container) => {
       container.innerHTML = `
@@ -517,7 +517,7 @@ const mediaTools = [
     category: "Media, CSS & Design",
     icon: "📱",
     badge: "Popular",
-    description: "Generate high-resolution QR codes for websites, WiFi, and plain text with direct PNG download.",
+    description: "Paste the URL. Download the code.",
     keywords: ["qr code generator", "create qr code", "free qr code", "qr maker", "barcode generator"],
     render: (container) => {
       container.innerHTML = `
@@ -625,7 +625,7 @@ const mediaTools = [
     category: "Media, CSS & Design",
     icon: "🏷️",
     badge: "New",
-    description: "Generate standard Code 128 barcodes directly in the browser on HTML5 canvas with downloadable PNG export.",
+    description: "Type the code. Download the barcode.",
     keywords: ["barcode generator", "code 128", "barcode maker", "printable barcode", "free barcode"],
     render: (container) => {
       container.innerHTML = `
@@ -791,7 +791,7 @@ const mediaTools = [
     title: "CSS Box Shadow Generator",
     category: "Media, CSS & Design",
     icon: "🔳",
-    description: "Design realistic, layered CSS box shadows with interactive sliders and instant CSS code output.",
+    description: "Move the sliders. Copy the box-shadow line.",
     keywords: ["css box shadow", "box shadow generator", "shadow builder", "css shadow", "drop shadow css"],
     render: (container) => {
       container.innerHTML = `
@@ -918,7 +918,7 @@ const mediaTools = [
     category: "Media, CSS & Design",
     icon: "🫧",
     badge: "New",
-    description: "Design organic 8-point CSS border-radius blobs with interactive sliders and random generator.",
+    description: "Move the sliders. Copy the border-radius.",
     keywords: ["border radius generator", "css blob", "blob generator", "css shape", "border radius 8 points"],
     render: (container) => {
       container.innerHTML = `
@@ -1062,7 +1062,7 @@ const mediaTools = [
     category: "Media, CSS & Design",
     icon: "🌈",
     badge: "Popular",
-    description: "Create linear and radial CSS gradients with angle controls, color stops, presets, and CSS output.",
+    description: "Pick the colors. Copy the gradient line.",
     keywords: ["css gradient generator", "gradient maker", "linear gradient", "radial gradient", "css background"],
     render: (container) => {
       container.innerHTML = `
@@ -1206,7 +1206,7 @@ const mediaTools = [
     category: "Media, CSS & Design",
     icon: "🪟",
     badge: "Popular",
-    description: "Generate frosted glass UI styles with backdrop-filter blur, background opacity, and border elevation controls.",
+    description: "Set the blur and the transparency. Copy the CSS.",
     keywords: ["glassmorphism generator", "css frosted glass", "backdrop filter blur", "glassmorphism css", "glass card"],
     render: (container) => {
       container.innerHTML = `
@@ -1341,7 +1341,7 @@ const mediaTools = [
     category: "Media, CSS & Design",
     icon: "📐",
     badge: "New",
-    description: "Preview, inspect, and analyze SVG path strings (`d` attribute) with interactive scaling and stroke controls.",
+    description: "Paste the path. You see the shape.",
     keywords: ["svg path visualizer", "svg viewer", "svg d attribute", "svg inspector", "svg path preview"],
     render: (container) => {
       container.innerHTML = `
@@ -1451,7 +1451,7 @@ const mediaTools = [
     category: "Media, CSS & Design",
     icon: "🖼️",
     badge: "Popular",
-    description: "Resize JPG, PNG, and WebP images directly in your browser using HTML5 Canvas with zero cloud uploads.",
+    description: "Drop the photo. Set the size and download it. The file stays on this device.",
     keywords: ["image resizer", "resize photo", "canvas image resizer", "compress image", "scale image"],
     render: (container) => {
       container.innerHTML = `
@@ -1624,7 +1624,7 @@ const mediaTools = [
     category: "Media, CSS & Design",
     icon: "✂️",
     badge: "New",
-    description: "Crop photos to square (1:1), 4:3, or 16:9 aspect ratios right in the browser with live canvas export.",
+    description: "Drop the image. Pick the frame and download it. The file stays on this device.",
     keywords: ["image cropper", "crop photo", "crop image online", "aspect ratio crop", "avatar crop"],
     render: (container) => {
       container.innerHTML = `
@@ -1761,7 +1761,7 @@ const mediaTools = [
     category: "Media, CSS & Design",
     icon: "🎞️",
     badge: "New",
-    description: "Apply client-side image filters such as Grayscale, Sepia, Invert, Blur, and High-Contrast with instant canvas download.",
+    description: "Drop the image. Apply the filter and download it. The file stays on this device.",
     keywords: ["image filter", "grayscale tool", "black and white filter", "sepia photo", "invert colors photo"],
     render: (container) => {
       container.innerHTML = `
@@ -1916,7 +1916,7 @@ const mediaTools = [
     category: "Media, CSS & Design",
     icon: "⭐",
     badge: "Popular",
-    description: "Generate multi-size web favicons (16x16, 32x32, 48x48, 180x180 Apple Touch) with custom emoji, text, or shapes.",
+    description: "Type a letter or pick a shape. Download the sizes a site needs.",
     keywords: ["favicon generator", "create favicon", "apple touch icon", "favicon png", "browser icon maker"],
     render: (container) => {
       container.innerHTML = `
@@ -2056,7 +2056,7 @@ const mediaTools = [
     category: "Media, CSS & Design",
     icon: "💬",
     badge: "Popular",
-    description: "Design and export beautiful quote cards and tweet graphics for social media (Twitter, LinkedIn, Instagram) on canvas.",
+    description: "Type the quote. Download the image.",
     keywords: ["quote card maker", "tweet image maker", "social media card generator", "quote graphic", "tweet generator"],
     render: (container) => {
       container.innerHTML = `
@@ -2222,7 +2222,7 @@ const mediaTools = [
     category: "Media, CSS & Design",
     icon: "✂️",
     badge: "New",
-    description: "Visually create and customize CSS clip-path polygon shapes with interactive draggable vertex points and instant CSS code output.",
+    description: "Drag the points. Copy the clip-path.",
     keywords: ["css clip-path generator", "clip-path polygon maker", "clippy generator", "css shape generator", "polygon clip-path", "css geometric shapes"],
     render: (container) => {
       container.innerHTML = `

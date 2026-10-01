@@ -11,7 +11,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "📝",
     badge: "Popular",
-    description: "Accurate real-time word, character, sentence, paragraph counter and reading time estimator.",
+    description: "Paste the essay, caption, or message. The count updates as you type.",
     keywords: ["word counter", "character count", "reading time", "letter counter", "text length", "speech time"],
     render: (container) => {
       container.innerHTML = `
@@ -127,7 +127,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "⏱️",
     badge: "New",
-    description: "Detailed reading, speaking, and skimming time estimation with customizable WPM speeds and syllable counts.",
+    description: "Paste the text. You get a reading time, a speaking time, and a skim time.",
     keywords: ["reading time", "speaking time", "presentation timer", "wpm calculator", "speech duration"],
     render: (container) => {
       container.innerHTML = `
@@ -244,7 +244,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "🔤",
     badge: "Essential",
-    description: "Instantly transform text to UPPERCASE, lowercase, Title Case, camelCase, snake_case, kebab-case, and PascalCase.",
+    description: "Paste the text and pick uppercase, lowercase, title case, or camelCase.",
     keywords: ["case converter", "camelcase", "snake_case", "kebab-case", "uppercase", "lowercase", "title case", "pascal case"],
     render: (container) => {
       container.innerHTML = `
@@ -314,7 +314,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "🧹",
     badge: "New",
-    description: "Clean messy text by stripping multiple consecutive spaces, leading/trailing spaces, and tabs.",
+    description: "Paste the messy text. Extra spaces and tabs come out.",
     keywords: ["remove whitespace", "clean spaces", "trim text", "strip tabs", "remove extra spaces"],
     render: (container) => {
       container.innerHTML = `
@@ -393,7 +393,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "↩️",
     badge: "New",
-    description: "Remove unwanted newline breaks and merge paragraphs or lines into continuous text.",
+    description: "Paste the broken lines. They join into one block of text.",
     keywords: ["remove line breaks", "strip newlines", "merge paragraphs", "remove crlf", "flatten text"],
     render: (container) => {
       container.innerHTML = `
@@ -471,7 +471,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "🔀",
     badge: "New",
-    description: "Sort lines of text alphabetically or numerically, with options for natural sort and reverse ordering.",
+    description: "Paste one item per line. Sort A to Z, Z to A, or by number.",
     keywords: ["sort lines", "alphabetical sort", "a-z sorter", "natural sort", "sort list"],
     render: (container) => {
       container.innerHTML = `
@@ -551,7 +551,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "🔄",
     badge: "New",
-    description: "Reverse text character-by-character, flip words in sentences, reverse line order, or invert upside-down.",
+    description: "Paste it. Flip the letters, the words, or the line order.",
     keywords: ["reverse text", "backwards text", "reverse words", "upside down text", "mirror text"],
     render: (container) => {
       container.innerHTML = `
@@ -621,7 +621,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "⚖️",
     badge: "Popular",
-    description: "Compare two blocks of text side-by-side to visually inspect differences, additions, and deletions.",
+    description: "Paste the old version and the new one. Additions and deletions show up side by side.",
     keywords: ["text diff", "diff checker", "text compare", "difference checker", "compare text"],
     render: (container) => {
       container.innerHTML = `
@@ -717,7 +717,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "✂️",
     badge: "New",
-    description: "Remove duplicate lines from text lists while preserving original ordering or sorting output.",
+    description: "Paste the list. Duplicate lines come out and the rest stays in order.",
     keywords: ["remove duplicate lines", "deduplicate list", "unique lines", "dedupe text"],
     render: (container) => {
       container.innerHTML = `
@@ -797,7 +797,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "📑",
     badge: "Popular",
-    description: "Write, preview, and convert Markdown text into formatted HTML with one-click HTML export.",
+    description: "Type the Markdown. The formatted page shows next to it.",
     keywords: ["markdown previewer", "markdown to html", "md editor", "markdown viewer", "live markdown"],
     render: (container) => {
       container.innerHTML = `
@@ -864,7 +864,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "📄",
     badge: "New",
-    description: "Generate placeholder filler text by paragraphs, sentences, or words with custom formatting.",
+    description: "Pick how many paragraphs or sentences. Copy the placeholder text.",
     keywords: ["lorem ipsum", "dummy text", "placeholder text", "filler text", "lipsum"],
     render: (container) => {
       container.innerHTML = `
@@ -967,7 +967,7 @@ const textTools = [
     title: "URL Slug Generator",
     category: "Text & Formatting",
     icon: "🔗",
-    description: "Generate clean, SEO-friendly URL slugs from any headline, title, or string with customizable separators.",
+    description: "Paste the headline. You get a clean slug you can put in a link.",
     keywords: ["slug generator", "url slug", "clean url", "permalink", "seo slug"],
     render: (container) => {
       container.innerHTML = `
@@ -1049,7 +1049,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "🔍",
     badge: "New",
-    description: "Search text using regular expressions with capture groups and replace with dynamic string formatting.",
+    description: "Paste the text and the pattern. See what it matches, then replace it.",
     keywords: ["regex find and replace", "regex replace", "regular expression replace", "capture groups"],
     render: (container) => {
       container.innerHTML = `
@@ -1144,7 +1144,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "🏷️",
     badge: "New",
-    description: "Remove all HTML/XML tags from markup while preserving clean, readable text and decoding entities.",
+    description: "Paste the markup. The tags come off and the words stay.",
     keywords: ["strip html tags", "remove html", "clean html", "html to text", "remove markup"],
     render: (container) => {
       container.innerHTML = `
@@ -1219,7 +1219,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "🎮",
     badge: "New",
-    description: "Format messages for Discord with live preview for spoilers, colored codeblocks, headers, and relative timestamps.",
+    description: "Type the message. Spoilers, code, and colors preview before you send it.",
     keywords: ["discord markdown", "discord formatting", "discord spoiler", "discord timestamp", "discord bold"],
     render: (container) => {
       container.innerHTML = `
@@ -1317,7 +1317,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "👻",
     badge: "Essential",
-    description: "Detect and remove zero-width spaces, hidden BOMs, non-breaking spaces, and malicious invisible unicode characters.",
+    description: "Paste it. Invisible spaces and zero-width characters get stripped out.",
     keywords: ["invisible character remover", "zero width space", "remove zero width", "strip hidden characters", "clean text", "bom remover"],
     render: (container) => {
       container.innerHTML = `
@@ -1387,7 +1387,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "0️⃣",
     badge: "New",
-    description: "Convert alphanumeric text to 8-bit binary representation and parse binary sequences back to readable text.",
+    description: "Type the words or paste the binary. It converts both ways.",
     keywords: ["text to binary", "binary to text", "binary converter", "ascii to binary", "8-bit converter"],
     render: (container) => {
       container.innerHTML = `
@@ -1478,7 +1478,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "#️⃣",
     badge: "New",
-    description: "Convert ASCII/UTF-8 strings to Hexadecimal bytes and decode hex sequences back to readable text.",
+    description: "Type the words or paste the hex. It converts both ways.",
     keywords: ["text to hex", "hex to text", "hexadecimal converter", "ascii to hex", "hex decoder"],
     render: (container) => {
       container.innerHTML = `
@@ -1586,7 +1586,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "✈️",
     badge: "New",
-    description: "Translate any text into official ICAO/NATO phonetic alphabet words (Alpha, Bravo, Charlie) for clear radio spelling.",
+    description: "Type the letters. You get Alpha, Bravo, Charlie.",
     keywords: ["nato alphabet", "phonetic alphabet", "alpha bravo charlie", "icao alphabet", "spelling alphabet"],
     render: (container) => {
       container.innerHTML = `
@@ -1645,7 +1645,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "📡",
     badge: "Audio",
-    description: "Translate text to Morse code and back with real-time Web Audio sound synthesis and playback.",
+    description: "Type the message or the dots and dashes. You can play the sound.",
     keywords: ["morse code translator", "morse audio player", "morse code sound", "sos morse code", "morse decoder"],
     render: (container) => {
       container.innerHTML = `
@@ -1772,7 +1772,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "✨",
     badge: "New",
-    description: "Convert text into 16+ aesthetic Unicode fonts (Gothic, Cursive, Bold, Double-Struck) for Instagram, TikTok, and Twitter.",
+    description: "Type a word. Copy the bold, cursive, or gothic version.",
     keywords: ["fancy fonts", "unicode font generator", "aesthetic fonts", "instagram font generator", "copy paste fonts"],
     render: (container) => {
       container.innerHTML = `
@@ -1840,7 +1840,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "🔢",
     badge: "New",
-    description: "Add sequential numbers, zero-padding, or custom prefixes/suffixes to each line of text.",
+    description: "Paste the list. Each line gets a number.",
     keywords: ["line numberer", "add line numbers", "number lines", "prefix numbers", "code line numbers"],
     render: (container) => {
       container.innerHTML = `
@@ -1927,7 +1927,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "🌐",
     badge: "New",
-    description: "Scan unstructured text and automatically extract all HTTP/HTTPS links and web addresses into a clean list.",
+    description: "Paste the email, doc, or notes. Every link comes out in a list.",
     keywords: ["extract urls", "link extractor", "find urls in text", "parse links", "scrape urls"],
     render: (container) => {
       container.innerHTML = `
@@ -1979,7 +1979,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "📧",
     badge: "New",
-    description: "Scan messages and documents to extract all valid email addresses into an exportable, deduplicated list.",
+    description: "Paste the message. Every address comes out in a list.",
     keywords: ["extract emails", "email parser", "find emails", "email scraper", "harvest emails"],
     render: (container) => {
       container.innerHTML = `
@@ -2031,7 +2031,7 @@ const textTools = [
     category: "Text & Formatting",
     icon: "🚫",
     badge: "New",
-    description: "Remove all Unicode emojis, symbols, and emoticons from text to prepare clean strings for databases or formal documents.",
+    description: "Paste the text. The emojis come out and the words stay.",
     keywords: ["emoji stripper", "remove emojis", "strip emojis", "clean emojis from text"],
     render: (container) => {
       container.innerHTML = `

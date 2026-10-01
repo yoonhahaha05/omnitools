@@ -103,13 +103,15 @@
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-label', 'Advertising cookies');
     banner.innerHTML =
-      '<p class="consent-copy">Your input stays on this device. Google AdSense uses cookies to show ads. You can accept ads or keep using the tools without them.</p>' +
+      '<p class="consent-copy">Ads use cookies. The tool works either way, and what you type stays on this device.</p>' +
       '<div class="consent-actions">' +
         '<a class="consent-link" href="/pages/privacy">Privacy policy</a>' +
         '<button type="button" class="consent-reject" data-consent="denied">Use without ads</button>' +
         '<button type="button" class="consent-accept" data-consent="granted">Accept ads</button>' +
       '</div>';
-    document.body.appendChild(banner);
+    var header = document.querySelector('header');
+    if (header && header.parentNode) header.insertAdjacentElement('afterend', banner);
+    else document.body.insertBefore(banner, document.body.firstChild);
     banner.addEventListener('click', function (event) {
       var button = event.target.closest('[data-consent]');
       if (!button) return;
