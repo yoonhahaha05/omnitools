@@ -320,7 +320,7 @@
       <div>
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Overview &amp; Algorithmic Mechanics</h2>
         <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">The browser isolates storage by origin. This page can list and delete localStorage and sessionStorage for getomnitools.com only. It cannot see keys saved by other sites. A cookie on this host can be listed when it is not HttpOnly. HttpOnly cookies are hidden from JavaScript and will not appear. Session storage dies when the tab closes. Local storage stays until something deletes it.</p>
-        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A scratchpad key might hold a few thousand characters. The size column is the length of the stored string, not a compressed size. Deleting that one key removes the note and leaves other keys. Clearing localStorage removes every key for this origin, including the scratchpad and the ad-consent choice. Cookies for the host are separate. Clearing storage does not log you out of other websites.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Worked example. A scratchpad key might hold a few thousand characters. The size column is the length of the stored string, not a compressed size. Deleting that one key removes the note and leaves other keys. Clearing localStorage removes every key for this origin, including the scratchpad. Cookies for the host are separate. Clearing storage does not log you out of other websites.</p>
       </div>
 
 
@@ -328,7 +328,7 @@
         <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Worked uses</h3>
         <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
         <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>One bad key:</strong> Delete that row. Other keys stay.</li>
-        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A full reset of this site:</strong> Clear localStorage. The scratchpad and the consent choice are removed.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>A full reset of this site:</strong> Clear localStorage. The scratchpad is removed.</li>
         </ul>
       </div>
 
