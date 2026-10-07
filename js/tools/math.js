@@ -12,7 +12,7 @@ const mathTools = [
     icon: "➗",
     badge: "Popular",
     description: "Enter the numbers. You get the percent, the increase, or the decrease.",
-    keywords: ["percentage calculator", "percent increase", "percent decrease", "calculate percent", "discount calculator"],
+    keywords: ["percentage calculator", "what is x percent of y", "percent increase", "percent decrease", "calculate percent", "discount calculator"],
     render: (container) => {
       container.innerHTML = `
         <div class="space-y-6">

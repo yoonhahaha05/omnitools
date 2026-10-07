@@ -230,7 +230,7 @@ const App = {
                 <span>•</span>
                 <a href="/tools/base64-tool" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Base64</a>
                 <span>•</span>
-                <a href="/tools/timestamp-converter" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Unix Timestamp</a>
+                <a href="/tools/percentage-calculator" class="hover:text-zinc-900 dark:hover:text-zinc-200 underline">Percentage Calculator</a>
               </div>
             </div>
           </div>

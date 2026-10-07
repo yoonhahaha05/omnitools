@@ -120,15 +120,15 @@ const textTools = [
     }
   },
 
-  // 2. Reading Time Estimator
+  // 2. Reading Time Calculator
   {
     id: "reading-time-estimator",
-    title: "Reading Time Estimator",
+    title: "Reading Time Calculator",
     category: "Text & Formatting",
     icon: "⏱️",
     badge: "New",
     description: "Paste the text. You get a reading time, a speaking time, and a skim time.",
-    keywords: ["reading time", "speaking time", "presentation timer", "wpm calculator", "speech duration"],
+    keywords: ["reading time calculator", "reading time", "speaking time", "presentation timer", "wpm calculator", "speech duration"],
     render: (container) => {
       container.innerHTML = `
         <div class="space-y-4">
@@ -230,7 +230,7 @@ const textTools = [
       update();
     },
     seoContent: {
-      overview: "The Reading Time Estimator helps podcasters, speakers, educators, and content strategists gauge the exact delivery duration and reading speed required for any manuscript or speech.",
+      overview: "The Reading Time Calculator helps podcasters, speakers, educators, and content strategists gauge the exact delivery duration and reading speed required for any manuscript or speech.",
       features: ["Multi-speed metrics (reading, deep studying, skimming, public speaking)", "Syllable estimation and reading complexity rating", "Instant real-time update"],
       howTo: ["Paste your document or script into the editor.", "Review the calculated durations for silent reading versus verbal presentations."],
       faqs: [{ q: "What is normal public speaking speed?", a: "Most public speakers and podcast hosts speak at roughly 120 to 140 words per minute." }]
@@ -614,10 +614,10 @@ const textTools = [
     }
   },
 
-  // 8. Text Difference Checker (Diff)
+  // 8. Text Diff Checker
   {
     id: "text-diff",
-    title: "Text Difference Checker (Diff)",
+    title: "Text Diff Checker",
     category: "Text & Formatting",
     icon: "⚖️",
     badge: "Popular",

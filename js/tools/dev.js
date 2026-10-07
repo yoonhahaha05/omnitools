@@ -173,10 +173,10 @@ const devTools = [
     }
   },
 
-  // 28. Base64 String Encoder / Decoder
+  // 28. Base64 Encode and Decode
   {
     id: "base64-tool",
-    title: "Base64 String Encoder / Decoder",
+    title: "Base64 Encode and Decode",
     category: "Developer & Data",
     icon: "🔤",
     badge: "Essential",
@@ -884,10 +884,10 @@ const devTools = [
     }
   },
 
-  // 35. Regex Sandbox & Matcher
+  // 35. Regex Tester
   {
     id: "regex-matcher",
-    title: "Regex Sandbox & Matcher",
+    title: "Regex Tester",
     category: "Developer & Data",
     icon: "🎯",
     badge: "New",
@@ -2341,15 +2341,15 @@ const devTools = [
     }
   },
 
-  // 51. IPv4 Subnet & CIDR Calculator
+  // 51. Subnet Mask Calculator
   {
     id: "subnet-calculator",
-    title: "IPv4 Subnet & CIDR Calculator",
+    title: "Subnet Mask Calculator",
     category: "Developer & Data",
     icon: "🌐",
     badge: "New",
     description: "Enter the IP and the mask, like 192.168.1.0/24. You see the range.",
-    keywords: ["subnet calculator", "cidr calculator", "ipv4 subnet", "ip subnet mask", "network address calculator", "cidr notation", "usable host range"],
+    keywords: ["subnet mask calculator", "subnet calculator", "ip range calculator", "cidr calculator", "ipv4 subnet", "ip subnet mask", "network address calculator", "cidr notation", "usable host range"],
     render: (container) => {
       container.innerHTML = `
         <div class="space-y-5">

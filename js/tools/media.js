@@ -322,15 +322,15 @@ const mediaTools = [
     }
   },
 
-  // 78. WCAG Color Contrast Checker
+  // 78. Color Contrast Checker
   {
     id: "contrast-checker",
-    title: "WCAG Color Contrast Checker",
+    title: "Color Contrast Checker",
     category: "Media, CSS & Design",
     icon: "👁️",
     badge: "Popular",
     description: "Pick the text color and the background. You see if it passes WCAG.",
-    keywords: ["contrast checker", "wcag contrast", "accessibility checker", "color contrast", "a11y contrast"],
+    keywords: ["color contrast checker", "contrast checker", "wcag contrast checker", "accessibility checker", "color contrast", "a11y contrast"],
     render: (container) => {
       container.innerHTML = `
         <div class="space-y-6">
@@ -490,7 +490,7 @@ const mediaTools = [
       updateContrast();
     },
     seoContent: {
-      overview: "The WCAG Color Contrast Checker evaluates text and UI element readability against Web Content Accessibility Guidelines (WCAG) 2.1 standards for Level AA and AAA compliance.",
+      overview: "The Color Contrast Checker evaluates text and UI element readability against Web Content Accessibility Guidelines (WCAG) 2.1 standards for Level AA and AAA compliance.",
       features: [
         "Precise relative luminance calculation algorithm",
         "Detailed breakdowns for normal text (4.5:1), large text (3.0:1), and UI components",
