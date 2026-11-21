@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dice Roller &amp; Coin Flipper - Outil en ligne gratuit (100 % côté client) | OmniTools</title>
+  <meta name="description" content="Lancez des pièces réalistes (pile/face) et lancez des dés de table RPG polyédriques (d4, d6, d8, d10, d12, d20, d100).">
+  <meta name="keywords" content="rouleau de dés, flipper de pièces de monnaie, lancer une pièce de monnaie, lancer d20, rouleau de dés rpg">
+  <link rel="canonical" href="https://getomnitools.com/tools/dice-coin-roller/fr">
+<!-- omni-hreflang -->
+  <link rel="alternate" hreflang="en" href="https://getomnitools.com/tools/dice-coin-roller">
+  <link rel="alternate" hreflang="x-default" href="https://getomnitools.com/tools/dice-coin-roller">
+  <link rel="alternate" hreflang="ko" href="https://getomnitools.com/tools/dice-coin-roller/ko">
+  <link rel="alternate" hreflang="es" href="https://getomnitools.com/tools/dice-coin-roller/es">
+  <link rel="alternate" hreflang="pt-BR" href="https://getomnitools.com/tools/dice-coin-roller/pt">
+  <link rel="alternate" hreflang="de" href="https://getomnitools.com/tools/dice-coin-roller/de">
+  <link rel="alternate" hreflang="fr" href="https://getomnitools.com/tools/dice-coin-roller/fr">
+  <!-- /omni-hreflang -->
+
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0e1117">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dice Roller &amp; Coin Flipper - Outil en ligne gratuit (100 % côté client) | OmniTools">
+  <meta property="og:description" content="Lancez des pièces réalistes (pile/face) et lancez des dés de table RPG polyédriques (d4, d6, d8, d10, d12, d20, d100).">
+  <meta property="og:url" content="https://getomnitools.com/tools/dice-coin-roller/fr">
+  <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:secure_url" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Rouleau à dés et flipper à pièces - OmniTools">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dice Roller &amp; Coin Flipper - Outil en ligne gratuit (100 % côté client) | OmniTools">
+  <meta name="twitter:description" content="Lancez des pièces réalistes (pile/face) et lancez des dés de table RPG polyédriques (d4, d6, d8, d10, d12, d20, d100).">
+  <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
+
+  <!-- Search Engine Verification -->
+  <meta name="google-site-verification" content="">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google AdSense Configuration & Script -->
+  <script>
+    window.ADSENSE_CONFIG = {
+      client: 'ca-pub-3261737439776294',
+      slotHome: '5934296997',
+      slotTool: '5934296997',
+      slotSidebar: '5934296997'
+    };
+    window.adsbygoogle = window.adsbygoogle || [];
+  </script>
+  <script src="/js/consent.js" defer></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- JSON-LD Structured Data for Search Engines -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Dés et pièce",
+  "url": "https://getomnitools.com/tools/dice-coin-roller/fr",
+  "description": "Lancez des pièces réalistes (pile/face) et lancez des dés de table RPG polyédriques (d4, d6, d8, d10, d12, d20, d100).",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://getomnitools.com/fr"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Calculs et convertisseurs",
+      "item": "https://getomnitools.com/categories/everyday-math/fr"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Dés et pièce",
+      "item": "https://getomnitools.com/tools/dice-coin-roller/fr"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce qu'un 20 naturel ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dans D&D, lancer un 20 sur un dé à 20 faces est un « 20 naturel », dénotant généralement un succès critique automatique."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le rouleau ajoute-t-il un modificateur ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Si votre jeu nécessite 1d20+5, ajoutez vous-même 5 à la face."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les rouleaux sont-ils stockés ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uniquement à l'écran jusqu'à ce que vous rouliez à nouveau ou que vous quittiez la page."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Comment utiliser le rouleau de dés et le flipper",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "text": "Cliquez sur Flip Coin ou choisissez n’importe quel type de dé à lancer."
+    }
+  ]
+}
+  </script>
+</head>
+<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+<!-- omni-langbar -->
+<div class="omni-langbar" aria-label="Language">
+<a href="https://getomnitools.com/tools/dice-coin-roller" hreflang="en">English</a>
+<a href="https://getomnitools.com/tools/dice-coin-roller/ko" hreflang="ko">한국어</a>
+<a href="https://getomnitools.com/tools/dice-coin-roller/es" hreflang="es">Español</a>
+<a href="https://getomnitools.com/tools/dice-coin-roller/pt" hreflang="pt-BR">Português</a>
+<a href="https://getomnitools.com/tools/dice-coin-roller/de" hreflang="de">Deutsch</a>
+<a href="https://getomnitools.com/tools/dice-coin-roller/fr" hreflang="fr" aria-current="page">Français</a>
+</div>
+<!-- /omni-langbar -->
+
+
+  <!-- Primary Top Navbar -->
+  <header class="sticky top-0 z-30 bg-white/95 dark:bg-[#0e1117]/95 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
+      
+      <!-- Brand -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="/fr" class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+          </div>
+          <span class="font-bold text-base tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
+        </a>
+      </div>
+
+      <!-- Quick Search / Catalog Link -->
+      <div class="flex-1 max-w-md mx-4 hidden sm:block">
+        <a href="/fr" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-850 bg-zinc-100/70 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
+          <span>Rechercher des outils...</span>
+          <kbd class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-300/70 dark:border-zinc-750 bg-white dark:bg-zinc-800/80 text-zinc-400 shadow-2xs">⌘K</kbd>
+        </a>
+      </div>
+
+      <!-- Action Controls -->
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="/categories/everyday-math/fr" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+          <i data-lucide="folder" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">Calculs et convertisseurs</span>
+        </a>
+
+        <a href="/fr" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">Tous les outils</span>
+        </a>
+
+        <button id="theme-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-600 dark:text-zinc-300 transition" title="Changer le thème">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full space-y-6">
+    
+    <!-- Breadcrumbs & Tool Action Buttons -->
+    <div class="breadcrumb-bar flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">
+        <a href="/fr" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Catalogue</a>
+        <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
+        <a href="/categories/everyday-math/fr" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Calculs et convertisseurs</a>
+        <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
+        <span class="text-zinc-900 dark:text-zinc-200 font-semibold">Dés et pièce</span>
+      </div>
+    </div>
+
+    <!-- Tool Header -->
+    <div class="tool-header-card p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
+      <div class="flex items-start gap-3.5">
+        <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center shrink-0">
+          <i data-lucide="wrench" class="w-4 h-4 tool-main-icon"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+          <h1 class="text-lg sm:text-xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">
+            Dés et pièce
+          </h1>
+          <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">
+            Choisissez le dé ou lancez une pièce de monnaie.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Tool Arena Container -->
+    <div id="tool-arena" class="p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
+      <div class="text-xs text-zinc-400 font-mono py-8 text-center">Chargement de l&#x27;outil...</div>
+    </div>
+
+    <div class="tool-action-bar flex items-center gap-2">
+        <button id="tool-fav-btn" data-tool-id="dice-coin-roller" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
+          <i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span id="fav-label">Favori</span>
+        </button>
+        <button id="tool-share-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
+          <i data-lucide="link" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span>Partager</span>
+        </button>
+        <button id="tool-embed-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs" title="Copier l&#x27;extrait de widget intégrable">
+          <i data-lucide="code" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span>Intégrer</span>
+        </button>
+      </div>
+
+    <div class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-500">
+      <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+      <span>Ce que vous saisissez reste sur cet appareil. Les publicités utilisent des cookies.</span>
+    </div>
+
+    <!-- Embed Mode Attribution Banner (shown only when embedded inside iframes) -->
+    <div class="embed-attribution p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 items-center justify-between text-xs">
+      <a href="https://getomnitools.com" target="_blank" rel="noopener" class="flex items-center gap-1.5 font-semibold text-zinc-900 dark:text-white">
+        <span class="w-4 h-4 rounded bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center"><i data-lucide="wrench" class="w-2.5 h-2.5"></i></span>
+        <span>OmniTools</span>
+      </a>
+      <span class="text-zinc-400 text-[11px]">Utilitaires web gratuits dans le navigateur</span>
+    </div>
+
+    <!-- Google AdSense Responsive Placement -->
+    <div class="ad-slot-wrapper w-full p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 my-6">
+      <div class="ad-label text-zinc-400 dark:text-zinc-500 mb-2">Publicité</div>
+      <div class="w-full flex justify-center items-center overflow-hidden min-h-[90px]">
+        <ins class="adsbygoogle"
+             style="display:block;width:100%;"
+             data-ad-client="ca-pub-3261737439776294"
+             data-ad-slot="5934296997"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+
+    <!-- Pre-rendered Semantic SEO Article, Instructions & Technical Notes -->
+    <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
+      <div>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Présentation générale et mécanique algorithmique</h2>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Un tirage au sort est constitué de deux résultats, pile ou face, chacun 1/2. Un dé avec des faces F renvoie un entier de 1 à F. L&#x27;ensemble ici est d4, d6, d8, d10, d12, d20 et d100. Un 20 naturel est la face 20 sur un d20. Un 1 naturel est le visage 1. La page rapporte le visage. Il n&#x27;ajoute pas de modificateurs de capacité d&#x27;un jeu.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Exemple travaillé. Un d20 a 5 % de chances d&#x27;obtenir un 20 naturel et 5 % de chances d&#x27;obtenir un 1 naturel. Deux pièces ne constituent pas ce contrôle : chaque clic lance une pièce. Un d100 va de 1 à 100, pas deux d10 collés ensemble, bien que les probabilités correspondent à un lancer centile.</p>
+      </div>
+
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Exemples d&#x27;usage</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Un d20 :</strong> Chaque face de 1 à 20 a une probabilité de 1/20.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Une pièce de monnaie :</strong> Un lancer, pile ou face, probabilité 1/2 chacun.</li>
+        </ul>
+      </div>
+
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Fonctions</h3>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+            <li>Un tirage au sort binaire équitable 50/50</li>
+            <li>Jeu de dés RPG polyédriques standard (d4 à d100)</li>
+            <li>Alertes critiques naturelles immédiates</li>
+        </ul>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Mode d&#x27;emploi</h3>
+        <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+            <li>Cliquez sur Flip Coin ou choisissez n’importe quel type de dé à lancer.</li>
+        </ol>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-3">Questions fréquentes</h3>
+        <div class="space-y-2.5">
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Qu&#x27;est-ce qu&#x27;un 20 naturel ?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Dans D&amp;D, lancer un 20 sur un dé à 20 faces est un « 20 naturel », dénotant généralement un succès critique automatique.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Le rouleau ajoute-t-il un modificateur ?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Non. Si votre jeu nécessite 1d20+5, ajoutez vous-même 5 à la face.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">Les rouleaux sont-ils stockés ?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Uniquement à l&#x27;écran jusqu&#x27;à ce que vous rouliez à nouveau ou que vous quittiez la page.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Related Utilities (Internal Linking Engine for Google SEO) -->
+    <div class="related-tools-section space-y-3 pt-2">
+      <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Utilitaires mathématiques et convertisseurs quotidiens associés</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+
+        <a href="/tools/percentage-calculator/fr" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">Calculs et convertisseurs</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
+          </div>
+          <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">Calculateur de pourcentage</div>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">Entrez les chiffres. Vous obtenez le pourcentage, l&#x27;augmentation ou la diminution.</p>
+        </a>
+
+        <a href="/tools/discount-tax-calculator/fr" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">Calculs et convertisseurs</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
+          </div>
+          <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">Remise et taxe</div>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">Entrez le prix, le pourcentage de réduction et le taux de taxe. Vous voyez ce que vous payez.</p>
+        </a>
+
+        <a href="/tools/tip-splitter-calculator/fr" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">Calculs et convertisseurs</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
+          </div>
+          <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">Pourboire et addition</div>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">Entrez la facture, le pourboire et le nombre de personnes. Vous voyez chaque partage.</p>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="mt-auto border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#0e1117] text-zinc-500 dark:text-zinc-400 text-xs py-7 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 font-mono text-[11px]">
+        <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span>105 micro-utilitaires côté client</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs">
+        <a href="/pages/about/fr" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">À propos</a>
+        <a href="/pages/contact/fr" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact et assistance</a>
+        <a href="/pages/privacy/fr" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Politique de confidentialité</a>
+        <a href="/pages/terms/fr" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Conditions d&#x27;utilisation</a>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/utils.js"></script>
+  <script src="/js/tools/text.js"></script>
+  <script src="/js/tools/dev.js"></script>
+  <script src="/js/tools/math.js"></script>
+  <script src="/js/tools/media.js"></script>
+  <script src="/js/tools/quick.js"></script>
+  <script src="/js/registry.js"></script>
+  <script src="/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Setup theme
+      App.setupTheme();
+
+      // Check for embed mode parameter (?embed=true or #embed)
+      if (window.location.search.includes('embed=true') || window.location.hash.includes('embed')) {
+        document.body.classList.add('embed-mode');
+      }
+      
+      // Mount interactive tool
+      const tool = ToolRegistry.getToolById('dice-coin-roller');
+      const arena = document.getElementById('tool-arena');
+      if (tool && arena && typeof tool.render === 'function') {
+        try {
+          tool.render(arena);
+        } catch (err) {
+          console.error('Error rendering tool:', err);
+          arena.innerHTML = `<div class="p-4 bg-rose-50 text-rose-700 rounded-lg text-xs">Error rendering tool: ${err.message}</div>`;
+        }
+      }
+      
+      // Update main icon
+      if (tool) {
+        const iconName = Utils.getIconName(tool.icon, tool.category);
+        const iconEl = document.querySelector('.tool-main-icon');
+        if (iconEl) {
+          iconEl.setAttribute('data-lucide', iconName);
+        }
+      }
+      
+      // Favorite button
+      const favBtn = document.getElementById('tool-fav-btn');
+      if (favBtn) {
+        const isFav = Utils.storage.isFavorite('dice-coin-roller');
+        const starIcon = isFav ? '<i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i>' : '<i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>';
+        favBtn.innerHTML = `${starIcon}<span>${isFav ? 'Dans les favoris' : 'Favori'}</span>`;
+        favBtn.addEventListener('click', () => {
+          const added = Utils.storage.toggleFavorite('dice-coin-roller');
+          const updatedStar = added ? '<i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i>' : '<i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>';
+          favBtn.innerHTML = `${updatedStar}<span>${added ? 'Dans les favoris' : 'Favori'}</span>`;
+          Utils.refreshIcons();
+        });
+      }
+      
+      // Share button
+      const shareBtn = document.getElementById('tool-share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          Utils.copyToClipboard(window.location.href, 'Lien copié');
+        });
+      }
+
+      // Embed button
+      const embedBtn = document.getElementById('tool-embed-btn');
+      if (embedBtn) {
+        embedBtn.addEventListener('click', () => {
+          const embedCode = `<iframe src="https://getomnitools.com/tools/dice-coin-roller?embed=true" width="100%" height="450" frameborder="0" style="border:1px solid #e4e4e7;border-radius:12px;overflow:hidden;" title="Dice Roller &amp; Coin Flipper"></iframe>`;
+          Utils.copyToClipboard(embedCode, 'Code d\'intégration copié');
+        });
+      }
+      
+      Utils.refreshIcons();
+      Utils.initAdUnits();
+
+      // Register PWA Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => console.warn('SW failed:', err));
+        });
+      }
+    });
+  </script>
+<script>window.OMNI_LANG="fr";</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n/fr.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var run = function () {
+    var arena = document.getElementById("tool-arena");
+    if (arena && window.OmniI18n) window.OmniI18n.translateRoot(arena);
+  };
+  run();
+  setTimeout(run, 0);
+});
+</script>
+</body>
+</html>

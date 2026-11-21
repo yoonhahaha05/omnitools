@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OmniTools - 정밀 클라이언트측 웹 유틸리티</title>
+  <meta name="description"
+    content="105 클라이언트 측 개발자, 텍스트, 수학 및 미디어 유틸리티. 귀하의 입력은 이 장치에 유지됩니다. 광고는 쿠키를 사용합니다.">
+  <meta name="keywords"
+    content="웹 유틸리티, 개발자 도구, 단어 카운터, json 미화기, 서브넷 계산기, hmac 생성기, base64 변환기, 비밀번호 생성기, diff 검사기, 종횡비 계산기, unix 타임스탬프">
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0e1117">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="OmniTools">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OmniTools - 105 정밀 클라이언트 측 웹 유틸리티">
+  <meta property="og:description"
+    content="105 클라이언트 측 웹 유틸리티. 귀하의 입력은 이 장치에 유지됩니다. 광고는 쿠키를 사용합니다.">
+  <meta property="og:url" content="https://getomnitools.com/ko">
+  <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:secure_url" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="OmniTools - 105가지 무료 클라이언트 측 웹 유틸리티">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OmniTools - 105 정밀 클라이언트 측 웹 유틸리티">
+  <meta name="twitter:description"
+    content="105개의 고속, 제로 레이턴시 개발자, 텍스트, 수학, 미디어 유틸리티가 브라우저에서 100% 실행됩니다.">
+  <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
+
+  <link rel="canonical" href="https://getomnitools.com/ko">
+<!-- omni-hreflang -->
+  <link rel="alternate" hreflang="en" href="https://getomnitools.com/">
+  <link rel="alternate" hreflang="x-default" href="https://getomnitools.com/">
+  <link rel="alternate" hreflang="ko" href="https://getomnitools.com/ko">
+  <link rel="alternate" hreflang="es" href="https://getomnitools.com/es">
+  <link rel="alternate" hreflang="pt-BR" href="https://getomnitools.com/pt">
+  <link rel="alternate" hreflang="de" href="https://getomnitools.com/de">
+  <link rel="alternate" hreflang="fr" href="https://getomnitools.com/fr">
+  <!-- /omni-hreflang -->
+
+
+  <!-- Google Search Console Verification (Add your token when verifying) -->
+  <meta name="google-site-verification" content="">
+
+  <!-- Schema.org WebSite & Sitelinks Searchbox Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "OmniTools",
+  "url": "https://getomnitools.com/ko",
+  "description": "105개의 고속, 100% 클라이언트 측 개발자, 텍스트, 수학 및 미디어 유틸리티.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://getomnitools.com/ko?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+  </script>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Lucide Icons CDN (Deferred for Performance) -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Google AdSense Configuration & Script -->
+  <script>
+    window.ADSENSE_CONFIG = {
+      client: 'ca-pub-3261737439776294',
+      slotHome: '5934296997',
+      slotTool: '5934296997',
+      slotSidebar: '5934296997'
+    };
+    window.adsbygoogle = window.adsbygoogle || [];
+  </script>
+  <script src="/js/consent.js" defer></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          colors: {
+            zinc: {
+              750: '#333338',
+              850: '#1f2024'
+            },
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body
+  class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+<!-- omni-langbar -->
+<div class="omni-langbar" aria-label="Language">
+<a href="https://getomnitools.com/" hreflang="en">English</a>
+<a href="https://getomnitools.com/ko" hreflang="ko" aria-current="page">한국어</a>
+<a href="https://getomnitools.com/es" hreflang="es">Español</a>
+<a href="https://getomnitools.com/pt" hreflang="pt-BR">Português</a>
+<a href="https://getomnitools.com/de" hreflang="de">Deutsch</a>
+<a href="https://getomnitools.com/fr" hreflang="fr">Français</a>
+</div>
+<!-- /omni-langbar -->
+
+
+  <!-- Primary Top Navbar -->
+  <header
+    class="sticky top-0 z-30 bg-white/95 dark:bg-[#0e1117]/95 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
+
+      <!-- Brand & Mobile Menu Button -->
+      <div class="flex items-center gap-3 shrink-0">
+        <button id="mobile-menu-btn"
+          class="md:hidden p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none"
+          aria-label="탐색 메뉴 전환">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+
+        <a href="#/" class="flex items-center gap-2.5">
+          <div
+            class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+          </div>
+          <span class="font-bold text-base tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
+        </a>
+      </div>
+
+      <!-- Command Quick Search Bar with ⌘K / Ctrl+K -->
+      <div class="hidden sm:block flex-1 max-w-lg mx-2">
+        <div class="relative">
+          <input id="nav-search" type="text" placeholder="도구 검색... (⌘K)"
+            class="w-full pl-9 pr-14 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-100/70 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 transition">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
+          <kbd
+            class="absolute right-2 top-1.5 text-[10px] font-mono px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-400 shadow-2xs">Ctrl
+            K</kbd>
+        </div>
+      </div>
+
+      <!-- Action Controls: View Switcher, Theme, Support -->
+      <div class="flex items-center gap-1.5 shrink-0">
+        <button id="view-mode-toggle"
+          class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 transition"
+          title="그리드/목록 보기 전환" aria-label="레이아웃 밀도 전환">
+          <i id="view-mode-icon" data-lucide="layout-grid" class="w-4 h-4"></i>
+        </button>
+
+        <button id="theme-toggle"
+          class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 transition"
+          title="테마 전환" aria-label="어둡게/밝게 모드 전환">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-medium transition"
+          title="GitHub의 소스">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Application Layout Container -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 flex gap-8 w-full">
+
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-zinc-950/50 backdrop-blur-xs z-40 hidden md:hidden"></div>
+
+    <!-- Responsive Left Sidebar Navigation -->
+    <aside id="sidebar"
+      class="fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-[#0e1117] border-r border-zinc-200 dark:border-zinc-800 p-5 transform -translate-x-full md:translate-x-0 md:static md:w-56 lg:w-60 md:block transition-transform duration-200 ease-in-out md:border-r-0 md:bg-transparent md:dark:bg-transparent md:p-0 shrink-0">
+      <div class="sticky top-20 space-y-6">
+        <div>
+          <div class="px-2 mb-2">
+            <span class="text-[11px] font-medium text-zinc-400 dark:text-zinc-500">분류</span>
+          </div>
+          <nav id="category-list" class="space-y-0.5">
+            <!-- Populated dynamically by App.renderCategoriesNav() -->
+          </nav>
+        </div>
+
+        <div class="pt-4 border-t border-zinc-200/80 dark:border-zinc-800/80">
+          <div class="space-y-0.5 text-xs text-zinc-600 dark:text-zinc-400">
+            <a href="/pages/about/ko"
+              class="flex items-center gap-2 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>소개</span>
+            </a>
+            <a href="/pages/privacy/ko"
+              class="flex items-center gap-2 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="shield" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>Privacy</span>
+            </a>
+            <a href="/pages/contact/ko"
+              class="flex items-center gap-2 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>Contact</span>
+            </a>
+            <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer"
+              class="flex items-center gap-2 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="github" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Dynamic Main Content Arena -->
+    <main id="main-content" class="flex-1 min-w-0">
+      <!-- Router dynamically renders either Home or Tool view here -->
+    </main>
+  </div>
+
+  <!-- Global Technical Footer -->
+  <footer
+    class="mt-auto border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#0e1117] text-zinc-500 dark:text-zinc-400 text-xs py-10 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto space-y-10">
+
+      <!-- Launchstag Badge -->
+      <div class="flex justify-center items-center py-2">
+        <a href="https://launchstag.com" target="_blank" rel="noopener">
+          <img src="https://launchstag.com/badge-dark.svg" alt="Launchstag에 추천됨" width="198" height="62" />
+        </a>
+      </div>
+
+      <!-- SEO Semantic Utility Directory -->
+      <section class="mt-16 pt-10 border-t border-zinc-200/80 dark:border-zinc-800/80"
+        aria-label="완전한 유틸리티 디렉토리">
+        <div class="mb-6">
+          <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+            전체 105개의 Precision 유틸리티 디렉토리(인스턴트 클라이언트측 도구)
+          </h2>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+            OmniTools 워크스테이션 제품군의 모든 유틸리티에 대한 직접 검색 색인 액세스입니다.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-xs">
+          <div class="space-y-2">
+            <h3
+              class="font-bold text-[11px] font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-1.5">
+              개발·데이터
+            </h3>
+            <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400">
+              <li><a href="/tools/base64-image-tool/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Base64 이미지 변환">Base64 이미지 변환</a></li>
+              <li><a href="/tools/base64-tool/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Base64 인코딩·디코딩">Base64 인코딩·디코딩</a></li>
+              <li><a href="/tools/cron-explainer/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Cron 식 해석">Cron 식 해석</a></li>
+              <li><a href="/tools/hash-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="해시 생성기">해시 생성기</a></li>
+              <li><a href="/tools/css-minifier/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="CSS 압축">CSS 압축</a></li>
+              <li><a href="/tools/csv-to-json/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="CSV를 JSON으로">CSV를 JSON으로</a></li>
+              <li><a href="/tools/curl-converter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="cURL을 Fetch·Python으로">cURL을 Fetch·Python으로</a></li>
+              <li><a href="/tools/hmac-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="HMAC 생성기">HMAC 생성기</a></li>
+              <li><a href="/tools/html-entity-encoder/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="HTML 엔티티 변환">HTML 엔티티 변환</a></li>
+              <li><a href="/tools/http-header-parser/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="HTTP 헤더 분석">HTTP 헤더 분석</a></li>
+              <li><a href="/tools/http-status-codes/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="HTTP 상태 코드">HTTP 상태 코드</a></li>
+              <li><a href="/tools/js-minifier/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="JavaScript 압축">JavaScript 압축</a></li>
+              <li><a href="/tools/json-beautifier/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="JSON 꾸미기 및 유효성 검사기">JSON 꾸미기 및 유효성 검사기</a></li>
+              <li><a href="/tools/json-minifier/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="JSON 압축">JSON 압축</a></li>
+              <li><a href="/tools/json-to-csv/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="JSON을 CSV로">JSON을 CSV로</a></li>
+              <li><a href="/tools/jwt-decoder/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="JWT 토큰 디코더">JWT 토큰 디코더</a></li>
+              <li><a href="/tools/keycode-inspector/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="키코드 확인">키코드 확인</a></li>
+              <li><a href="/tools/chmod-calculator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="chmod 권한 계산기">chmod 권한 계산기</a></li>
+              <li><a href="/tools/markdown-table-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="마크다운 표 생성">마크다운 표 생성</a></li>
+              <li><a href="/tools/mime-types/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="MIME 타입 목록">MIME 타입 목록</a></li>
+              <li><a href="/tools/regex-matcher/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="정규식 검사기">정규식 검사기</a></li>
+              <li><a href="/tools/sql-formatter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="SQL 정렬">SQL 정렬</a></li>
+              <li><a href="/tools/subnet-calculator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="서브넷 마스크 계산기">서브넷 마스크 계산기</a></li>
+              <li><a href="/tools/url-encoder-decoder/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="URL 인코딩·디코딩">URL 인코딩·디코딩</a></li>
+              <li><a href="/tools/user-agent-parser/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="사용자 에이전트 분석">사용자 에이전트 분석</a></li>
+              <li><a href="/tools/uuid-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="UUID 생성기">UUID 생성기</a></li>
+              <li><a href="/tools/xml-to-json/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="XML을 JSON으로">XML을 JSON으로</a></li>
+              <li><a href="/tools/yaml-to-json/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="YAML을 JSON으로">YAML을 JSON으로</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2">
+            <h3
+              class="font-bold text-[11px] font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-1.5">
+              생활 계산·단위 변환
+            </h3>
+            <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400">
+              <li><a href="/tools/age-calculator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="나이 및 살아있는 일수 계산기">나이 및 살아있는 일수 계산기</a></li>
+              <li><a href="/tools/aspect-ratio-calculator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="화면 비율 계산기">화면 비율 계산기</a></li>
+              <li><a href="/tools/base-converter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="진법 변환기">진법 변환기</a></li>
+              <li><a href="/tools/compound-interest-calculator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="복리 계산기">복리 계산기</a></li>
+              <li><a href="/tools/data-storage-converter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="데이터 용량 변환기">데이터 용량 변환기</a></li>
+              <li><a href="/tools/date-difference-calculator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="날짜 차이 계산기">날짜 차이 계산기</a></li>
+              <li><a href="/tools/dice-coin-roller/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="주사위 롤러 및 동전 플리퍼">주사위 롤러 및 동전 플리퍼</a></li>
+              <li><a href="/tools/discount-tax-calculator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="할인 및 판매세 계산기">할인 및 판매세 계산기</a></li>
+              <li><a href="/tools/fuel-cost-calculator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="연료비 계산기">연료비 계산기</a></li>
+              <li><a href="/tools/gpa-calculator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="학점 계산기">학점 계산기</a></li>
+              <li><a href="/tools/salary-calculator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="시급·연봉 계산기">시급·연봉 계산기</a></li>
+              <li><a href="/tools/human-date-to-unix/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="날짜를 유닉스 시간으로">날짜를 유닉스 시간으로</a></li>
+              <li><a href="/tools/length-converter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="길이 변환기">길이 변환기</a></li>
+              <li><a href="/tools/matrix-determinant-calculator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="행렬식 계산기">행렬식 계산기</a></li>
+              <li><a href="/tools/percentage-calculator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="퍼센트 계산기">퍼센트 계산기</a></li>
+              <li><a href="/tools/random-number-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="난수 생성기">난수 생성기</a></li>
+              <li><a href="/tools/roman-numeral-converter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="로마 숫자 변환">로마 숫자 변환</a></li>
+              <li><a href="/tools/running-pace-calculator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="달리기 페이스 계산기">달리기 페이스 계산기</a></li>
+              <li><a href="/tools/ppi-calculator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="PPI·DPI 계산기">PPI·DPI 계산기</a></li>
+              <li><a href="/tools/speed-converter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="속도 변환기">속도 변환기</a></li>
+              <li><a href="/tools/temperature-converter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="온도 변환기">온도 변환기</a>
+              </li>
+              <li><a href="/tools/timezone-converter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="시간대 변환기 및 세계 시계">시간대 변환기 및 세계 시계</a></li>
+              <li><a href="/tools/tip-splitter-calculator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="팁 및 청구서 분배기">팁 및 청구서 분배기</a></li>
+              <li><a href="/tools/timestamp-converter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Unix 타임스탬프 및 에포크 변환기">Unix 타임스탬프 및 에포크 변환기</a></li>
+              <li><a href="/tools/weight-converter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="무게 및 질량 변환기">무게 및 질량 변환기</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2">
+            <h3
+              class="font-bold text-[11px] font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-1.5">
+              미디어·CSS·디자인
+            </h3>
+            <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400">
+              <li><a href="/tools/barcode-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="바코드 생성기">바코드 생성기</a></li>
+              <li><a href="/tools/clip-path-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="CSS clip-path 생성기">CSS clip-path 생성기</a></li>
+              <li><a href="/tools/color-converter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="색상 선택기 및 변환기(HEX, RGB, HSL)">색상 선택기 및 변환기(HEX, RGB, HSL)</a></li>
+              <li><a href="/tools/border-radius-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="CSS 모서리 생성기">CSS 모서리 생성기</a></li>
+              <li><a href="/tools/box-shadow-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="CSS 그림자 생성기">CSS 그림자 생성기</a></li>
+              <li><a href="/tools/glassmorphism-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="글래스모피즘 생성기">글래스모피즘 생성기</a></li>
+              <li><a href="/tools/gradient-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="CSS 그라데이션 생성기">CSS 그라데이션 생성기</a></li>
+              <li><a href="/tools/favicon-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="파비콘 생성기">파비콘 생성기</a></li>
+              <li><a href="/tools/image-filter-tool/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="이미지 필터·흑백">이미지 필터·흑백</a></li>
+              <li><a href="/tools/image-cropper/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="이미지 자르기">이미지 자르기</a></li>
+              <li><a href="/tools/image-resizer/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="이미지 크기 조절">이미지 크기 조절</a></li>
+              <li><a href="/tools/qr-code-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="QR 코드 생성기">QR 코드 생성기</a></li>
+              <li><a href="/tools/palette-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="색상 팔레트 생성기">색상 팔레트 생성기</a></li>
+              <li><a href="/tools/svg-path-visualizer/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="SVG 경로 보기">SVG 경로 보기</a></li>
+              <li><a href="/tools/quote-card-maker/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="인용 카드 만들기">인용 카드 만들기</a></li>
+              <li><a href="/tools/contrast-checker/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="색 대비 검사">색 대비 검사</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2">
+            <h3
+              class="font-bold text-[11px] font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-1.5">
+              빠른 도구
+            </h3>
+            <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400">
+              <li><a href="/tools/storage-cleaner/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="브라우저 저장소 지우기">브라우저 저장소 지우기</a></li>
+              <li><a href="/tools/countdown-timer/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="카운트다운 타이머">카운트다운 타이머</a></li>
+              <li><a href="/tools/diceware-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Diceware 암호 문구">Diceware 암호 문구</a></li>
+              <li><a href="/tools/scratchpad/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="브라우저 메모장">브라우저 메모장</a></li>
+              <li><a href="/tools/network-latency-checker/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="지연 시간 확인">지연 시간 확인</a></li>
+              <li><a href="/tools/pomodoro-timer/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="포모도로 타이머">포모도로 타이머</a></li>
+              <li><a href="/tools/screen-inspector/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="화면 해상도 및 뷰포트 검사기">화면 해상도 및 뷰포트 검사기</a></li>
+              <li><a href="/tools/stopwatch-timer/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="스톱워치 및 랩 추적기">스톱워치 및 랩 추적기</a></li>
+              <li><a href="/tools/password-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="비밀번호 생성기">비밀번호 생성기</a></li>
+              <li><a href="/tools/tap-tempo-bpm/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="탭 템포·BPM">탭 템포·BPM</a></li>
+              <li><a href="/tools/metronome/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="메트로놈">메트로놈</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2">
+            <h3
+              class="font-bold text-[11px] font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-1.5">
+              텍스트·서식
+            </h3>
+            <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400">
+              <li><a href="/tools/case-converter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="대소문자 변환기">대소문자 변환기</a></li>
+              <li><a href="/tools/discord-markdown-styler/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="디스코드 마크다운">디스코드 마크다운</a></li>
+              <li><a href="/tools/remove-duplicate-lines/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="중복 줄 제거">중복 줄 제거</a></li>
+              <li><a href="/tools/emoji-stripper/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="이모지 제거">이모지 제거</a></li>
+              <li><a href="/tools/extract-emails/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="텍스트에서 이메일 추출">텍스트에서 이메일 추출</a></li>
+              <li><a href="/tools/extract-urls/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="텍스트에서 URL 추출">텍스트에서 URL 추출</a></li>
+              <li><a href="/tools/fancy-unicode-fonts/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="유니코드 꾸밈 글꼴">유니코드 꾸밈 글꼴</a></li>
+              <li><a href="/tools/invisible-character-remover/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="보이지 않는 문자 및 제로 너비 스트리퍼">보이지 않는 문자 및 제로 너비 스트리퍼</a></li>
+              <li><a href="/tools/line-numberer/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="줄 번호 매기기">줄 번호 매기기</a></li>
+              <li><a href="/tools/lorem-ipsum-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="로렘 입숨 생성기">로렘 입숨 생성기</a></li>
+              <li><a href="/tools/markdown-previewer/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Markdown 라이브 미리보기 및 내보내기">Markdown 라이브 미리보기 및 내보내기</a></li>
+              <li><a href="/tools/morse-code-translator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="모스 부호 번역">모스 부호 번역</a></li>
+              <li><a href="/tools/nato-phonetic-converter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="NATO 음성 알파벳">NATO 음성 알파벳</a></li>
+              <li><a href="/tools/reading-time-estimator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="읽기 시간 계산기">읽기 시간 계산기</a></li>
+              <li><a href="/tools/regex-find-replace/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="정규식 찾기 및 바꾸기">정규식 찾기 및 바꾸기</a></li>
+              <li><a href="/tools/remove-whitespace/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="추가 공백 및 공백 제거">추가 공백 및 공백 제거</a></li>
+              <li><a href="/tools/remove-line-breaks/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="줄바꿈 제거">줄바꿈 제거</a></li>
+              <li><a href="/tools/reverse-text/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="역방향 텍스트(문자 및 단어)">역방향 텍스트(문자 및 단어)</a></li>
+              <li><a href="/tools/sort-lines/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="줄 정렬 (가나다·알파벳)">줄 정렬 (가나다·알파벳)</a></li>
+              <li><a href="/tools/strip-html-tags/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="HTML 태그 제거">HTML 태그 제거</a></li>
+              <li><a href="/tools/text-diff/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="텍스트 비교">텍스트 비교</a></li>
+              <li><a href="/tools/text-binary-converter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="텍스트·2진수 변환">텍스트·2진수 변환</a></li>
+              <li><a href="/tools/text-hex-converter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="텍스트·16진수 변환">텍스트·16진수 변환</a></li>
+              <li><a href="/tools/slug-generator/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="URL 슬러그 생성기">URL 슬러그 생성기</a></li>
+              <li><a href="/tools/word-counter/ko"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="글자수 세기">글자수 세기</a></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    </section>
+    <div
+      class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-zinc-200/80 dark:border-zinc-800/80">
+      <div class="flex items-center gap-2 font-mono text-[11px]">
+        <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span>105 클라이언트 측 마이크로 유틸리티</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span class="text-emerald-600 dark:text-emerald-400 font-medium">100% 오프라인 준비</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs">
+        <a href="/pages/about/ko" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">소개</a>
+        <a href="/pages/contact/ko" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">문의</a>
+        <a href="/pages/privacy/ko" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">개인정보 처리방침</a>
+        <a href="/pages/terms/ko" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">이용약관</a>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer"
+          class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Helpers, Tool Modules, Registry, and Core App -->
+  <script src="/js/utils.js"></script>
+  <script src="/js/tools/text.js"></script>
+  <script src="/js/tools/dev.js"></script>
+  <script src="/js/tools/math.js"></script>
+  <script src="/js/tools/media.js"></script>
+  <script src="/js/tools/quick.js"></script>
+  <script src="/js/registry.js"></script>
+  <script src="/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      App.init();
+
+      // Register PWA Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch((err) => {
+            console.warn('PWA Service Worker registration failed:', err);
+          });
+        });
+      }
+    });
+  </script>
+<script>window.OMNI_LANG="ko";</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n/ko.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var run = function () {
+    var arena = document.getElementById("tool-arena");
+    if (arena && window.OmniI18n) window.OmniI18n.translateRoot(arena);
+  };
+  run();
+  setTimeout(run, 0);
+});
+</script>
+</body>
+
+</html>

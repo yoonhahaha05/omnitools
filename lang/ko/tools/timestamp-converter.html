@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unix 타임스탬프 및 에포크 변환기 - 무료 온라인 도구(100% 클라이언트측) | OmniTools</title>
+  <meta name="description" content="Unix 에포크 타임스탬프(초 및 밀리초)를 사람이 읽을 수 있는 날짜로 변환하고 날짜를 다시 타임스탬프로 구문 분석합니다.">
+  <meta name="keywords" content="유닉스 타임스탬프, 에포크 변환기, 현재까지의 타임스탬프, 현재 타임스탬프, 에포크 시간">
+  <link rel="canonical" href="https://getomnitools.com/tools/timestamp-converter/ko">
+<!-- omni-hreflang -->
+  <link rel="alternate" hreflang="en" href="https://getomnitools.com/tools/timestamp-converter">
+  <link rel="alternate" hreflang="x-default" href="https://getomnitools.com/tools/timestamp-converter">
+  <link rel="alternate" hreflang="ko" href="https://getomnitools.com/tools/timestamp-converter/ko">
+  <link rel="alternate" hreflang="es" href="https://getomnitools.com/tools/timestamp-converter/es">
+  <link rel="alternate" hreflang="pt-BR" href="https://getomnitools.com/tools/timestamp-converter/pt">
+  <link rel="alternate" hreflang="de" href="https://getomnitools.com/tools/timestamp-converter/de">
+  <link rel="alternate" hreflang="fr" href="https://getomnitools.com/tools/timestamp-converter/fr">
+  <!-- /omni-hreflang -->
+
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0e1117">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Unix 타임스탬프 및 에포크 변환기 - 무료 온라인 도구(100% 클라이언트측) | OmniTools">
+  <meta property="og:description" content="Unix 에포크 타임스탬프(초 및 밀리초)를 사람이 읽을 수 있는 날짜로 변환하고 날짜를 다시 타임스탬프로 구문 분석합니다.">
+  <meta property="og:url" content="https://getomnitools.com/tools/timestamp-converter/ko">
+  <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:secure_url" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Unix 타임스탬프 및 에포크 변환기 - OmniTools">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Unix 타임스탬프 및 에포크 변환기 - 무료 온라인 도구(100% 클라이언트측) | OmniTools">
+  <meta name="twitter:description" content="Unix 에포크 타임스탬프(초 및 밀리초)를 사람이 읽을 수 있는 날짜로 변환하고 날짜를 다시 타임스탬프로 구문 분석합니다.">
+  <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
+
+  <!-- Search Engine Verification -->
+  <meta name="google-site-verification" content="">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google AdSense Configuration & Script -->
+  <script>
+    window.ADSENSE_CONFIG = {
+      client: 'ca-pub-3261737439776294',
+      slotHome: '5934296997',
+      slotTool: '5934296997',
+      slotSidebar: '5934296997'
+    };
+    window.adsbygoogle = window.adsbygoogle || [];
+  </script>
+  <script src="/js/consent.js" defer></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- JSON-LD Structured Data for Search Engines -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "유닉스 타임스탬프 변환",
+  "url": "https://getomnitools.com/tools/timestamp-converter/ko",
+  "description": "Unix 에포크 타임스탬프(초 및 밀리초)를 사람이 읽을 수 있는 날짜로 변환하고 날짜를 다시 타임스탬프로 구문 분석합니다.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://getomnitools.com/ko"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "생활 계산·단위 변환",
+      "item": "https://getomnitools.com/categories/everyday-math/ko"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "유닉스 타임스탬프 변환",
+      "item": "https://getomnitools.com/tools/timestamp-converter/ko"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "에포크 시간이란 무엇입니까?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "에포크 시간은 1970년 1월 1일 UTC 이후 경과된 초 수입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "일부 타임스탬프의 숫자가 13자리인 이유는 무엇입니까?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JavaScript Date.now()는 밀리초를 반환합니다. 대부분의 데이터베이스와 Python의 time.time()에서 Unix 시간은 초입니다. 10자리는 초를 의미합니다. 13자리는 밀리초를 의미합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "변환기가 내 시계를 변경합니까?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 붙여넣은 타임스탬프만 읽고 브라우저의 날짜 개체로 형식을 지정합니다."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Unix 타임스탬프 및 에포크 변환기 사용 방법",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "text": "날짜를 디코딩하려면 Unix 타임스탬프를 붙여넣으세요."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "text": "현재 에포크 타임스탬프를 복사합니다."
+    }
+  ]
+}
+  </script>
+</head>
+<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+<!-- omni-langbar -->
+<div class="omni-langbar" aria-label="Language">
+<a href="https://getomnitools.com/tools/timestamp-converter" hreflang="en">English</a>
+<a href="https://getomnitools.com/tools/timestamp-converter/ko" hreflang="ko" aria-current="page">한국어</a>
+<a href="https://getomnitools.com/tools/timestamp-converter/es" hreflang="es">Español</a>
+<a href="https://getomnitools.com/tools/timestamp-converter/pt" hreflang="pt-BR">Português</a>
+<a href="https://getomnitools.com/tools/timestamp-converter/de" hreflang="de">Deutsch</a>
+<a href="https://getomnitools.com/tools/timestamp-converter/fr" hreflang="fr">Français</a>
+</div>
+<!-- /omni-langbar -->
+
+
+  <!-- Primary Top Navbar -->
+  <header class="sticky top-0 z-30 bg-white/95 dark:bg-[#0e1117]/95 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
+      
+      <!-- Brand -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="/ko" class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+          </div>
+          <span class="font-bold text-base tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
+        </a>
+      </div>
+
+      <!-- Quick Search / Catalog Link -->
+      <div class="flex-1 max-w-md mx-4 hidden sm:block">
+        <a href="/ko" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-850 bg-zinc-100/70 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
+          <span>도구 검색...</span>
+          <kbd class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-300/70 dark:border-zinc-750 bg-white dark:bg-zinc-800/80 text-zinc-400 shadow-2xs">⌘K</kbd>
+        </a>
+      </div>
+
+      <!-- Action Controls -->
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="/categories/everyday-math/ko" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+          <i data-lucide="folder" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">생활 계산·단위 변환</span>
+        </a>
+
+        <a href="/ko" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">모든 도구</span>
+        </a>
+
+        <button id="theme-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-600 dark:text-zinc-300 transition" title="테마 전환">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full space-y-6">
+    
+    <!-- Breadcrumbs & Tool Action Buttons -->
+    <div class="breadcrumb-bar flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">
+        <a href="/ko" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">목록</a>
+        <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
+        <a href="/categories/everyday-math/ko" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">생활 계산·단위 변환</a>
+        <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
+        <span class="text-zinc-900 dark:text-zinc-200 font-semibold">유닉스 타임스탬프 변환</span>
+      </div>
+    </div>
+
+    <!-- Tool Header -->
+    <div class="tool-header-card p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
+      <div class="flex items-start gap-3.5">
+        <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center shrink-0">
+          <i data-lucide="wrench" class="w-4 h-4 tool-main-icon"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+          <h1 class="text-lg sm:text-xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">
+            유닉스 타임스탬프 변환
+          </h1>
+          <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">
+            로그의 번호를 붙여넣으세요. 날짜가 보입니다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Tool Arena Container -->
+    <div id="tool-arena" class="p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
+      <div class="text-xs text-zinc-400 font-mono py-8 text-center">도구를 불러오는 중...</div>
+    </div>
+
+    <div class="tool-action-bar flex items-center gap-2">
+        <button id="tool-fav-btn" data-tool-id="timestamp-converter" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
+          <i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span id="fav-label">즐겨찾기</span>
+        </button>
+        <button id="tool-share-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
+          <i data-lucide="link" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span>공유</span>
+        </button>
+        <button id="tool-embed-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs" title="삽입 가능한 위젯 스니펫 복사">
+          <i data-lucide="code" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span>임베드</span>
+        </button>
+      </div>
+
+    <div class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-500">
+      <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+      <span>입력한 내용은 이 기기에만 남습니다. 광고는 쿠키를 사용합니다.</span>
+    </div>
+
+    <!-- Embed Mode Attribution Banner (shown only when embedded inside iframes) -->
+    <div class="embed-attribution p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 items-center justify-between text-xs">
+      <a href="https://getomnitools.com" target="_blank" rel="noopener" class="flex items-center gap-1.5 font-semibold text-zinc-900 dark:text-white">
+        <span class="w-4 h-4 rounded bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center"><i data-lucide="wrench" class="w-2.5 h-2.5"></i></span>
+        <span>OmniTools</span>
+      </a>
+      <span class="text-zinc-400 text-[11px]">무료 브라우저 웹 도구</span>
+    </div>
+
+    <!-- Google AdSense Responsive Placement -->
+    <div class="ad-slot-wrapper w-full p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 my-6">
+      <div class="ad-label text-zinc-400 dark:text-zinc-500 mb-2">광고</div>
+      <div class="w-full flex justify-center items-center overflow-hidden min-h-[90px]">
+        <ins class="adsbygoogle"
+             style="display:block;width:100%;"
+             data-ad-client="ca-pub-3261737439776294"
+             data-ad-slot="5934296997"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+
+    <!-- Pre-rendered Semantic SEO Article, Instructions & Technical Notes -->
+    <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
+      <div>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">개요 및 알고리즘 메커니즘</h2>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Unix 타임스탬프는 1970-01-01 00:00:00 UTC 이후의 초를 계산합니다. 그 순간을 에포크(epoch)라고 합니다. 10자리 숫자는 초입니다. 13자리 숫자는 밀리초입니다. 이 변환기는 10,000,000,000 미만의 값을 초로 처리하고 날짜를 작성하기 전에 여기에 1,000을 곱합니다. 더 큰 값은 이미 밀리초입니다.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">페이지에는 UTC와 사용 중인 컴퓨터의 시간대로 동일한 순간이 표시됩니다.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">작업된 예입니다. 1700000000은 10자리이므로 초입니다. 2023-11-14 22:13:20 UTC입니다. 컴퓨터가 한국 표준시(UTC+9)로 설정된 경우 로컬 회선은 Wed Nov 15 2023 07:13:20 GMT+0900으로 표시됩니다.</p>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">기술 사양</h3>
+        <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+          <table class="w-full text-left bg-zinc-50/40 dark:bg-zinc-900/20">
+            <thead class="bg-zinc-100/80 dark:bg-zinc-800/60">
+              <tr><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Digits</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Unit</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Example</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">UTC 결과</th></tr>
+            </thead>
+            <tbody>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">10</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Seconds</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1700000000</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">2023-11-14 22:13:20</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">13</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Milliseconds</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1700000000000</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">2023-11-14 22:13:20</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">10</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Seconds</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">0</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1970-01-01 00:00:00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">사용 예</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>로그 라인:</strong> 서버 로그에는 1700000000이 저장됩니다. 직접 초를 계산하는 대신 UTC 시간을 보려면 붙여넣으세요.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>API 필드:</strong> JSON은 종종 Create_at를 초로 저장합니다. 숫자가 13자리이면 이미 밀리초이므로 다시 1,000을 곱하면 안 됩니다.</li>
+        </ul>
+      </div>
+
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">기능</h3>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+            <li>활성 실시간 라이브 에포크 티커</li>
+            <li>초 대 밀리초 자동 감지</li>
+            <li>UTC 및 지역 오프셋</li>
+        </ul>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">사용 방법</h3>
+        <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+            <li>날짜를 디코딩하려면 Unix 타임스탬프를 붙여넣으세요.</li>
+            <li>현재 에포크 타임스탬프를 복사합니다.</li>
+        </ol>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-3">자주 묻는 질문</h3>
+        <div class="space-y-2.5">
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">에포크 시간이란 무엇입니까?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">에포크 시간은 1970년 1월 1일 UTC 이후 경과된 초 수입니다.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">일부 타임스탬프의 숫자가 13자리인 이유는 무엇입니까?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">JavaScript Date.now()는 밀리초를 반환합니다. 대부분의 데이터베이스와 Python의 time.time()에서 Unix 시간은 초입니다. 10자리는 초를 의미합니다. 13자리는 밀리초를 의미합니다.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">변환기가 내 시계를 변경합니까?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">아니요. 붙여넣은 타임스탬프만 읽고 브라우저의 날짜 개체로 형식을 지정합니다.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Related Utilities (Internal Linking Engine for Google SEO) -->
+    <div class="related-tools-section space-y-3 pt-2">
+      <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">관련 일상 수학 및 변환기 유틸리티</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+
+        <a href="/tools/percentage-calculator/ko" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">생활 계산·단위 변환</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
+          </div>
+          <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">퍼센트 계산기</div>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">숫자를 입력하세요. 백분율, 증가 또는 감소를 얻습니다.</p>
+        </a>
+
+        <a href="/tools/discount-tax-calculator/ko" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">생활 계산·단위 변환</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
+          </div>
+          <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">할인·세금 계산기</div>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">가격, 할인율, 세율을 입력하세요. 당신은 당신이 지불하는 것을 볼 수 있습니다.</p>
+        </a>
+
+        <a href="/tools/tip-splitter-calculator/ko" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">생활 계산·단위 변환</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
+          </div>
+          <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">팁·더치페이 계산기</div>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">청구서, 팁, 인원수를 입력하세요. 각 공유가 표시됩니다.</p>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="mt-auto border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#0e1117] text-zinc-500 dark:text-zinc-400 text-xs py-7 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 font-mono text-[11px]">
+        <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span>105 클라이언트 측 마이크로 유틸리티</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs">
+        <a href="/pages/about/ko" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">소개</a>
+        <a href="/pages/contact/ko" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">문의</a>
+        <a href="/pages/privacy/ko" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">개인정보 처리방침</a>
+        <a href="/pages/terms/ko" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">이용약관</a>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/utils.js"></script>
+  <script src="/js/tools/text.js"></script>
+  <script src="/js/tools/dev.js"></script>
+  <script src="/js/tools/math.js"></script>
+  <script src="/js/tools/media.js"></script>
+  <script src="/js/tools/quick.js"></script>
+  <script src="/js/registry.js"></script>
+  <script src="/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Setup theme
+      App.setupTheme();
+
+      // Check for embed mode parameter (?embed=true or #embed)
+      if (window.location.search.includes('embed=true') || window.location.hash.includes('embed')) {
+        document.body.classList.add('embed-mode');
+      }
+      
+      // Mount interactive tool
+      const tool = ToolRegistry.getToolById('timestamp-converter');
+      const arena = document.getElementById('tool-arena');
+      if (tool && arena && typeof tool.render === 'function') {
+        try {
+          tool.render(arena);
+        } catch (err) {
+          console.error('Error rendering tool:', err);
+          arena.innerHTML = `<div class="p-4 bg-rose-50 text-rose-700 rounded-lg text-xs">Error rendering tool: ${err.message}</div>`;
+        }
+      }
+      
+      // Update main icon
+      if (tool) {
+        const iconName = Utils.getIconName(tool.icon, tool.category);
+        const iconEl = document.querySelector('.tool-main-icon');
+        if (iconEl) {
+          iconEl.setAttribute('data-lucide', iconName);
+        }
+      }
+      
+      // Favorite button
+      const favBtn = document.getElementById('tool-fav-btn');
+      if (favBtn) {
+        const isFav = Utils.storage.isFavorite('timestamp-converter');
+        const starIcon = isFav ? '<i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i>' : '<i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>';
+        favBtn.innerHTML = `${starIcon}<span>${isFav ? '즐겨찾기에 추가됨' : '즐겨찾기'}</span>`;
+        favBtn.addEventListener('click', () => {
+          const added = Utils.storage.toggleFavorite('timestamp-converter');
+          const updatedStar = added ? '<i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i>' : '<i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>';
+          favBtn.innerHTML = `${updatedStar}<span>${added ? '즐겨찾기에 추가됨' : '즐겨찾기'}</span>`;
+          Utils.refreshIcons();
+        });
+      }
+      
+      // Share button
+      const shareBtn = document.getElementById('tool-share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          Utils.copyToClipboard(window.location.href, '링크를 복사했습니다');
+        });
+      }
+
+      // Embed button
+      const embedBtn = document.getElementById('tool-embed-btn');
+      if (embedBtn) {
+        embedBtn.addEventListener('click', () => {
+          const embedCode = `<iframe src="https://getomnitools.com/tools/timestamp-converter?embed=true" width="100%" height="450" frameborder="0" style="border:1px solid #e4e4e7;border-radius:12px;overflow:hidden;" title="Unix Timestamp &amp; Epoch Converter"></iframe>`;
+          Utils.copyToClipboard(embedCode, '임베드 코드를 복사했습니다');
+        });
+      }
+      
+      Utils.refreshIcons();
+      Utils.initAdUnits();
+
+      // Register PWA Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => console.warn('SW failed:', err));
+        });
+      }
+    });
+  </script>
+<script>window.OMNI_LANG="ko";</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n/ko.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var run = function () {
+    var arena = document.getElementById("tool-arena");
+    if (arena && window.OmniI18n) window.OmniI18n.translateRoot(arena);
+  };
+  run();
+  setTimeout(run, 0);
+});
+</script>
+</body>
+</html>

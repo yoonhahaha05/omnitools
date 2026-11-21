@@ -115,3 +115,13 @@
 /tools/word-counter.html /tools/word-counter 301
 /tools/xml-to-json.html /tools/xml-to-json 301
 /tools/yaml-to-json.html /tools/yaml-to-json 301
+
+# Language rewrites. English URLs stay unchanged.
+/ko   /lang/ko/index.html   200
+/es   /lang/es/index.html   200
+/pt   /lang/pt/index.html   200
+/de   /lang/de/index.html   200
+/fr   /lang/fr/index.html   200
+/tools/:tool/:lang   /lang/:lang/tools/:tool.html   200
+/categories/:cat/:lang   /lang/:lang/categories/:cat.html   200
+/pages/:page/:lang   /lang/:lang/pages/:page.html   200

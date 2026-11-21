@@ -40,9 +40,14 @@ const ToolRegistry = {
     if (!query) return this.getAllTools();
     const q = query.toLowerCase().trim();
     return this.getAllTools().filter(t => {
-      const matchTitle = t.title.toLowerCase().includes(q);
-      const matchDesc = t.description.toLowerCase().includes(q);
-      const matchKeywords = t.keywords && t.keywords.some(k => k.toLowerCase().includes(q));
+      const title = window.OmniI18n ? window.OmniI18n.t(t.title) : t.title;
+      const desc = window.OmniI18n ? window.OmniI18n.t(t.description) : t.description;
+      const matchTitle = t.title.toLowerCase().includes(q) || String(title).toLowerCase().includes(q);
+      const matchDesc = t.description.toLowerCase().includes(q) || String(desc).toLowerCase().includes(q);
+      const matchKeywords = t.keywords && t.keywords.some(k => {
+        const translated = window.OmniI18n ? window.OmniI18n.t(k) : k;
+        return k.toLowerCase().includes(q) || String(translated).toLowerCase().includes(q);
+      });
       return matchTitle || matchDesc || matchKeywords;
     });
   }

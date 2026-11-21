@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador de palabras: cuente palabras, caracteres y tiempo de lectura en línea | OmniTools</title>
+  <meta name="description" content="Contador preciso de palabras, caracteres, oraciones, párrafos y estimador del tiempo de lectura en tiempo real.">
+  <meta name="keywords" content="contador de palabras, recuento de caracteres, tiempo de lectura, contador de letras, longitud del texto, tiempo de conversación">
+  <link rel="canonical" href="https://getomnitools.com/tools/word-counter/es">
+<!-- omni-hreflang -->
+  <link rel="alternate" hreflang="en" href="https://getomnitools.com/tools/word-counter">
+  <link rel="alternate" hreflang="x-default" href="https://getomnitools.com/tools/word-counter">
+  <link rel="alternate" hreflang="ko" href="https://getomnitools.com/tools/word-counter/ko">
+  <link rel="alternate" hreflang="es" href="https://getomnitools.com/tools/word-counter/es">
+  <link rel="alternate" hreflang="pt-BR" href="https://getomnitools.com/tools/word-counter/pt">
+  <link rel="alternate" hreflang="de" href="https://getomnitools.com/tools/word-counter/de">
+  <link rel="alternate" hreflang="fr" href="https://getomnitools.com/tools/word-counter/fr">
+  <!-- /omni-hreflang -->
+
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0e1117">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contador de palabras: cuente palabras, caracteres y tiempo de lectura en línea | OmniTools">
+  <meta property="og:description" content="Contador preciso de palabras, caracteres, oraciones, párrafos y estimador del tiempo de lectura en tiempo real.">
+  <meta property="og:url" content="https://getomnitools.com/tools/word-counter/es">
+  <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:secure_url" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Contador de palabras y caracteres - OmniTools">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contador de palabras: cuente palabras, caracteres y tiempo de lectura en línea | OmniTools">
+  <meta name="twitter:description" content="Contador preciso de palabras, caracteres, oraciones, párrafos y estimador del tiempo de lectura en tiempo real.">
+  <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
+
+  <!-- Search Engine Verification -->
+  <meta name="google-site-verification" content="">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google AdSense Configuration & Script -->
+  <script>
+    window.ADSENSE_CONFIG = {
+      client: 'ca-pub-3261737439776294',
+      slotHome: '5934296997',
+      slotTool: '5934296997',
+      slotSidebar: '5934296997'
+    };
+    window.adsbygoogle = window.adsbygoogle || [];
+  </script>
+  <script src="/js/consent.js" defer></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- JSON-LD Structured Data for Search Engines -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Contador de palabras y caracteres",
+  "url": "https://getomnitools.com/tools/word-counter/es",
+  "description": "Contador de palabras y calculadora de caracteres en línea gratuitos. Cuente instantáneamente palabras, caracteres con o sin espacios, oraciones, párrafos y tiempo de lectura en tiempo real.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://getomnitools.com/es"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Texto y formato",
+      "item": "https://getomnitools.com/categories/text-formatting/es"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Contador de palabras y caracteres",
+      "item": "https://getomnitools.com/tools/word-counter/es"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo se calcula el tiempo de lectura?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El tiempo de lectura se calcula utilizando un punto de referencia estándar de la industria de 200 palabras por minuto para la lectura silenciosa de un adulto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Mi texto se carga o almacena en algún servidor remoto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nunca. Todos los cálculos se realizan íntegramente dentro de su navegador a través de JavaScript. OmniTools no recopila datos personales ni documentales."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se calcula el tiempo de lectura?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los puntos de referencia estándar de velocidad de lectura silenciosa para adultos oscilan entre 200 y 250 palabras por minuto. OmniTools tiene por defecto una línea base estándar de la industria de 200 palabras por minuto para una comprensión clara."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo maneja OmniTools las palabras con guiones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las palabras con guiones, como \"del lado del cliente\" o \"en tiempo real\", se tratan como unidades de palabras semánticas únicas, que coinciden con las guías de estilo estándar y las reglas de indexación de búsqueda de Google."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Mi borrador de texto está almacenado o indexado en algún lugar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nunca. El texto nunca sale de la ventana de su navegador. Nunca se registran, envían a servidores ni se utilizan borradores para el entrenamiento de IA."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Cómo utilizar el contador de palabras y caracteres",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "text": "Pegue o escriba su texto directamente en el cuadro de entrada principal."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "text": "Vea las métricas actualizándose instantáneamente en el panel de resumen a continuación."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "text": "Haga clic en \"Texto de muestra\" para probar la herramienta o en \"Borrar\" para restablecer el tablero."
+    }
+  ]
+}
+  </script>
+</head>
+<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+<!-- omni-langbar -->
+<div class="omni-langbar" aria-label="Language">
+<a href="https://getomnitools.com/tools/word-counter" hreflang="en">English</a>
+<a href="https://getomnitools.com/tools/word-counter/ko" hreflang="ko">한국어</a>
+<a href="https://getomnitools.com/tools/word-counter/es" hreflang="es" aria-current="page">Español</a>
+<a href="https://getomnitools.com/tools/word-counter/pt" hreflang="pt-BR">Português</a>
+<a href="https://getomnitools.com/tools/word-counter/de" hreflang="de">Deutsch</a>
+<a href="https://getomnitools.com/tools/word-counter/fr" hreflang="fr">Français</a>
+</div>
+<!-- /omni-langbar -->
+
+
+  <!-- Primary Top Navbar -->
+  <header class="sticky top-0 z-30 bg-white/95 dark:bg-[#0e1117]/95 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
+      
+      <!-- Brand -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="/es" class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+          </div>
+          <span class="font-bold text-base tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
+        </a>
+      </div>
+
+      <!-- Quick Search / Catalog Link -->
+      <div class="flex-1 max-w-md mx-4 hidden sm:block">
+        <a href="/es" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-850 bg-zinc-100/70 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
+          <span>Buscar herramientas...</span>
+          <kbd class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-300/70 dark:border-zinc-750 bg-white dark:bg-zinc-800/80 text-zinc-400 shadow-2xs">⌘K</kbd>
+        </a>
+      </div>
+
+      <!-- Action Controls -->
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="/categories/text-formatting/es" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+          <i data-lucide="folder" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">Texto y formato</span>
+        </a>
+
+        <a href="/es" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">Todas las herramientas</span>
+        </a>
+
+        <button id="theme-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-600 dark:text-zinc-300 transition" title="Cambiar tema">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full space-y-6">
+    
+    <!-- Breadcrumbs & Tool Action Buttons -->
+    <div class="breadcrumb-bar flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">
+        <a href="/es" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Catálogo</a>
+        <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
+        <a href="/categories/text-formatting/es" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Texto y formato</a>
+        <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
+        <span class="text-zinc-900 dark:text-zinc-200 font-semibold">Contador de palabras y caracteres</span>
+      </div>
+    </div>
+
+    <!-- Tool Header -->
+    <div class="tool-header-card p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
+      <div class="flex items-start gap-3.5">
+        <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center shrink-0">
+          <i data-lucide="wrench" class="w-4 h-4 tool-main-icon"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+          <h1 class="text-lg sm:text-xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">
+            Contador de palabras y caracteres
+          </h1>
+          <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">
+            Pegue el ensayo, título o mensaje. El recuento se actualiza a medida que escribe.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Tool Arena Container -->
+    <div id="tool-arena" class="p-5 sm:p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs">
+      <div class="text-xs text-zinc-400 font-mono py-8 text-center">Cargando la herramienta...</div>
+    </div>
+
+    <div class="tool-action-bar flex items-center gap-2">
+        <button id="tool-fav-btn" data-tool-id="word-counter" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
+          <i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span id="fav-label">Favorito</span>
+        </button>
+        <button id="tool-share-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs">
+          <i data-lucide="link" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span>Compartir</span>
+        </button>
+        <button id="tool-embed-btn" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 font-medium transition flex items-center gap-1.5 text-xs" title="Copiar fragmento de widget integrable">
+          <i data-lucide="code" class="w-3.5 h-3.5 text-zinc-400"></i>
+          <span>Insertar</span>
+        </button>
+      </div>
+
+    <div class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-500">
+      <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+      <span>Lo que escribes se queda en este dispositivo. Los anuncios usan cookies.</span>
+    </div>
+
+    <!-- Embed Mode Attribution Banner (shown only when embedded inside iframes) -->
+    <div class="embed-attribution p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 items-center justify-between text-xs">
+      <a href="https://getomnitools.com" target="_blank" rel="noopener" class="flex items-center gap-1.5 font-semibold text-zinc-900 dark:text-white">
+        <span class="w-4 h-4 rounded bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center"><i data-lucide="wrench" class="w-2.5 h-2.5"></i></span>
+        <span>OmniTools</span>
+      </a>
+      <span class="text-zinc-400 text-[11px]">Utilidades web gratuitas en el navegador</span>
+    </div>
+
+    <!-- Google AdSense Responsive Placement -->
+    <div class="ad-slot-wrapper w-full p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 my-6">
+      <div class="ad-label text-zinc-400 dark:text-zinc-500 mb-2">Anuncio</div>
+      <div class="w-full flex justify-center items-center overflow-hidden min-h-[90px]">
+        <ins class="adsbygoogle"
+             style="display:block;width:100%;"
+             data-ad-client="ca-pub-3261737439776294"
+             data-ad-slot="5934296997"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+
+    <!-- Pre-rendered Semantic SEO Article, Instructions & Technical Notes -->
+    <article class="seo-deep-dive p-6 sm:p-7 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 shadow-2xs space-y-6 text-xs sm:text-sm">
+      <div>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Descripción general y mecánica algorítmica</h2>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">El contador de palabras divide el texto en espacios en blanco. Una palabra dividida con guiones, como del lado del cliente, permanece como una palabra, porque la división se produce en espacios, tabulaciones y saltos de línea, no en puntuación. Los caracteres tienen la longitud de la cadena, incluidos los espacios. El recuento sin espacios elimina primero los espacios en blanco.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Una oración es un fragmento de texto que termina con un punto, un signo de interrogación o de exclamación. Un párrafo es un bloque separado por una línea en blanco.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">El tiempo de lectura utiliza 200 palabras por minuto, una estimación común para la lectura silenciosa de adultos. La página muestra esa duración en segundos hasta llegar al minuto.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Ejemplo resuelto. Pega esta línea:</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Envíe el formateador JSON hoy. Verifique la diferencia antes de fusionarse.</p>
+        <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-xs sm:text-sm mt-2 whitespace-pre-line">Son 11 palabras, 63 caracteres y 53 caracteres sin espacios. Son 2 oraciones y 1 párrafo. El tiempo de lectura es de 3 segundos, porque 11 palabras a 200 palabras por minuto son 3,3 segundos y el contador lo redondea a 3.</p>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Especificaciones técnicas</h3>
+        <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+          <table class="w-full text-left bg-zinc-50/40 dark:bg-zinc-900/20">
+            <thead class="bg-zinc-100/80 dark:bg-zinc-800/60">
+              <tr><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Medio de publicación</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Longitud recomendada</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Prioridad métrica</th><th class="px-3.5 py-2.5 text-left font-mono font-bold text-[11px] text-zinc-900 dark:text-zinc-100">Objetivo de optimización</th></tr>
+            </thead>
+            <tbody>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Metatítulo SEO</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">50 a 60 caracteres</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Personajes (con espacios)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Evitar el truncamiento de píxeles SERP</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Meta descripción SEO</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">150–160 caracteres</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Personajes (con espacios)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Maximizar la tasa de clics de búsqueda</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">X / Publicación de Twitter</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">280 caracteres</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Clústeres de grafemas</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Legibilidad de un solo tweet</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Artículo de publicación de blog</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">1200 a 2500 palabras</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Recuento de palabras y tiempo de lectura.</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Autoridad temática integral</td></tr>
+<tr><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Discurso (5 minutos)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">650–750 palabras</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Tiempo de conversación (130–150 palabras por minuto)</td><td class="px-3.5 py-2 text-[11px] text-zinc-600 dark:text-zinc-300 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono">Cadencia de presentación natural</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Ejemplos de uso</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Contenido y redacción publicitaria:</strong> Cumplir con límites estrictos de caracteres para los metatítulos de la Búsqueda de Google (50 a 60 caracteres), las meta descripciones (150 a 160 caracteres) y las publicaciones en las redes sociales.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Redacción académica y de ensayos:</strong> Monitorear los límites del recuento de palabras para trabajos de tesis universitarias, ensayos de becas y revistas académicas.</li>
+        <li class="p-3.5 rounded-xl bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70 leading-relaxed"><strong>Preparación de conferencias magistrales y podcasts:</strong> Estimar la duración exacta de los discursos para presentaciones de conferencias y guiones de locución.</li>
+        </ul>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">Equivalentes de terminales y códigos para el conteo de palabras y caracteres</h3>
+        <div class="space-y-3">
+
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">CLI de bash/terminal:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code># Count words, lines, and bytes in Linux
+wc -w file.txt
+wc -m file.txt  # Character count
+wc -l file.txt  # Line count</code></pre>
+          </div>
+
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">Pitón 3:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code>text = &#x27;OmniTools delivers high-speed utilities.&#x27;
+words = len(text.split())
+chars = len(text)
+chars_no_spaces = len(text.replace(&#x27; &#x27;, &#x27;&#x27;))
+print(f&#x27;Words: {words}, Characters: {chars}&#x27;)</code></pre>
+          </div>
+
+          <div class="space-y-1">
+            <div class="text-[10px] font-mono uppercase text-zinc-400">JavaScript/Node.js:</div>
+            <pre class="p-3 rounded-lg bg-zinc-950 text-zinc-200 font-mono text-xs overflow-x-auto"><code>// Precise JS word counting regex
+const text = &#x27;Precision client-side web tools.&#x27;;
+const words = (text.trim().match(/\S+/g) || []).length;
+const readingTimeMin = Math.ceil(words / 200);
+console.log({ words, readingTimeMin });</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Funciones</h3>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+            <li>Cálculo reactivo en tiempo real con latencia cero</li>
+            <li>Incluye métricas de caracteres libres y sensibles a espacios en blanco.</li>
+            <li>Tiempo de lectura estimado basado en velocidades de lectura estándar de 200 palabras por minuto</li>
+            <li>100% privado: el texto nunca sale de su navegador o dispositivo local</li>
+        </ul>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">Pasos de uso</h3>
+        <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">
+            <li>Pegue o escriba su texto directamente en el cuadro de entrada principal.</li>
+            <li>Vea las métricas actualizándose instantáneamente en el panel de resumen a continuación.</li>
+            <li>Haga clic en &quot;Texto de muestra&quot; para probar la herramienta o en &quot;Borrar&quot; para restablecer el tablero.</li>
+        </ol>
+      </div>
+
+      <div class="border-t border-zinc-100 dark:border-zinc-800/80 pt-5">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-3">Preguntas frecuentes</h3>
+        <div class="space-y-2.5">
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">¿Cómo se calcula el tiempo de lectura?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">El tiempo de lectura se calcula utilizando un punto de referencia estándar de la industria de 200 palabras por minuto para la lectura silenciosa de un adulto.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">¿Mi texto se carga o almacena en algún servidor remoto?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Nunca. Todos los cálculos se realizan íntegramente dentro de su navegador a través de JavaScript. OmniTools no recopila datos personales ni documentales.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">¿Cómo se calcula el tiempo de lectura?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Los puntos de referencia estándar de velocidad de lectura silenciosa para adultos oscilan entre 200 y 250 palabras por minuto. OmniTools tiene por defecto una línea base estándar de la industria de 200 palabras por minuto para una comprensión clara.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">¿Cómo maneja OmniTools las palabras con guiones?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Las palabras con guiones, como &quot;del lado del cliente&quot; o &quot;en tiempo real&quot;, se tratan como unidades de palabras semánticas únicas, que coinciden con las guías de estilo estándar y las reglas de indexación de búsqueda de Google.</p>
+          </div>
+
+          <div class="p-3.5 rounded-lg bg-zinc-50/70 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70">
+            <h4 class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mb-1">¿Mi borrador de texto está almacenado o indexado en algún lugar?</h4>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed">Nunca. El texto nunca sale de la ventana de su navegador. Nunca se registran, envían a servidores ni se utilizan borradores para el entrenamiento de IA.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Related Utilities (Internal Linking Engine for Google SEO) -->
+    <div class="related-tools-section space-y-3 pt-2">
+      <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">Utilidades relacionadas de texto y formato</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+
+        <a href="/tools/reading-time-estimator/es" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">Texto y formato</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
+          </div>
+          <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">Calculadora de tiempo de lectura</div>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">Pega el texto. Obtienes un tiempo de lectura, un tiempo de conversación y un tiempo de lectura rápida.</p>
+        </a>
+
+        <a href="/tools/case-converter/es" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">Texto y formato</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
+          </div>
+          <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">Convertidor de mayúsculas y minúsculas</div>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">Pegue el texto y elija mayúsculas, minúsculas, mayúsculas o camelCase.</p>
+        </a>
+
+        <a href="/tools/remove-whitespace/es" class="p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-[#11141a] hover:border-zinc-400 dark:hover:border-zinc-700 transition group block">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">Texto y formato</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:translate-x-0.5 transition-transform"></i>
+          </div>
+          <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 group-hover:underline">Quitar espacios de más</div>
+          <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-1">Pega el texto desordenado. Salen espacios y pestañas adicionales.</p>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="mt-auto border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#0e1117] text-zinc-500 dark:text-zinc-400 text-xs py-7 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 font-mono text-[11px]">
+        <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span>105 microutilidades del lado del cliente</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs">
+        <a href="/pages/about/es" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Acerca de</a>
+        <a href="/pages/contact/es" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contacto y soporte</a>
+        <a href="/pages/privacy/es" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Política de privacidad</a>
+        <a href="/pages/terms/es" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Términos del servicio</a>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/utils.js"></script>
+  <script src="/js/tools/text.js"></script>
+  <script src="/js/tools/dev.js"></script>
+  <script src="/js/tools/math.js"></script>
+  <script src="/js/tools/media.js"></script>
+  <script src="/js/tools/quick.js"></script>
+  <script src="/js/registry.js"></script>
+  <script src="/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Setup theme
+      App.setupTheme();
+
+      // Check for embed mode parameter (?embed=true or #embed)
+      if (window.location.search.includes('embed=true') || window.location.hash.includes('embed')) {
+        document.body.classList.add('embed-mode');
+      }
+      
+      // Mount interactive tool
+      const tool = ToolRegistry.getToolById('word-counter');
+      const arena = document.getElementById('tool-arena');
+      if (tool && arena && typeof tool.render === 'function') {
+        try {
+          tool.render(arena);
+        } catch (err) {
+          console.error('Error rendering tool:', err);
+          arena.innerHTML = `<div class="p-4 bg-rose-50 text-rose-700 rounded-lg text-xs">Error rendering tool: ${err.message}</div>`;
+        }
+      }
+      
+      // Update main icon
+      if (tool) {
+        const iconName = Utils.getIconName(tool.icon, tool.category);
+        const iconEl = document.querySelector('.tool-main-icon');
+        if (iconEl) {
+          iconEl.setAttribute('data-lucide', iconName);
+        }
+      }
+      
+      // Favorite button
+      const favBtn = document.getElementById('tool-fav-btn');
+      if (favBtn) {
+        const isFav = Utils.storage.isFavorite('word-counter');
+        const starIcon = isFav ? '<i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i>' : '<i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>';
+        favBtn.innerHTML = `${starIcon}<span>${isFav ? 'En favoritos' : 'Favorito'}</span>`;
+        favBtn.addEventListener('click', () => {
+          const added = Utils.storage.toggleFavorite('word-counter');
+          const updatedStar = added ? '<i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i>' : '<i data-lucide="star" class="w-3.5 h-3.5 text-zinc-400"></i>';
+          favBtn.innerHTML = `${updatedStar}<span>${added ? 'En favoritos' : 'Favorito'}</span>`;
+          Utils.refreshIcons();
+        });
+      }
+      
+      // Share button
+      const shareBtn = document.getElementById('tool-share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          Utils.copyToClipboard(window.location.href, 'Enlace copiado');
+        });
+      }
+
+      // Embed button
+      const embedBtn = document.getElementById('tool-embed-btn');
+      if (embedBtn) {
+        embedBtn.addEventListener('click', () => {
+          const embedCode = `<iframe src="https://getomnitools.com/tools/word-counter?embed=true" width="100%" height="450" frameborder="0" style="border:1px solid #e4e4e7;border-radius:12px;overflow:hidden;" title="Word &amp; Character Counter"></iframe>`;
+          Utils.copyToClipboard(embedCode, 'Código de inserción copiado');
+        });
+      }
+      
+      Utils.refreshIcons();
+      Utils.initAdUnits();
+
+      // Register PWA Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => console.warn('SW failed:', err));
+        });
+      }
+    });
+  </script>
+<script>window.OMNI_LANG="es";</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n/es.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var run = function () {
+    var arena = document.getElementById("tool-arena");
+    if (arena && window.OmniI18n) window.OmniI18n.translateRoot(arena);
+  };
+  run();
+  setTimeout(run, 0);
+});
+</script>
+</body>
+</html>

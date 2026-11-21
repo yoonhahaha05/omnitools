@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutzrichtlinie – OmniTools</title>
+  <meta name="description" content="OmniTools clientseitige Datenschutzarchitekturrichtlinie, DSGVO- und CCPA-Konformität, lokales Speicher-Sandboxing und Offenlegung von Werbung.">
+  <link rel="canonical" href="https://getomnitools.com/pages/privacy/de">
+<!-- omni-hreflang -->
+  <link rel="alternate" hreflang="en" href="https://getomnitools.com/pages/privacy">
+  <link rel="alternate" hreflang="x-default" href="https://getomnitools.com/pages/privacy">
+  <link rel="alternate" hreflang="ko" href="https://getomnitools.com/pages/privacy/ko">
+  <link rel="alternate" hreflang="es" href="https://getomnitools.com/pages/privacy/es">
+  <link rel="alternate" hreflang="pt-BR" href="https://getomnitools.com/pages/privacy/pt">
+  <link rel="alternate" hreflang="de" href="https://getomnitools.com/pages/privacy/de">
+  <link rel="alternate" hreflang="fr" href="https://getomnitools.com/pages/privacy/fr">
+  <!-- /omni-hreflang -->
+
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0e1117">
+
+  <!-- Open Graph & Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Datenschutzrichtlinie – OmniTools">
+  <meta property="og:description" content="Clientseitige Datenschutzgarantie. Kein Server-Tracking, keine Remote-Verarbeitung.">
+  <meta property="og:url" content="https://getomnitools.com/pages/privacy/de">
+  <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google AdSense -->
+  <script src="/js/consent.js" defer></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 antialiased py-12 px-4 sm:px-6 lg:px-8 font-sans">
+<!-- omni-langbar -->
+<div class="omni-langbar" aria-label="Language">
+<a href="https://getomnitools.com/pages/privacy" hreflang="en">English</a>
+<a href="https://getomnitools.com/pages/privacy/ko" hreflang="ko">한국어</a>
+<a href="https://getomnitools.com/pages/privacy/es" hreflang="es">Español</a>
+<a href="https://getomnitools.com/pages/privacy/pt" hreflang="pt-BR">Português</a>
+<a href="https://getomnitools.com/pages/privacy/de" hreflang="de" aria-current="page">Deutsch</a>
+<a href="https://getomnitools.com/pages/privacy/fr" hreflang="fr">Français</a>
+</div>
+<!-- /omni-langbar -->
+
+  <div class="max-w-3xl mx-auto bg-white dark:bg-[#101319] p-7 sm:p-10 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xs">
+    <div class="mb-8 border-b border-zinc-100 dark:border-zinc-800 pb-6">
+      <a href="/de" class="inline-flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition mb-4">
+        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+        <span>Zurück zu den Tools</span>
+      </a>
+      <h1 class="text-2xl sm:text-3xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">Datenschutz</h1>
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1.5">Letzte Aktualisierung: 29. September 2026</p>
+    </div>
+
+    <div class="space-y-6 text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+      
+      <section>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">1. Was auf Ihrem Gerät bleibt</h2>
+        <p>Ihre Eingaben bleiben auf diesem Gerät. Alle 105 Tools – einschließlich kryptografischem Hashing, JSON-Formatierung, Base64-Codierung, Regex-Tests, Subnetzberechnung und Bildbearbeitung – werden in Ihrem Browser ausgeführt.</p>
+        <p class="mt-2">Text, Quellcode, Anmeldeinformationen, Token und Dateien, die Sie eingeben oder einfügen, werden nicht an einen OmniTools-Server gesendet und nicht in einer Remote-Datenbank gespeichert. Anzeigen sind gesondert und werden in Abschnitt 3 beschrieben. Anzeigen verwenden Cookies.</p>
+      </section>
+
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">2. Lokaler Speicher und Client-Status</h2>
+        <p>OmniTools nutzt HTML5 <code>localStorage</code> API ausschließlich zum Speichern Ihrer persönlichen Benutzeroberflächenpräferenzen auf Ihrem lokalen Gerät:</p>
+        <ul class="list-disc pl-5 mt-2 space-y-1 text-xs text-zinc-500 dark:text-zinc-400">
+          <li><strong>Themenmodus:</strong> Status des dunklen oder hellen Modus (<code>omnitools_theme</code>).</li>
+          <li><strong>Layoutdichte:</strong> Präferenzen für die Anzeige von Raster- oder kompakten Tabellen.</li>
+          <li><strong>Favoriten und Geschichte:</strong> Angepinnte Werkzeuge und zuletzt verwendete Werkzeugkennungen.</li>
+        </ul>
+        <p class="mt-2 text-xs">Diese Daten verbleiben ausschließlich auf Ihrem Computer und können jederzeit über die Speichereinstellungen Ihres Browsers oder DevTools gelöscht werden.</p>
+      </section>
+
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">3. Werbung und Cookies von Drittanbietern (Google AdSense)</h2>
+        <p>Um OmniTools völlig kostenlos zu halten und unsere globale CDN-Infrastruktur aufrechtzuerhalten, schalten wir unaufdringliche Werbung von Google AdSense.</p>
+        <p class="mt-2">Google und Drittanbieter-Werbepartner können Cookies, Web-Beacons und ähnliche Technologien verwenden, um Anzeigen basierend auf Ihren vorherigen Besuchen auf dieser Website oder anderen Websites im Internet zu schalten:</p>
+        <ul class="list-disc pl-5 mt-2 space-y-1 text-xs text-zinc-500 dark:text-zinc-400">
+          <li>Die Verwendung von Werbe-Cookies ermöglicht es Google und seinen Partnern, personalisierte Werbung basierend auf der Surfaktivität zu schalten.</li>
+          <li>Sie können personalisierte Werbung deaktivieren, indem Sie hier klicken <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" class="text-zinc-900 dark:text-zinc-100 underline font-medium">Google Ads-Einstellungen</a>.</li>
+          <li>Alternativ können Sie die Verwendung von Cookies für personalisierte Werbung durch Drittanbieter deaktivieren, indem Sie hier klicken <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" class="text-zinc-900 dark:text-zinc-100 underline font-medium">aboutads.info</a> or <a href="https://www.youronlinechoices.eu/" target="_blank" rel="noopener noreferrer" class="text-zinc-900 dark:text-zinc-100 underline font-medium">Ihre Online-Auswahl (EU)</a>.</li>
+        </ul>
+      </section>
+
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">4. DSGVO-Konformität (Europäischer Wirtschaftsraum)</h2>
+        <p>Wenn Sie im EWR, im Vereinigten Königreich oder in der Schweiz ansässig sind, stehen Ihnen bestimmte gesetzliche Rechte gemäß der Datenschutz-Grundverordnung (DSGVO) zu. OmniTools führt kein Konto oder Profil von Ihnen. Werbe-Cookies werden mit der Seite geladen. Sie können personalisierte Werbung über die Links in Abschnitt 3 deaktivieren.</p>
+      </section>
+
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">5. Datenschutzrechte von Kalifornien (CCPA/CPRA)</h2>
+        <p>Gemäß dem California Consumer Privacy Act (CCPA) und dem California Privacy Rights Act (CPRA) haben Einwohner Kaliforniens Anspruch auf Offenlegung der Erhebung, des Verkaufs und der Weitergabe personenbezogener Daten. OmniTools <strong>verkauft oder vermietet keine persönlichen Daten</strong> in unsere Rechner und Dienstprogramme eingegebenen Daten an Dritte weitergeben.</p>
+      </section>
+
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">6. Kontaktieren Sie den Datenschutzbeauftragten</h2>
+        <p>Für Anfragen, Feedback oder Überprüfungen zu unserer Datenschutzarchitektur wenden Sie sich bitte an unser Team unter <a href="mailto:support@getomnitools.com" class="text-zinc-900 dark:text-zinc-100 font-medium underline">support@getomnitools.com</a> oder besuchen Sie uns <a href="/pages/contact/de" class="underline font-medium text-zinc-900 dark:text-zinc-100">Kontakt und Support</a> page.</p>
+      </section>
+
+      <!-- Global Legal & Trust Footer -->
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-5 flex flex-wrap items-center justify-between gap-3 text-xs text-zinc-400">
+        <div class="flex items-center gap-4">
+          <a href="/pages/about/de" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition">Über</a>
+          <a href="/pages/contact/de" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition">Kontakt und Support</a>
+          <a href="/pages/terms/de" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition">Nutzungsbedingungen</a>
+        </div>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition underline">GitHub</a>
+      </section>
+
+    </div>
+  </div>
+
+  <script>
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches || localStorage.getItem('omnitools_theme') === '"dark"') {
+      document.documentElement.classList.add('dark');
+    }
+    if (window.lucide) lucide.createIcons();
+  </script>
+<script>window.OMNI_LANG="de";</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n/de.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var run = function () {
+    var arena = document.getElementById("tool-arena");
+    if (arena && window.OmniI18n) window.OmniI18n.translateRoot(arena);
+  };
+  run();
+  setTimeout(run, 0);
+});
+</script>
+</body>
+</html>

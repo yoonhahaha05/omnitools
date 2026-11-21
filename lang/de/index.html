@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OmniTools – Präzise clientseitige Web-Dienstprogramme</title>
+  <meta name="description"
+    content="105 clientseitige Entwickler-, Text-, Mathematik- und Mediendienstprogramme. Ihre Eingaben bleiben auf diesem Gerät. Anzeigen verwenden Cookies.">
+  <meta name="keywords"
+    content="Web-Dienstprogramme, Entwicklertools, Wortzähler, JSON-Beautifier, Subnetzrechner, HMac-Generator, Base64-Konverter, Passwortgenerator, Diff-Checker, Seitenverhältnisrechner, Unix-Zeitstempel">
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0e1117">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="OmniTools">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OmniTools – 105 präzise clientseitige Web-Dienstprogramme">
+  <meta property="og:description"
+    content="105 clientseitige Web-Dienstprogramme. Ihre Eingaben bleiben auf diesem Gerät. Anzeigen verwenden Cookies.">
+  <meta property="og:url" content="https://getomnitools.com/de">
+  <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:secure_url" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="OmniTools – 105 kostenlose clientseitige Web-Dienstprogramme">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OmniTools – 105 präzise clientseitige Web-Dienstprogramme">
+  <meta name="twitter:description"
+    content="105 Hochgeschwindigkeits-Entwickler-, Text-, Mathematik- und Medien-Dienstprogramme ohne Latenz, die zu 100 % in Ihrem Browser laufen.">
+  <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
+
+  <link rel="canonical" href="https://getomnitools.com/de">
+<!-- omni-hreflang -->
+  <link rel="alternate" hreflang="en" href="https://getomnitools.com/">
+  <link rel="alternate" hreflang="x-default" href="https://getomnitools.com/">
+  <link rel="alternate" hreflang="ko" href="https://getomnitools.com/ko">
+  <link rel="alternate" hreflang="es" href="https://getomnitools.com/es">
+  <link rel="alternate" hreflang="pt-BR" href="https://getomnitools.com/pt">
+  <link rel="alternate" hreflang="de" href="https://getomnitools.com/de">
+  <link rel="alternate" hreflang="fr" href="https://getomnitools.com/fr">
+  <!-- /omni-hreflang -->
+
+
+  <!-- Google Search Console Verification (Add your token when verifying) -->
+  <meta name="google-site-verification" content="">
+
+  <!-- Schema.org WebSite & Sitelinks Searchbox Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "OmniTools",
+  "url": "https://getomnitools.com/de",
+  "description": "105 Hochgeschwindigkeits-, 100 % clientseitige Entwickler-, Text-, Mathematik- und Mediendienstprogramme.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://getomnitools.com/de?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+  </script>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Lucide Icons CDN (Deferred for Performance) -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Google AdSense Configuration & Script -->
+  <script>
+    window.ADSENSE_CONFIG = {
+      client: 'ca-pub-3261737439776294',
+      slotHome: '5934296997',
+      slotTool: '5934296997',
+      slotSidebar: '5934296997'
+    };
+    window.adsbygoogle = window.adsbygoogle || [];
+  </script>
+  <script src="/js/consent.js" defer></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          colors: {
+            zinc: {
+              750: '#333338',
+              850: '#1f2024'
+            },
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body
+  class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+<!-- omni-langbar -->
+<div class="omni-langbar" aria-label="Language">
+<a href="https://getomnitools.com/" hreflang="en">English</a>
+<a href="https://getomnitools.com/ko" hreflang="ko">한국어</a>
+<a href="https://getomnitools.com/es" hreflang="es">Español</a>
+<a href="https://getomnitools.com/pt" hreflang="pt-BR">Português</a>
+<a href="https://getomnitools.com/de" hreflang="de" aria-current="page">Deutsch</a>
+<a href="https://getomnitools.com/fr" hreflang="fr">Français</a>
+</div>
+<!-- /omni-langbar -->
+
+
+  <!-- Primary Top Navbar -->
+  <header
+    class="sticky top-0 z-30 bg-white/95 dark:bg-[#0e1117]/95 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
+
+      <!-- Brand & Mobile Menu Button -->
+      <div class="flex items-center gap-3 shrink-0">
+        <button id="mobile-menu-btn"
+          class="md:hidden p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none"
+          aria-label="Navigationsmenü umschalten">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+
+        <a href="#/" class="flex items-center gap-2.5">
+          <div
+            class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+          </div>
+          <span class="font-bold text-base tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
+        </a>
+      </div>
+
+      <!-- Command Quick Search Bar with ⌘K / Ctrl+K -->
+      <div class="hidden sm:block flex-1 max-w-lg mx-2">
+        <div class="relative">
+          <input id="nav-search" type="text" placeholder="Tools suchen... (⌘K)"
+            class="w-full pl-9 pr-14 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-100/70 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 transition">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
+          <kbd
+            class="absolute right-2 top-1.5 text-[10px] font-mono px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-400 shadow-2xs">Strg K</kbd>
+        </div>
+      </div>
+
+      <!-- Action Controls: View Switcher, Theme, Support -->
+      <div class="flex items-center gap-1.5 shrink-0">
+        <button id="view-mode-toggle"
+          class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 transition"
+          title="Raster-/Listenansicht umschalten" aria-label="Schalten Sie die Layoutdichte um">
+          <i id="view-mode-icon" data-lucide="layout-grid" class="w-4 h-4"></i>
+        </button>
+
+        <button id="theme-toggle"
+          class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 transition"
+          title="Design wechseln" aria-label="Schalten Sie den Dunkel-/Hellmodus um">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-medium transition"
+          title="Quelle auf GitHub">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Application Layout Container -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 flex gap-8 w-full">
+
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-zinc-950/50 backdrop-blur-xs z-40 hidden md:hidden"></div>
+
+    <!-- Responsive Left Sidebar Navigation -->
+    <aside id="sidebar"
+      class="fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-[#0e1117] border-r border-zinc-200 dark:border-zinc-800 p-5 transform -translate-x-full md:translate-x-0 md:static md:w-56 lg:w-60 md:block transition-transform duration-200 ease-in-out md:border-r-0 md:bg-transparent md:dark:bg-transparent md:p-0 shrink-0">
+      <div class="sticky top-20 space-y-6">
+        <div>
+          <div class="px-2 mb-2">
+            <span class="text-[11px] font-medium text-zinc-400 dark:text-zinc-500">Kategorien</span>
+          </div>
+          <nav id="category-list" class="space-y-0.5">
+            <!-- Populated dynamically by App.renderCategoriesNav() -->
+          </nav>
+        </div>
+
+        <div class="pt-4 border-t border-zinc-200/80 dark:border-zinc-800/80">
+          <div class="space-y-0.5 text-xs text-zinc-600 dark:text-zinc-400">
+            <a href="/pages/about/de"
+              class="flex items-center gap-2 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>Über</span>
+            </a>
+            <a href="/pages/privacy/de"
+              class="flex items-center gap-2 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="shield" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>Privacy</span>
+            </a>
+            <a href="/pages/contact/de"
+              class="flex items-center gap-2 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>Contact</span>
+            </a>
+            <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer"
+              class="flex items-center gap-2 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="github" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Dynamic Main Content Arena -->
+    <main id="main-content" class="flex-1 min-w-0">
+      <!-- Router dynamically renders either Home or Tool view here -->
+    </main>
+  </div>
+
+  <!-- Global Technical Footer -->
+  <footer
+    class="mt-auto border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#0e1117] text-zinc-500 dark:text-zinc-400 text-xs py-10 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto space-y-10">
+
+      <!-- Launchstag Badge -->
+      <div class="flex justify-center items-center py-2">
+        <a href="https://launchstag.com" target="_blank" rel="noopener">
+          <img src="https://launchstag.com/badge-dark.svg" alt="Auf Launchstag vorgestellt" width="198" height="62" />
+        </a>
+      </div>
+
+      <!-- SEO Semantic Utility Directory -->
+      <section class="mt-16 pt-10 border-t border-zinc-200/80 dark:border-zinc-800/80"
+        aria-label="Vollständiges Dienstprogrammverzeichnis">
+        <div class="mb-6">
+          <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+            Alle 105 Precision Utilities-Verzeichnisse (Instant-Client-seitige Tools)
+          </h2>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+            Direkter suchindizierter Zugriff auf jedes Dienstprogramm in der OmniTools-Workstation-Suite.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-xs">
+          <div class="space-y-2">
+            <h3
+              class="font-bold text-[11px] font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-1.5">
+              Entwicklung und Daten
+            </h3>
+            <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400">
+              <li><a href="/tools/base64-image-tool/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Base64-Bild">Base64-Bild</a></li>
+              <li><a href="/tools/base64-tool/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Base64 kodieren und dekodieren">Base64 kodieren und dekodieren</a></li>
+              <li><a href="/tools/cron-explainer/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Cron erklären">Cron erklären</a></li>
+              <li><a href="/tools/hash-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Hash-Generator">Hash-Generator</a></li>
+              <li><a href="/tools/css-minifier/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="CSS-Minifier">CSS-Minifier</a></li>
+              <li><a href="/tools/csv-to-json/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="CSV in JSON">CSV in JSON</a></li>
+              <li><a href="/tools/curl-converter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="cURL zu Fetch oder Python">cURL zu Fetch oder Python</a></li>
+              <li><a href="/tools/hmac-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="HMAC-Generator">HMAC-Generator</a></li>
+              <li><a href="/tools/html-entity-encoder/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="HTML-Entitäten">HTML-Entitäten</a></li>
+              <li><a href="/tools/http-header-parser/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="HTTP-Header prüfen">HTTP-Header prüfen</a></li>
+              <li><a href="/tools/http-status-codes/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="HTTP-Statuscodes">HTTP-Statuscodes</a></li>
+              <li><a href="/tools/js-minifier/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="JavaScript-Minifier">JavaScript-Minifier</a></li>
+              <li><a href="/tools/json-beautifier/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="JSON Beautifier &amp; Validator">JSON Beautifier &amp; Validator</a></li>
+              <li><a href="/tools/json-minifier/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="JSON-Minifier">JSON-Minifier</a></li>
+              <li><a href="/tools/json-to-csv/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="JSON in CSV">JSON in CSV</a></li>
+              <li><a href="/tools/jwt-decoder/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="JWT-Decoder">JWT-Decoder</a></li>
+              <li><a href="/tools/keycode-inspector/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Tastencode-Prüfer">Tastencode-Prüfer</a></li>
+              <li><a href="/tools/chmod-calculator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="chmod-Rechner">chmod-Rechner</a></li>
+              <li><a href="/tools/markdown-table-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Markdown-Tabellen">Markdown-Tabellen</a></li>
+              <li><a href="/tools/mime-types/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="MIME-Typen">MIME-Typen</a></li>
+              <li><a href="/tools/regex-matcher/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Regex-Tester">Regex-Tester</a></li>
+              <li><a href="/tools/sql-formatter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="SQL-Formatierer">SQL-Formatierer</a></li>
+              <li><a href="/tools/subnet-calculator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Subnetzmasken-Rechner">Subnetzmasken-Rechner</a></li>
+              <li><a href="/tools/url-encoder-decoder/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="URL kodieren und dekodieren">URL kodieren und dekodieren</a></li>
+              <li><a href="/tools/user-agent-parser/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="User-Agent-Parser">User-Agent-Parser</a></li>
+              <li><a href="/tools/uuid-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="UUID-Generator">UUID-Generator</a></li>
+              <li><a href="/tools/xml-to-json/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="XML in JSON">XML in JSON</a></li>
+              <li><a href="/tools/yaml-to-json/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="YAML in JSON">YAML in JSON</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2">
+            <h3
+              class="font-bold text-[11px] font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-1.5">
+              Alltag und Einheiten
+            </h3>
+            <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400">
+              <li><a href="/tools/age-calculator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Rechner für Alter und Lebenstage">Rechner für Alter und Lebenstage</a></li>
+              <li><a href="/tools/aspect-ratio-calculator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Seitenverhältnis">Seitenverhältnis</a></li>
+              <li><a href="/tools/base-converter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Zahlenbasis-Umrechner">Zahlenbasis-Umrechner</a></li>
+              <li><a href="/tools/compound-interest-calculator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Zinseszinsrechner">Zinseszinsrechner</a></li>
+              <li><a href="/tools/data-storage-converter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Speichergrößen-Umrechner">Speichergrößen-Umrechner</a></li>
+              <li><a href="/tools/date-difference-calculator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Datumsdifferenz">Datumsdifferenz</a></li>
+              <li><a href="/tools/dice-coin-roller/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Würfelroller und Münzflipper">Würfelroller und Münzflipper</a></li>
+              <li><a href="/tools/discount-tax-calculator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Rabatt- und Umsatzsteuerrechner">Rabatt- und Umsatzsteuerrechner</a></li>
+              <li><a href="/tools/fuel-cost-calculator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Kraftstoffkosten">Kraftstoffkosten</a></li>
+              <li><a href="/tools/gpa-calculator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Notendurchschnitt">Notendurchschnitt</a></li>
+              <li><a href="/tools/salary-calculator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Stundenlohn und Jahresgehalt">Stundenlohn und Jahresgehalt</a></li>
+              <li><a href="/tools/human-date-to-unix/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Datum in Unix-Zeit">Datum in Unix-Zeit</a></li>
+              <li><a href="/tools/length-converter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Längen-Umrechner">Längen-Umrechner</a></li>
+              <li><a href="/tools/matrix-determinant-calculator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Determinante">Determinante</a></li>
+              <li><a href="/tools/percentage-calculator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Prozentrechner">Prozentrechner</a></li>
+              <li><a href="/tools/random-number-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Zufallszahlen">Zufallszahlen</a></li>
+              <li><a href="/tools/roman-numeral-converter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Römische Zahlen">Römische Zahlen</a></li>
+              <li><a href="/tools/running-pace-calculator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Lauftempo">Lauftempo</a></li>
+              <li><a href="/tools/ppi-calculator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="PPI- und DPI-Rechner">PPI- und DPI-Rechner</a></li>
+              <li><a href="/tools/speed-converter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Geschwindigkeits-Umrechner">Geschwindigkeits-Umrechner</a></li>
+              <li><a href="/tools/temperature-converter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Temperatur-Umrechner">Temperatur-Umrechner</a>
+              </li>
+              <li><a href="/tools/timezone-converter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Zeitzonenrechner und Weltzeituhr">Zeitzonenrechner und Weltzeituhr</a></li>
+              <li><a href="/tools/tip-splitter-calculator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Trinkgeld- und Rechnungsspalter">Trinkgeld- und Rechnungsspalter</a></li>
+              <li><a href="/tools/timestamp-converter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Unix-Zeitstempel- und Epochenkonverter">Unix-Zeitstempel- und Epochenkonverter</a></li>
+              <li><a href="/tools/weight-converter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Gewichts- und Massenkonverter">Gewichts- und Massenkonverter</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2">
+            <h3
+              class="font-bold text-[11px] font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-1.5">
+              Medien, CSS und Design
+            </h3>
+            <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400">
+              <li><a href="/tools/barcode-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Barcode-Generator">Barcode-Generator</a></li>
+              <li><a href="/tools/clip-path-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Clip-Path-Generator">Clip-Path-Generator</a></li>
+              <li><a href="/tools/color-converter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Farbwähler und -konverter (HEX, RGB, HSL)">Farbwähler und -konverter (HEX, RGB, HSL)</a></li>
+              <li><a href="/tools/border-radius-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Border-Radius-Generator">Border-Radius-Generator</a></li>
+              <li><a href="/tools/box-shadow-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Box-Shadow-Generator">Box-Shadow-Generator</a></li>
+              <li><a href="/tools/glassmorphism-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Glassmorphismus-Generator">Glassmorphismus-Generator</a></li>
+              <li><a href="/tools/gradient-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Verlauf-Generator">Verlauf-Generator</a></li>
+              <li><a href="/tools/favicon-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Favicon-Generator">Favicon-Generator</a></li>
+              <li><a href="/tools/image-filter-tool/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Bildfilter">Bildfilter</a></li>
+              <li><a href="/tools/image-cropper/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Bild zuschneiden">Bild zuschneiden</a></li>
+              <li><a href="/tools/image-resizer/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Bildgröße ändern">Bildgröße ändern</a></li>
+              <li><a href="/tools/qr-code-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="QR-Code-Generator">QR-Code-Generator</a></li>
+              <li><a href="/tools/palette-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Farbpaletten">Farbpaletten</a></li>
+              <li><a href="/tools/svg-path-visualizer/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="SVG-Pfade">SVG-Pfade</a></li>
+              <li><a href="/tools/quote-card-maker/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Zitatkarte">Zitatkarte</a></li>
+              <li><a href="/tools/contrast-checker/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Farbkontrast">Farbkontrast</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2">
+            <h3
+              class="font-bold text-[11px] font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-1.5">
+              Schnelle Helfer
+            </h3>
+            <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400">
+              <li><a href="/tools/storage-cleaner/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Speicher leeren">Speicher leeren</a></li>
+              <li><a href="/tools/countdown-timer/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Countdown">Countdown</a></li>
+              <li><a href="/tools/diceware-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Diceware-Passphrasen">Diceware-Passphrasen</a></li>
+              <li><a href="/tools/scratchpad/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Lokales Notizfeld">Lokales Notizfeld</a></li>
+              <li><a href="/tools/network-latency-checker/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Netzwerklatenz">Netzwerklatenz</a></li>
+              <li><a href="/tools/pomodoro-timer/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Pomodoro-Timer">Pomodoro-Timer</a></li>
+              <li><a href="/tools/screen-inspector/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Bildschirmauflösung und Ansichtsfenster-Inspektor">Bildschirmauflösung und Ansichtsfenster-Inspektor</a></li>
+              <li><a href="/tools/stopwatch-timer/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Stoppuhr und Lap-Tracker">Stoppuhr und Lap-Tracker</a></li>
+              <li><a href="/tools/password-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Passwort-Generator">Passwort-Generator</a></li>
+              <li><a href="/tools/tap-tempo-bpm/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Tap-Tempo und BPM">Tap-Tempo und BPM</a></li>
+              <li><a href="/tools/metronome/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Metronom">Metronom</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2">
+            <h3
+              class="font-bold text-[11px] font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-1.5">
+              Text und Formatierung
+            </h3>
+            <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400">
+              <li><a href="/tools/case-converter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Groß- und Kleinschreibung">Groß- und Kleinschreibung</a></li>
+              <li><a href="/tools/discord-markdown-styler/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Discord-Markdown">Discord-Markdown</a></li>
+              <li><a href="/tools/remove-duplicate-lines/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Doppelte Zeilen entfernen">Doppelte Zeilen entfernen</a></li>
+              <li><a href="/tools/emoji-stripper/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Emojis entfernen">Emojis entfernen</a></li>
+              <li><a href="/tools/extract-emails/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="E-Mails aus Text extrahieren">E-Mails aus Text extrahieren</a></li>
+              <li><a href="/tools/extract-urls/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="URLs aus Text extrahieren">URLs aus Text extrahieren</a></li>
+              <li><a href="/tools/fancy-unicode-fonts/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Unicode-Schriften">Unicode-Schriften</a></li>
+              <li><a href="/tools/invisible-character-remover/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Unsichtbarer Charakter und Zero-Width Stripper">Unsichtbarer Charakter und Zero-Width Stripper</a></li>
+              <li><a href="/tools/line-numberer/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Zeilen nummerieren">Zeilen nummerieren</a></li>
+              <li><a href="/tools/lorem-ipsum-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Lorem-Ipsum-Generator">Lorem-Ipsum-Generator</a></li>
+              <li><a href="/tools/markdown-previewer/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Markdown Live Previewer und Exporter">Markdown Live Previewer und Exporter</a></li>
+              <li><a href="/tools/morse-code-translator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Morsecode-Übersetzer">Morsecode-Übersetzer</a></li>
+              <li><a href="/tools/nato-phonetic-converter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="NATO-Buchstabiertafel">NATO-Buchstabiertafel</a></li>
+              <li><a href="/tools/reading-time-estimator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Lesezeit-Rechner">Lesezeit-Rechner</a></li>
+              <li><a href="/tools/regex-find-replace/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Regex Suchen und Ersetzen">Regex Suchen und Ersetzen</a></li>
+              <li><a href="/tools/remove-whitespace/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Entfernen Sie zusätzliche Leerzeichen und Leerzeichen">Entfernen Sie zusätzliche Leerzeichen und Leerzeichen</a></li>
+              <li><a href="/tools/remove-line-breaks/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Zeilenumbrüche entfernen">Zeilenumbrüche entfernen</a></li>
+              <li><a href="/tools/reverse-text/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Text umkehren (Zeichen und Wörter)">Text umkehren (Zeichen und Wörter)</a></li>
+              <li><a href="/tools/sort-lines/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Zeilen sortieren">Zeilen sortieren</a></li>
+              <li><a href="/tools/strip-html-tags/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="HTML-Tags entfernen">HTML-Tags entfernen</a></li>
+              <li><a href="/tools/text-diff/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Textvergleich">Textvergleich</a></li>
+              <li><a href="/tools/text-binary-converter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Text und Binär">Text und Binär</a></li>
+              <li><a href="/tools/text-hex-converter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Text und Hexadezimal">Text und Hexadezimal</a></li>
+              <li><a href="/tools/slug-generator/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="URL-Slug-Generator">URL-Slug-Generator</a></li>
+              <li><a href="/tools/word-counter/de"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Wort- und Zeichenzähler">Wort- und Zeichenzähler</a></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    </section>
+    <div
+      class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-zinc-200/80 dark:border-zinc-800/80">
+      <div class="flex items-center gap-2 font-mono text-[11px]">
+        <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span>105 Clientseitige Mikrodienstprogramme</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span class="text-emerald-600 dark:text-emerald-400 font-medium">100 % Offline-fähig</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs">
+        <a href="/pages/about/de" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Über</a>
+        <a href="/pages/contact/de" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Kontakt und Support</a>
+        <a href="/pages/privacy/de" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Datenschutz</a>
+        <a href="/pages/terms/de" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Nutzungsbedingungen</a>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer"
+          class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Helpers, Tool Modules, Registry, and Core App -->
+  <script src="/js/utils.js"></script>
+  <script src="/js/tools/text.js"></script>
+  <script src="/js/tools/dev.js"></script>
+  <script src="/js/tools/math.js"></script>
+  <script src="/js/tools/media.js"></script>
+  <script src="/js/tools/quick.js"></script>
+  <script src="/js/registry.js"></script>
+  <script src="/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      App.init();
+
+      // Register PWA Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch((err) => {
+            console.warn('PWA Service Worker registration failed:', err);
+          });
+        });
+      }
+    });
+  </script>
+<script>window.OMNI_LANG="de";</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n/de.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var run = function () {
+    var arena = document.getElementById("tool-arena");
+    if (arena && window.OmniI18n) window.OmniI18n.translateRoot(arena);
+  };
+  run();
+  setTimeout(run, 0);
+});
+</script>
+</body>
+
+</html>

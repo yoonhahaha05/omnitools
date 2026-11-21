@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Über OmniTools – Client-Side Architecture &amp; Mission</title>
+  <meta name="description" content="Erfahren Sie mehr über die Engineering-Philosophie von OmniTools: 100 % clientseitige Speicherausführung, Architektur ohne Telemetrie und Einhaltung offener Webstandards.">
+  <link rel="canonical" href="https://getomnitools.com/pages/about/de">
+<!-- omni-hreflang -->
+  <link rel="alternate" hreflang="en" href="https://getomnitools.com/pages/about">
+  <link rel="alternate" hreflang="x-default" href="https://getomnitools.com/pages/about">
+  <link rel="alternate" hreflang="ko" href="https://getomnitools.com/pages/about/ko">
+  <link rel="alternate" hreflang="es" href="https://getomnitools.com/pages/about/es">
+  <link rel="alternate" hreflang="pt-BR" href="https://getomnitools.com/pages/about/pt">
+  <link rel="alternate" hreflang="de" href="https://getomnitools.com/pages/about/de">
+  <link rel="alternate" hreflang="fr" href="https://getomnitools.com/pages/about/fr">
+  <!-- /omni-hreflang -->
+
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0e1117">
+
+  <!-- Open Graph & Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Über OmniTools – Client-Side Architecture &amp; Mission">
+  <meta property="og:description" content="100 % clientseitiges Datenschutzmodell, Ausführung ohne Telemetrie und leistungsstarke Webstandards.">
+  <meta property="og:url" content="https://getomnitools.com/pages/about/de">
+  <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google AdSense -->
+  <script src="/js/consent.js" defer></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- Schema.org AboutPage -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "Über OmniTools",
+  "url": "https://getomnitools.com/pages/about/de",
+  "description": "Architekturprinzipien, clientseitiges Datenschutzmodell ohne Telemetrie und Einhaltung von Standards hinter OmniTools.",
+  "mainEntity": {
+    "@type": "SoftwareApplication",
+    "name": "OmniTools",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+}
+  </script>
+</head>
+<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 antialiased py-12 px-4 sm:px-6 lg:px-8 font-sans">
+<!-- omni-langbar -->
+<div class="omni-langbar" aria-label="Language">
+<a href="https://getomnitools.com/pages/about" hreflang="en">English</a>
+<a href="https://getomnitools.com/pages/about/ko" hreflang="ko">한국어</a>
+<a href="https://getomnitools.com/pages/about/es" hreflang="es">Español</a>
+<a href="https://getomnitools.com/pages/about/pt" hreflang="pt-BR">Português</a>
+<a href="https://getomnitools.com/pages/about/de" hreflang="de" aria-current="page">Deutsch</a>
+<a href="https://getomnitools.com/pages/about/fr" hreflang="fr">Français</a>
+</div>
+<!-- /omni-langbar -->
+
+  <div class="max-w-3xl mx-auto bg-white dark:bg-[#101319] p-7 sm:p-10 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xs">
+    
+    <!-- Top Nav Back Link & Title -->
+    <div class="mb-8 border-b border-zinc-100 dark:border-zinc-800 pb-6">
+      <a href="/de" class="inline-flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition mb-4">
+        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+        <span>Zurück zu den Tools</span>
+      </a>
+      <h1 class="text-2xl sm:text-3xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">Über OmniTools</h1>
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1.5">Eine kostenlose Web-Utility-Site auf dem Gerät für Softwareentwickler, Autoren und Analysten.</p>
+    </div>
+
+    <div class="space-y-7 text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+      
+      <!-- The Motivation & Problem -->
+      <section>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2.5">Warum OmniTools existiert</h2>
+        <p>Das moderne Web ist voll von Utility-Websites, die einfach sein sollten, es aber nicht sind. Die meisten Online-JSON-Formatierer, Base64-Decoder, Regex-Tester und Subnetzrechner zwingen Benutzer durch aufgeblähte serverseitige Roundtrips, aufdringliche Cookie-Walls, Captchas und Popup-Anzeigen. Schlimmer noch: Das Einfügen vertraulicher API-Tokens, Umgebungsvariablen, Kundendatensätze oder interner Passwörter in einen unbekannten Server eines Drittanbieters birgt ernsthafte Compliance- und Sicherheitsrisiken.</p>
+        <p class="mt-2.5"><strong>OmniTools wurde entwickelt, um zu beweisen, dass es einen besseren Weg gibt.</strong> Durch die Nutzung moderner Browser-Web-APIs – einschließlich der nativen Web-Kryptographie-API, Web Workers, HTML5 Canvas und der Internationalisierungs-API – werden alle Berechnungen, Formatierungsroutinen und kryptografischen Hashes im Speicher Ihres Geräts ausgeführt. Werbung ist ein separates Thema: Nachdem Sie Cookies akzeptiert haben, kann Google AdSense Cookies setzen, um Anzeigen anzuzeigen. Diese Cookies sind nicht Ihre Werkzeugeingabe.</p>
+      </section>
+
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-6">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2.5">Wer veröffentlicht diese Seite?</h2>
+        <p>OmniTools ist eine unabhängige Website. Es ist kein Unternehmen. Der Herausgeber ist der Betreuer des öffentlichen Repositorys <a href="https://github.com/yoonhahaha05/omnitools" class="underline font-medium text-zinc-900 dark:text-zinc-100" target="_blank" rel="noopener noreferrer">github.com/yoonhahaha05/omnitools</a> (GitHub-Konto <a href="https://github.com/yoonhahaha05" class="underline font-medium text-zinc-900 dark:text-zinc-100" target="_blank" rel="noopener noreferrer">yoonhahaha05</a>).</p>
+        <p class="mt-2.5">Fragen und Fehlerberichte gehen an <a href="mailto:support@getomnitools.com" class="underline font-medium text-zinc-900 dark:text-zinc-100">support@getomnitools.com</a> oder ein <a href="https://github.com/yoonhahaha05/omnitools/issues" class="underline font-medium text-zinc-900 dark:text-zinc-100" target="_blank" rel="noopener noreferrer">GitHub-Problem</a>. Beide erreichen den Betreuer.</p>
+      </section>
+
+      <!-- Architecture Breakdown Cards -->
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-6">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-3.5">Technische Architektur und Grundprinzipien</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          
+          <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 space-y-1.5">
+            <div class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
+              <span>Werkzeugeingabe auf dem Gerät</span>
+            </div>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Texte, Dateien, Token und Berechnungen bleiben im Browser. OmniTools führt keine eigenen Analysen durch. Anzeigen verwenden Cookies nur, nachdem Sie diese akzeptiert haben.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 space-y-1.5">
+            <div class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
+              <i data-lucide="zap" class="w-4 h-4 text-amber-500"></i>
+              <span>Keine Latenz und sofortige Ausgabe</span>
+            </div>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Ohne HTTP-Anfrage-Handshakes, Server-Kaltstarts oder Datenbankabfragen werden Vorgänge mit Bare-Metal-CPU-Geschwindigkeit in Frames unter einer Millisekunde abgeschlossen.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 space-y-1.5">
+            <div class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
+              <i data-lucide="wifi-off" class="w-4 h-4 text-sky-500"></i>
+              <span>Progressive Web-App (Offline-First)</span>
+            </div>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              OmniTools ist vollständig für Servicemitarbeiter zwischengespeichert. Sie können es auf macOS, Windows, iOS oder Android installieren, die Verbindung zum WLAN trennen und ununterbrochen im Flug oder in Remote-Umgebungen arbeiten.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 space-y-1.5">
+            <div class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
+              <i data-lucide="layers" class="w-4 h-4 text-indigo-500"></i>
+              <span>Offene RFC- und Webstandards</span>
+            </div>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Die Rechner entsprechen strikt den internationalen Standards: RFC 8259 (JSON), RFC 2104 (HMAC), RFC 4122 (UUID v4), RFC 4648 (Base64) und WCAG 2.1 AA-Kontrastgleichungen.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Client-Side Verification Guide (E-E-A-T Proof) -->
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-6">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2.5">So überprüfen Sie, wohin Ihre Eingaben gehen</h2>
+        <p class="text-xs text-zinc-500 dark:text-zinc-400 mb-3">
+          Sie können bestätigen, dass die Werkzeugeingabe im Browser verbleibt:
+        </p>
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/40 space-y-2 text-xs">
+          <div class="flex items-start gap-2.5">
+            <span class="font-mono font-bold text-zinc-950 dark:text-zinc-100 bg-zinc-200 dark:bg-zinc-800 px-1.5 py-0.5 rounded">1</span>
+            <p class="text-zinc-600 dark:text-zinc-300">Öffnen Sie Chrome, Firefox, Safari oder Edge und drücken Sie <kbd class="px-1.5 py-0.5 rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 font-mono text-[11px]">F12</kbd> (oder <kbd class="px-1.5 py-0.5 rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 font-mono text-[11px]">Befehlstaste + Wahltaste + I</kbd>), um die Entwicklertools zu starten.</p>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="font-mono font-bold text-zinc-950 dark:text-zinc-100 bg-zinc-200 dark:bg-zinc-800 px-1.5 py-0.5 rounded">2</span>
+            <p class="text-zinc-600 dark:text-zinc-300">Navigieren Sie zu <strong>Network</strong> Registerkarte und wählen Sie die aus <strong>Fetch/XHR</strong> Filter zur Überwachung von Netzwerknutzlasten in Echtzeit.</p>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="font-mono font-bold text-zinc-950 dark:text-zinc-100 bg-zinc-200 dark:bg-zinc-800 px-1.5 py-0.5 rounded">3</span>
+            <p class="text-zinc-600 dark:text-zinc-300">Geben Sie Token ein, fügen Sie sie ein oder formatieren Sie JSON. Werkzeugaktionen senden diese Eingabe nicht an einen OmniTools-Server. Wenn Sie Anzeigen akzeptiert haben, werden Ihnen Anfragen an die Anzeigendomänen von Google angezeigt. Bei diesen Anfragen handelt es sich um die Anzeigen, nicht um Ihr Dokument.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Maintainer & Engineering Commitment -->
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-6">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-2">Unser technisches Engagement</h2>
+        <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+          OmniTools wird öffentlich gepflegt. Wenn ein Ergebnis falsch erscheint, melden Sie es auf der <a href="/pages/contact/de" class="underline hover:text-zinc-900 dark:hover:text-zinc-100">Kontaktseite</a> oder in einem <a href="https://github.com/yoonhahaha05/omnitools/issues" class="underline hover:text-zinc-900 dark:hover:text-zinc-100" target="_blank" rel="noopener noreferrer">GitHub-Problem</a>.
+        </p>
+      </section>
+
+      <!-- Global Legal & Trust Footer -->
+      <section class="border-t border-zinc-100 dark:border-zinc-800 pt-6 flex flex-wrap items-center justify-between gap-3 text-xs text-zinc-400">
+        <div class="flex items-center gap-4">
+          <a href="/pages/contact/de" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition">Kontakt und Support</a>
+          <a href="/pages/privacy/de" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition">Datenschutz</a>
+          <a href="/pages/terms/de" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition">Nutzungsbedingungen</a>
+        </div>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition underline">GitHub</a>
+      </section>
+
+    </div>
+  </div>
+
+  <script>
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches || localStorage.getItem('omnitools_theme') === '"dark"') {
+      document.documentElement.classList.add('dark');
+    }
+    if (window.lucide) lucide.createIcons();
+  </script>
+<script>window.OMNI_LANG="de";</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n/de.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var run = function () {
+    var arena = document.getElementById("tool-arena");
+    if (arena && window.OmniI18n) window.OmniI18n.translateRoot(arena);
+  };
+  run();
+  setTimeout(run, 0);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OmniTools - Utilitaires Web de précision côté client</title>
+  <meta name="description"
+    content="105 utilitaires de développement, de texte, mathématiques et multimédia côté client. Votre contribution reste sur cet appareil. Les publicités utilisent des cookies.">
+  <meta name="keywords"
+    content="utilitaires Web, outils de développement, compteur de mots, embellisseur JSON, calculateur de sous-réseau, générateur Hmac, convertisseur base64, générateur de mot de passe, vérificateur de différences, calculateur de rapport hauteur/largeur, horodatage Unix">
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0e1117">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="OmniTools">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OmniTools - 105 utilitaires Web de précision côté client">
+  <meta property="og:description"
+    content="105 utilitaires Web côté client. Votre contribution reste sur cet appareil. Les publicités utilisent des cookies.">
+  <meta property="og:url" content="https://getomnitools.com/fr">
+  <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:secure_url" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="OmniTools - 105 utilitaires Web gratuits côté client">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OmniTools - 105 utilitaires Web de précision côté client">
+  <meta name="twitter:description"
+    content="105 utilitaires de développement, de texte, mathématiques et multimédias à haute vitesse et sans latence fonctionnant à 100 % dans votre navigateur.">
+  <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
+
+  <link rel="canonical" href="https://getomnitools.com/fr">
+<!-- omni-hreflang -->
+  <link rel="alternate" hreflang="en" href="https://getomnitools.com/">
+  <link rel="alternate" hreflang="x-default" href="https://getomnitools.com/">
+  <link rel="alternate" hreflang="ko" href="https://getomnitools.com/ko">
+  <link rel="alternate" hreflang="es" href="https://getomnitools.com/es">
+  <link rel="alternate" hreflang="pt-BR" href="https://getomnitools.com/pt">
+  <link rel="alternate" hreflang="de" href="https://getomnitools.com/de">
+  <link rel="alternate" hreflang="fr" href="https://getomnitools.com/fr">
+  <!-- /omni-hreflang -->
+
+
+  <!-- Google Search Console Verification (Add your token when verifying) -->
+  <meta name="google-site-verification" content="">
+
+  <!-- Schema.org WebSite & Sitelinks Searchbox Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "OmniTools",
+  "url": "https://getomnitools.com/fr",
+  "description": "105 utilitaires de développement, de texte, mathématiques et multimédias haute vitesse, 100 % côté client.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://getomnitools.com/fr?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+  </script>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Lucide Icons CDN (Deferred for Performance) -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Google AdSense Configuration & Script -->
+  <script>
+    window.ADSENSE_CONFIG = {
+      client: 'ca-pub-3261737439776294',
+      slotHome: '5934296997',
+      slotTool: '5934296997',
+      slotSidebar: '5934296997'
+    };
+    window.adsbygoogle = window.adsbygoogle || [];
+  </script>
+  <script src="/js/consent.js" defer></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          colors: {
+            zinc: {
+              750: '#333338',
+              850: '#1f2024'
+            },
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body
+  class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+<!-- omni-langbar -->
+<div class="omni-langbar" aria-label="Language">
+<a href="https://getomnitools.com/" hreflang="en">English</a>
+<a href="https://getomnitools.com/ko" hreflang="ko">한국어</a>
+<a href="https://getomnitools.com/es" hreflang="es">Español</a>
+<a href="https://getomnitools.com/pt" hreflang="pt-BR">Português</a>
+<a href="https://getomnitools.com/de" hreflang="de">Deutsch</a>
+<a href="https://getomnitools.com/fr" hreflang="fr" aria-current="page">Français</a>
+</div>
+<!-- /omni-langbar -->
+
+
+  <!-- Primary Top Navbar -->
+  <header
+    class="sticky top-0 z-30 bg-white/95 dark:bg-[#0e1117]/95 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
+
+      <!-- Brand & Mobile Menu Button -->
+      <div class="flex items-center gap-3 shrink-0">
+        <button id="mobile-menu-btn"
+          class="md:hidden p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none"
+          aria-label="Basculer le menu de navigation">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+
+        <a href="#/" class="flex items-center gap-2.5">
+          <div
+            class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+          </div>
+          <span class="font-bold text-base tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
+        </a>
+      </div>
+
+      <!-- Command Quick Search Bar with ⌘K / Ctrl+K -->
+      <div class="hidden sm:block flex-1 max-w-lg mx-2">
+        <div class="relative">
+          <input id="nav-search" type="text" placeholder="Rechercher des utilitaires... (⌘K)"
+            class="w-full pl-9 pr-14 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-100/70 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 transition">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
+          <kbd
+            class="absolute right-2 top-1.5 text-[10px] font-mono px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-400 shadow-2xs">Ctrl
+            K</kbd>
+        </div>
+      </div>
+
+      <!-- Action Controls: View Switcher, Theme, Support -->
+      <div class="flex items-center gap-1.5 shrink-0">
+        <button id="view-mode-toggle"
+          class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 transition"
+          title="Basculer la vue Grille/Liste" aria-label="Basculer la densité de la mise en page">
+          <i id="view-mode-icon" data-lucide="layout-grid" class="w-4 h-4"></i>
+        </button>
+
+        <button id="theme-toggle"
+          class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 transition"
+          title="Changer le thème" aria-label="Basculer en mode sombre/clair">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-medium transition"
+          title="Source sur GitHub">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Application Layout Container -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 flex gap-8 w-full">
+
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-zinc-950/50 backdrop-blur-xs z-40 hidden md:hidden"></div>
+
+    <!-- Responsive Left Sidebar Navigation -->
+    <aside id="sidebar"
+      class="fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-[#0e1117] border-r border-zinc-200 dark:border-zinc-800 p-5 transform -translate-x-full md:translate-x-0 md:static md:w-56 lg:w-60 md:block transition-transform duration-200 ease-in-out md:border-r-0 md:bg-transparent md:dark:bg-transparent md:p-0 shrink-0">
+      <div class="sticky top-20 space-y-6">
+        <div>
+          <div class="px-2 mb-2">
+            <span class="text-[11px] font-medium text-zinc-400 dark:text-zinc-500">Catégories</span>
+          </div>
+          <nav id="category-list" class="space-y-0.5">
+            <!-- Populated dynamically by App.renderCategoriesNav() -->
+          </nav>
+        </div>
+
+        <div class="pt-4 border-t border-zinc-200/80 dark:border-zinc-800/80">
+          <div class="space-y-0.5 text-xs text-zinc-600 dark:text-zinc-400">
+            <a href="/pages/about/fr"
+              class="flex items-center gap-2 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>À propos</span>
+            </a>
+            <a href="/pages/privacy/fr"
+              class="flex items-center gap-2 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="shield" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>Privacy</span>
+            </a>
+            <a href="/pages/contact/fr"
+              class="flex items-center gap-2 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>Contact</span>
+            </a>
+            <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer"
+              class="flex items-center gap-2 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-zinc-200 transition">
+              <i data-lucide="github" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Dynamic Main Content Arena -->
+    <main id="main-content" class="flex-1 min-w-0">
+      <!-- Router dynamically renders either Home or Tool view here -->
+    </main>
+  </div>
+
+  <!-- Global Technical Footer -->
+  <footer
+    class="mt-auto border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#0e1117] text-zinc-500 dark:text-zinc-400 text-xs py-10 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto space-y-10">
+
+      <!-- Launchstag Badge -->
+      <div class="flex justify-center items-center py-2">
+        <a href="https://launchstag.com" target="_blank" rel="noopener">
+          <img src="https://launchstag.com/badge-dark.svg" alt="Présenté sur Launchstag" width="198" height="62" />
+        </a>
+      </div>
+
+      <!-- SEO Semantic Utility Directory -->
+      <section class="mt-16 pt-10 border-t border-zinc-200/80 dark:border-zinc-800/80"
+        aria-label="Répertoire complet des utilitaires">
+        <div class="mb-6">
+          <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+            Répertoire des 105 utilitaires de précision (outils instantanés côté client)
+          </h2>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+            Accès direct indexé par recherche à tous les utilitaires de la suite de postes de travail OmniTools.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-xs">
+          <div class="space-y-2">
+            <h3
+              class="font-bold text-[11px] font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-1.5">
+              Développement et données
+            </h3>
+            <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400">
+              <li><a href="/tools/base64-image-tool/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Image Base64">Image Base64</a></li>
+              <li><a href="/tools/base64-tool/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Encoder et décoder en Base64">Encoder et décoder en Base64</a></li>
+              <li><a href="/tools/cron-explainer/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Explication cron">Explication cron</a></li>
+              <li><a href="/tools/hash-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Générateur de hash">Générateur de hash</a></li>
+              <li><a href="/tools/css-minifier/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Minificateur CSS">Minificateur CSS</a></li>
+              <li><a href="/tools/csv-to-json/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Convertir CSV en JSON">Convertir CSV en JSON</a></li>
+              <li><a href="/tools/curl-converter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="cURL vers Fetch ou Python">cURL vers Fetch ou Python</a></li>
+              <li><a href="/tools/hmac-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Générateur HMAC">Générateur HMAC</a></li>
+              <li><a href="/tools/html-entity-encoder/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Entités HTML">Entités HTML</a></li>
+              <li><a href="/tools/http-header-parser/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="En-têtes HTTP">En-têtes HTTP</a></li>
+              <li><a href="/tools/http-status-codes/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Codes d&#x27;état HTTP">Codes d&#x27;état HTTP</a></li>
+              <li><a href="/tools/js-minifier/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Minificateur JavaScript">Minificateur JavaScript</a></li>
+              <li><a href="/tools/json-beautifier/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Embellisseur et validateur JSON">Embellisseur et validateur JSON</a></li>
+              <li><a href="/tools/json-minifier/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Minificateur JSON">Minificateur JSON</a></li>
+              <li><a href="/tools/json-to-csv/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Convertir JSON en CSV">Convertir JSON en CSV</a></li>
+              <li><a href="/tools/jwt-decoder/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Décodeur JWT">Décodeur JWT</a></li>
+              <li><a href="/tools/keycode-inspector/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Inspecteur de touches">Inspecteur de touches</a></li>
+              <li><a href="/tools/chmod-calculator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Calculateur chmod">Calculateur chmod</a></li>
+              <li><a href="/tools/markdown-table-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Tableaux Markdown">Tableaux Markdown</a></li>
+              <li><a href="/tools/mime-types/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Types MIME">Types MIME</a></li>
+              <li><a href="/tools/regex-matcher/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Testeur de regex">Testeur de regex</a></li>
+              <li><a href="/tools/sql-formatter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Formateur SQL">Formateur SQL</a></li>
+              <li><a href="/tools/subnet-calculator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Calculateur de sous-réseau">Calculateur de sous-réseau</a></li>
+              <li><a href="/tools/url-encoder-decoder/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Encodeur et décodeur d&#x27;URL">Encodeur et décodeur d&#x27;URL</a></li>
+              <li><a href="/tools/user-agent-parser/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Analyseur de user agent">Analyseur de user agent</a></li>
+              <li><a href="/tools/uuid-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Générateur d&#x27;UUID">Générateur d&#x27;UUID</a></li>
+              <li><a href="/tools/xml-to-json/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Convertir XML en JSON">Convertir XML en JSON</a></li>
+              <li><a href="/tools/yaml-to-json/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Convertir YAML en JSON">Convertir YAML en JSON</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2">
+            <h3
+              class="font-bold text-[11px] font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-1.5">
+              Calculs et convertisseurs
+            </h3>
+            <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400">
+              <li><a href="/tools/age-calculator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Calculateur d&#x27;âge et de jours de vie">Calculateur d&#x27;âge et de jours de vie</a></li>
+              <li><a href="/tools/aspect-ratio-calculator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Rapport d&#x27;aspect">Rapport d&#x27;aspect</a></li>
+              <li><a href="/tools/base-converter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Convertisseur de base">Convertisseur de base</a></li>
+              <li><a href="/tools/compound-interest-calculator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Intérêts composés">Intérêts composés</a></li>
+              <li><a href="/tools/data-storage-converter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Convertisseur de stockage">Convertisseur de stockage</a></li>
+              <li><a href="/tools/date-difference-calculator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Écart entre dates">Écart entre dates</a></li>
+              <li><a href="/tools/dice-coin-roller/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Rouleau de dés et flipper de pièces de monnaie">Rouleau de dés et flipper de pièces de monnaie</a></li>
+              <li><a href="/tools/discount-tax-calculator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Calculateur de réduction et de taxe de vente">Calculateur de réduction et de taxe de vente</a></li>
+              <li><a href="/tools/fuel-cost-calculator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Coût du carburant">Coût du carburant</a></li>
+              <li><a href="/tools/gpa-calculator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Calculateur de moyenne">Calculateur de moyenne</a></li>
+              <li><a href="/tools/salary-calculator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Salaire horaire et annuel">Salaire horaire et annuel</a></li>
+              <li><a href="/tools/human-date-to-unix/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Date vers Unix">Date vers Unix</a></li>
+              <li><a href="/tools/length-converter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Convertisseur de longueur">Convertisseur de longueur</a></li>
+              <li><a href="/tools/matrix-determinant-calculator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Déterminant">Déterminant</a></li>
+              <li><a href="/tools/percentage-calculator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Calculateur de pourcentage">Calculateur de pourcentage</a></li>
+              <li><a href="/tools/random-number-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Nombres aléatoires">Nombres aléatoires</a></li>
+              <li><a href="/tools/roman-numeral-converter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Chiffres romains">Chiffres romains</a></li>
+              <li><a href="/tools/running-pace-calculator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Allure de course">Allure de course</a></li>
+              <li><a href="/tools/ppi-calculator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Calculateur PPI et DPI">Calculateur PPI et DPI</a></li>
+              <li><a href="/tools/speed-converter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Convertisseur de vitesse">Convertisseur de vitesse</a></li>
+              <li><a href="/tools/temperature-converter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Convertisseur de température">Convertisseur de température</a>
+              </li>
+              <li><a href="/tools/timezone-converter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Convertisseur de fuseau horaire et horloge mondiale">Convertisseur de fuseau horaire et horloge mondiale</a></li>
+              <li><a href="/tools/tip-splitter-calculator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Séparateur de pourboires et de factures">Séparateur de pourboires et de factures</a></li>
+              <li><a href="/tools/timestamp-converter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Convertisseur d&#x27;horodatage et d&#x27;époque Unix">Convertisseur d&#x27;horodatage et d&#x27;époque Unix</a></li>
+              <li><a href="/tools/weight-converter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Convertisseur de poids et de masse">Convertisseur de poids et de masse</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2">
+            <h3
+              class="font-bold text-[11px] font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-1.5">
+              Médias, CSS et design
+            </h3>
+            <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400">
+              <li><a href="/tools/barcode-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Générateur de code-barres">Générateur de code-barres</a></li>
+              <li><a href="/tools/clip-path-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Générateur de clip-path">Générateur de clip-path</a></li>
+              <li><a href="/tools/color-converter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Sélecteur et convertisseur de couleurs (HEX, RVB, HSL)">Sélecteur et convertisseur de couleurs (HEX, RVB, HSL)</a></li>
+              <li><a href="/tools/border-radius-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Générateur de border-radius">Générateur de border-radius</a></li>
+              <li><a href="/tools/box-shadow-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Générateur d&#x27;ombre CSS">Générateur d&#x27;ombre CSS</a></li>
+              <li><a href="/tools/glassmorphism-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Générateur glassmorphism">Générateur glassmorphism</a></li>
+              <li><a href="/tools/gradient-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Générateur de dégradés">Générateur de dégradés</a></li>
+              <li><a href="/tools/favicon-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Générateur de favicon">Générateur de favicon</a></li>
+              <li><a href="/tools/image-filter-tool/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Filtre d&#x27;image">Filtre d&#x27;image</a></li>
+              <li><a href="/tools/image-cropper/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Rogner une image">Rogner une image</a></li>
+              <li><a href="/tools/image-resizer/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Redimensionner une image">Redimensionner une image</a></li>
+              <li><a href="/tools/qr-code-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Générateur de code QR">Générateur de code QR</a></li>
+              <li><a href="/tools/palette-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Palettes de couleurs">Palettes de couleurs</a></li>
+              <li><a href="/tools/svg-path-visualizer/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Tracés SVG">Tracés SVG</a></li>
+              <li><a href="/tools/quote-card-maker/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Carte de citation">Carte de citation</a></li>
+              <li><a href="/tools/contrast-checker/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Contraste des couleurs">Contraste des couleurs</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2">
+            <h3
+              class="font-bold text-[11px] font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-1.5">
+              Utilitaires rapides
+            </h3>
+            <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400">
+              <li><a href="/tools/storage-cleaner/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Vider le stockage">Vider le stockage</a></li>
+              <li><a href="/tools/countdown-timer/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Compte à rebours">Compte à rebours</a></li>
+              <li><a href="/tools/diceware-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Phrases secrètes Diceware">Phrases secrètes Diceware</a></li>
+              <li><a href="/tools/scratchpad/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Bloc-notes local">Bloc-notes local</a></li>
+              <li><a href="/tools/network-latency-checker/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Latence réseau">Latence réseau</a></li>
+              <li><a href="/tools/pomodoro-timer/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Minuteur Pomodoro">Minuteur Pomodoro</a></li>
+              <li><a href="/tools/screen-inspector/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Résolution d’écran et inspecteur de fenêtre">Résolution d’écran et inspecteur de fenêtre</a></li>
+              <li><a href="/tools/stopwatch-timer/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Chronomètre et suivi des tours">Chronomètre et suivi des tours</a></li>
+              <li><a href="/tools/password-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Générateur de mots de passe">Générateur de mots de passe</a></li>
+              <li><a href="/tools/tap-tempo-bpm/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Calculateur de BPM">Calculateur de BPM</a></li>
+              <li><a href="/tools/metronome/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Métronome">Métronome</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2">
+            <h3
+              class="font-bold text-[11px] font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-100 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-1.5">
+              Texte et mise en forme
+            </h3>
+            <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400">
+              <li><a href="/tools/case-converter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Convertisseur de casse">Convertisseur de casse</a></li>
+              <li><a href="/tools/discord-markdown-styler/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Style Markdown Discord">Style Markdown Discord</a></li>
+              <li><a href="/tools/remove-duplicate-lines/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Supprimer les lignes en double">Supprimer les lignes en double</a></li>
+              <li><a href="/tools/emoji-stripper/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Supprimer les emojis">Supprimer les emojis</a></li>
+              <li><a href="/tools/extract-emails/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Extraire les e-mails d&#x27;un texte">Extraire les e-mails d&#x27;un texte</a></li>
+              <li><a href="/tools/extract-urls/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Extraire les URL d&#x27;un texte">Extraire les URL d&#x27;un texte</a></li>
+              <li><a href="/tools/fancy-unicode-fonts/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Polices Unicode">Polices Unicode</a></li>
+              <li><a href="/tools/invisible-character-remover/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Caractère invisible et décapant de largeur nulle">Caractère invisible et décapant de largeur nulle</a></li>
+              <li><a href="/tools/line-numberer/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Numéroter les lignes">Numéroter les lignes</a></li>
+              <li><a href="/tools/lorem-ipsum-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Générateur de Lorem Ipsum">Générateur de Lorem Ipsum</a></li>
+              <li><a href="/tools/markdown-previewer/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Aperçu et exportateur Markdown Live">Aperçu et exportateur Markdown Live</a></li>
+              <li><a href="/tools/morse-code-translator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Traducteur de code Morse">Traducteur de code Morse</a></li>
+              <li><a href="/tools/nato-phonetic-converter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Alphabet phonétique OTAN">Alphabet phonétique OTAN</a></li>
+              <li><a href="/tools/reading-time-estimator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Calculateur de temps de lecture">Calculateur de temps de lecture</a></li>
+              <li><a href="/tools/regex-find-replace/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Regex Rechercher et remplacer">Regex Rechercher et remplacer</a></li>
+              <li><a href="/tools/remove-whitespace/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Supprimer les espaces supplémentaires et les espaces">Supprimer les espaces supplémentaires et les espaces</a></li>
+              <li><a href="/tools/remove-line-breaks/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Supprimer les sauts de ligne">Supprimer les sauts de ligne</a></li>
+              <li><a href="/tools/reverse-text/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Texte inversé (caractères et mots)">Texte inversé (caractères et mots)</a></li>
+              <li><a href="/tools/sort-lines/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Trier les lignes">Trier les lignes</a></li>
+              <li><a href="/tools/strip-html-tags/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Supprimer les balises HTML">Supprimer les balises HTML</a></li>
+              <li><a href="/tools/text-diff/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Comparateur de texte">Comparateur de texte</a></li>
+              <li><a href="/tools/text-binary-converter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Texte et binaire">Texte et binaire</a></li>
+              <li><a href="/tools/text-hex-converter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Texte et hexadécimal">Texte et hexadécimal</a></li>
+              <li><a href="/tools/slug-generator/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Générateur de slug">Générateur de slug</a></li>
+              <li><a href="/tools/word-counter/fr"
+                  class="hover:text-brand-600 dark:hover:text-brand-400 hover:underline transition-colors block truncate"
+                  title="Compteur de mots et de caractères">Compteur de mots et de caractères</a></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    </section>
+    <div
+      class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-zinc-200/80 dark:border-zinc-800/80">
+      <div class="flex items-center gap-2 font-mono text-[11px]">
+        <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span>105 micro-utilitaires côté client</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span class="text-emerald-600 dark:text-emerald-400 font-medium">100 % hors ligne</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs">
+        <a href="/pages/about/fr" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">À propos</a>
+        <a href="/pages/contact/fr" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Contact et assistance</a>
+        <a href="/pages/privacy/fr" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Politique de confidentialité</a>
+        <a href="/pages/terms/fr" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">Conditions d&#x27;utilisation</a>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer"
+          class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Helpers, Tool Modules, Registry, and Core App -->
+  <script src="/js/utils.js"></script>
+  <script src="/js/tools/text.js"></script>
+  <script src="/js/tools/dev.js"></script>
+  <script src="/js/tools/math.js"></script>
+  <script src="/js/tools/media.js"></script>
+  <script src="/js/tools/quick.js"></script>
+  <script src="/js/registry.js"></script>
+  <script src="/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      App.init();
+
+      // Register PWA Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch((err) => {
+            console.warn('PWA Service Worker registration failed:', err);
+          });
+        });
+      }
+    });
+  </script>
+<script>window.OMNI_LANG="fr";</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n/fr.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var run = function () {
+    var arena = document.getElementById("tool-arena");
+    if (arena && window.OmniI18n) window.OmniI18n.translateRoot(arena);
+  };
+  run();
+  setTimeout(run, 0);
+});
+</script>
+</body>
+
+</html>

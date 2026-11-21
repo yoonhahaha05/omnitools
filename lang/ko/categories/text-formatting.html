@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>무료 온라인 텍스트 및 서식 도구(100% 클라이언트측) | OmniTools</title>
+  <meta name="description" content="브라우저에서 즉시 텍스트를 정리하고, 서식을 지정하고, 변환하고, 검사하세요. Word Counter, Diff Checker, Case Converter, Markdown Previewer를 포함한 25가지 무료 클라이언트 측 텍스트 도구입니다.">
+  <link rel="canonical" href="https://getomnitools.com/categories/text-formatting/ko">
+<!-- omni-hreflang -->
+  <link rel="alternate" hreflang="en" href="https://getomnitools.com/categories/text-formatting">
+  <link rel="alternate" hreflang="x-default" href="https://getomnitools.com/categories/text-formatting">
+  <link rel="alternate" hreflang="ko" href="https://getomnitools.com/categories/text-formatting/ko">
+  <link rel="alternate" hreflang="es" href="https://getomnitools.com/categories/text-formatting/es">
+  <link rel="alternate" hreflang="pt-BR" href="https://getomnitools.com/categories/text-formatting/pt">
+  <link rel="alternate" hreflang="de" href="https://getomnitools.com/categories/text-formatting/de">
+  <link rel="alternate" hreflang="fr" href="https://getomnitools.com/categories/text-formatting/fr">
+  <!-- /omni-hreflang -->
+
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0e1117">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="무료 온라인 텍스트 및 서식 도구(100% 클라이언트측) | OmniTools">
+  <meta property="og:description" content="브라우저에서 즉시 텍스트를 정리하고, 서식을 지정하고, 변환하고, 검사하세요. Word Counter, Diff Checker, Case Converter, Markdown Previewer를 포함한 25가지 무료 클라이언트 측 텍스트 도구입니다.">
+  <meta property="og:url" content="https://getomnitools.com/categories/text-formatting/ko">
+  <meta property="og:image" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:secure_url" content="https://getomnitools.com/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="텍스트 및 서식 - OmniTools">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="무료 온라인 텍스트 및 서식 도구(100% 클라이언트측) | OmniTools">
+  <meta name="twitter:description" content="브라우저에서 즉시 텍스트를 정리하고, 서식을 지정하고, 변환하고, 검사하세요. Word Counter, Diff Checker, Case Converter, Markdown Previewer를 포함한 25가지 무료 클라이언트 측 텍스트 도구입니다.">
+  <meta name="twitter:image" content="https://getomnitools.com/assets/og-image.png">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN (Deferred for Performance) -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Google AdSense Configuration & Script -->
+  <script>
+    window.ADSENSE_CONFIG = {
+      client: 'ca-pub-3261737439776294',
+      slotHome: '5934296997',
+      slotTool: '5934296997',
+      slotSidebar: '5934296997'
+    };
+    window.adsbygoogle = window.adsbygoogle || [];
+  </script>
+  <script src="/js/consent.js" defer></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- JSON-LD Structured Data for Search Engines -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "텍스트 및 서식 유틸리티",
+  "url": "https://getomnitools.com/categories/text-formatting/ko",
+  "description": "브라우저에서 즉시 텍스트를 정리하고, 서식을 지정하고, 변환하고, 검사하세요. Word Counter, Diff Checker, Case Converter, Markdown Previewer를 포함한 25가지 무료 클라이언트 측 텍스트 도구입니다.",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "글자수 세기",
+        "url": "https://getomnitools.com/tools/word-counter/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "읽기 시간 계산기",
+        "url": "https://getomnitools.com/tools/reading-time-estimator/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "대소문자 변환기",
+        "url": "https://getomnitools.com/tools/case-converter/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "공백 정리",
+        "url": "https://getomnitools.com/tools/remove-whitespace/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "줄바꿈 제거",
+        "url": "https://getomnitools.com/tools/remove-line-breaks/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "줄 정렬 (가나다·알파벳)",
+        "url": "https://getomnitools.com/tools/sort-lines/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "name": "텍스트 뒤집기",
+        "url": "https://getomnitools.com/tools/reverse-text/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "name": "텍스트 비교",
+        "url": "https://getomnitools.com/tools/text-diff/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "name": "중복 줄 제거",
+        "url": "https://getomnitools.com/tools/remove-duplicate-lines/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "name": "마크다운 미리보기",
+        "url": "https://getomnitools.com/tools/markdown-previewer/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 11,
+        "name": "로렘 입숨 생성기",
+        "url": "https://getomnitools.com/tools/lorem-ipsum-generator/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 12,
+        "name": "URL 슬러그 생성기",
+        "url": "https://getomnitools.com/tools/slug-generator/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 13,
+        "name": "정규식 찾아 바꾸기",
+        "url": "https://getomnitools.com/tools/regex-find-replace/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 14,
+        "name": "HTML 태그 제거",
+        "url": "https://getomnitools.com/tools/strip-html-tags/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 15,
+        "name": "디스코드 마크다운",
+        "url": "https://getomnitools.com/tools/discord-markdown-styler/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 16,
+        "name": "보이지 않는 문자 제거",
+        "url": "https://getomnitools.com/tools/invisible-character-remover/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 17,
+        "name": "텍스트·2진수 변환",
+        "url": "https://getomnitools.com/tools/text-binary-converter/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 18,
+        "name": "텍스트·16진수 변환",
+        "url": "https://getomnitools.com/tools/text-hex-converter/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 19,
+        "name": "NATO 음성 알파벳",
+        "url": "https://getomnitools.com/tools/nato-phonetic-converter/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 20,
+        "name": "모스 부호 번역",
+        "url": "https://getomnitools.com/tools/morse-code-translator/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 21,
+        "name": "유니코드 꾸밈 글꼴",
+        "url": "https://getomnitools.com/tools/fancy-unicode-fonts/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 22,
+        "name": "줄 번호 매기기",
+        "url": "https://getomnitools.com/tools/line-numberer/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 23,
+        "name": "텍스트에서 URL 추출",
+        "url": "https://getomnitools.com/tools/extract-urls/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 24,
+        "name": "텍스트에서 이메일 추출",
+        "url": "https://getomnitools.com/tools/extract-emails/ko"
+      },
+      {
+        "@type": "ListItem",
+        "position": 25,
+        "name": "이모지 제거",
+        "url": "https://getomnitools.com/tools/emoji-stripper/ko"
+      }
+    ]
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://getomnitools.com/ko"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "텍스트·서식",
+      "item": "https://getomnitools.com/categories/text-formatting/ko"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "내 텍스트 데이터가 저장되거나 원격 서버로 전송됩니까?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "입력한 텍스트는 OmniTools 서버에 업로드되지 않습니다. 광고 쿠키는 귀하가 수락한 경우에만 로드됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "인터넷에 연결하지 않고도 이러한 텍스트 서식 지정 도구를 사용할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "예! OmniTools는 전체 오프라인 캐싱을 갖춘 PWA(Progressive Web App)입니다. 로드되면 모든 텍스트 작업이 오프라인에서 원활하게 작동합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "텍스트 처리에 문자 또는 파일 크기 제한이 있습니까?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "계산은 브라우저 메모리 내부에서 로컬로 이루어지기 때문에 API 시간 초과 없이 수십만 단어로 구성된 문서를 편안하게 처리할 수 있습니다."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body class="bg-zinc-50 dark:bg-[#0b0d11] text-zinc-800 dark:text-zinc-200 font-sans min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+<!-- omni-langbar -->
+<div class="omni-langbar" aria-label="Language">
+<a href="https://getomnitools.com/categories/text-formatting" hreflang="en">English</a>
+<a href="https://getomnitools.com/categories/text-formatting/ko" hreflang="ko" aria-current="page">한국어</a>
+<a href="https://getomnitools.com/categories/text-formatting/es" hreflang="es">Español</a>
+<a href="https://getomnitools.com/categories/text-formatting/pt" hreflang="pt-BR">Português</a>
+<a href="https://getomnitools.com/categories/text-formatting/de" hreflang="de">Deutsch</a>
+<a href="https://getomnitools.com/categories/text-formatting/fr" hreflang="fr">Français</a>
+</div>
+<!-- /omni-langbar -->
+
+
+  <!-- Primary Top Navbar -->
+  <header class="sticky top-0 z-30 bg-white/95 dark:bg-[#0e1117]/95 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
+      
+      <!-- Brand -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="/ko" class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 flex items-center justify-center">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+          </div>
+          <span class="font-bold text-base tracking-tight text-zinc-950 dark:text-white">OmniTools</span>
+        </a>
+      </div>
+
+      <!-- Quick Search / Catalog Link -->
+      <div class="flex-1 max-w-md mx-4 hidden sm:block">
+        <a href="/ko" class="flex items-center justify-between w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-850 bg-zinc-100/70 dark:bg-zinc-900/70 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition relative">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5"></i>
+          <span>도구 검색...</span>
+          <kbd class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border border-zinc-300/70 dark:border-zinc-750 bg-white dark:bg-zinc-800/80 text-zinc-400 shadow-2xs">⌘K</kbd>
+        </a>
+      </div>
+
+      <!-- Action Controls -->
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="/ko" class="px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+          <span>모든 도구</span>
+        </a>
+
+        <button id="theme-toggle" class="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-600 dark:text-zinc-300 transition" title="테마 전환">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800/70 text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-8">
+    
+    <!-- Breadcrumbs -->
+    <div class="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">
+      <a href="/ko" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">홈</a>
+      <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-400"></i>
+      <span class="text-zinc-900 dark:text-zinc-200 font-semibold">텍스트·서식</span>
+    </div>
+
+    <!-- Category Header Hero -->
+    <div class="p-6 sm:p-8 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 space-y-2">
+      <h1 class="text-2xl sm:text-3xl font-bold text-zinc-950 dark:text-white tracking-tight">
+        텍스트 및 서식 유틸리티
+      </h1>
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 max-w-3xl leading-relaxed">
+        작가, 프로그래머, 콘텐츠 제작자를 위한 고속 클라이언트측 텍스트 도구입니다. 공백을 제거하고, 대소문자를 변환하고, 마크다운을 검사하고, HTML 태그를 제거하고, 텍스트를 비교하고, 브라우저에 데이터가 전혀 없는 형식의 사본을 만드세요.
+      </p>
+    </div>
+
+    <!-- Category Hub Navigation Pills -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+      <span class="text-[11px] font-mono text-zinc-400 shrink-0 mr-1">Categories:</span>
+
+        <a href="/categories/text-formatting/ko" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-950 font-bold">
+          텍스트 및 서식 (25)
+        </a>
+
+        <a href="/categories/developer-data/ko" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600">
+          개발자 및 데이터 (28)
+        </a>
+
+        <a href="/categories/everyday-math/ko" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600">
+          일상적인 수학 및 변환기 (25)
+        </a>
+
+        <a href="/categories/media-css-design/ko" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600">
+          미디어, CSS 및 디자인 (16)
+        </a>
+
+        <a href="/categories/quick-utilities/ko" class="px-3 py-1.5 rounded-lg text-xs transition whitespace-nowrap bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600">
+          빠른 유틸리티 및 생활 도구 (11)
+        </a>
+    </div>
+
+    <!-- Category Tools Grid -->
+    <div class="space-y-3">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">사용 가능한 텍스트 및 서식 도구</h2>
+        <span class="text-[11px] font-mono text-zinc-400">유틸리티 25개</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+
+        <a href="/tools/word-counter/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="notebook-pen" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">글자수 세기</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">에세이, 캡션, 메시지를 붙여넣으세요. 입력하면 개수가 업데이트됩니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/reading-time-estimator/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="timer" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">읽기 시간 계산기</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">텍스트를 붙여넣으세요. 독서 시간, 말하기 시간, 훑어보기 시간을 갖습니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/case-converter/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="type" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">대소문자 변환기</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">텍스트를 붙여넣고 대문자, 소문자, 제목 케이스 또는 CamelCase를 선택합니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/remove-whitespace/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">공백 정리</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">지저분한 텍스트를 붙여 넣습니다. 여분의 공백과 탭이 나옵니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/remove-line-breaks/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">줄바꿈 제거</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">끊어진 줄을 붙여 넣으세요. 그들은 하나의 텍스트 블록으로 결합됩니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/sort-lines/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="arrow-up-down" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">줄 정렬 (가나다·알파벳)</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">한 줄에 하나의 항목을 붙여넣습니다. A에서 Z로, Z에서 A로 또는 숫자별로 정렬합니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/reverse-text/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="repeat" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">텍스트 뒤집기</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">붙여넣으세요. 문자, 단어 또는 줄 순서를 뒤집습니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/text-diff/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="scale" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">텍스트 비교</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">이전 버전과 새 버전을 붙여넣으세요. 추가 및 삭제가 나란히 표시됩니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/remove-duplicate-lines/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="crop" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">중복 줄 제거</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">목록을 붙여넣으세요. 중복된 줄이 나오고 나머지는 순서대로 유지됩니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/markdown-previewer/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">마크다운 미리보기</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">마크다운을 입력하세요. 포맷된 페이지가 옆에 표시됩니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/lorem-ipsum-generator/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">로렘 입숨 생성기</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">단락이나 문장 수를 선택하세요. 자리 표시자 텍스트를 복사합니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/slug-generator/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="link" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">URL 슬러그 생성기</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">제목을 붙여넣으세요. 링크에 넣을 수 있는 깨끗한 슬러그를 얻습니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/regex-find-replace/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="search" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">정규식 찾아 바꾸기</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">텍스트와 패턴을 붙여넣으세요. 일치하는 것이 무엇인지 확인한 다음 교체하십시오.</p>
+          </div>
+        </a>
+
+        <a href="/tools/strip-html-tags/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="tag" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">HTML 태그 제거</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">마크업을 붙여넣습니다. 태그는 벗겨지고 단어는 그대로 유지됩니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/discord-markdown-styler/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">디스코드 마크다운</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">메시지를 입력하세요. 보내기 전에 스포일러, 코드 및 색상을 미리 볼 수 있습니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/invisible-character-remover/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="ghost" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">보이지 않는 문자 제거</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">붙여넣으세요. 보이지 않는 공백과 너비가 0인 문자는 제거됩니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/text-binary-converter/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">텍스트·2진수 변환</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">단어를 입력하거나 바이너리를 붙여넣으세요. 양방향으로 변환됩니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/text-hex-converter/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">텍스트·16진수 변환</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">단어를 입력하거나 16진수를 붙여넣으세요. 양방향으로 변환됩니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/nato-phonetic-converter/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">NATO 음성 알파벳</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">문자를 입력하세요. 알파, 브라보, 찰리를 얻습니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/morse-code-translator/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">모스 부호 번역</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">메시지를 입력하거나 점과 대시를 입력하세요. 소리를 재생할 수 있습니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/fancy-unicode-fonts/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">유니코드 꾸밈 글꼴</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">단어를 입력하세요. 굵은체, 필기체 또는 고딕체 버전을 복사하세요.</p>
+          </div>
+        </a>
+
+        <a href="/tools/line-numberer/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="list-ordered" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">줄 번호 매기기</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">목록을 붙여넣으세요. 각 줄에는 숫자가 있습니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/extract-urls/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="globe" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">텍스트에서 URL 추출</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">이메일, 문서, 메모를 붙여넣으세요. 모든 링크는 목록으로 나타납니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/extract-emails/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">텍스트에서 이메일 추출</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">메시지를 붙여넣으세요. 모든 주소가 목록으로 나타납니다.</p>
+          </div>
+        </a>
+
+        <a href="/tools/emoji-stripper/ko" class="tool-card p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141a] hover:border-zinc-300 dark:hover:border-zinc-700 transition flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center mb-3">
+              <i data-lucide="smile-plus" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">이모지 제거</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">텍스트를 붙여넣으세요. 이모티콘은 나오고 단어는 그대로 유지됩니다.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Google AdSense Responsive Unit -->
+    <div class="ad-slot-wrapper w-full p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30">
+      <div class="ad-label text-zinc-400 dark:text-zinc-500 mb-2">광고</div>
+      <div class="w-full text-center overflow-hidden" style="min-height: 90px;">
+        <ins class="adsbygoogle"
+             style="display:block;width:100%;min-height:90px;"
+             data-ad-client="ca-pub-3261737439776294"
+             data-ad-slot="5934296997"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+
+    <!-- Category Deep-Dive Architecture Guide -->
+    <div class="p-6 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800 space-y-4 text-xs sm:text-sm">
+      <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">도메인 아키텍처 및 개인 정보 보호 표준</h2>
+      <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed">
+        대용량 문서, 마크다운 사본, 코드 차이를 처리하려면 전송 대기 시간이 없는 고성능 텍스트 조작이 필요합니다. OmniTools는 V8 문자열 최적화 및 유니코드 호환 정규식(RegExp u-flag)을 활용하여 시스템 메모리를 소모하지 않고 밀리초 미만의 프레임에서 수십만 단어로 구성된 문서를 처리합니다.
+      </p>
+      <div class="pt-2">
+        <h3 class="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">관리 사양 및 RFC 표준</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-[11px] font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-750">유니코드 표준 부록 #29(텍스트 분할)</span><span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-[11px] font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-750">CommonMark 마크다운 사양</span><span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-[11px] font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-750">RFC 3986(URI 백분율 인코딩)</span><span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-[11px] font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-750">WCAG 2.1 읽기 수준 표준</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Technical Guide & FAQs -->
+
+        <div class="space-y-3 pt-4">
+          <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">자주 묻는 질문</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+          <div class="p-4 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800">
+            <h3 class="font-semibold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 mb-1.5">내 텍스트 데이터가 저장되거나 원격 서버로 전송됩니까?</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">입력한 텍스트는 OmniTools 서버에 업로드되지 않습니다. 광고 쿠키는 귀하가 수락한 경우에만 로드됩니다.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800">
+            <h3 class="font-semibold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 mb-1.5">인터넷에 연결하지 않고도 이러한 텍스트 서식 지정 도구를 사용할 수 있나요?</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">예! OmniTools는 전체 오프라인 캐싱을 갖춘 PWA(Progressive Web App)입니다. 로드되면 모든 텍스트 작업이 오프라인에서 원활하게 작동합니다.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white dark:bg-[#101319] border border-zinc-200 dark:border-zinc-800">
+            <h3 class="font-semibold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 mb-1.5">텍스트 처리에 문자 또는 파일 크기 제한이 있습니까?</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">계산은 브라우저 메모리 내부에서 로컬로 이루어지기 때문에 API 시간 초과 없이 수십만 단어로 구성된 문서를 편안하게 처리할 수 있습니다.</p>
+          </div>
+          </div>
+        </div>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="mt-auto border-t border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-[#0e1117] text-zinc-500 dark:text-zinc-400 text-xs py-7 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 font-mono text-[11px]">
+        <span class="font-bold text-zinc-900 dark:text-zinc-200">OmniTools</span>
+        <span class="text-zinc-300 dark:text-zinc-700">/</span>
+        <span>105 클라이언트 측 마이크로 유틸리티</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs">
+        <a href="/pages/about/ko" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">소개</a>
+        <a href="/pages/contact/ko" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">문의</a>
+        <a href="/pages/privacy/ko" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">개인정보 처리방침</a>
+        <a href="/pages/terms/ko" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition">이용약관</a>
+        <a href="https://github.com/yoonhahaha05/omnitools" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition flex items-center gap-1 font-medium">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/utils.js"></script>
+  <script src="/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      App.setupTheme();
+      Utils.refreshIcons();
+      Utils.initAdUnits();
+
+      // Register Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => console.warn('SW failed:', err));
+        });
+      }
+    });
+  </script>
+<script>window.OMNI_LANG="ko";</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n/ko.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var run = function () {
+    var arena = document.getElementById("tool-arena");
+    if (arena && window.OmniI18n) window.OmniI18n.translateRoot(arena);
+  };
+  run();
+  setTimeout(run, 0);
+});
+</script>
+</body>
+</html>
